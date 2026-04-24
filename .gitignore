@@ -1,0 +1,45 @@
+# OS / IDEs
+.DS_Store
+Thumbs.db
+desktop.ini
+.idea/
+.vscode/
+*.iml
+
+# Environment & Secrets
+.env
+
+# Flutter / Dart
+.dart_tool/
+.packages
+.metadata
+build/
+.flutter-plugins
+.flutter-plugins-dependencies
+
+# Project Specific
+/history/
+General/
+.gemini/
+.superpowers/
+gemini.md
+
+# Claude Code
+.claude/
+CLAUDE.md
+
+# Logs & Temporary Files
+*.log
+*_log.txt
+test_output.txt
+*.lock
+!pubspec.lock
+
+# Android / iOS / Windows
+android/app/build
+android/local.properties
+ios/Flutter/Generated.xcconfig
+ios/Flutter/flutter_export_environment.sh
+ios/Flutter/Flutter.podspec
+ios/Pods/
+windows/flutter/generated_plugins.cmake
