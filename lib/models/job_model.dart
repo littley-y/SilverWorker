@@ -17,7 +17,7 @@ class JobModel {
   final String jobCategoryDetail;
   final String employmentType; // "part_time" | "daily" | "short_term" | "full_time"
   final String salaryType; // "hourly" | "daily" | "monthly"
-  final double salaryAmount;
+  final int salaryAmount;
   final String workHours;
   final String workDays;
   final String workPeriod;
@@ -75,7 +75,7 @@ class JobModel {
       jobCategoryDetail: json['jobCategoryDetail'] as String? ?? '',
       employmentType: json['employmentType'] as String? ?? '',
       salaryType: json['salaryType'] as String? ?? '',
-      salaryAmount: (json['salaryAmount'] as num?)?.toDouble() ?? 0.0,
+      salaryAmount: (json['salaryAmount'] as num?)?.toInt() ?? 0,
       workHours: json['workHours'] as String? ?? '',
       workDays: json['workDays'] as String? ?? '',
       workPeriod: json['workPeriod'] as String? ?? '',
@@ -140,7 +140,7 @@ class JobModel {
     String? jobCategoryDetail,
     String? employmentType,
     String? salaryType,
-    double? salaryAmount,
+    int? salaryAmount,
     String? workHours,
     String? workDays,
     String? workPeriod,
