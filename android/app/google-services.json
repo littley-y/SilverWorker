@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "174114586214",
+    "project_id": "silverworker-d8d64",
+    "storage_bucket": "silverworker-d8d64.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:174114586214:android:bbbf015f03fea2f986f7a7",
+        "android_client_info": {
+          "package_name": "com.silverworker.now"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDwq7HeWW6lhmprG4wEDDzuxA3Q67J2_0Y"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:174114586214:android:c952a4bad9232ad886f7a7",
+        "android_client_info": {
+          "package_name": "com.silverworkernow.app"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDwq7HeWW6lhmprG4wEDDzuxA3Q67J2_0Y"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
