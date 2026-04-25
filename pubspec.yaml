@@ -1,5 +1,5 @@
 name: silver_worker_now
-description: "나갈준비 알리미 - 사용자의 준비 루틴을 역산하여 지각을 방지하는 서비스"
+description: "SilverWorkerNow - A new Flutter project."
 publish_to: 'none'
 
 version: 1.0.0+1
@@ -13,9 +13,10 @@ dependencies:
   flutter_localizations:
     sdk: flutter
   cupertino_icons: ^1.0.2
-  sqflite: ^2.3.0
-  path: ^1.8.3
-  path_provider: ^2.1.1
+  firebase_core: ^3.13.0
+  firebase_auth: ^5.5.2
+  cloud_firestore: ^5.6.6
+  cloud_functions: ^5.4.0
   intl: ^0.20.2
   flutter_riverpod: ^2.4.9
   logger: ^2.0.2
