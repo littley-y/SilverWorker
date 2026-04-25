@@ -1,6 +1,7 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import '../repositories/job_repository.dart';
 import '../models/job_model.dart';
+import '../models/job_filter.dart';
 
 /// Global instance of [JobRepository].
 final jobRepositoryProvider = Provider<JobRepository>((ref) {
