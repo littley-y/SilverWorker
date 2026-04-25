@@ -1,68 +1,74 @@
+import '../utils/timestamp_helper.dart';
+
 /// Job application model.
 ///
-/// Represents a user's application to a specific job posting.
+/// Aligned with `overview/04_db_schema.md` §2.3.
 class ApplicationModel {
-  final String id;
-  final String userId;
+  final String applicationId;
   final String jobId;
-  final String jobTitle; // denormalized for quick display
-  final String selfIntroduction; // up to 200 characters
-  final String status; // "접수" / "검토" / "합격" / "불합격"
-  final DateTime appliedAt;
+  final String jobTitle; // denormalized
+  final String companyName; // denormalized
+  final String selfIntroduction;
+  final String status; // "submitted" | "reviewing" | "accepted" | "rejected" | "cancelled"
+  final DateTime? submittedAt;
+  final DateTime? updatedAt;
 
   const ApplicationModel({
-    required this.id,
-    required this.userId,
+    required this.applicationId,
     required this.jobId,
     required this.jobTitle,
+    required this.companyName,
     required this.selfIntroduction,
     required this.status,
-    required this.appliedAt,
+    this.submittedAt,
+    this.updatedAt,
   });
 
   factory ApplicationModel.fromJson(Map<String, dynamic> json) {
     return ApplicationModel(
-      id: json['id'] as String? ?? '',
-      userId: json['userId'] as String? ?? '',
+      applicationId: json['applicationId'] as String? ?? '',
       jobId: json['jobId'] as String? ?? '',
       jobTitle: json['jobTitle'] as String? ?? '',
+      companyName: json['companyName'] as String? ?? '',
       selfIntroduction: json['selfIntroduction'] as String? ?? '',
-      status: json['status'] as String? ?? '접수',
-      appliedAt: json['appliedAt'] != null
-          ? DateTime.tryParse(json['appliedAt'] as String) ?? DateTime.now()
-          : DateTime.now(),
+      status: json['status'] as String? ?? 'submitted',
+      submittedAt: TimestampHelper.toDateTime(json['submittedAt']),
+      updatedAt: TimestampHelper.toDateTime(json['updatedAt']),
     );
   }
 
   Map<String, dynamic> toJson() {
     return <String, dynamic>{
-      'id': id,
-      'userId': userId,
+      'applicationId': applicationId,
       'jobId': jobId,
       'jobTitle': jobTitle,
+      'companyName': companyName,
       'selfIntroduction': selfIntroduction,
       'status': status,
-      'appliedAt': appliedAt.toIso8601String(),
+      'submittedAt': TimestampHelper.fromDateTime(submittedAt),
+      'updatedAt': TimestampHelper.fromDateTime(updatedAt),
     };
   }
 
   ApplicationModel copyWith({
-    String? id,
-    String? userId,
+    String? applicationId,
     String? jobId,
     String? jobTitle,
+    String? companyName,
     String? selfIntroduction,
     String? status,
-    DateTime? appliedAt,
+    DateTime? submittedAt,
+    DateTime? updatedAt,
   }) {
     return ApplicationModel(
-      id: id ?? this.id,
-      userId: userId ?? this.userId,
+      applicationId: applicationId ?? this.applicationId,
       jobId: jobId ?? this.jobId,
       jobTitle: jobTitle ?? this.jobTitle,
+      companyName: companyName ?? this.companyName,
       selfIntroduction: selfIntroduction ?? this.selfIntroduction,
       status: status ?? this.status,
-      appliedAt: appliedAt ?? this.appliedAt,
+      submittedAt: submittedAt ?? this.submittedAt,
+      updatedAt: updatedAt ?? this.updatedAt,
     );
   }
 }

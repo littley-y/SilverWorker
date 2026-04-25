@@ -12,19 +12,32 @@ dependencies:
     sdk: flutter
   flutter_localizations:
     sdk: flutter
-  cupertino_icons: ^1.0.2
-  firebase_core: ^3.13.0
-  firebase_auth: ^5.5.2
-  cloud_firestore: ^5.6.6
-  cloud_functions: ^5.4.0
-  intl: ^0.20.2
+
+  # Firebase (spec_01 §2)
+  firebase_core: ^3.15.2
+  firebase_auth: ^5.7.0
+  cloud_firestore: ^5.6.12
+  cloud_functions: ^5.6.2
+
+  # State & UI (spec_01 §2 / spec_09)
   flutter_riverpod: ^2.4.9
-  logger: ^2.0.2
   flutter_slidable: ^3.0.1
   shared_preferences: ^2.3.2
+
+  # Localization & Logging (spec_01 §2)
+  intl: ^0.20.2
+  logger: ^2.0.2
+
+  # Notifications (spec_01 §5 — FCM companion)
   flutter_local_notifications: ^17.0.0
   timezone: ^0.9.0
   flutter_timezone: ^3.0.1
+
+  # Flutter default (safe to keep)
+  cupertino_icons: ^1.0.2
+
+  # TODO: Verify with 01_business_plan.md before MVP release.
+  # AdMob — not in MVP spec; may be removed if unused.
   google_mobile_ads: ^5.1.0
 
 dev_dependencies:
