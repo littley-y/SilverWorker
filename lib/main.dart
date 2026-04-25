@@ -1,19 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:firebase_core/firebase_core.dart';
-import 'package:logger/logger.dart';
-
-final _logger = Logger();
+import 'firebase_options.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  // TODO(spec_02): Remove try/catch once Firebase Console is connected
-  // and firebase_options.dart is generated via `flutterfire configure`.
-  try {
-    await Firebase.initializeApp();
-  } catch (e) {
-    _logger.w('Firebase.initializeApp() failed (placeholder mode): $e');
-  }
+  await Firebase.initializeApp(
+    options: DefaultFirebaseOptions.currentPlatform,
+  );
   runApp(const ProviderScope(child: MyApp()));
 }
 
