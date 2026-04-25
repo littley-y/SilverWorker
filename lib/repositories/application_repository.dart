@@ -14,7 +14,7 @@ class ApplicationRepository {
         .collection('users')
         .doc(userId)
         .collection('applications')
-        .orderBy('appliedAt', descending: true)
+        .orderBy('submittedAt', descending: true)
         .get();
 
     return snapshot.docs
@@ -23,12 +23,12 @@ class ApplicationRepository {
   }
 
   /// Submits a new application.
-  Future<void> submitApplication(ApplicationModel application) async {
+  Future<void> submitApplication(String userId, ApplicationModel application) async {
     await _firestore
         .collection('users')
-        .doc(application.userId)
+        .doc(userId)
         .collection('applications')
-        .doc(application.id)
+        .doc(application.applicationId)
         .set(application.toJson());
   }
 }

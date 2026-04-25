@@ -1,20 +1,38 @@
 import '../models/job_model.dart';
 
 /// Filter parameters for job search.
+///
+/// Aligned with spec_03~05 filtering requirements.
 class JobFilter {
-  final String? region;
-  final String? category;
-  final String? workType;
+  final String? locationCode;
+  final String? jobCategory;
+  final String? employmentType;
+  final String? physicalIntensity;
+  final bool? isActive;
 
-  const JobFilter({this.region, this.category, this.workType});
+  const JobFilter({
+    this.locationCode,
+    this.jobCategory,
+    this.employmentType,
+    this.physicalIntensity,
+    this.isActive,
+  });
 
   static const JobFilter empty = JobFilter();
 
-  JobFilter copyWith({String? region, String? category, String? workType}) {
+  JobFilter copyWith({
+    String? locationCode,
+    String? jobCategory,
+    String? employmentType,
+    String? physicalIntensity,
+    bool? isActive,
+  }) {
     return JobFilter(
-      region: region ?? this.region,
-      category: category ?? this.category,
-      workType: workType ?? this.workType,
+      locationCode: locationCode ?? this.locationCode,
+      jobCategory: jobCategory ?? this.jobCategory,
+      employmentType: employmentType ?? this.employmentType,
+      physicalIntensity: physicalIntensity ?? this.physicalIntensity,
+      isActive: isActive ?? this.isActive,
     );
   }
 }
@@ -31,7 +49,7 @@ class JobRepository {
   }
 
   /// Fetches a single job posting by ID.
-  Future<JobModel?> fetchJobById(String id) async {
+  Future<JobModel?> fetchJobById(String jobId) async {
     // TODO(spec_05): implement detail fetch.
     return null;
   }
