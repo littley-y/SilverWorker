@@ -24,7 +24,7 @@ As an **Implementer**, your goal is to transform specs into high-quality code.
 - **Independence**: Do not wait for other roles unless there is a breaking API change. Coordinate via PR comments.
 
 ## 3. Communication
-- Record technical design choices in `General/[role]/history/YYYY-MM-DD-[topic].md`.
+- Record technical design choices in `docs/history/YYYY-MM-DD-[topic].md`.
 - Notify major steps via `python3 tools/notify.py [Role] "[Message]"`.
 
 ---

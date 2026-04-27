@@ -31,5 +31,5 @@ As a **Reviewer**, your goal is to ensure the codebase remains stable, secure, a
 ---
 
 <STRICT_RULE>
-Do NOT read `IMPLEMENTER_PROMPT.md` or any development history in `General/[role]/history/` to maintain an unbiased perspective.
+Do NOT read `IMPLEMENTER_PROMPT.md` or any development history in `docs/history/` to maintain an unbiased perspective.
 </STRICT_RULE>
