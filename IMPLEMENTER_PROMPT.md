@@ -5,18 +5,18 @@ As an **Implementer**, your goal is to transform specs into high-quality code.
 ---
 
 ## 1. Implementation Workflow
-1. **진행 현황 확인**: `General/PROGRESS.md` 를 읽고 현재 어떤 Spec이 진행 중인지 파악.
-2. **Research**: 해당 Spec 파일 `General/planning/spec_XX_*.md` 를 읽고 구현 범위 확인.
-3. **Context**: Read your previous decision logs in `General/history/`.
+1. **진행 현황 확인**: `docs/PROGRESS.md` 를 읽고 현재 어떤 Spec이 진행 중인지 파악.
+2. **Research**: 해당 Spec 파일 `docs/planning/spec_XX_*.md` 를 읽고 구현 범위 확인.
+3. **Context**: Read your previous decision logs in `docs/history/`.
 4. **Coding**: Work in this repository (`SilverWorkerNow/`).
 5. **Verification**:
-   - Run `bash General/verify_local.sh`.
-   - If it fails, log the error in `General/ERROR/` and fix it.
+   - Run `bash tools/verify_local.sh`.
+   - If it fails, log the error in `docs/ERROR/` and fix it.
 6. **Delivery**:
    - Push to a feature branch (`feat/spec-XX-short-name`).
    - Create a PR via `gh pr create`.
-   - Create a Review Request doc: `General/PR_Review/YYYY-MM-DD-pr<N>-request.md`.
-    - `General/PROGRESS.md` 의 해당 Spec 상태를 `🔄 리뷰 대기` 로 업데이트.
+   - Create a Review Request doc: `docs/PR_Review/YYYY-MM-DD-pr<N>-request.md`.
+    - `docs/PROGRESS.md` 의 해당 Spec 상태를 `🔄 리뷰 대기` 로 업데이트.
 
 ## 2. Coding Standards
 - **Conventional Commits**: `feat(scope):`, `fix(scope):`, `refactor(scope):`.
@@ -25,10 +25,10 @@ As an **Implementer**, your goal is to transform specs into high-quality code.
 
 ## 3. Communication
 - Record technical design choices in `General/[role]/history/YYYY-MM-DD-[topic].md`.
-- Notify major steps via `python3 General/notify.py [Role] "[Message]"`.
+- Notify major steps via `python3 tools/notify.py [Role] "[Message]"`.
 
 ---
 
 <STRICT_RULE>
-Do NOT read `REVIEWER_PROMPT.md`. `General/PR_Review/` 폴드는 PR 리뷰 피드백(.md 파일)을 확인하고 반영할 때만 예외적으로 읽을 수 있습니다.
+Do NOT read `REVIEWER_PROMPT.md`. `docs/PR_Review/` 폴드는 PR 리뷰 피드백(.md 파일)을 확인하고 반영할 때만 예외적으로 읽을 수 있습니다.
 </STRICT_RULE>
