@@ -16,6 +16,15 @@ build/
 .flutter-plugins
 .flutter-plugins-dependencies
 
+# Node.js
+node_modules/
+
+# Python
+.venv/
+
+# Obsidian
+.obsidian/
+
 # Logs & Temporary Files
 *.log
 *_log.txt

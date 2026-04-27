@@ -29,7 +29,8 @@ should_verify = any(tc in command.lower() for tc in target_commands)
 if should_verify:
     sys.stderr.write(f"🚀 [BeforeTool Hook] {command} 감지! 로컬 빌드 무결성 검증을 시작합니다...\n")
     
-    verify_script = "/home/dudxo13/Projects/SilverWorker/General/verify_local.sh"
+    verify_script = os.path.join(os.path.dirname(__file__), "..", "verify_local.sh")
+    verify_script = os.path.abspath(verify_script)
 
     try:
         # bash를 통해 검증 스크립트 실행

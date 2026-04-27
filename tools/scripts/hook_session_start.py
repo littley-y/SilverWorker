@@ -26,7 +26,7 @@ ROLE_DOCS = {
 }
 
 CWD_MAP = {
-    "SilverWorkerNow": "orchestrator",
+    "SilverWorker": "orchestrator",
 }
 
 def read_file(path: Path) -> str:

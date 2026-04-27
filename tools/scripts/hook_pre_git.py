@@ -21,8 +21,8 @@ sys.stdout.reconfigure(encoding="utf-8")
 sys.stderr.reconfigure(encoding="utf-8")
 
 REPO_DIRS = [
-    Path("/home/dudxo13/Projects/SilverWorker/SilverWorkerNow"),
-    Path("/mnt/e/Projects/SilverWorker/SilverWorkerNow"),
+    Path("/home/dudxo13/Projects/SilverWorker"),
+    Path("/mnt/e/Projects/SilverWorker"),
 ]
 
 # Git commands that modify the repo / remote

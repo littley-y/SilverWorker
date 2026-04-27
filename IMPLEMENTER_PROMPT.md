@@ -8,7 +8,7 @@ As an **Implementer**, your goal is to transform specs into high-quality code.
 1. **진행 현황 확인**: `docs/PROGRESS.md` 를 읽고 현재 어떤 Spec이 진행 중인지 파악.
 2. **Research**: 해당 Spec 파일 `docs/planning/spec_XX_*.md` 를 읽고 구현 범위 확인.
 3. **Context**: Read your previous decision logs in `docs/history/`.
-4. **Coding**: Work in this repository (`SilverWorkerNow/`).
+4. **Coding**: Work in this repository.
 5. **Verification**:
    - Run `bash tools/verify_local.sh`.
    - If it fails, log the error in `docs/ERROR/` and fix it.

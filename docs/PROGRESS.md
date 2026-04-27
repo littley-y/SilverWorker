@@ -1,6 +1,6 @@
 # PROGRESS — SilverWorkerNow 개발 현황
 
-> 최종 업데이트: 2026-04-25
+> 최종 업데이트: 2026-04-27
 > 전체 목표: 2주 데모 (Day 1 ~ Day 14)
 > 참조 스펙: `docs/planning/spec_01~10.md`
 
@@ -50,6 +50,7 @@
 - **2026-04-25** — Firebase Console 연동 완료: 프로젝트 생성, Android 앱 등록(`com.silverworkernow.app`), Phone Auth 활성화, 테스트 번호 등록, Firestore DB 생성 + rules 배포, `flutterfire configure`, `main.dart` 정리. `flutter analyze` 0경고.
 - **2026-04-25** — Claude/Gemini post-merge review 완료. BLOCKER(`firestore.rules` OPEN ACCESS) 수정: spec_01 §5 / 04_db_schema §3 규칙 복원 후 재배포(`60a20a7`).
 - **2026-04-25** — Graphify 지식 그래프 구축 완료: 147 nodes, 139 edges, 29 communities. 3플랫폼(Claude Code, OpenCode, Gemini CLI) always-on hooks 설치, Git post-commit auto-rebuild hooks, GitHub Pages workflow (with auto-rebuild step), docs/ 위키 설정. Claude/Gemini post-setup review 완료: M-1~M-5, N-4, Gemini-2.2~2.3 수정 반영. `google-services.json` commit 유지 + GCP API key restriction 권장. 히스토리: `docs/history/2026-04-25-graphify-setup.md`.
+- **2026-04-27** — 모노레포 통합 완료: `General/` 폴더와 4개 빈 worktree(`_dev`, `_design`, `_devops`, `_qa`) 제거. 모든 프로젝트 자산(docs, tools, `.claude/`, `.gemini/`, `.opencode/`, `graphify-out/`)을 `SilverWorkerNow/`로 통합 후, git repo를 `Projects/SilverWorker/` 루트로 이동. `tools/scripts/intercept_git.py`, `hook_pre_git.py`, `hook_session_start.py` 경로 수정. `.gitignore`에 `node_modules/`, `.venv/`, `.obsidian/` 추가. 전역 `~/.claude/settings.json` PostToolUse hook 제거. Claude/Gemini 리뷰 완료. 히스토리: `docs/history/2026-04-27-monorepo-consolidation.md`.
 
 ---
 

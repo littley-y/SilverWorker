@@ -98,18 +98,18 @@
       "file_type": "rationale",
       "source_file": "tools/scripts/hook_session_start.py",
       "source_location": "L1",
-      "id": "hook_session_start_rationale_1",
       "community": 5,
-      "norm_label": "claude code sessionstart / subagentstart hook - injects general folder context."
+      "norm_label": "claude code sessionstart / subagentstart hook - injects general folder context.",
+      "id": "hook_session_start_rationale_1"
     },
     {
       "label": "Return the most recent .md that isn't an empty session-summary.",
       "file_type": "rationale",
       "source_file": "tools/scripts/hook_session_start.py",
       "source_location": "L39",
-      "id": "hook_session_start_rationale_39",
       "community": 5,
-      "norm_label": "return the most recent .md that isn't an empty session-summary."
+      "norm_label": "return the most recent .md that isn't an empty session-summary.",
+      "id": "hook_session_start_rationale_39"
     },
     {
       "label": "cleanup_session.py",
@@ -206,36 +206,36 @@
       "file_type": "rationale",
       "source_file": "tools/scripts/hook_pre_git.py",
       "source_location": "L1",
-      "id": "hook_pre_git_rationale_1",
       "community": 3,
-      "norm_label": "claude code pretooluse hook - guards git write operations.  rules:   1. git push"
+      "norm_label": "claude code pretooluse hook - guards git write operations.  rules:   1. git push",
+      "id": "hook_pre_git_rationale_1"
     },
     {
       "label": "working_dir\uac00 \ud504\ub85c\uc81d\ud2b8 \ub8e8\ud2b8\uc778\uc9c0 \ud655\uc778.",
       "file_type": "rationale",
       "source_file": "tools/scripts/hook_pre_git.py",
       "source_location": "L39",
-      "id": "hook_pre_git_rationale_39",
       "community": 3,
-      "norm_label": "working_dir\u1100\u1161 \u1111\u1173\u1105\u1169\u110c\u1166\u11a8\u1110\u1173 \u1105\u116e\u1110\u1173\u110b\u1175\u11ab\u110c\u1175 \u1112\u116a\u11a8\u110b\u1175\u11ab."
+      "norm_label": "working_dir\u1100\u1161 \u1111\u1173\u1105\u1169\u110c\u1166\u11a8\u1110\u1173 \u1105\u116e\u1110\u1173\u110b\u1175\u11ab\u110c\u1175 \u1112\u116a\u11a8\u110b\u1175\u11ab.",
+      "id": "hook_pre_git_rationale_39"
     },
     {
       "label": "git push origin master/main \ud615\ud0dc\uc758 \uc9c1\uc811 \ud478\uc2dc \uac10\uc9c0.",
       "file_type": "rationale",
       "source_file": "tools/scripts/hook_pre_git.py",
       "source_location": "L47",
-      "id": "hook_pre_git_rationale_47",
       "community": 3,
-      "norm_label": "git push origin master/main \u1112\u1167\u11bc\u1110\u1162\u110b\u1174 \u110c\u1175\u11a8\u110c\u1165\u11b8 \u1111\u116e\u1109\u1175 \u1100\u1161\u11b7\u110c\u1175."
+      "norm_label": "git push origin master/main \u1112\u1167\u11bc\u1110\u1162\u110b\u1174 \u110c\u1175\u11a8\u110c\u1165\u11b8 \u1111\u116e\u1109\u1175 \u1100\u1161\u11b7\u110c\u1175.",
+      "id": "hook_pre_git_rationale_47"
     },
     {
       "label": "cd 'path' && \ub610\ub294 cd \"path\" && \ud328\ud134\uc5d0\uc11c \uacbd\ub85c\ub97c \ucd94\ucd9c. \uc5c6\uc73c\uba74 \ud604\uc7ac cwd \ubc18\ud658.",
       "file_type": "rationale",
       "source_file": "tools/scripts/hook_pre_git.py",
       "source_location": "L66",
-      "id": "hook_pre_git_rationale_66",
       "community": 3,
-      "norm_label": "cd 'path' && \u1104\u1169\u1102\u1173\u11ab cd \"path\" && \u1111\u1162\u1110\u1165\u11ab\u110b\u1166\u1109\u1165 \u1100\u1167\u11bc\u1105\u1169\u1105\u1173\u11af \u110e\u116e\u110e\u116e\u11af. \u110b\u1165\u11b9\u110b\u1173\u1106\u1167\u11ab \u1112\u1167\u11ab\u110c\u1162 cwd \u1107\u1161\u11ab\u1112\u116a\u11ab."
+      "norm_label": "cd 'path' && \u1104\u1169\u1102\u1173\u11ab cd \"path\" && \u1111\u1162\u1110\u1165\u11ab\u110b\u1166\u1109\u1165 \u1100\u1167\u11bc\u1105\u1169\u1105\u1173\u11af \u110e\u116e\u110e\u116e\u11af. \u110b\u1165\u11b9\u110b\u1173\u1106\u1167\u11ab \u1112\u1167\u11ab\u110c\u1162 cwd \u1107\u1161\u11ab\u1112\u116a\u11ab.",
+      "id": "hook_pre_git_rationale_66"
     },
     {
       "label": "intercept_git.py",
@@ -296,9 +296,9 @@
       "file_type": "rationale",
       "source_file": "tools/scripts/hook_agent_notify.py",
       "source_location": "L1",
-      "id": "hook_agent_notify_rationale_1",
       "community": 15,
-      "norm_label": "claude code posttooluse hook - discord notification on agent completion. called"
+      "norm_label": "claude code posttooluse hook - discord notification on agent completion. called",
+      "id": "hook_agent_notify_rationale_1"
     },
     {
       "label": "build.gradle.kts",
