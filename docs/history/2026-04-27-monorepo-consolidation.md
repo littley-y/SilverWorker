@@ -203,6 +203,42 @@ SilverWorker/                  ← git clone → full project (no wrapper)
 
 ---
 
-## 10. Next Steps
+## 10. Agent Prompt Translation & Cross-PC Session Hooks
+
+### 10.1 Motivation
+After monorepo consolidation, Claude/Gemini reviews identified that agent prompt files (`AGENTS.md`, `IMPLEMENTER_PROMPT.md`, `REVIEWER_PROMPT.md`) were mixed Korean/English, making them hard for non-Korean-speaking agents to parse reliably. Additionally, SessionStart hooks were missing in project-level settings, so agents on other PCs wouldn't auto-load context.
+
+### 10.2 Changes
+| File | Change |
+|---|---|
+| `AGENTS.md` | Full English rewrite. Removed emoji headings; added clear section numbers. |
+| `IMPLEMENTER_PROMPT.md` | Full English rewrite. Feature branch naming (`feat/spec-XX-name`). Removed `[role]` refs. |
+| `REVIEWER_PROMPT.md` | Full English rewrite. Severity levels preserved. Removed `[role]` refs. |
+| `.claude/settings.json` | Added `SessionStart` hook (reads `AGENTS.md` + `REVIEWER_PROMPT.md`). Kept existing `PreToolUse` hook. |
+| `.gemini/settings.json` | Added `SessionStart` hook. Kept existing `BeforeTool` hook. |
+| `tools/scripts/init_session.py` | Rewrote for single-repo context injection (reads `AGENTS.md`, `REVIEWER_PROMPT.md` from cwd). |
+| `~/.gemini/trusted_hooks.json` | Registered `Initialize Session:python3 tools/scripts/init_session.py` for `/home/dudxo13/Projects/SilverWorker`. |
+
+### 10.3 Result
+- All three agent prompt files are now 100% English.
+- Any PC cloning this repo will have Claude/Gemini auto-load `AGENTS.md` + `REVIEWER_PROMPT.md` on session start.
+- No global settings need manual tweaking on new machines.
+
+---
+
+## 11. Session Commits Summary
+
+| Commit | Message |
+|---|---|
+| `1337107` | `chore(structure): unify to single repo, remove multi-worktree refs` |
+| `dbcca89` | `chore(monorepo): consolidate all project assets into single repo` |
+| `05b2c32` | `docs(history): add monorepo consolidation log + fix remaining path refs` |
+| `07b7d10` | `chore(repo-root): move git repo from SilverWorkerNow/ to SilverWorker/ root` |
+| `df360fa` | `docs(history): update monorepo log with repo root migration details` |
+| `7183549` | `chore(agents): translate agent prompts to English + add cross-PC session hooks` |
+
+---
+
+## 12. Next Steps
 
 - **Day 2**: `spec_02_auth.md` — Firebase Phone Auth, SMS verification, profile registration
