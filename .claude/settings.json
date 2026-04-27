@@ -1,5 +1,16 @@
 {
   "hooks": {
+    "SessionStart": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "AGENTS=AGENTS.md; REVIEWER=REVIEWER_PROMPT.md; if [ -f \"$AGENTS\" ]; then echo \"{\\\"hookSpecificOutput\\\": {\\\"hookEventName\\\": \\\"SessionStart\\\", \\\"additionalContext\\\": $(cat \"$AGENTS\" \"$REVIEWER\" 2>/dev/null | jq -Rs .)}}\"; fi",
+            "statusMessage": "AGENTS.md loading..."
+          }
+        ]
+      }
+    ],
     "PreToolUse": [
       {
         "matcher": "Glob|Grep",

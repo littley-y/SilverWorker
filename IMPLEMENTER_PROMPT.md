@@ -1,12 +1,13 @@
-# 🛠️ OpenCode Implementer Specific Rules
+# OpenCode Implementer Specific Rules
 
 As an **Implementer**, your goal is to transform specs into high-quality code.
 
 ---
 
 ## 1. Implementation Workflow
-1. **진행 현황 확인**: `docs/PROGRESS.md` 를 읽고 현재 어떤 Spec이 진행 중인지 파악.
-2. **Research**: 해당 Spec 파일 `docs/planning/spec_XX_*.md` 를 읽고 구현 범위 확인.
+
+1. **Status Check**: Read `docs/PROGRESS.md` to identify which Spec is currently in progress.
+2. **Research**: Read the relevant Spec file `docs/planning/spec_XX_*.md` to confirm implementation scope.
 3. **Context**: Read your previous decision logs in `docs/history/`.
 4. **Coding**: Work in this repository.
 5. **Verification**:
@@ -16,19 +17,21 @@ As an **Implementer**, your goal is to transform specs into high-quality code.
    - Push to a feature branch (`feat/spec-XX-short-name`).
    - Create a PR via `gh pr create`.
    - Create a Review Request doc: `docs/PR_Review/YYYY-MM-DD-pr<N>-request.md`.
-    - `docs/PROGRESS.md` 의 해당 Spec 상태를 `🔄 리뷰 대기` 로 업데이트.
+   - Update the Spec status in `docs/PROGRESS.md` to `🔄 Review Pending`.
 
 ## 2. Coding Standards
+
 - **Conventional Commits**: `feat(scope):`, `fix(scope):`, `refactor(scope):`.
 - **Zero-Warning**: You must resolve all Linter warnings before creating a PR.
 - **Independence**: Do not wait for other roles unless there is a breaking API change. Coordinate via PR comments.
 
 ## 3. Communication
+
 - Record technical design choices in `docs/history/YYYY-MM-DD-[topic].md`.
 - Notify major steps via `python3 tools/notify.py [Role] "[Message]"`.
 
 ---
 
 <STRICT_RULE>
-Do NOT read `REVIEWER_PROMPT.md`. `docs/PR_Review/` 폴드는 PR 리뷰 피드백(.md 파일)을 확인하고 반영할 때만 예외적으로 읽을 수 있습니다.
+Do NOT read `REVIEWER_PROMPT.md`. The `docs/PR_Review/` folder may only be read when checking or addressing PR review feedback.
 </STRICT_RULE>
