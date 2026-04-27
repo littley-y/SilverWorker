@@ -1,7 +1,7 @@
-# Graph Report - SilverWorkerNow  (2026-04-27)
+# Graph Report - SilverWorker  (2026-04-28)
 
 ## Corpus Check
-- 46 files · ~38,136 words
+- 46 files · ~37,074 words
 - Verdict: corpus is large enough that graph structure adds value.
 
 ## Summary
@@ -40,7 +40,8 @@
 10. `is_repo_root()` - 3 edges
 
 ## Surprising Connections (you probably didn't know these)
-- None detected - all connections are within the same source files.
+- `Intercept NOTIFY_DEBUGGER_ABOUT_RX_PAGES and touch the pages.` --rationale_for--> `handle_new_rx_page()`  [EXTRACTED]
+  ios/Flutter/ephemeral/flutter_lldb_helper.py → SilverWorkerNow/ios/Flutter/ephemeral/flutter_lldb_helper.py
 
 ## Communities
 
@@ -111,13 +112,13 @@ Nodes (2): copyWith, JobFilter
 ## Knowledge Gaps
 - **68 isolated node(s):** `Claude Code SessionStart / SubagentStart hook - injects General folder context.`, `Return the most recent .md that isn't an empty session-summary.`, `Claude Code PreToolUse hook - guards git write operations.  Rules:   1. git push`, `working_dir가 프로젝트 루트인지 확인.`, `git push origin master/main 형태의 직접 푸시 감지.` (+63 more)
   These have ≤1 connection - possible missing edges or undocumented components.
-- **Thin community `Community 7`** (5 nodes): `GeneratedPluginRegistrant.java`, `GeneratedPluginRegistrant`, `.registerWith()`, `-registerWithRegistry`, `GeneratedPluginRegistrant.m`
+- **Thin community `Community 7`** (5 nodes): `GeneratedPluginRegistrant`, `.registerWith()`, `-registerWithRegistry`, `GeneratedPluginRegistrant.java`, `GeneratedPluginRegistrant.m`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
 - **Thin community `Community 13`** (4 nodes): `handle_new_rx_page()`, `__lldb_init_module()`, `Intercept NOTIFY_DEBUGGER_ABOUT_RX_PAGES and touch the pages.`, `flutter_lldb_helper.py`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 15`** (3 nodes): `main()`, `Claude Code PostToolUse hook - Discord notification on agent completion. Called`, `hook_agent_notify.py`
+- **Thin community `Community 15`** (3 nodes): `hook_agent_notify.py`, `main()`, `Claude Code PostToolUse hook - Discord notification on agent completion. Called`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 16`** (3 nodes): `copyWith`, `JobFilter`, `job_filter.dart`
+- **Thin community `Community 16`** (3 nodes): `job_filter.dart`, `copyWith`, `JobFilter`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
 
 ## Suggested Questions

@@ -162,7 +162,47 @@ SilverWorkerNow/              ← git clone → full project
 
 ---
 
-## 9. Next Steps
+## 9. Repo Root Migration (SilverWorkerNow/ → SilverWorker/)
+
+**Claude/Gemini Review Findings** (2026-04-27)
+
+After initial monorepo consolidation, reviewers identified that the repo was still nested inside `SilverWorkerNow/`, creating a pointless parent-wrapper folder (`SilverWorker/`).
+
+### 9.1 Changes
+| Action | Detail |
+|---|---|
+| Move `.git/` | From `SilverWorkerNow/.git/` to `SilverWorker/.git/` |
+| Move all files | `SilverWorkerNow/*` and `SilverWorkerNow/.*` → `SilverWorker/` root |
+| Delete wrapper | `rmdir SilverWorkerNow` |
+| Remove root artifacts | `.claudeignore`, `.geminiignore`, `.gitignore`, `.ignore` |
+
+### 9.2 Path Fixes After Migration
+| File | Fix |
+|---|---|
+| `tools/scripts/hook_pre_git.py` | `REPO_DIRS`: `.../SilverWorker/SilverWorkerNow` → `.../SilverWorker` |
+| `tools/scripts/hook_session_start.py` | `CWD_MAP`: `"SilverWorkerNow"` → `"SilverWorker"` |
+| `IMPLEMENTER_PROMPT.md` | "Work in `SilverWorkerNow/`" → "Work in this repository" |
+| `.gitignore` | Added `node_modules/`, `.venv/`, `.obsidian/` |
+| `.graphifyignore` | Removed old worktree refs (`SilverWorkerNow_dev/`, etc.); added `.venv/`, `.obsidian/`, `.firebase/` |
+| `~/.claude/settings.json` | Removed broken `PostToolUse` hook (called deleted `hook_post_pr_merge.py`) |
+
+### 9.3 Post-Migration Structure
+```
+SilverWorker/                  ← git clone → full project (no wrapper)
+├── lib/
+├── docs/
+├── tools/
+├── graphify-out/
+├── .claude/
+├── .gemini/
+├── .opencode/
+├── AGENTS.md
+├── IMPLEMENTER_PROMPT.md
+└── REVIEWER_PROMPT.md
+```
+
+---
+
+## 10. Next Steps
 
 - **Day 2**: `spec_02_auth.md` — Firebase Phone Auth, SMS verification, profile registration
-- **Review**: Claude/Gemini review of this monorepo consolidation (this file)
