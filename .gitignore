@@ -43,3 +43,6 @@ windows/flutter/generated_plugins.cmake
 
 # Firebase
 .firebase/
+
+# Graphify cache
+graphify-out/cache/
