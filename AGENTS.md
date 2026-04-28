@@ -63,7 +63,7 @@ SilverWorker/                  # Flutter project (this repo)
 - **Environment**: WSL / bash (No PowerShell).
 - **Status Check**: Read `docs/PROGRESS.md` at the start of every session.
 - **Master Spec Priority**: `docs/planning/spec_01~10.md` is the source of truth. In conflicts, `spec_*.md` wins.
-- **Git Flow**: No direct master push. Use feature branch -> PR -> Review -> Merge.
+- **Git Flow**: No direct master push. Use feature branch -> PR -> Review -> Merge. **Exception**: After final review approval, the implementer may push/merge to master directly.
 - **Error Logging**: Record fatal issues in `docs/ERROR/`.
 - **Zero-Warning Policy**: Linter must return 0 errors and 0 warnings.
 
