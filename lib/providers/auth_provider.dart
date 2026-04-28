@@ -47,9 +47,11 @@ final phoneNumberProvider = StateProvider<String>((ref) => '');
 ///
 /// On success stores [verificationId] and [resendToken] in providers.
 /// On failure shows a [SnackBar] with the error message.
+/// [forceResendingToken] is used for OTP resend on the same session.
 Future<void> startPhoneVerification({
   required WidgetRef ref,
   required String phoneNumber,
+  int? forceResendingToken,
   required void Function(String errorMessage) onError,
   required void Function() onCodeSent,
 }) async {
@@ -62,9 +64,16 @@ Future<void> startPhoneVerification({
   try {
     await repository.verifyPhoneNumber(
       phoneNumber: phoneNumber,
+      forceResendingToken: forceResendingToken,
       verificationCompleted: (PhoneAuthCredential credential) async {
         // Auto-verification (e.g. on Android with instant verification)
-        await repository.signInWithCredential(credential);
+        try {
+          await repository.signInWithCredential(credential);
+        } on Exception catch (_) {
+          onError('자동 인증 중 오류가 발생했습니다.');
+        } finally {
+          notifier.state = false;
+        }
       },
       verificationFailed: (FirebaseAuthException e) {
         notifier.state = false;

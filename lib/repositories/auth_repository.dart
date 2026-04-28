@@ -20,9 +20,11 @@ class AuthRepository {
   /// Starts phone number verification.
   ///
   /// [phoneNumber] must include country code (e.g. +821012345678).
+  /// [forceResendingToken] is used for resending OTP on the same session.
   /// Callbacks are wired by the caller (UI layer).
   Future<void> verifyPhoneNumber({
     required String phoneNumber,
+    int? forceResendingToken,
     required void Function(PhoneAuthCredential credential)
         verificationCompleted,
     required void Function(FirebaseAuthException error) verificationFailed,
@@ -31,6 +33,7 @@ class AuthRepository {
   }) async {
     await _auth.verifyPhoneNumber(
       phoneNumber: phoneNumber,
+      forceResendingToken: forceResendingToken,
       verificationCompleted: verificationCompleted,
       verificationFailed: verificationFailed,
       codeSent: codeSent,
@@ -56,6 +59,12 @@ class AuthRepository {
   /// Creates a new user profile after initial registration.
   ///
   /// Uses [FieldValue.serverTimestamp] for created/updated timestamps.
+  ///
+  /// Fields initialized as empty (gender, physicalConditions, etc.) are
+  /// placeholders for future spec implementations (spec_03~07). They are
+  /// omitted from the initial document to avoid "empty string" ambiguity
+  /// in downstream logic. Firestore merge is not needed because this is
+  /// always a new document creation.
   Future<void> createProfile({
     required String uid,
     required String phoneNumber,
@@ -70,10 +79,6 @@ class AuthRepository {
       'name': name,
       'address': <String, String>{'sido': sido, 'sigungu': sigungu},
       'careerSummary': careerSummary,
-      'gender': '',
-      'physicalConditions': const <String>[],
-      'preferredJobTypes': const <String>[],
-      'preferredLocations': const <String>[],
       'isPushEnabled': true,
       'createdAt': FieldValue.serverTimestamp(),
       'updatedAt': FieldValue.serverTimestamp(),

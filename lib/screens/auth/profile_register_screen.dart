@@ -64,6 +64,9 @@ class _ProfileSetupScreenState extends ConsumerState<ProfileSetupScreen> {
         careerSummary: _careerController.text.trim(),
       );
 
+      // Invalidate cached profile so MainScreen fetches the new document.
+      ref.invalidate(userProfileProvider(user.uid));
+
       if (mounted) {
         context.go(AppRoutes.main);
       }

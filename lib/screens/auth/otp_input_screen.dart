@@ -54,14 +54,58 @@ class _OtpInputScreenState extends ConsumerState<OtpInputScreen> {
 
   bool get _isComplete => _enteredCode.length == 6;
 
+  /// Distributes digits across fields starting from [startIndex].
+  /// Supports paste of multi-digit codes.
+  void _distributeDigits(String digits, int startIndex) {
+    final cleanDigits = digits.replaceAll(RegExp(r'\D'), '');
+    if (cleanDigits.isEmpty) return;
+
+    int idx = startIndex;
+    for (final char in cleanDigits.split('')) {
+      if (idx >= 6) break;
+      _controllers[idx].text = char;
+      idx++;
+    }
+
+    // Move focus to the last filled field (or next empty one)
+    final focusIndex = idx < 6 ? idx : 5;
+    _focusNodes[focusIndex].requestFocus();
+    setState(() {});
+  }
+
   void _onDigitChanged(int index, String value) {
-    if (value.length == 1 && index < 5) {
+    final clean = value.replaceAll(RegExp(r'\D'), '');
+
+    // Multi-digit input (paste) — distribute starting from this field
+    if (clean.length > 1) {
+      _distributeDigits(clean, index);
+      return;
+    }
+
+    // Single digit entered — move to next field
+    if (clean.length == 1 && index < 5) {
       _focusNodes[index + 1].requestFocus();
     }
-    if (value.isEmpty && index > 0) {
+
+    // If the field was cleared (backspace/delete) and not the first field
+    if (clean.isEmpty && index > 0) {
       _focusNodes[index - 1].requestFocus();
     }
+
     setState(() {});
+  }
+
+  /// Handles physical keyboard backspace on an empty field.
+  void _onKeyEvent(int index, KeyEvent event) {
+    if (event is KeyDownEvent || event is KeyRepeatEvent) {
+      if (event.logicalKey == LogicalKeyboardKey.backspace) {
+        if (_controllers[index].text.isEmpty && index > 0) {
+          _controllers[index - 1].clear();
+          _focusNodes[index - 1].requestFocus();
+          setState(() {});
+        }
+      }
+    }
   }
 
   Future<void> _onVerify() async {
@@ -83,9 +127,6 @@ class _OtpInputScreenState extends ConsumerState<OtpInputScreen> {
     );
 
     if (user != null && mounted) {
-      // Navigation is handled by the router's redirect logic
-      // based on authStateProvider and userProfileProvider.
-      // We just pop back so the router can decide the destination.
       context.go('/');
     }
   }
@@ -94,9 +135,12 @@ class _OtpInputScreenState extends ConsumerState<OtpInputScreen> {
     final phoneNumber = ref.read(phoneNumberProvider);
     if (phoneNumber.isEmpty) return;
 
+    final resendToken = ref.read(resendTokenProvider);
+
     await startPhoneVerification(
       ref: ref,
       phoneNumber: phoneNumber,
+      forceResendingToken: resendToken,
       onError: (String msg) {
         if (mounted) {
           ScaffoldMessenger.of(context).showSnackBar(
@@ -170,37 +214,40 @@ class _OtpInputScreenState extends ConsumerState<OtpInputScreen> {
                   return SizedBox(
                     width: 56,
                     height: 64,
-                    child: TextField(
-                      controller: _controllers[index],
-                      focusNode: _focusNodes[index],
-                      keyboardType: TextInputType.number,
-                      textAlign: TextAlign.center,
-                      style: AppTextStyles.title.copyWith(
-                        fontSize: 24,
-                        color: AppColors.textPrimary,
-                      ),
-                      maxLength: 1,
-                      inputFormatters: <TextInputFormatter>[
-                        FilteringTextInputFormatter.digitsOnly,
-                      ],
-                      decoration: InputDecoration(
-                        counterText: '',
-                        filled: true,
-                        fillColor: AppColors.surface,
-                        border: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(12),
-                          borderSide: BorderSide(color: Colors.grey.shade300),
+                    child: KeyboardListener(
+                      focusNode: FocusNode(skipTraversal: true),
+                      onKeyEvent: (KeyEvent event) => _onKeyEvent(index, event),
+                      child: TextField(
+                        controller: _controllers[index],
+                        focusNode: _focusNodes[index],
+                        keyboardType: TextInputType.number,
+                        textAlign: TextAlign.center,
+                        style: AppTextStyles.title.copyWith(
+                          fontSize: 24,
+                          color: AppColors.textPrimary,
                         ),
-                        focusedBorder: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(12),
-                          borderSide: const BorderSide(
-                            color: AppColors.primary,
-                            width: 2,
+                        inputFormatters: <TextInputFormatter>[
+                          FilteringTextInputFormatter.digitsOnly,
+                        ],
+                        decoration: InputDecoration(
+                          counterText: '',
+                          filled: true,
+                          fillColor: AppColors.surface,
+                          border: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(12),
+                            borderSide: BorderSide(color: Colors.grey.shade300),
+                          ),
+                          focusedBorder: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(12),
+                            borderSide: const BorderSide(
+                              color: AppColors.primary,
+                              width: 2,
+                            ),
                           ),
                         ),
+                        onChanged: (String value) =>
+                            _onDigitChanged(index, value),
                       ),
-                      onChanged: (String value) =>
-                          _onDigitChanged(index, value),
                     ),
                   );
                 }),

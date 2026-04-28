@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
+import '../../constants/app_colors.dart';
+import '../../constants/app_text_styles.dart';
 import '../../providers/auth_provider.dart';
 import '../../router/app_router.dart';
 import '../job/job_list_screen.dart';
@@ -45,8 +47,30 @@ class MainScreen extends ConsumerWidget {
       loading: () => const Scaffold(
         body: Center(child: CircularProgressIndicator()),
       ),
-      error: (_, __) => const Scaffold(
-        body: Center(child: Text('프로필을 불러오는 중 오류가 발생했습니다.')),
+      error: (_, __) => Scaffold(
+        body: Center(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: <Widget>[
+              Text(
+                '프로필을 불러오는 중 오류가 발생했습니다.',
+                style: AppTextStyles.body,
+                textAlign: TextAlign.center,
+              ),
+              const SizedBox(height: 16),
+              ElevatedButton(
+                onPressed: () {
+                  ref.invalidate(userProfileProvider(user.uid));
+                },
+                style: ElevatedButton.styleFrom(
+                  backgroundColor: AppColors.primary,
+                  foregroundColor: Colors.white,
+                ),
+                child: const Text('다시 시도'),
+              ),
+            ],
+          ),
+        ),
       ),
     );
   }

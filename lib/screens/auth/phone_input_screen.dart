@@ -26,7 +26,7 @@ class _PhoneInputScreenState extends ConsumerState<PhoneInputScreen> {
 
   bool get _isValid {
     final digits = _controller.text.replaceAll(RegExp(r'\D'), '');
-    return digits.length >= 10 && digits.length <= 11;
+    return digits.length == 11 && digits.startsWith('010');
   }
 
   Future<void> _onSendCode() async {
@@ -37,7 +37,9 @@ class _PhoneInputScreenState extends ConsumerState<PhoneInputScreen> {
     setState(() => _hasError = false);
 
     final digits = _controller.text.replaceAll(RegExp(r'\D'), '');
-    final phoneNumber = '+82$digits';
+    // E.164 format: remove leading 0, prepend +82
+    final normalized = digits.startsWith('0') ? digits.substring(1) : digits;
+    final phoneNumber = '+82$normalized';
 
     await startPhoneVerification(
       ref: ref,
@@ -74,7 +76,7 @@ class _PhoneInputScreenState extends ConsumerState<PhoneInputScreen> {
             children: <Widget>[
               const SizedBox(height: 80),
               Text(
-                '휴전폰 번호로 시작하세요',
+                '휴대전폰 번호로 시작하세요',
                 style: AppTextStyles.headline.copyWith(
                   color: AppColors.textPrimary,
                 ),
