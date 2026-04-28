@@ -69,7 +69,32 @@ SilverWorker/                  # Flutter project (this repo)
 
 ---
 
-## 4. Graphify Knowledge Graph
+## 4. Pre-PR Checklist (MANDATORY for Implementers)
+
+Before creating ANY PR, the following checks MUST pass. The `tools/scripts/pre_pr_checklist.sh` script enforces these automatically when `gh pr create` is invoked.
+
+### Checklist
+
+- [ ] `bash tools/verify_local.sh` passed (0 errors, 0 warnings)
+- [ ] Review Request doc created: `docs/PR_Review/YYYY-MM-DD-pr<N>-request.md`
+- [ ] PROGRESS.md updated to `🔄 Review Pending` for the target spec
+- [ ] History file written: `docs/history/YYYY-MM-DD-[topic].md` (recommended)
+- [ ] NO forbidden files staged: `AGENTS.md`, `REVIEWER_PROMPT.md`, `IMPLEMENTER_PROMPT.md`
+- [ ] NO reviewer files staged: `*review_claude*`, `*review_gemini*` (only reviewers can commit these)
+
+### Enforcement
+
+| Layer | Mechanism | What it blocks |
+|---|---|---|
+| AI Hook | `.opencode/hooks.json` PreToolUse | Runs checklist before `gh pr create` |
+| Git Hook | `.git/hooks/pre-commit` | Blocks commit of forbidden files |
+| Script | `tools/scripts/pre_pr_checklist.sh` | Manual/automated checklist execution |
+
+If ANY check fails: STOP. Do NOT create the PR. Fix it first.
+
+---
+
+## 5. Graphify Knowledge Graph
 
 This project has a graphify knowledge graph at `graphify-out/`.
 
