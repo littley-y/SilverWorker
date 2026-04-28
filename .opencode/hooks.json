@@ -5,7 +5,7 @@
         "hooks": [
           {
             "type": "command",
-            "command": "AGENTS=AGENTS.md; REVIEWER=REVIEWER_PROMPT.md; if [ -f \"$AGENTS\" ]; then echo \"{\\\"hookSpecificOutput\\\": {\\\"hookEventName\\\": \\\"SessionStart\\\", \\\"additionalContext\\\": $(cat \"$AGENTS\" \"$REVIEWER\" 2>/dev/null | jq -Rs .)}}\"; fi",
+            "command": "AGENTS=AGENTS.md; IMPLEMENTER=IMPLEMENTER_PROMPT.md; if [ -f \"$AGENTS\" ]; then echo \"{\\\"hookSpecificOutput\\\": {\\\"hookEventName\\\": \\\"SessionStart\\\", \\\"additionalContext\\\": $(cat \"$AGENTS\" \"$IMPLEMENTER\" 2>/dev/null | jq -Rs .)}}\"; fi",
             "statusMessage": "AGENTS.md loading..."
           }
         ]
@@ -22,11 +22,11 @@
         ]
       },
       {
-        "matcher": "Bash.*gh pr create",
+        "matcher": "Bash",
         "hooks": [
           {
             "type": "command",
-            "command": "bash tools/scripts/pre_pr_checklist.sh",
+            "command": "bash tools/scripts/omo_pr_hook.sh",
             "timeout": 120000
           }
         ]

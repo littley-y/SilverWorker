@@ -5,7 +5,7 @@
         "hooks": [
           {
             "type": "command",
-            "command": "AGENTS=AGENTS.md; REVIEWER=REVIEWER_PROMPT.md; if [ -f \"$AGENTS\" ]; then echo \"{\\\"hookSpecificOutput\\\": {\\\"hookEventName\\\": \\\"SessionStart\\\", \\\"additionalContext\\\": $(cat \"$AGENTS\" \"$REVIEWER\" 2>/dev/null | jq -Rs .)}}\"; fi",
+            "command": "AGENTS=AGENTS.md; IMPLEMENTER=IMPLEMENTER_PROMPT.md; if [ -f \"$AGENTS\" ]; then echo \"{\\\"hookSpecificOutput\\\": {\\\"hookEventName\\\": \\\"SessionStart\\\", \\\"additionalContext\\\": $(cat \"$AGENTS\" \"$IMPLEMENTER\" 2>/dev/null | jq -Rs .)}}\"; fi",
             "statusMessage": "AGENTS.md loading..."
           }
         ]
