@@ -40,7 +40,7 @@ abstract final class AddressData {
       '동래구',
       '남구',
       '북구',
-      '해욱대구',
+      '해운대구',
       '사하구',
       '금정구',
       '강서구',

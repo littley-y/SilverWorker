@@ -76,7 +76,7 @@ class _PhoneInputScreenState extends ConsumerState<PhoneInputScreen> {
             children: <Widget>[
               const SizedBox(height: 80),
               Text(
-                '휴대전폰 번호로 시작하세요',
+                '휴전폰 번호로 시작하세요',
                 style: AppTextStyles.headline.copyWith(
                   color: AppColors.textPrimary,
                 ),

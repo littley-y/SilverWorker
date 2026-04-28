@@ -20,6 +20,10 @@ class _OtpInputScreenState extends ConsumerState<OtpInputScreen> {
     6,
     (_) => TextEditingController(),
   );
+  final _keyboardFocusNodes = List<FocusNode>.generate(
+    6,
+    (_) => FocusNode(skipTraversal: true),
+  );
 
   int _countdown = 60;
   bool _canResend = false;
@@ -173,6 +177,9 @@ class _OtpInputScreenState extends ConsumerState<OtpInputScreen> {
     for (final node in _focusNodes) {
       node.dispose();
     }
+    for (final node in _keyboardFocusNodes) {
+      node.dispose();
+    }
     for (final ctrl in _controllers) {
       ctrl.dispose();
     }
@@ -215,7 +222,7 @@ class _OtpInputScreenState extends ConsumerState<OtpInputScreen> {
                     width: 56,
                     height: 64,
                     child: KeyboardListener(
-                      focusNode: FocusNode(skipTraversal: true),
+                      focusNode: _keyboardFocusNodes[index],
                       onKeyEvent: (KeyEvent event) => _onKeyEvent(index, event),
                       child: TextField(
                         controller: _controllers[index],

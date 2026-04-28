@@ -51,7 +51,7 @@ void main() {
         phoneNumber: '+821011112222',
         name: '이OO',
         gender: 'female',
-        address: Address(sido: '부산광역시', sigungu: '해욱대구'),
+        address: Address(sido: '부산광역시', sigungu: '해운대구'),
         careerSummary: '청소 업무',
         physicalConditions: const <String>[],
         preferredJobTypes: const <String>[],
@@ -65,7 +65,7 @@ void main() {
       expect(json['name'], '이OO');
       expect(json['address'], <String, String>{
         'sido': '부산광역시',
-        'sigungu': '해욱대구',
+        'sigungu': '해운대구',
       });
       expect(json['isPushEnabled'], false);
     });
