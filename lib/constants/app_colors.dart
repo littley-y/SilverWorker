@@ -23,7 +23,7 @@ abstract final class AppColors {
   static const Color error = Color(0xFFC62828);
 
   // Safety badges
-  static const Color badgeLight = Color(0xFF81C784);  // 가벼움
+  static const Color badgeLight = Color(0xFF81C784); // 가벼움
   static const Color badgeMedium = Color(0xFFFFB74D); // 보통
-  static const Color badgeHeavy = Color(0xFFE57373);  // 무거움
+  static const Color badgeHeavy = Color(0xFFE57373); // 무거움
 }

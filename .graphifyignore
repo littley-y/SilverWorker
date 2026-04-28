@@ -1,0 +1,51 @@
+# Build artifacts
+build/
+.dart_tool/
+.packages
+.metadata
+.flutter-plugins
+.flutter-plugins-dependencies
+node_modules/
+vendor/
+dist/
+
+# IDE
+.idea/
+.vscode/
+*.iml
+
+# Environment & Secrets
+.env
+android/app/google-services.json
+
+# Generated files
+*.generated.dart
+*.generated.py
+*.lock
+!pubspec.lock
+
+# Graphify self-reference (don't extract own instructions)
+AGENTS.md
+CLAUDE.md
+GEMINI.md
+.graphifyignore
+
+# Workstation-specific (not portable)
+.venv/
+.obsidian/
+.firebase/
+
+# OS
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Logs
+*.log
+*_log.txt
+test_output.txt
+
+# Graphify cache/local-only
+graphify-out/cache/
+graphify-out/manifest.json
+graphify-out/cost.json

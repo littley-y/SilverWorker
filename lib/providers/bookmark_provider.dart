@@ -8,6 +8,7 @@ final bookmarkRepositoryProvider = Provider<BookmarkRepository>((ref) {
 });
 
 /// Fetches all bookmarks for a given user ID.
-final myBookmarksProvider = FutureProvider.family<List<BookmarkModel>, String>((ref, userId) {
+final myBookmarksProvider =
+    FutureProvider.family<List<BookmarkModel>, String>((ref, userId) {
   return ref.read(bookmarkRepositoryProvider).fetchBookmarks(userId);
 });

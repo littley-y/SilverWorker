@@ -67,18 +67,15 @@ class UserModel {
           ? Address.fromJson(json['address'] as Map<String, dynamic>)
           : const Address(sido: '', sigungu: ''),
       careerSummary: json['careerSummary'] as String? ?? '',
-      physicalConditions:
-          (json['physicalConditions'] as List<dynamic>?)
+      physicalConditions: (json['physicalConditions'] as List<dynamic>?)
               ?.map((e) => e as String)
               .toList() ??
           const <String>[],
-      preferredJobTypes:
-          (json['preferredJobTypes'] as List<dynamic>?)
+      preferredJobTypes: (json['preferredJobTypes'] as List<dynamic>?)
               ?.map((e) => e as String)
               .toList() ??
           const <String>[],
-      preferredLocations:
-          (json['preferredLocations'] as List<dynamic>?)
+      preferredLocations: (json['preferredLocations'] as List<dynamic>?)
               ?.map((e) => e as String)
               .toList() ??
           const <String>[],

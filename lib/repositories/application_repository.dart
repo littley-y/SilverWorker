@@ -23,7 +23,8 @@ class ApplicationRepository {
   }
 
   /// Submits a new application.
-  Future<void> submitApplication(String userId, ApplicationModel application) async {
+  Future<void> submitApplication(
+      String userId, ApplicationModel application) async {
     await _firestore
         .collection('users')
         .doc(userId)
