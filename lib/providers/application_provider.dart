@@ -8,6 +8,7 @@ final applicationRepositoryProvider = Provider<ApplicationRepository>((ref) {
 });
 
 /// Fetches all applications for a given user ID.
-final myApplicationsProvider = FutureProvider.family<List<ApplicationModel>, String>((ref, userId) {
+final myApplicationsProvider =
+    FutureProvider.family<List<ApplicationModel>, String>((ref, userId) {
   return ref.read(applicationRepositoryProvider).fetchApplications(userId);
 });

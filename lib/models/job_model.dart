@@ -15,7 +15,8 @@ class JobModel {
   final String locationCode;
   final String jobCategory; // e.g. "security_management"
   final String jobCategoryDetail;
-  final String employmentType; // "part_time" | "daily" | "short_term" | "full_time"
+  final String
+      employmentType; // "part_time" | "daily" | "short_term" | "full_time"
   final String salaryType; // "hourly" | "daily" | "monthly"
   final int salaryAmount;
   final String workHours;
@@ -83,8 +84,7 @@ class JobModel {
       benefits: json['benefits'] as String? ?? '',
       description: json['description'] as String? ?? '',
       physicalIntensity: json['physicalIntensity'] as String? ?? 'moderate',
-      physicalBadges:
-          (json['physicalBadges'] as List<dynamic>?)
+      physicalBadges: (json['physicalBadges'] as List<dynamic>?)
               ?.map((e) => e as String)
               .toList() ??
           const <String>[],
@@ -92,7 +92,8 @@ class JobModel {
       maxAge: json['maxAge'] as int?,
       deadline: TimestampHelper.toDateTime(json['deadline']),
       isActive: json['isActive'] as bool? ?? true,
-      rawData: json['rawData'] as Map<String, dynamic>? ?? const <String, dynamic>{},
+      rawData:
+          json['rawData'] as Map<String, dynamic>? ?? const <String, dynamic>{},
       createdAt: TimestampHelper.toDateTime(json['createdAt']),
       updatedAt: TimestampHelper.toDateTime(json['updatedAt']),
     );
