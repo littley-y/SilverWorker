@@ -4,7 +4,8 @@ import 'package:flutter/material.dart';
 ///
 /// Base font size is 18pt or larger for readability.
 abstract final class AppTextStyles {
-  static const String _fontFamily = 'Roboto'; // Material default, overridden later if needed
+  static const String _fontFamily =
+      'Roboto'; // Material default, overridden later if needed
 
   static const TextStyle headline = TextStyle(
     fontFamily: _fontFamily,

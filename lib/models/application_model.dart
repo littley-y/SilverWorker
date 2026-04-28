@@ -9,7 +9,8 @@ class ApplicationModel {
   final String jobTitle; // denormalized
   final String companyName; // denormalized
   final String selfIntroduction;
-  final String status; // "submitted" | "reviewing" | "accepted" | "rejected" | "cancelled"
+  final String
+      status; // "submitted" | "reviewing" | "accepted" | "rejected" | "cancelled"
   final DateTime? submittedAt;
   final DateTime? updatedAt;
 
