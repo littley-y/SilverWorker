@@ -44,5 +44,17 @@ windows/flutter/generated_plugins.cmake
 # Firebase
 .firebase/
 
+# Firebase service account (DO NOT COMMIT)
+**/serviceAccount.json
+
+# Generated seed data (DO NOT COMMIT)
+**/seed_jobs.json
+
 # Graphify cache
 graphify-out/cache/
+
+# Study / Presentation (not part of project)
+docs/study/
+
+# Windows Zone.Identifier ADS files
+*:Zone.Identifier

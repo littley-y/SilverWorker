@@ -247,6 +247,78 @@
       "norm_label": "intercept_git.py"
     },
     {
+      "label": "seed_jobs.py",
+      "file_type": "code",
+      "source_file": "tools/scripts/seed_jobs.py",
+      "source_location": "L1",
+      "id": "tools_scripts_seed_jobs_py",
+      "community": 8,
+      "norm_label": "seed_jobs.py"
+    },
+    {
+      "label": "_random_date_in_future()",
+      "file_type": "code",
+      "source_file": "tools/scripts/seed_jobs.py",
+      "source_location": "L175",
+      "id": "seed_jobs_random_date_in_future",
+      "community": 8,
+      "norm_label": "_random_date_in_future()"
+    },
+    {
+      "label": "_random_employment_type()",
+      "file_type": "code",
+      "source_file": "tools/scripts/seed_jobs.py",
+      "source_location": "L181",
+      "id": "seed_jobs_random_employment_type",
+      "community": 8,
+      "norm_label": "_random_employment_type()"
+    },
+    {
+      "label": "_random_salary()",
+      "file_type": "code",
+      "source_file": "tools/scripts/seed_jobs.py",
+      "source_location": "L185",
+      "id": "seed_jobs_random_salary",
+      "community": 8,
+      "norm_label": "_random_salary()"
+    },
+    {
+      "label": "generate_one()",
+      "file_type": "code",
+      "source_file": "tools/scripts/seed_jobs.py",
+      "source_location": "L199",
+      "id": "seed_jobs_generate_one",
+      "community": 8,
+      "norm_label": "generate_one()"
+    },
+    {
+      "label": "generate_all()",
+      "file_type": "code",
+      "source_file": "tools/scripts/seed_jobs.py",
+      "source_location": "L247",
+      "id": "seed_jobs_generate_all",
+      "community": 8,
+      "norm_label": "generate_all()"
+    },
+    {
+      "label": "upload_to_firestore()",
+      "file_type": "code",
+      "source_file": "tools/scripts/seed_jobs.py",
+      "source_location": "L272",
+      "id": "seed_jobs_upload_to_firestore",
+      "community": 8,
+      "norm_label": "upload_to_firestore()"
+    },
+    {
+      "label": "main()",
+      "file_type": "code",
+      "source_file": "tools/scripts/seed_jobs.py",
+      "source_location": "L347",
+      "id": "seed_jobs_main",
+      "community": 8,
+      "norm_label": "main()"
+    },
+    {
       "label": "init_session.py",
       "file_type": "code",
       "source_file": "tools/scripts/init_session.py",
@@ -387,7 +459,7 @@
       "source_file": "SilverWorkerNow/lib/widgets/job_card.dart",
       "source_location": null,
       "id": "package_flutter_material_dart",
-      "community": 0,
+      "community": 1,
       "norm_label": "package:flutter/material.dart"
     },
     {
@@ -396,7 +468,7 @@
       "source_file": "lib/router/app_router.dart",
       "source_location": null,
       "id": "package_flutter_riverpod_flutter_riverpod_dart",
-      "community": 3,
+      "community": 2,
       "norm_label": "package:flutter_riverpod/flutter_riverpod.dart"
     },
     {
@@ -459,7 +531,7 @@
       "source_file": "lib/screens/main/main_screen.dart",
       "source_location": null,
       "id": "lib_screens_main_main_screen_dart",
-      "community": 1,
+      "community": 0,
       "norm_label": "main_screen.dart"
     },
     {
@@ -468,7 +540,7 @@
       "source_file": "lib/screens/main/main_screen.dart",
       "source_location": null,
       "id": "home_dudxo13_projects_silverworker_lib_screens_main_main_screen_dart_mainscreen",
-      "community": 1,
+      "community": 0,
       "norm_label": "mainscreen"
     },
     {
@@ -477,7 +549,7 @@
       "source_file": "lib/screens/main/main_screen.dart",
       "source_location": null,
       "id": "home_dudxo13_projects_silverworker_lib_screens_main_main_screen_dart_build",
-      "community": 1,
+      "community": 0,
       "norm_label": "build"
     },
     {
@@ -486,7 +558,7 @@
       "source_file": "lib/screens/main/main_screen.dart",
       "source_location": null,
       "id": "home_dudxo13_projects_silverworker_lib_screens_main_main_screen_dart_scaffold",
-      "community": 1,
+      "community": 0,
       "norm_label": "scaffold"
     },
     {
@@ -495,7 +567,7 @@
       "source_file": "lib/screens/main/main_screen.dart",
       "source_location": null,
       "id": "home_dudxo13_projects_silverworker_lib_screens_main_main_screen_dart_joblistscreen",
-      "community": 1,
+      "community": 0,
       "norm_label": "joblistscreen"
     },
     {
@@ -504,7 +576,7 @@
       "source_file": "lib/screens/main/main_screen.dart",
       "source_location": null,
       "id": "home_dudxo13_projects_silverworker_lib_screens_main_main_screen_dart_sizedbox",
-      "community": 1,
+      "community": 0,
       "norm_label": "sizedbox"
     },
     {
@@ -513,7 +585,7 @@
       "source_file": "lib/router/app_router.dart",
       "source_location": null,
       "id": "package_go_router_go_router_dart",
-      "community": 1,
+      "community": 0,
       "norm_label": "package:go_router/go_router.dart"
     },
     {
@@ -522,7 +594,7 @@
       "source_file": "lib/screens/auth/profile_register_screen.dart",
       "source_location": null,
       "id": "constants_app_colors_dart",
-      "community": 1,
+      "community": 0,
       "norm_label": "../../constants/app_colors.dart"
     },
     {
@@ -531,7 +603,7 @@
       "source_file": "lib/screens/auth/profile_register_screen.dart",
       "source_location": null,
       "id": "constants_app_text_styles_dart",
-      "community": 1,
+      "community": 0,
       "norm_label": "../../constants/app_text_styles.dart"
     },
     {
@@ -540,7 +612,7 @@
       "source_file": "lib/router/app_router.dart",
       "source_location": null,
       "id": "providers_auth_provider_dart",
-      "community": 1,
+      "community": 0,
       "norm_label": "../providers/auth_provider.dart"
     },
     {
@@ -549,7 +621,7 @@
       "source_file": "lib/screens/auth/profile_register_screen.dart",
       "source_location": null,
       "id": "router_app_router_dart",
-      "community": 1,
+      "community": 0,
       "norm_label": "../../router/app_router.dart"
     },
     {
@@ -558,7 +630,7 @@
       "source_file": "lib/screens/main/main_screen.dart",
       "source_location": null,
       "id": "job_job_list_screen_dart",
-      "community": 1,
+      "community": 0,
       "norm_label": "../job/job_list_screen.dart"
     },
     {
@@ -567,7 +639,7 @@
       "source_file": "SilverWorkerNow/lib/screens/job/job_list_screen.dart",
       "source_location": null,
       "id": "home_dudxo13_projects_silverworker_silverworkernow_lib_screens_job_job_list_screen_dart",
-      "community": 0,
+      "community": 1,
       "norm_label": "job_list_screen.dart"
     },
     {
@@ -576,7 +648,7 @@
       "source_file": "SilverWorkerNow/lib/screens/job/job_list_screen.dart",
       "source_location": null,
       "id": "home_dudxo13_projects_silverworker_silverworkernow_lib_screens_job_job_list_screen_dart_joblistscreen",
-      "community": 0,
+      "community": 1,
       "norm_label": "joblistscreen"
     },
     {
@@ -585,7 +657,7 @@
       "source_file": "SilverWorkerNow/lib/screens/job/job_list_screen.dart",
       "source_location": null,
       "id": "home_dudxo13_projects_silverworker_silverworkernow_lib_screens_job_job_list_screen_dart_build",
-      "community": 0,
+      "community": 1,
       "norm_label": "build"
     },
     {
@@ -594,7 +666,7 @@
       "source_file": "SilverWorkerNow/lib/screens/job/job_list_screen.dart",
       "source_location": null,
       "id": "home_dudxo13_projects_silverworker_silverworkernow_lib_screens_job_job_list_screen_dart_scaffold",
-      "community": 0,
+      "community": 1,
       "norm_label": "scaffold"
     },
     {
@@ -603,7 +675,7 @@
       "source_file": "SilverWorkerNow/lib/screens/job/job_detail_screen.dart",
       "source_location": null,
       "id": "home_dudxo13_projects_silverworker_silverworkernow_lib_screens_job_job_detail_screen_dart",
-      "community": 0,
+      "community": 1,
       "norm_label": "job_detail_screen.dart"
     },
     {
@@ -612,7 +684,7 @@
       "source_file": "SilverWorkerNow/lib/screens/job/job_detail_screen.dart",
       "source_location": null,
       "id": "home_dudxo13_projects_silverworker_silverworkernow_lib_screens_job_job_detail_screen_dart_jobdetailscreen",
-      "community": 0,
+      "community": 1,
       "norm_label": "jobdetailscreen"
     },
     {
@@ -621,7 +693,7 @@
       "source_file": "SilverWorkerNow/lib/screens/job/job_detail_screen.dart",
       "source_location": null,
       "id": "home_dudxo13_projects_silverworker_silverworkernow_lib_screens_job_job_detail_screen_dart_build",
-      "community": 0,
+      "community": 1,
       "norm_label": "build"
     },
     {
@@ -630,7 +702,7 @@
       "source_file": "SilverWorkerNow/lib/screens/job/job_detail_screen.dart",
       "source_location": null,
       "id": "home_dudxo13_projects_silverworker_silverworkernow_lib_screens_job_job_detail_screen_dart_scaffold",
-      "community": 0,
+      "community": 1,
       "norm_label": "scaffold"
     },
     {
@@ -639,7 +711,7 @@
       "source_file": "SilverWorkerNow/lib/screens/mypage/my_page_screen.dart",
       "source_location": null,
       "id": "home_dudxo13_projects_silverworker_silverworkernow_lib_screens_mypage_my_page_screen_dart",
-      "community": 0,
+      "community": 1,
       "norm_label": "my_page_screen.dart"
     },
     {
@@ -648,7 +720,7 @@
       "source_file": "SilverWorkerNow/lib/screens/mypage/my_page_screen.dart",
       "source_location": null,
       "id": "home_dudxo13_projects_silverworker_silverworkernow_lib_screens_mypage_my_page_screen_dart_mypagescreen",
-      "community": 0,
+      "community": 1,
       "norm_label": "mypagescreen"
     },
     {
@@ -657,7 +729,7 @@
       "source_file": "SilverWorkerNow/lib/screens/mypage/my_page_screen.dart",
       "source_location": null,
       "id": "home_dudxo13_projects_silverworker_silverworkernow_lib_screens_mypage_my_page_screen_dart_build",
-      "community": 0,
+      "community": 1,
       "norm_label": "build"
     },
     {
@@ -666,7 +738,7 @@
       "source_file": "SilverWorkerNow/lib/screens/mypage/my_page_screen.dart",
       "source_location": null,
       "id": "home_dudxo13_projects_silverworker_silverworkernow_lib_screens_mypage_my_page_screen_dart_scaffold",
-      "community": 0,
+      "community": 1,
       "norm_label": "scaffold"
     },
     {
@@ -675,7 +747,7 @@
       "source_file": "SilverWorkerNow/lib/screens/application/application_form_screen.dart",
       "source_location": null,
       "id": "home_dudxo13_projects_silverworker_silverworkernow_lib_screens_application_application_form_screen_dart",
-      "community": 0,
+      "community": 1,
       "norm_label": "application_form_screen.dart"
     },
     {
@@ -684,7 +756,7 @@
       "source_file": "SilverWorkerNow/lib/screens/application/application_form_screen.dart",
       "source_location": null,
       "id": "home_dudxo13_projects_silverworker_silverworkernow_lib_screens_application_application_form_screen_dart_applicationformscreen",
-      "community": 0,
+      "community": 1,
       "norm_label": "applicationformscreen"
     },
     {
@@ -693,7 +765,7 @@
       "source_file": "SilverWorkerNow/lib/screens/application/application_form_screen.dart",
       "source_location": null,
       "id": "home_dudxo13_projects_silverworker_silverworkernow_lib_screens_application_application_form_screen_dart_build",
-      "community": 0,
+      "community": 1,
       "norm_label": "build"
     },
     {
@@ -702,7 +774,7 @@
       "source_file": "SilverWorkerNow/lib/screens/application/application_form_screen.dart",
       "source_location": null,
       "id": "home_dudxo13_projects_silverworker_silverworkernow_lib_screens_application_application_form_screen_dart_scaffold",
-      "community": 0,
+      "community": 1,
       "norm_label": "scaffold"
     },
     {
@@ -711,7 +783,7 @@
       "source_file": "lib/screens/auth/otp_input_screen.dart",
       "source_location": null,
       "id": "lib_screens_auth_otp_input_screen_dart",
-      "community": 2,
+      "community": 3,
       "norm_label": "otp_input_screen.dart"
     },
     {
@@ -720,7 +792,7 @@
       "source_file": "lib/screens/auth/otp_input_screen.dart",
       "source_location": null,
       "id": "home_dudxo13_projects_silverworker_lib_screens_auth_otp_input_screen_dart_otpinputscreen",
-      "community": 2,
+      "community": 3,
       "norm_label": "otpinputscreen"
     },
     {
@@ -729,7 +801,7 @@
       "source_file": "lib/screens/auth/otp_input_screen.dart",
       "source_location": null,
       "id": "home_dudxo13_projects_silverworker_lib_screens_auth_otp_input_screen_dart_otpinputscreenstate",
-      "community": 2,
+      "community": 3,
       "norm_label": "_otpinputscreenstate"
     },
     {
@@ -738,7 +810,7 @@
       "source_file": "lib/screens/auth/otp_input_screen.dart",
       "source_location": null,
       "id": "home_dudxo13_projects_silverworker_lib_screens_auth_otp_input_screen_dart_initstate",
-      "community": 2,
+      "community": 3,
       "norm_label": "initstate"
     },
     {
@@ -747,7 +819,7 @@
       "source_file": "lib/screens/auth/otp_input_screen.dart",
       "source_location": null,
       "id": "home_dudxo13_projects_silverworker_lib_screens_auth_otp_input_screen_dart_startcountdown",
-      "community": 2,
+      "community": 3,
       "norm_label": "_startcountdown"
     },
     {
@@ -756,7 +828,7 @@
       "source_file": "lib/screens/auth/otp_input_screen.dart",
       "source_location": null,
       "id": "home_dudxo13_projects_silverworker_lib_screens_auth_otp_input_screen_dart_tick",
-      "community": 2,
+      "community": 3,
       "norm_label": "_tick"
     },
     {
@@ -765,7 +837,7 @@
       "source_file": "lib/screens/auth/otp_input_screen.dart",
       "source_location": null,
       "id": "home_dudxo13_projects_silverworker_lib_screens_auth_otp_input_screen_dart_distributedigits",
-      "community": 2,
+      "community": 3,
       "norm_label": "_distributedigits"
     },
     {
@@ -774,7 +846,7 @@
       "source_file": "lib/screens/auth/otp_input_screen.dart",
       "source_location": null,
       "id": "home_dudxo13_projects_silverworker_lib_screens_auth_otp_input_screen_dart_ondigitchanged",
-      "community": 2,
+      "community": 3,
       "norm_label": "_ondigitchanged"
     },
     {
@@ -783,7 +855,7 @@
       "source_file": "lib/screens/auth/otp_input_screen.dart",
       "source_location": null,
       "id": "home_dudxo13_projects_silverworker_lib_screens_auth_otp_input_screen_dart_onkeyevent",
-      "community": 2,
+      "community": 3,
       "norm_label": "_onkeyevent"
     },
     {
@@ -792,7 +864,7 @@
       "source_file": "lib/screens/auth/otp_input_screen.dart",
       "source_location": null,
       "id": "home_dudxo13_projects_silverworker_lib_screens_auth_otp_input_screen_dart_startphoneverification",
-      "community": 2,
+      "community": 3,
       "norm_label": "startphoneverification"
     },
     {
@@ -801,7 +873,7 @@
       "source_file": "lib/screens/auth/otp_input_screen.dart",
       "source_location": null,
       "id": "home_dudxo13_projects_silverworker_lib_screens_auth_otp_input_screen_dart_dispose",
-      "community": 2,
+      "community": 3,
       "norm_label": "dispose"
     },
     {
@@ -810,7 +882,7 @@
       "source_file": "lib/screens/auth/otp_input_screen.dart",
       "source_location": null,
       "id": "home_dudxo13_projects_silverworker_lib_screens_auth_otp_input_screen_dart_build",
-      "community": 2,
+      "community": 3,
       "norm_label": "build"
     },
     {
@@ -819,7 +891,7 @@
       "source_file": "lib/screens/auth/otp_input_screen.dart",
       "source_location": null,
       "id": "home_dudxo13_projects_silverworker_lib_screens_auth_otp_input_screen_dart_scaffold",
-      "community": 2,
+      "community": 3,
       "norm_label": "scaffold"
     },
     {
@@ -828,7 +900,7 @@
       "source_file": "lib/screens/auth/otp_input_screen.dart",
       "source_location": null,
       "id": "home_dudxo13_projects_silverworker_lib_screens_auth_otp_input_screen_dart_sizedbox",
-      "community": 2,
+      "community": 3,
       "norm_label": "sizedbox"
     },
     {
@@ -837,7 +909,7 @@
       "source_file": "lib/screens/auth/otp_input_screen.dart",
       "source_location": null,
       "id": "home_dudxo13_projects_silverworker_lib_screens_auth_otp_input_screen_dart_spacer",
-      "community": 2,
+      "community": 3,
       "norm_label": "spacer"
     },
     {
@@ -846,7 +918,7 @@
       "source_file": "lib/screens/auth/phone_input_screen.dart",
       "source_location": null,
       "id": "package_flutter_services_dart",
-      "community": 1,
+      "community": 0,
       "norm_label": "package:flutter/services.dart"
     },
     {
@@ -855,7 +927,7 @@
       "source_file": "lib/screens/auth/phone_input_screen.dart",
       "source_location": null,
       "id": "lib_screens_auth_phone_input_screen_dart",
-      "community": 1,
+      "community": 0,
       "norm_label": "phone_input_screen.dart"
     },
     {
@@ -864,7 +936,7 @@
       "source_file": "lib/screens/auth/phone_input_screen.dart",
       "source_location": null,
       "id": "home_dudxo13_projects_silverworker_lib_screens_auth_phone_input_screen_dart_phoneinputscreen",
-      "community": 1,
+      "community": 0,
       "norm_label": "phoneinputscreen"
     },
     {
@@ -873,7 +945,7 @@
       "source_file": "lib/screens/auth/phone_input_screen.dart",
       "source_location": null,
       "id": "home_dudxo13_projects_silverworker_lib_screens_auth_phone_input_screen_dart_phoneinputscreenstate",
-      "community": 1,
+      "community": 0,
       "norm_label": "_phoneinputscreenstate"
     },
     {
@@ -882,7 +954,7 @@
       "source_file": "lib/screens/auth/phone_input_screen.dart",
       "source_location": null,
       "id": "home_dudxo13_projects_silverworker_lib_screens_auth_phone_input_screen_dart_dispose",
-      "community": 1,
+      "community": 0,
       "norm_label": "dispose"
     },
     {
@@ -891,7 +963,7 @@
       "source_file": "lib/screens/auth/phone_input_screen.dart",
       "source_location": null,
       "id": "home_dudxo13_projects_silverworker_lib_screens_auth_phone_input_screen_dart_startphoneverification",
-      "community": 1,
+      "community": 0,
       "norm_label": "startphoneverification"
     },
     {
@@ -900,7 +972,7 @@
       "source_file": "lib/screens/auth/phone_input_screen.dart",
       "source_location": null,
       "id": "home_dudxo13_projects_silverworker_lib_screens_auth_phone_input_screen_dart_build",
-      "community": 1,
+      "community": 0,
       "norm_label": "build"
     },
     {
@@ -909,7 +981,7 @@
       "source_file": "lib/screens/auth/phone_input_screen.dart",
       "source_location": null,
       "id": "home_dudxo13_projects_silverworker_lib_screens_auth_phone_input_screen_dart_scaffold",
-      "community": 1,
+      "community": 0,
       "norm_label": "scaffold"
     },
     {
@@ -918,7 +990,7 @@
       "source_file": "lib/screens/auth/phone_input_screen.dart",
       "source_location": null,
       "id": "home_dudxo13_projects_silverworker_lib_screens_auth_phone_input_screen_dart_sizedbox",
-      "community": 1,
+      "community": 0,
       "norm_label": "sizedbox"
     },
     {
@@ -927,7 +999,7 @@
       "source_file": "lib/screens/auth/phone_input_screen.dart",
       "source_location": null,
       "id": "home_dudxo13_projects_silverworker_lib_screens_auth_phone_input_screen_dart_spacer",
-      "community": 1,
+      "community": 0,
       "norm_label": "spacer"
     },
     {
@@ -936,7 +1008,7 @@
       "source_file": "lib/screens/auth/profile_register_screen.dart",
       "source_location": null,
       "id": "lib_screens_auth_profile_register_screen_dart",
-      "community": 1,
+      "community": 0,
       "norm_label": "profile_register_screen.dart"
     },
     {
@@ -945,7 +1017,7 @@
       "source_file": "lib/screens/auth/profile_register_screen.dart",
       "source_location": null,
       "id": "home_dudxo13_projects_silverworker_lib_screens_auth_profile_register_screen_dart_profilesetupscreen",
-      "community": 1,
+      "community": 0,
       "norm_label": "profilesetupscreen"
     },
     {
@@ -954,7 +1026,7 @@
       "source_file": "lib/screens/auth/profile_register_screen.dart",
       "source_location": null,
       "id": "home_dudxo13_projects_silverworker_lib_screens_auth_profile_register_screen_dart_profilesetupscreenstate",
-      "community": 1,
+      "community": 0,
       "norm_label": "_profilesetupscreenstate"
     },
     {
@@ -963,7 +1035,7 @@
       "source_file": "lib/screens/auth/profile_register_screen.dart",
       "source_location": null,
       "id": "home_dudxo13_projects_silverworker_lib_screens_auth_profile_register_screen_dart_dispose",
-      "community": 1,
+      "community": 0,
       "norm_label": "dispose"
     },
     {
@@ -972,7 +1044,7 @@
       "source_file": "lib/screens/auth/profile_register_screen.dart",
       "source_location": null,
       "id": "home_dudxo13_projects_silverworker_lib_screens_auth_profile_register_screen_dart_build",
-      "community": 1,
+      "community": 0,
       "norm_label": "build"
     },
     {
@@ -981,7 +1053,7 @@
       "source_file": "lib/screens/auth/profile_register_screen.dart",
       "source_location": null,
       "id": "home_dudxo13_projects_silverworker_lib_screens_auth_profile_register_screen_dart_scaffold",
-      "community": 1,
+      "community": 0,
       "norm_label": "scaffold"
     },
     {
@@ -990,7 +1062,7 @@
       "source_file": "lib/screens/auth/profile_register_screen.dart",
       "source_location": null,
       "id": "home_dudxo13_projects_silverworker_lib_screens_auth_profile_register_screen_dart_buildform",
-      "community": 1,
+      "community": 0,
       "norm_label": "_buildform"
     },
     {
@@ -999,7 +1071,7 @@
       "source_file": "lib/screens/auth/profile_register_screen.dart",
       "source_location": null,
       "id": "home_dudxo13_projects_silverworker_lib_screens_auth_profile_register_screen_dart_sizedbox",
-      "community": 1,
+      "community": 0,
       "norm_label": "sizedbox"
     },
     {
@@ -1008,7 +1080,7 @@
       "source_file": "lib/screens/auth/profile_register_screen.dart",
       "source_location": null,
       "id": "constants_address_data_dart",
-      "community": 1,
+      "community": 0,
       "norm_label": "../../constants/address_data.dart"
     },
     {
@@ -1041,7 +1113,7 @@
     {
       "label": "../models/job_model.dart",
       "file_type": "code",
-      "source_file": "SilverWorkerNow/lib/repositories/job_repository.dart",
+      "source_file": "lib/repositories/job_repository.dart",
       "source_location": null,
       "id": "models_job_model_dart",
       "community": 10,
@@ -1050,7 +1122,7 @@
     {
       "label": "../models/job_filter.dart",
       "file_type": "code",
-      "source_file": "SilverWorkerNow/lib/repositories/job_repository.dart",
+      "source_file": "lib/repositories/job_repository.dart",
       "source_location": null,
       "id": "models_job_filter_dart",
       "community": 10,
@@ -1062,7 +1134,7 @@
       "source_file": "lib/providers/auth_provider.dart",
       "source_location": null,
       "id": "lib_providers_auth_provider_dart",
-      "community": 8,
+      "community": 2,
       "norm_label": "auth_provider.dart"
     },
     {
@@ -1071,7 +1143,7 @@
       "source_file": "lib/providers/auth_provider.dart",
       "source_location": null,
       "id": "home_dudxo13_projects_silverworker_lib_providers_auth_provider_dart_authrepository",
-      "community": 8,
+      "community": 2,
       "norm_label": "authrepository"
     },
     {
@@ -1080,7 +1152,7 @@
       "source_file": "lib/providers/auth_provider.dart",
       "source_location": null,
       "id": "home_dudxo13_projects_silverworker_lib_providers_auth_provider_dart_function",
-      "community": 8,
+      "community": 2,
       "norm_label": "function"
     },
     {
@@ -1089,7 +1161,7 @@
       "source_file": "lib/providers/auth_provider.dart",
       "source_location": null,
       "id": "home_dudxo13_projects_silverworker_lib_providers_auth_provider_dart_mapautherror",
-      "community": 8,
+      "community": 2,
       "norm_label": "_mapautherror"
     },
     {
@@ -1098,7 +1170,7 @@
       "source_file": "lib/repositories/auth_repository.dart",
       "source_location": null,
       "id": "package_firebase_auth_firebase_auth_dart",
-      "community": 8,
+      "community": 2,
       "norm_label": "package:firebase_auth/firebase_auth.dart"
     },
     {
@@ -1107,7 +1179,7 @@
       "source_file": "lib/providers/auth_provider.dart",
       "source_location": null,
       "id": "repositories_auth_repository_dart",
-      "community": 8,
+      "community": 2,
       "norm_label": "../repositories/auth_repository.dart"
     },
     {
@@ -1116,7 +1188,7 @@
       "source_file": "lib/repositories/auth_repository.dart",
       "source_location": null,
       "id": "models_user_model_dart",
-      "community": 8,
+      "community": 2,
       "norm_label": "../models/user_model.dart"
     },
     {
@@ -1125,7 +1197,7 @@
       "source_file": "lib/providers/bookmark_provider.dart",
       "source_location": null,
       "id": "lib_providers_bookmark_provider_dart",
-      "community": 3,
+      "community": 2,
       "norm_label": "bookmark_provider.dart"
     },
     {
@@ -1134,7 +1206,7 @@
       "source_file": "lib/providers/bookmark_provider.dart",
       "source_location": null,
       "id": "home_dudxo13_projects_silverworker_lib_providers_bookmark_provider_dart_bookmarkrepository",
-      "community": 3,
+      "community": 2,
       "norm_label": "bookmarkrepository"
     },
     {
@@ -1143,7 +1215,7 @@
       "source_file": "lib/providers/bookmark_provider.dart",
       "source_location": null,
       "id": "repositories_bookmark_repository_dart",
-      "community": 3,
+      "community": 2,
       "norm_label": "../repositories/bookmark_repository.dart"
     },
     {
@@ -1152,7 +1224,7 @@
       "source_file": "SilverWorkerNow/lib/repositories/bookmark_repository.dart",
       "source_location": null,
       "id": "models_bookmark_model_dart",
-      "community": 3,
+      "community": 2,
       "norm_label": "../models/bookmark_model.dart"
     },
     {
@@ -1161,7 +1233,7 @@
       "source_file": "lib/providers/application_provider.dart",
       "source_location": null,
       "id": "lib_providers_application_provider_dart",
-      "community": 3,
+      "community": 2,
       "norm_label": "application_provider.dart"
     },
     {
@@ -1170,7 +1242,7 @@
       "source_file": "lib/providers/application_provider.dart",
       "source_location": null,
       "id": "home_dudxo13_projects_silverworker_lib_providers_application_provider_dart_applicationrepository",
-      "community": 3,
+      "community": 2,
       "norm_label": "applicationrepository"
     },
     {
@@ -1179,7 +1251,7 @@
       "source_file": "lib/providers/application_provider.dart",
       "source_location": null,
       "id": "repositories_application_repository_dart",
-      "community": 3,
+      "community": 2,
       "norm_label": "../repositories/application_repository.dart"
     },
     {
@@ -1188,7 +1260,7 @@
       "source_file": "lib/repositories/application_repository.dart",
       "source_location": null,
       "id": "models_application_model_dart",
-      "community": 3,
+      "community": 2,
       "norm_label": "../models/application_model.dart"
     },
     {
@@ -1197,7 +1269,7 @@
       "source_file": "lib/constants/app_colors.dart",
       "source_location": null,
       "id": "lib_constants_app_colors_dart",
-      "community": 0,
+      "community": 1,
       "norm_label": "app_colors.dart"
     },
     {
@@ -1206,7 +1278,7 @@
       "source_file": "lib/constants/app_text_styles.dart",
       "source_location": null,
       "id": "lib_constants_app_text_styles_dart",
-      "community": 0,
+      "community": 1,
       "norm_label": "app_text_styles.dart"
     },
     {
@@ -1341,7 +1413,7 @@
       "source_file": "lib/repositories/auth_repository.dart",
       "source_location": null,
       "id": "lib_repositories_auth_repository_dart",
-      "community": 8,
+      "community": 2,
       "norm_label": "auth_repository.dart"
     },
     {
@@ -1350,7 +1422,7 @@
       "source_file": "lib/repositories/auth_repository.dart",
       "source_location": null,
       "id": "home_dudxo13_projects_silverworker_lib_repositories_auth_repository_dart_authrepository",
-      "community": 8,
+      "community": 2,
       "norm_label": "authrepository"
     },
     {
@@ -1359,7 +1431,7 @@
       "source_file": "lib/repositories/auth_repository.dart",
       "source_location": null,
       "id": "home_dudxo13_projects_silverworker_lib_repositories_auth_repository_dart_function",
-      "community": 8,
+      "community": 2,
       "norm_label": "function"
     },
     {
@@ -1368,24 +1440,24 @@
       "source_file": "SilverWorkerNow/lib/utils/timestamp_helper.dart",
       "source_location": null,
       "id": "package_cloud_firestore_cloud_firestore_dart",
-      "community": 3,
+      "community": 2,
       "norm_label": "package:cloud_firestore/cloud_firestore.dart"
     },
     {
       "label": "job_repository.dart",
       "file_type": "code",
-      "source_file": "SilverWorkerNow/lib/repositories/job_repository.dart",
+      "source_file": "lib/repositories/job_repository.dart",
       "source_location": null,
-      "id": "home_dudxo13_projects_silverworker_silverworkernow_lib_repositories_job_repository_dart",
+      "id": "lib_repositories_job_repository_dart",
       "community": 10,
       "norm_label": "job_repository.dart"
     },
     {
       "label": "JobRepository",
       "file_type": "code",
-      "source_file": "SilverWorkerNow/lib/repositories/job_repository.dart",
+      "source_file": "lib/repositories/job_repository.dart",
       "source_location": null,
-      "id": "home_dudxo13_projects_silverworker_silverworkernow_lib_repositories_job_repository_dart_jobrepository",
+      "id": "home_dudxo13_projects_silverworker_lib_repositories_job_repository_dart_jobrepository",
       "community": 10,
       "norm_label": "jobrepository"
     },
@@ -1395,7 +1467,7 @@
       "source_file": "SilverWorkerNow/lib/repositories/bookmark_repository.dart",
       "source_location": null,
       "id": "home_dudxo13_projects_silverworker_silverworkernow_lib_repositories_bookmark_repository_dart",
-      "community": 3,
+      "community": 2,
       "norm_label": "bookmark_repository.dart"
     },
     {
@@ -1404,7 +1476,7 @@
       "source_file": "SilverWorkerNow/lib/repositories/bookmark_repository.dart",
       "source_location": null,
       "id": "home_dudxo13_projects_silverworker_silverworkernow_lib_repositories_bookmark_repository_dart_bookmarkrepository",
-      "community": 3,
+      "community": 2,
       "norm_label": "bookmarkrepository"
     },
     {
@@ -1413,7 +1485,7 @@
       "source_file": "lib/repositories/application_repository.dart",
       "source_location": null,
       "id": "lib_repositories_application_repository_dart",
-      "community": 3,
+      "community": 2,
       "norm_label": "application_repository.dart"
     },
     {
@@ -1422,7 +1494,7 @@
       "source_file": "lib/repositories/application_repository.dart",
       "source_location": null,
       "id": "home_dudxo13_projects_silverworker_lib_repositories_application_repository_dart_applicationrepository",
-      "community": 3,
+      "community": 2,
       "norm_label": "applicationrepository"
     },
     {
@@ -1431,7 +1503,7 @@
       "source_file": "SilverWorkerNow/lib/utils/timestamp_helper.dart",
       "source_location": null,
       "id": "home_dudxo13_projects_silverworker_silverworkernow_lib_utils_timestamp_helper_dart",
-      "community": 3,
+      "community": 2,
       "norm_label": "timestamp_helper.dart"
     },
     {
@@ -1593,7 +1665,7 @@
       "source_file": "SilverWorkerNow/lib/widgets/loading_overlay.dart",
       "source_location": null,
       "id": "home_dudxo13_projects_silverworker_silverworkernow_lib_widgets_loading_overlay_dart",
-      "community": 0,
+      "community": 1,
       "norm_label": "loading_overlay.dart"
     },
     {
@@ -1602,7 +1674,7 @@
       "source_file": "SilverWorkerNow/lib/widgets/loading_overlay.dart",
       "source_location": null,
       "id": "home_dudxo13_projects_silverworker_silverworkernow_lib_widgets_loading_overlay_dart_loadingoverlay",
-      "community": 0,
+      "community": 1,
       "norm_label": "loadingoverlay"
     },
     {
@@ -1611,7 +1683,7 @@
       "source_file": "SilverWorkerNow/lib/widgets/loading_overlay.dart",
       "source_location": null,
       "id": "home_dudxo13_projects_silverworker_silverworkernow_lib_widgets_loading_overlay_dart_build",
-      "community": 0,
+      "community": 1,
       "norm_label": "build"
     },
     {
@@ -1620,7 +1692,7 @@
       "source_file": "SilverWorkerNow/lib/widgets/loading_overlay.dart",
       "source_location": null,
       "id": "home_dudxo13_projects_silverworker_silverworkernow_lib_widgets_loading_overlay_dart_stack",
-      "community": 0,
+      "community": 1,
       "norm_label": "stack"
     },
     {
@@ -1629,7 +1701,7 @@
       "source_file": "SilverWorkerNow/lib/widgets/badge_widget.dart",
       "source_location": null,
       "id": "home_dudxo13_projects_silverworker_silverworkernow_lib_widgets_badge_widget_dart",
-      "community": 0,
+      "community": 1,
       "norm_label": "badge_widget.dart"
     },
     {
@@ -1638,7 +1710,7 @@
       "source_file": "SilverWorkerNow/lib/widgets/badge_widget.dart",
       "source_location": null,
       "id": "home_dudxo13_projects_silverworker_silverworkernow_lib_widgets_badge_widget_dart_badgewidget",
-      "community": 0,
+      "community": 1,
       "norm_label": "badgewidget"
     },
     {
@@ -1647,7 +1719,7 @@
       "source_file": "SilverWorkerNow/lib/widgets/badge_widget.dart",
       "source_location": null,
       "id": "home_dudxo13_projects_silverworker_silverworkernow_lib_widgets_badge_widget_dart_build",
-      "community": 0,
+      "community": 1,
       "norm_label": "build"
     },
     {
@@ -1656,7 +1728,7 @@
       "source_file": "SilverWorkerNow/lib/widgets/badge_widget.dart",
       "source_location": null,
       "id": "home_dudxo13_projects_silverworker_silverworkernow_lib_widgets_badge_widget_dart_container",
-      "community": 0,
+      "community": 1,
       "norm_label": "container"
     },
     {
@@ -1665,7 +1737,7 @@
       "source_file": "SilverWorkerNow/lib/widgets/job_card.dart",
       "source_location": null,
       "id": "home_dudxo13_projects_silverworker_silverworkernow_lib_widgets_job_card_dart",
-      "community": 0,
+      "community": 1,
       "norm_label": "job_card.dart"
     },
     {
@@ -1674,7 +1746,7 @@
       "source_file": "SilverWorkerNow/lib/widgets/job_card.dart",
       "source_location": null,
       "id": "home_dudxo13_projects_silverworker_silverworkernow_lib_widgets_job_card_dart_jobcard",
-      "community": 0,
+      "community": 1,
       "norm_label": "jobcard"
     },
     {
@@ -1683,7 +1755,7 @@
       "source_file": "SilverWorkerNow/lib/widgets/job_card.dart",
       "source_location": null,
       "id": "home_dudxo13_projects_silverworker_silverworkernow_lib_widgets_job_card_dart_build",
-      "community": 0,
+      "community": 1,
       "norm_label": "build"
     },
     {
@@ -1692,7 +1764,7 @@
       "source_file": "SilverWorkerNow/lib/widgets/job_card.dart",
       "source_location": null,
       "id": "home_dudxo13_projects_silverworker_silverworkernow_lib_widgets_job_card_dart_card",
-      "community": 0,
+      "community": 1,
       "norm_label": "card"
     },
     {
@@ -2226,6 +2298,162 @@
       "_tgt": "hook_pre_git_block",
       "source": "hook_pre_git_block",
       "target": "hook_pre_git_main",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "tools/scripts/seed_jobs.py",
+      "source_location": "L175",
+      "weight": 1.0,
+      "_src": "tools_scripts_seed_jobs_py",
+      "_tgt": "seed_jobs_random_date_in_future",
+      "source": "tools_scripts_seed_jobs_py",
+      "target": "seed_jobs_random_date_in_future",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "tools/scripts/seed_jobs.py",
+      "source_location": "L181",
+      "weight": 1.0,
+      "_src": "tools_scripts_seed_jobs_py",
+      "_tgt": "seed_jobs_random_employment_type",
+      "source": "tools_scripts_seed_jobs_py",
+      "target": "seed_jobs_random_employment_type",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "tools/scripts/seed_jobs.py",
+      "source_location": "L185",
+      "weight": 1.0,
+      "_src": "tools_scripts_seed_jobs_py",
+      "_tgt": "seed_jobs_random_salary",
+      "source": "tools_scripts_seed_jobs_py",
+      "target": "seed_jobs_random_salary",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "tools/scripts/seed_jobs.py",
+      "source_location": "L199",
+      "weight": 1.0,
+      "_src": "tools_scripts_seed_jobs_py",
+      "_tgt": "seed_jobs_generate_one",
+      "source": "tools_scripts_seed_jobs_py",
+      "target": "seed_jobs_generate_one",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "tools/scripts/seed_jobs.py",
+      "source_location": "L247",
+      "weight": 1.0,
+      "_src": "tools_scripts_seed_jobs_py",
+      "_tgt": "seed_jobs_generate_all",
+      "source": "tools_scripts_seed_jobs_py",
+      "target": "seed_jobs_generate_all",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "tools/scripts/seed_jobs.py",
+      "source_location": "L272",
+      "weight": 1.0,
+      "_src": "tools_scripts_seed_jobs_py",
+      "_tgt": "seed_jobs_upload_to_firestore",
+      "source": "tools_scripts_seed_jobs_py",
+      "target": "seed_jobs_upload_to_firestore",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "tools/scripts/seed_jobs.py",
+      "source_location": "L347",
+      "weight": 1.0,
+      "_src": "tools_scripts_seed_jobs_py",
+      "_tgt": "seed_jobs_main",
+      "source": "tools_scripts_seed_jobs_py",
+      "target": "seed_jobs_main",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "tools/scripts/seed_jobs.py",
+      "source_location": "L239",
+      "weight": 1.0,
+      "_src": "seed_jobs_generate_one",
+      "_tgt": "seed_jobs_random_date_in_future",
+      "source": "seed_jobs_random_date_in_future",
+      "target": "seed_jobs_generate_one",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "tools/scripts/seed_jobs.py",
+      "source_location": "L226",
+      "weight": 1.0,
+      "_src": "seed_jobs_generate_one",
+      "_tgt": "seed_jobs_random_employment_type",
+      "source": "seed_jobs_random_employment_type",
+      "target": "seed_jobs_generate_one",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "tools/scripts/seed_jobs.py",
+      "source_location": "L215",
+      "weight": 1.0,
+      "_src": "seed_jobs_generate_one",
+      "_tgt": "seed_jobs_random_salary",
+      "source": "seed_jobs_random_salary",
+      "target": "seed_jobs_generate_one",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "tools/scripts/seed_jobs.py",
+      "source_location": "L266",
+      "weight": 1.0,
+      "_src": "seed_jobs_generate_all",
+      "_tgt": "seed_jobs_generate_one",
+      "source": "seed_jobs_generate_one",
+      "target": "seed_jobs_generate_all",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "tools/scripts/seed_jobs.py",
+      "source_location": "L355",
+      "weight": 1.0,
+      "_src": "seed_jobs_main",
+      "_tgt": "seed_jobs_generate_all",
+      "source": "seed_jobs_generate_all",
+      "target": "seed_jobs_main",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "tools/scripts/seed_jobs.py",
+      "source_location": "L364",
+      "weight": 1.0,
+      "_src": "seed_jobs_main",
+      "_tgt": "seed_jobs_upload_to_firestore",
+      "source": "seed_jobs_upload_to_firestore",
+      "target": "seed_jobs_main",
       "confidence_score": 1.0
     },
     {
@@ -3612,25 +3840,25 @@
       "relation": "imports",
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
-      "source_file": "SilverWorkerNow/lib/repositories/job_repository.dart",
+      "source_file": "lib/repositories/job_repository.dart",
       "source_location": null,
       "weight": 1.0,
-      "_src": "home_dudxo13_projects_silverworker_silverworkernow_lib_repositories_job_repository_dart",
+      "_src": "lib_repositories_job_repository_dart",
       "_tgt": "models_job_model_dart",
       "source": "models_job_model_dart",
-      "target": "home_dudxo13_projects_silverworker_silverworkernow_lib_repositories_job_repository_dart"
+      "target": "lib_repositories_job_repository_dart"
     },
     {
       "relation": "imports",
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
-      "source_file": "SilverWorkerNow/lib/repositories/job_repository.dart",
+      "source_file": "lib/repositories/job_repository.dart",
       "source_location": null,
       "weight": 1.0,
-      "_src": "home_dudxo13_projects_silverworker_silverworkernow_lib_repositories_job_repository_dart",
+      "_src": "lib_repositories_job_repository_dart",
       "_tgt": "models_job_filter_dart",
       "source": "models_job_filter_dart",
-      "target": "home_dudxo13_projects_silverworker_silverworkernow_lib_repositories_job_repository_dart"
+      "target": "lib_repositories_job_repository_dart"
     },
     {
       "relation": "defines",
@@ -4020,6 +4248,18 @@
       "relation": "imports",
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
+      "source_file": "lib/repositories/job_repository.dart",
+      "source_location": null,
+      "weight": 1.0,
+      "_src": "lib_repositories_job_repository_dart",
+      "_tgt": "package_cloud_firestore_cloud_firestore_dart",
+      "source": "package_cloud_firestore_cloud_firestore_dart",
+      "target": "lib_repositories_job_repository_dart"
+    },
+    {
+      "relation": "imports",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
       "source_file": "SilverWorkerNow/lib/repositories/bookmark_repository.dart",
       "source_location": null,
       "weight": 1.0,
@@ -4056,13 +4296,13 @@
       "relation": "defines",
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
-      "source_file": "SilverWorkerNow/lib/repositories/job_repository.dart",
+      "source_file": "lib/repositories/job_repository.dart",
       "source_location": null,
       "weight": 1.0,
-      "_src": "home_dudxo13_projects_silverworker_silverworkernow_lib_repositories_job_repository_dart",
-      "_tgt": "home_dudxo13_projects_silverworker_silverworkernow_lib_repositories_job_repository_dart_jobrepository",
-      "source": "home_dudxo13_projects_silverworker_silverworkernow_lib_repositories_job_repository_dart",
-      "target": "home_dudxo13_projects_silverworker_silverworkernow_lib_repositories_job_repository_dart_jobrepository"
+      "_src": "lib_repositories_job_repository_dart",
+      "_tgt": "home_dudxo13_projects_silverworker_lib_repositories_job_repository_dart_jobrepository",
+      "source": "lib_repositories_job_repository_dart",
+      "target": "home_dudxo13_projects_silverworker_lib_repositories_job_repository_dart_jobrepository"
     },
     {
       "relation": "defines",
