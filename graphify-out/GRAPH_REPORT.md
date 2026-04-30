@@ -1,11 +1,11 @@
-# Graph Report - SilverWorker  (2026-04-30)
+# Graph Report - SilverWorker  (2026-05-01)
 
 ## Corpus Check
-- 53 files · ~53,652 words
+- 54 files · ~55,209 words
 - Verdict: corpus is large enough that graph structure adds value.
 
 ## Summary
-- 215 nodes · 234 edges · 16 communities detected
+- 218 nodes · 237 edges · 16 communities detected
 - Extraction: 100% EXTRACTED · 0% INFERRED · 0% AMBIGUOUS
 - Token cost: 0 input · 0 output
 
@@ -78,20 +78,20 @@ Cohesion: 0.18
 Nodes (9): firebase_options.dart, DefaultFirebaseOptions, UnsupportedError, build, main, MaterialApp, MyApp, package:firebase_core/firebase_core.dart (+1 more)
 
 ### Community 8 - "Community 8"
+Cohesion: 0.2
+Nodes (7): main, main, main, package:flutter_test/flutter_test.dart, package:silver_worker_now/constants/address_data.dart, package:silver_worker_now/models/job_model.dart, package:silver_worker_now/models/user_model.dart
+
+### Community 9 - "Community 9"
 Cohesion: 0.46
 Nodes (7): generate_all(), generate_one(), main(), _random_date_in_future(), _random_employment_type(), _random_salary(), upload_to_firestore()
 
-### Community 9 - "Community 9"
+### Community 10 - "Community 10"
 Cohesion: 0.48
 Nodes (6): latest_meaningful_md(), load_docs(), main(), Claude Code SessionStart / SubagentStart hook - injects General folder context., Return the most recent .md that isn't an empty session-summary., read_file()
 
-### Community 10 - "Community 10"
+### Community 11 - "Community 11"
 Cohesion: 0.33
 Nodes (5): JobRepository, JobRepository, ../models/job_filter.dart, ../models/job_model.dart, ../repositories/job_repository.dart
-
-### Community 11 - "Community 11"
-Cohesion: 0.29
-Nodes (5): main, main, package:flutter_test/flutter_test.dart, package:silver_worker_now/constants/address_data.dart, package:silver_worker_now/models/user_model.dart
 
 ### Community 12 - "Community 12"
 Cohesion: 0.4
@@ -110,7 +110,7 @@ Cohesion: 0.67
 Nodes (2): copyWith, JobFilter
 
 ## Knowledge Gaps
-- **116 isolated node(s):** `Claude Code SessionStart / SubagentStart hook - injects General folder context.`, `Return the most recent .md that isn't an empty session-summary.`, `Claude Code PreToolUse hook - guards git write operations.  Rules:   1. git push`, `working_dir가 프로젝트 루트인지 확인.`, `git push origin master/main 형태의 직접 푸시 감지.` (+111 more)
+- **118 isolated node(s):** `Claude Code SessionStart / SubagentStart hook - injects General folder context.`, `Return the most recent .md that isn't an empty session-summary.`, `Claude Code PreToolUse hook - guards git write operations.  Rules:   1. git push`, `working_dir가 프로젝트 루트인지 확인.`, `git push origin master/main 형태의 직접 푸시 감지.` (+113 more)
   These have ≤1 connection - possible missing edges or undocumented components.
 - **Thin community `Community 12`** (5 nodes): `GeneratedPluginRegistrant`, `.registerWith()`, `-registerWithRegistry`, `GeneratedPluginRegistrant.java`, `GeneratedPluginRegistrant.m`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
@@ -125,13 +125,13 @@ Nodes (2): copyWith, JobFilter
 _Questions this graph is uniquely positioned to answer:_
 
 - **Why does `package:flutter/material.dart` connect `Community 1` to `Community 0`, `Community 3`, `Community 5`, `Community 7`?**
-  _High betweenness centrality (0.179) - this node is a cross-community bridge._
-- **Why does `package:flutter_riverpod/flutter_riverpod.dart` connect `Community 2` to `Community 0`, `Community 3`, `Community 5`, `Community 7`, `Community 10`?**
-  _High betweenness centrality (0.147) - this node is a cross-community bridge._
+  _High betweenness centrality (0.174) - this node is a cross-community bridge._
+- **Why does `package:flutter_riverpod/flutter_riverpod.dart` connect `Community 2` to `Community 0`, `Community 3`, `Community 5`, `Community 7`, `Community 11`?**
+  _High betweenness centrality (0.143) - this node is a cross-community bridge._
 - **Why does `package:firebase_auth/firebase_auth.dart` connect `Community 2` to `Community 5`?**
-  _High betweenness centrality (0.026) - this node is a cross-community bridge._
+  _High betweenness centrality (0.025) - this node is a cross-community bridge._
 - **What connects `Claude Code SessionStart / SubagentStart hook - injects General folder context.`, `Return the most recent .md that isn't an empty session-summary.`, `Claude Code PreToolUse hook - guards git write operations.  Rules:   1. git push` to the rest of the system?**
-  _116 weakly-connected nodes found - possible documentation gaps or missing edges._
+  _118 weakly-connected nodes found - possible documentation gaps or missing edges._
 - **Should `Community 0` be split into smaller, more focused modules?**
   _Cohesion score 0.08 - nodes in this community are weakly interconnected._
 - **Should `Community 1` be split into smaller, more focused modules?**

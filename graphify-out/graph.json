@@ -54,7 +54,7 @@
       "source_file": "tools/scripts/hook_session_start.py",
       "source_location": "L1",
       "id": "tools_scripts_hook_session_start_py",
-      "community": 9,
+      "community": 10,
       "norm_label": "hook_session_start.py"
     },
     {
@@ -63,7 +63,7 @@
       "source_file": "tools/scripts/hook_session_start.py",
       "source_location": "L32",
       "id": "hook_session_start_read_file",
-      "community": 9,
+      "community": 10,
       "norm_label": "read_file()"
     },
     {
@@ -72,7 +72,7 @@
       "source_file": "tools/scripts/hook_session_start.py",
       "source_location": "L38",
       "id": "hook_session_start_latest_meaningful_md",
-      "community": 9,
+      "community": 10,
       "norm_label": "latest_meaningful_md()"
     },
     {
@@ -81,7 +81,7 @@
       "source_file": "tools/scripts/hook_session_start.py",
       "source_location": "L55",
       "id": "hook_session_start_load_docs",
-      "community": 9,
+      "community": 10,
       "norm_label": "load_docs()"
     },
     {
@@ -90,7 +90,7 @@
       "source_file": "tools/scripts/hook_session_start.py",
       "source_location": "L71",
       "id": "hook_session_start_main",
-      "community": 9,
+      "community": 10,
       "norm_label": "main()"
     },
     {
@@ -98,7 +98,7 @@
       "file_type": "rationale",
       "source_file": "tools/scripts/hook_session_start.py",
       "source_location": "L1",
-      "community": 9,
+      "community": 10,
       "norm_label": "claude code sessionstart / subagentstart hook - injects general folder context.",
       "id": "hook_session_start_rationale_1"
     },
@@ -107,7 +107,7 @@
       "file_type": "rationale",
       "source_file": "tools/scripts/hook_session_start.py",
       "source_location": "L39",
-      "community": 9,
+      "community": 10,
       "norm_label": "return the most recent .md that isn't an empty session-summary.",
       "id": "hook_session_start_rationale_39"
     },
@@ -252,7 +252,7 @@
       "source_file": "tools/scripts/seed_jobs.py",
       "source_location": "L1",
       "id": "tools_scripts_seed_jobs_py",
-      "community": 8,
+      "community": 9,
       "norm_label": "seed_jobs.py"
     },
     {
@@ -261,7 +261,7 @@
       "source_file": "tools/scripts/seed_jobs.py",
       "source_location": "L175",
       "id": "seed_jobs_random_date_in_future",
-      "community": 8,
+      "community": 9,
       "norm_label": "_random_date_in_future()"
     },
     {
@@ -270,7 +270,7 @@
       "source_file": "tools/scripts/seed_jobs.py",
       "source_location": "L181",
       "id": "seed_jobs_random_employment_type",
-      "community": 8,
+      "community": 9,
       "norm_label": "_random_employment_type()"
     },
     {
@@ -279,7 +279,7 @@
       "source_file": "tools/scripts/seed_jobs.py",
       "source_location": "L185",
       "id": "seed_jobs_random_salary",
-      "community": 8,
+      "community": 9,
       "norm_label": "_random_salary()"
     },
     {
@@ -288,7 +288,7 @@
       "source_file": "tools/scripts/seed_jobs.py",
       "source_location": "L199",
       "id": "seed_jobs_generate_one",
-      "community": 8,
+      "community": 9,
       "norm_label": "generate_one()"
     },
     {
@@ -297,25 +297,25 @@
       "source_file": "tools/scripts/seed_jobs.py",
       "source_location": "L247",
       "id": "seed_jobs_generate_all",
-      "community": 8,
+      "community": 9,
       "norm_label": "generate_all()"
     },
     {
       "label": "upload_to_firestore()",
       "file_type": "code",
       "source_file": "tools/scripts/seed_jobs.py",
-      "source_location": "L272",
+      "source_location": "L273",
       "id": "seed_jobs_upload_to_firestore",
-      "community": 8,
+      "community": 9,
       "norm_label": "upload_to_firestore()"
     },
     {
       "label": "main()",
       "file_type": "code",
       "source_file": "tools/scripts/seed_jobs.py",
-      "source_location": "L347",
+      "source_location": "L348",
       "id": "seed_jobs_main",
-      "community": 8,
+      "community": 9,
       "norm_label": "main()"
     },
     {
@@ -1089,7 +1089,7 @@
       "source_file": "SilverWorkerNow/lib/providers/job_provider.dart",
       "source_location": null,
       "id": "home_dudxo13_projects_silverworker_silverworkernow_lib_providers_job_provider_dart",
-      "community": 10,
+      "community": 11,
       "norm_label": "job_provider.dart"
     },
     {
@@ -1098,7 +1098,7 @@
       "source_file": "SilverWorkerNow/lib/providers/job_provider.dart",
       "source_location": null,
       "id": "home_dudxo13_projects_silverworker_silverworkernow_lib_providers_job_provider_dart_jobrepository",
-      "community": 10,
+      "community": 11,
       "norm_label": "jobrepository"
     },
     {
@@ -1107,7 +1107,7 @@
       "source_file": "SilverWorkerNow/lib/providers/job_provider.dart",
       "source_location": null,
       "id": "repositories_job_repository_dart",
-      "community": 10,
+      "community": 11,
       "norm_label": "../repositories/job_repository.dart"
     },
     {
@@ -1116,7 +1116,7 @@
       "source_file": "lib/repositories/job_repository.dart",
       "source_location": null,
       "id": "models_job_model_dart",
-      "community": 10,
+      "community": 11,
       "norm_label": "../models/job_model.dart"
     },
     {
@@ -1125,7 +1125,7 @@
       "source_file": "lib/repositories/job_repository.dart",
       "source_location": null,
       "id": "models_job_filter_dart",
-      "community": 10,
+      "community": 11,
       "norm_label": "../models/job_filter.dart"
     },
     {
@@ -1449,7 +1449,7 @@
       "source_file": "lib/repositories/job_repository.dart",
       "source_location": null,
       "id": "lib_repositories_job_repository_dart",
-      "community": 10,
+      "community": 11,
       "norm_label": "job_repository.dart"
     },
     {
@@ -1458,7 +1458,7 @@
       "source_file": "lib/repositories/job_repository.dart",
       "source_location": null,
       "id": "home_dudxo13_projects_silverworker_lib_repositories_job_repository_dart_jobrepository",
-      "community": 10,
+      "community": 11,
       "norm_label": "jobrepository"
     },
     {
@@ -1773,7 +1773,7 @@
       "source_file": "test/constants/address_data_test.dart",
       "source_location": null,
       "id": "test_constants_address_data_test_dart",
-      "community": 11,
+      "community": 8,
       "norm_label": "address_data_test.dart"
     },
     {
@@ -1782,16 +1782,16 @@
       "source_file": "test/constants/address_data_test.dart",
       "source_location": null,
       "id": "home_dudxo13_projects_silverworker_test_constants_address_data_test_dart_main",
-      "community": 11,
+      "community": 8,
       "norm_label": "main"
     },
     {
       "label": "package:flutter_test/flutter_test.dart",
       "file_type": "code",
-      "source_file": "test/models/user_model_test.dart",
+      "source_file": "test/models/job_model_test.dart",
       "source_location": null,
       "id": "package_flutter_test_flutter_test_dart",
-      "community": 11,
+      "community": 8,
       "norm_label": "package:flutter_test/flutter_test.dart"
     },
     {
@@ -1800,7 +1800,7 @@
       "source_file": "test/constants/address_data_test.dart",
       "source_location": null,
       "id": "package_silver_worker_now_constants_address_data_dart",
-      "community": 11,
+      "community": 8,
       "norm_label": "package:silver_worker_now/constants/address_data.dart"
     },
     {
@@ -1809,7 +1809,7 @@
       "source_file": "test/models/user_model_test.dart",
       "source_location": null,
       "id": "test_models_user_model_test_dart",
-      "community": 11,
+      "community": 8,
       "norm_label": "user_model_test.dart"
     },
     {
@@ -1818,7 +1818,7 @@
       "source_file": "test/models/user_model_test.dart",
       "source_location": null,
       "id": "home_dudxo13_projects_silverworker_test_models_user_model_test_dart_main",
-      "community": 11,
+      "community": 8,
       "norm_label": "main"
     },
     {
@@ -1827,8 +1827,35 @@
       "source_file": "test/models/user_model_test.dart",
       "source_location": null,
       "id": "package_silver_worker_now_models_user_model_dart",
-      "community": 11,
+      "community": 8,
       "norm_label": "package:silver_worker_now/models/user_model.dart"
+    },
+    {
+      "label": "job_model_test.dart",
+      "file_type": "code",
+      "source_file": "test/models/job_model_test.dart",
+      "source_location": null,
+      "id": "test_models_job_model_test_dart",
+      "community": 8,
+      "norm_label": "job_model_test.dart"
+    },
+    {
+      "label": "main",
+      "file_type": "code",
+      "source_file": "test/models/job_model_test.dart",
+      "source_location": null,
+      "id": "home_dudxo13_projects_silverworker_test_models_job_model_test_dart_main",
+      "community": 8,
+      "norm_label": "main"
+    },
+    {
+      "label": "package:silver_worker_now/models/job_model.dart",
+      "file_type": "code",
+      "source_file": "test/models/job_model_test.dart",
+      "source_location": null,
+      "id": "package_silver_worker_now_models_job_model_dart",
+      "community": 8,
+      "norm_label": "package:silver_worker_now/models/job_model.dart"
     },
     {
       "label": "GeneratedPluginRegistrant.swift",
@@ -2364,7 +2391,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "tools/scripts/seed_jobs.py",
-      "source_location": "L272",
+      "source_location": "L273",
       "weight": 1.0,
       "_src": "tools_scripts_seed_jobs_py",
       "_tgt": "seed_jobs_upload_to_firestore",
@@ -2376,7 +2403,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "tools/scripts/seed_jobs.py",
-      "source_location": "L347",
+      "source_location": "L348",
       "weight": 1.0,
       "_src": "tools_scripts_seed_jobs_py",
       "_tgt": "seed_jobs_main",
@@ -2424,7 +2451,7 @@
       "relation": "calls",
       "confidence": "EXTRACTED",
       "source_file": "tools/scripts/seed_jobs.py",
-      "source_location": "L266",
+      "source_location": "L267",
       "weight": 1.0,
       "_src": "seed_jobs_generate_all",
       "_tgt": "seed_jobs_generate_one",
@@ -2436,7 +2463,7 @@
       "relation": "calls",
       "confidence": "EXTRACTED",
       "source_file": "tools/scripts/seed_jobs.py",
-      "source_location": "L355",
+      "source_location": "L356",
       "weight": 1.0,
       "_src": "seed_jobs_main",
       "_tgt": "seed_jobs_generate_all",
@@ -2448,7 +2475,7 @@
       "relation": "calls",
       "confidence": "EXTRACTED",
       "source_file": "tools/scripts/seed_jobs.py",
-      "source_location": "L364",
+      "source_location": "L365",
       "weight": 1.0,
       "_src": "seed_jobs_main",
       "_tgt": "seed_jobs_upload_to_firestore",
@@ -4665,6 +4692,18 @@
       "target": "test_models_user_model_test_dart"
     },
     {
+      "relation": "imports",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "test/models/job_model_test.dart",
+      "source_location": null,
+      "weight": 1.0,
+      "_src": "test_models_job_model_test_dart",
+      "_tgt": "package_flutter_test_flutter_test_dart",
+      "source": "package_flutter_test_flutter_test_dart",
+      "target": "test_models_job_model_test_dart"
+    },
+    {
       "relation": "defines",
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
@@ -4687,6 +4726,30 @@
       "_tgt": "package_silver_worker_now_models_user_model_dart",
       "source": "test_models_user_model_test_dart",
       "target": "package_silver_worker_now_models_user_model_dart"
+    },
+    {
+      "relation": "defines",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "test/models/job_model_test.dart",
+      "source_location": null,
+      "weight": 1.0,
+      "_src": "test_models_job_model_test_dart",
+      "_tgt": "home_dudxo13_projects_silverworker_test_models_job_model_test_dart_main",
+      "source": "test_models_job_model_test_dart",
+      "target": "home_dudxo13_projects_silverworker_test_models_job_model_test_dart_main"
+    },
+    {
+      "relation": "imports",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "test/models/job_model_test.dart",
+      "source_location": null,
+      "weight": 1.0,
+      "_src": "test_models_job_model_test_dart",
+      "_tgt": "package_silver_worker_now_models_job_model_dart",
+      "source": "test_models_job_model_test_dart",
+      "target": "package_silver_worker_now_models_job_model_dart"
     },
     {
       "relation": "contains",
