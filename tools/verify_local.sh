@@ -1,85 +1,122 @@
 #!/usr/bin/env bash
-# Must Go Out Now - Local CI Validation Script (WSL Native)
-# 검증 단계: pub get → dart format → flutter analyze → flutter test → pages check
+# SilverWorker CI — Local pre-push validation (mirrors GitHub Actions)
+#
+# Usage:
+#   tools/verify_local.sh           # Quick: lint + test + pages
+#   tools/verify_local.sh --ci      # Full:   above + Android debug build
+#
+# Mirrors .github/workflows/ci.yml (lint → test → build_android)
+# and .github/workflows/pages.yml (wiki site assembly)
 
 set -euo pipefail
 
-FLUTTER="/home/dudxo13/development/flutter/bin/flutter"
-DART="/home/dudxo13/development/flutter/bin/dart"
+FLUTTER="${FLUTTER:-/home/dudxo13/development/flutter/bin/flutter}"
+DART="${DART:-/home/dudxo13/development/flutter/bin/dart}"
 START=$(date +%s)
+CI_MODE=false
 
-# 색상 출력
 red()    { echo -e "\033[31m$*\033[0m"; }
 green()  { echo -e "\033[32m$*\033[0m"; }
 cyan()   { echo -e "\033[36m$*\033[0m"; }
 yellow() { echo -e "\033[33m$*\033[0m"; }
 
-# 작업 디렉토리: 인수로 받거나 현재 디렉토리
-WORK_DIR="${1:-$(pwd)}"
+while [[ $# -gt 0 ]]; do
+    case "$1" in
+        --ci) CI_MODE=true; shift ;;
+        *)    WORK_DIR="$1"; shift ;;
+    esac
+done
+
+WORK_DIR="${WORK_DIR:-$(pwd)}"
 cd "$WORK_DIR"
 
-cyan "\n[1/5] Running 'flutter pub get'..."
-"$FLUTTER" pub get --suppress-analytics > /dev/null 2>&1
-green "✅ Dependencies updated."
+STEPS_DONE=0
+TOTAL_STEPS=6
+$CI_MODE && TOTAL_STEPS=7
 
-cyan "\n[2/5] Verifying Code Formatting..."
-if ! "$DART" format --set-exit-if-changed . > /dev/null 2>&1; then
+step() {
+    STEPS_DONE=$((STEPS_DONE + 1))
+    cyan "\n[${STEPS_DONE}/${TOTAL_STEPS}] $1"
+}
+
+# ── 1. Dependencies ────────────────────────────────────────────
+
+step "Installing dependencies (flutter pub get)..."
+"$FLUTTER" pub get --suppress-analytics > /dev/null 2>&1
+green "✅ Dependencies resolved."
+
+# ── 2. Format ──────────────────────────────────────────────────
+
+step "Checking code formatting..."
+if ! "$DART" format --set-exit-if-changed lib/ test/ > /dev/null 2>&1; then
     red "❌ Formatting issues found!"
-    red "Run 'dart format .' to fix your code style."
+    red "   Run: dart format lib/ test/"
     exit 1
 fi
-green "✅ Formatting is perfect."
+green "✅ Formatting is clean."
 
-cyan "\n[3/5] Analyzing Project Source (Lint)..."
+# ── 3. Lint ────────────────────────────────────────────────────
+
+step "Running static analysis (flutter analyze)..."
 if ! "$FLUTTER" analyze --suppress-analytics 2>&1; then
     red "❌ Static analysis failed!"
     exit 1
 fi
-green "✅ Analysis passed with no issues."
+green "✅ Zero warnings."
 
-cyan "\n[4/5] Running Unit Tests..."
+# ── 4. Unit tests ──────────────────────────────────────────────
+
+step "Running unit tests (flutter test)..."
 if ! "$FLUTTER" test --suppress-analytics 2>&1; then
     red "❌ Some tests failed!"
     exit 1
 fi
 green "✅ All tests passed."
 
-cyan "\n[5/5] Verifying GitHub Pages Build..."
-PAGES_OK=true
+# ── 5. Pages build simulation ──────────────────────────────────
 
-# Check wiki.html exists (required by pages.yml)
-if [ ! -f "docs/wiki.html" ]; then
-    red "  ❌ docs/wiki.html is missing (required for GitHub Pages)"
-    PAGES_OK=false
+step "Simulating GitHub Pages build (pages.yml)..."
+PAGES_TMP=$(mktemp -d)
+trap "rm -rf $PAGES_TMP" EXIT
+
+cp -r docs/planning   "$PAGES_TMP/" 2>/dev/null || { red "  ❌ docs/planning/ missing"; exit 1; }
+cp -r docs/history    "$PAGES_TMP/" 2>/dev/null || { red "  ❌ docs/history/ missing"; exit 1; }
+cp -r docs/PR_Review  "$PAGES_TMP/" 2>/dev/null || { red "  ❌ docs/PR_Review/ missing"; exit 1; }
+cp docs/PROGRESS.md   "$PAGES_TMP/" 2>/dev/null || { red "  ❌ docs/PROGRESS.md missing"; exit 1; }
+cp docs/AGENTS.md     "$PAGES_TMP/" 2>/dev/null || { red "  ❌ docs/AGENTS.md missing"; exit 1; }
+cp docs/README.md     "$PAGES_TMP/" 2>/dev/null || { red "  ❌ docs/README.md missing"; exit 1; }
+cp AGENTS.md          "$PAGES_TMP/" 2>/dev/null || { red "  ❌ AGENTS.md missing"; exit 1; }
+cp REVIEWER_PROMPT.md "$PAGES_TMP/" 2>/dev/null || { red "  ❌ REVIEWER_PROMPT.md missing"; exit 1; }
+cp IMPLEMENTER_PROMPT.md "$PAGES_TMP/" 2>/dev/null || { red "  ❌ IMPLEMENTER_PROMPT.md missing"; exit 1; }
+cp docs/wiki.html     "$PAGES_TMP/index.html" 2>/dev/null || { red "  ❌ docs/wiki.html missing (index page)"; exit 1; }
+
+green "✅ Pages build simulation passed (all assets copyable)."
+
+# ── 6. Graphify uncommitted check ──────────────────────────────
+
+step "Checking for uncommitted graphify changes..."
+GRAPHFY_DIRTY=$(git status --short graphify-out/ 2>/dev/null || true)
+if [ -n "$GRAPHFY_DIRTY" ]; then
+    yellow "⚠️  graphify-out/ has uncommitted changes (auto-rebuilt on commit)."
+    yellow "   Consider: git add graphify-out/ && git commit -m 'chore(graphify): update'"
 fi
+green "✅ Graphify check done."
 
-# Check required paths referenced in pages.yml
-REQUIRED_PATHS=(
-    "docs/planning"
-    "docs/history"
-    "docs/PR_Review"
-    "docs/PROGRESS.md"
-    "docs/AGENTS.md"
-    "docs/README.md"
-    "AGENTS.md"
-    "REVIEWER_PROMPT.md"
-    "IMPLEMENTER_PROMPT.md"
-)
+# ── 7. (CI mode) Android debug build ───────────────────────────
 
-for path in "${REQUIRED_PATHS[@]}"; do
-    if [ ! -e "$path" ]; then
-        red "  ❌ $path is missing (referenced in pages.yml)"
-        PAGES_OK=false
+if $CI_MODE; then
+    step "Building Android APK (debug) — mirrors ci.yml build_android..."
+
+    if ! "$FLUTTER" build apk --debug --suppress-analytics 2>&1; then
+        red "❌ Android debug build failed!"
+        exit 1
     fi
-done
-
-if [ "$PAGES_OK" = false ]; then
-    red "❌ GitHub Pages build would fail!"
-    exit 1
+    green "✅ Android APK built successfully."
 fi
-green "✅ GitHub Pages assets present."
+
+# ── Done ───────────────────────────────────────────────────────
 
 END=$(date +%s)
 DURATION=$((END - START))
-green "\n🚀 LOCAL CI PASSED SUCCESSFULLY! (Total: ${DURATION}s)"
-echo "You can now safely push your changes."
+green "\n🚀 LOCAL CI PASSED (${STEPS_DONE}/${TOTAL_STEPS} steps, ${DURATION}s)"
+echo "   Safe to push."
