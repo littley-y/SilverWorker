@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SilverWorker Wiki</title>
+  <style>
+    :root {
+      --bg: #fafafa;
+      --fg: #1a1a1a;
+      --accent: #2c6e49;
+      --border: #e0e0e0;
+      --card-bg: #fff;
+    }
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg: #1a1a1a;
+        --fg: #e0e0e0;
+        --accent: #4caf50;
+        --border: #333;
+        --card-bg: #252525;
+      }
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background: var(--bg);
+      color: var(--fg);
+      line-height: 1.6;
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 2rem 1rem;
+    }
+    h1 { color: var(--accent); font-size: 2rem; border-bottom: 2px solid var(--border); padding-bottom: 0.5rem; margin-bottom: 1rem; }
+    h2 { color: var(--accent); font-size: 1.4rem; margin-top: 2rem; margin-bottom: 0.5rem; }
+    .status { display: inline-block; padding: 2px 8px; border-radius: 4px; font-size: 0.85rem; font-weight: 600; }
+    .status-done { background: #d4edda; color: #155724; }
+    .status-wip { background: #fff3cd; color: #856404; }
+    .status-pending { background: #e2e3e5; color: #383d41; }
+    table { width: 100%; border-collapse: collapse; margin: 1rem 0; }
+    th, td { padding: 8px 12px; border: 1px solid var(--border); text-align: left; }
+    th { background: var(--card-bg); }
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    .card { background: var(--card-bg); border: 1px solid var(--border); border-radius: 8px; padding: 1rem; margin: 1rem 0; }
+    .updated { color: #888; font-size: 0.85rem; margin-top: 2rem; }
+    ul { padding-left: 1.5rem; }
+    li { margin: 0.3rem 0; }
+  </style>
+</head>
+<body>
+  <h1>SilverWorker Wiki</h1>
+  <p>시니어 구인구직 앱 <strong>SilverWorkerNow</strong>의 기획 문서, 스펙, 개발 현황을 모아둔 위키입니다.</p>
+
+  <div class="card">
+    <h2>📊 개발 현황</h2>
+    <table>
+      <tr><th>Spec</th><th>Day</th><th>제목</th><th>상태</th></tr>
+      <tr><td>spec_01</td><td>1</td><td><a href="planning/spec_01_project_setup.md">프로젝트 초기 세팅</a></td><td><span class="status status-done">✅ 완료</span></td></tr>
+      <tr><td>spec_02</td><td>2</td><td><a href="planning/spec_02_auth.md">인증 및 프로필 등록</a></td><td><span class="status status-done">✅ 완료</span></td></tr>
+      <tr><td>spec_03</td><td>3</td><td><a href="planning/spec_03_job_data.md">공고 데이터 준비</a></td><td><span class="status status-done">✅ 완료</span></td></tr>
+      <tr><td>spec_04</td><td>4</td><td><a href="planning/spec_04_job_list_ui.md">공고 목록 UI</a></td><td><span class="status status-pending">⬜ 대기</span></td></tr>
+      <tr><td>spec_05</td><td>5</td><td><a href="planning/spec_05_job_detail.md">공고 상세</a></td><td><span class="status status-pending">⬜ 대기</span></td></tr>
+      <tr><td>spec_06</td><td>8</td><td><a href="planning/spec_06_application.md">지원 기능</a></td><td><span class="status status-pending">⬜ 대기</span></td></tr>
+      <tr><td>spec_07</td><td>9</td><td><a href="planning/spec_07_mypage.md">마이페이지</a></td><td><span class="status status-pending">⬜ 대기</span></td></tr>
+      <tr><td>spec_08</td><td>10</td><td><a href="planning/spec_08_navigation.md">네비게이션</a></td><td><span class="status status-pending">⬜ 대기</span></td></tr>
+      <tr><td>spec_09</td><td>4,11</td><td><a href="planning/spec_09_ui_system.md">시니어 UI 시스템</a></td><td><span class="status status-pending">⬜ 대기</span></td></tr>
+      <tr><td>spec_10</td><td>12</td><td><a href="planning/spec_10_test_criteria.md">테스트 기준</a></td><td><span class="status status-pending">⬜ 대기</span></td></tr>
+    </table>
+    <p>📄 <a href="PROGRESS.md">전체 진행 현황 →</a></p>
+  </div>
+
+  <div class="card">
+    <h2>📁 문서</h2>
+    <ul>
+      <li><strong>기획</strong>: <a href="planning/overview/01_business_plan.md">사업계획서</a> · <a href="planning/overview/02_tech_stack.md">기술 스택</a> · <a href="planning/overview/03_mvp_specs.md">MVP 명세</a> · <a href="planning/overview/04_db_schema.md">DB 스키마</a></li>
+      <li><strong>리뷰</strong>: <a href="PR_Review/">PR Review 로그</a></li>
+      <li><strong>히스토리</strong>: <a href="history/">세션 히스토리</a></li>
+      <li><strong>에이전트</strong>: <a href="AGENTS.md">AGENTS.md</a></li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <h2>🔗 링크</h2>
+    <ul>
+      <li>GitHub: <a href="https://github.com/littley-y/SilverWorker">littley-y/SilverWorker</a></li>
+      <li>Firebase Console: <a href="https://console.firebase.google.com/project/silverworker-d8d64">silverworker-d8d64</a></li>
+    </ul>
+  </div>
+
+  <p class="updated">마지막 업데이트: 2026-05-01</p>
+</body>
+</html>
