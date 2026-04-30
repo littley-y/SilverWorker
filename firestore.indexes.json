@@ -25,6 +25,16 @@
         {"fieldPath": "isActive", "order": "ASCENDING"},
         {"fieldPath": "deadline", "order": "ASCENDING"}
       ]
+    },
+    {
+      "collectionGroup": "jobs",
+      "queryScope": "COLLECTION",
+      "fields": [
+        {"fieldPath": "locationCode", "order": "ASCENDING"},
+        {"fieldPath": "jobCategory", "order": "ASCENDING"},
+        {"fieldPath": "isActive", "order": "ASCENDING"},
+        {"fieldPath": "deadline", "order": "ASCENDING"}
+      ]
     }
   ],
   "fieldOverrides": []

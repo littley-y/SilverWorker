@@ -36,9 +36,10 @@ class JobRepository {
     query = query.orderBy('deadline').limit(50);
 
     final snapshot = await query.get();
-    return snapshot.docs
-        .map((doc) => JobModel.fromJson(doc.data()! as Map<String, dynamic>))
-        .toList();
+    return snapshot.docs.map((doc) {
+      final data = doc.data()! as Map<String, dynamic>;
+      return JobModel.fromJson({...data, 'jobId': doc.id});
+    }).toList();
   }
 
   /// Fetches a single job posting by document ID.
@@ -48,6 +49,6 @@ class JobRepository {
         .doc(jobId)
         .get();
     if (!doc.exists) return null;
-    return JobModel.fromJson(doc.data()!);
+    return JobModel.fromJson({...doc.data()!, 'jobId': doc.id});
   }
 }

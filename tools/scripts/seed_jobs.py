@@ -200,7 +200,7 @@ def generate_one(index: int, location_code: str, job_category: str, intensity: s
     template = CATEGORY_TEMPLATES[job_category]
     title_prefix = random.choice(template["title_prefixes"])
     company_suffixes = ["관리사무소", "관리단", "주식회사", "협동조합", "관리센터", "서비스센터"]
-    company = f"{title_prefix.replace(' ','_')}_{index}_{random.choice(company_suffixes)}"
+    company = f"{title_prefix} {index}호 {random.choice(company_suffixes)}"
 
     address = (
         random.choice(COMPANY_ADDRESSES.get(location_code, ["서울 OO구 OO로 123"]))
@@ -244,7 +244,8 @@ def generate_one(index: int, location_code: str, job_category: str, intensity: s
     }
 
 
-def generate_all() -> list[dict]:
+def generate_all(seed: int = 42) -> list[dict]:
+    random.seed(seed)
     jobs: list[dict] = []
     idx = 1
 
