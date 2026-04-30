@@ -16,7 +16,7 @@
 |---|---|---|---|---|
 | [spec_01](planning/spec_01_project_setup.md) | 프로젝트 초기 세팅 | ✅ 완료 | Day 1 | PR #1 수정 완(2차 리뷰 승인) |
 | [spec_02](planning/spec_02_auth.md) | 인증 및 프로필 등록 | ✅ 완료 | Day 2 | PR #2 머지 완 (Claude/Gemini 승인) |
-| [spec_03](planning/spec_03_job_data.md) | 공고 데이터 준비 | ✅ 완료 | Day 3 | 경로 A: Mock 30개 Firestore 등록 |
+| [spec_03](planning/spec_03_job_data.md) | 공고 데이터 준비 | 🔄 리뷰 대기 | Day 3 | 경로 A: Mock 30개 Firestore 등록 |
 | [spec_04](planning/spec_04_job_list_ui.md) | 공고 목록 UI | ⬜ 대기 | Day 4 | |
 | [spec_05](planning/spec_05_job_detail.md) | 공고 상세 + 세이프티 배지 | ⬜ 대기 | Day 5 | |
 | [spec_06](planning/spec_06_application.md) | 지원 기능 | ⬜ 대기 | Day 8 | |
