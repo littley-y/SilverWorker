@@ -28,11 +28,6 @@
             "type": "command",
             "command": "bash tools/scripts/omo_pr_hook.sh",
             "timeout": 120000
-          },
-          {
-            "type": "command",
-            "command": "bash tools/scripts/notify_hook.sh opencode",
-            "timeout": 15000
           }
         ]
       }
@@ -47,7 +42,6 @@
           }
         ]
       }
-    ]
     ]
   }
 }

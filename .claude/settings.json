@@ -21,17 +21,6 @@
           }
         ]
       }
-    ],
-    "Stop": [
-      {
-        "hooks": [
-          {
-            "type": "command",
-            "command": "bash tools/scripts/notify_hook.sh claude",
-            "timeout": 15000
-          }
-        ]
-      }
     ]
   }
 }
