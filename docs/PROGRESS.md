@@ -6,7 +6,7 @@
 
 ---
 
-## 현재 단계: Day 5 진행 중
+## 현재 단계: Day 5 완료 → Day 6 시작 전
 
 ---
 
@@ -18,7 +18,7 @@
 | [spec_02](planning/spec_02_auth.md) | 인증 및 프로필 등록 | ✅ 완료 | Day 2 | PR #2 머지 완 (Claude/Gemini 승인) |
 | [spec_03](planning/spec_03_job_data.md) | 공고 데이터 준비 | ✅ 완료 | Day 3 | 경로 A: Mock 30개 Firestore 등록 (PR #3 머지 완 - Claude/Gemini 승인) |
 | [spec_04](planning/spec_04_job_list_ui.md) | 공고 목록 UI | ✅ 완료 | Day 4 | PR #4 — Claude/Gemini 모두 승인 (Claude round 2 fc59d48: B-1·M-1·M-2 해결). 머지 가능. |
-| [spec_05](planning/spec_05_job_detail.md) | 공고 상세 + 세이프티 배지 | 🔄 진행 중 | Day 5 | feature/day5-job-detail 브랜치에서 구현 중 |
+| [spec_05](planning/spec_05_job_detail.md) | 공고 상세 + 세이프티 배지 | ✅ 완료 | Day 5 | PR #5 머지 완 (Claude/Gemini 승인) |
 | [spec_06](planning/spec_06_application.md) | 지원 기능 | ⬜ 대기 | Day 8 | |
 | [spec_07](planning/spec_07_mypage.md) | 마이페이지 | ⬜ 대기 | Day 9 | |
 | [spec_08](planning/spec_08_navigation.md) | 네비게이션 | ⬜ 대기 | Day 10 | |
@@ -55,6 +55,7 @@
 - **2026-04-30** — Day 3 (spec_03) 경로 A 완료: 고용24 API 키 미발급으로 Mock 데이터 30개 Firestore `/jobs` 컬렉션에 등록 (`tools/scripts/seed_jobs.py` + Firebase Admin SDK). `JobRepository.fetchJobs()` Firestore 연동 구현. Firestore 복합 인덱스 4종 배포. `firestore.rules`에 serviceAccount.json, seed_jobs.json gitignore 추가. `flutter analyze` 0경고, `flutter test` 8/8 통과. 향후 API 키 발급 시 경로 B(Cloud Functions 프록시) 추가 가능.
 - **2026-05-01** — Day 3 (spec_03) PR #3 머지 완료: Claude/Gemini 1차 리뷰 Blocker 2건(B-1 jobId 유실, M-1 복합 인덱스 누락) 수정 반영. `test/models/job_model_test.dart` 회귀 테스트 3건 추가. Claude/Gemini 2차 리뷰 승인 후 master 머지. `flutter test` 11/11 통과.
 - **2026-05-05** — Day 4 (spec_04) PR #4 머지 완료: 공고 목록 UI (JobCard, FilterBar, JobListScreen). AppTextStyles/AppColors spec_09 정렬. `main.dart` GoRouter 버그 수정. Claude 1차 리뷰 Blocker 1건(B-1 시급/일급 표시 버그), Major 2건(M-1 폰트 하한, M-2 copyWith null) 수정 반영. Claude/Gemini 2차 리뷰 승인 후 master 머지. `flutter test` 33/33 통과 (신규 위젯 테스트 22건).
+- **2026-05-05** — Day 5 (spec_05) PR #5 머지 완료: 공고 상세 화면 (SafetyCurationSection, JobDetailScreen). physicalIntensity 3단계 컬러 등급 + physicalBadges 6종 배지. 하단 고정 지원하기 버튼. `JobModel.formattedSalary` getter로 중복 제거. Claude 1차 리뷰 Major 1건(M-1 버튼 무반응), Minor 4건(m-1~m-4) 수정 반영. Claude/Gemini 2차 리뷰 승인 후 master 머지. `flutter test` 44/44 통과.
 
 ---
 
