@@ -171,7 +171,7 @@ class _ProfileSetupScreenState extends ConsumerState<ProfileSetupScreen> {
                     color: Colors.grey.shade400,
                   ),
                   filled: true,
-                  fillColor: AppColors.surface,
+                  fillColor: AppColors.background,
                   counterText: '',
                   border: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(12),
@@ -199,7 +199,7 @@ class _ProfileSetupScreenState extends ConsumerState<ProfileSetupScreen> {
               InputDecorator(
                 decoration: InputDecoration(
                   filled: true,
-                  fillColor: AppColors.surface,
+                  fillColor: AppColors.background,
                   border: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(12),
                     borderSide: BorderSide(color: Colors.grey.shade300),
@@ -250,7 +250,7 @@ class _ProfileSetupScreenState extends ConsumerState<ProfileSetupScreen> {
               InputDecorator(
                 decoration: InputDecoration(
                   filled: true,
-                  fillColor: AppColors.surface,
+                  fillColor: AppColors.background,
                   border: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(12),
                     borderSide: BorderSide(color: Colors.grey.shade300),
@@ -309,7 +309,7 @@ class _ProfileSetupScreenState extends ConsumerState<ProfileSetupScreen> {
                     color: Colors.grey.shade400,
                   ),
                   filled: true,
-                  fillColor: AppColors.surface,
+                  fillColor: AppColors.background,
                   border: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(12),
                     borderSide: BorderSide(color: Colors.grey.shade300),

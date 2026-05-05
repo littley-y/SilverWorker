@@ -1,13 +1,18 @@
 import 'package:flutter/material.dart';
 
-/// Placeholder job detail screen.
+/// Job detail screen — placeholder for Day 5 (spec_05).
+///
+/// Receives jobId from route parameter. Full implementation in Day 5.
 class JobDetailScreen extends StatelessWidget {
-  const JobDetailScreen({super.key});
+  final String jobId;
+
+  const JobDetailScreen({super.key, required this.jobId});
 
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
-      body: Center(child: Text('Job Detail Screen')),
+    return Scaffold(
+      appBar: AppBar(title: const Text('공고 상세')),
+      body: Center(child: Text('Job Detail: $jobId')),
     );
   }
 }
