@@ -2,6 +2,14 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import '../models/application_model.dart';
 
+sealed class ApplicationException implements Exception {}
+
+class AlreadyAppliedException extends ApplicationException {}
+
+class JobClosedException extends ApplicationException {}
+
+class JobNotFoundException extends ApplicationException {}
+
 class ApplicationRepository {
   final FirebaseFirestore _firestore;
 
@@ -26,47 +34,37 @@ class ApplicationRepository {
     required String selfIntroduction,
   }) async {
     final uid = FirebaseAuth.instance.currentUser!.uid;
-
-    final existing = await _firestore
+    final ref = _firestore
         .collection('users')
         .doc(uid)
         .collection('applications')
-        .where('jobId', isEqualTo: jobId)
-        .limit(1)
-        .get();
+        .doc(jobId);
 
-    if (existing.docs.isNotEmpty) {
-      throw Exception('already_applied');
-    }
+    await _firestore.runTransaction((tx) async {
+      final snap = await tx.get(ref);
+      if (snap.exists) throw AlreadyAppliedException();
 
-    final jobDoc = await _firestore.collection('jobs').doc(jobId).get();
-    if (!jobDoc.exists) {
-      throw Exception('job_not_found');
-    }
+      final jobDoc = await tx.get(_firestore.collection('jobs').doc(jobId));
+      if (!jobDoc.exists) throw JobNotFoundException();
 
-    final jobData = jobDoc.data()!;
-    final isActive = jobData['isActive'] as bool? ?? true;
-    if (!isActive) {
-      throw Exception('job_closed');
-    }
+      final jobData = jobDoc.data()!;
+      final isActive = jobData['isActive'] as bool? ?? true;
+      if (!isActive) throw JobClosedException();
 
-    final deadline = jobData['deadline'] as Timestamp?;
-    if (deadline != null && deadline.toDate().isBefore(DateTime.now())) {
-      throw Exception('job_closed');
-    }
+      final deadline = jobData['deadline'] as Timestamp?;
+      if (deadline != null && deadline.toDate().isBefore(DateTime.now())) {
+        throw JobClosedException();
+      }
 
-    await _firestore
-        .collection('users')
-        .doc(uid)
-        .collection('applications')
-        .add({
-      'jobId': jobId,
-      'jobTitle': jobData['title'] as String? ?? '',
-      'companyName': jobData['companyName'] as String? ?? '',
-      'selfIntroduction': selfIntroduction,
-      'status': 'submitted',
-      'submittedAt': FieldValue.serverTimestamp(),
-      'updatedAt': FieldValue.serverTimestamp(),
+      tx.set(ref, {
+        'jobId': jobId,
+        'jobTitle': jobData['title'] as String? ?? '',
+        'companyName': jobData['companyName'] as String? ?? '',
+        'selfIntroduction': selfIntroduction,
+        'status': 'submitted',
+        'submittedAt': FieldValue.serverTimestamp(),
+        'updatedAt': FieldValue.serverTimestamp(),
+      });
     });
   }
 }

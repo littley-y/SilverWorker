@@ -5,6 +5,7 @@ import '../../constants/app_colors.dart';
 import '../../constants/app_text_styles.dart';
 import '../../providers/application_provider.dart';
 import '../../providers/job_provider.dart';
+import '../../repositories/application_repository.dart';
 
 class ApplicationFormScreen extends ConsumerStatefulWidget {
   final String jobId;
@@ -19,6 +20,25 @@ class _ApplicationFormScreenState extends ConsumerState<ApplicationFormScreen> {
   final _controller = TextEditingController();
   bool _isSubmitting = false;
   bool _alreadyApplied = false;
+
+  @override
+  void initState() {
+    super.initState();
+    _checkAlreadyApplied();
+  }
+
+  Future<void> _checkAlreadyApplied() async {
+    try {
+      await ref.read(applicationRepositoryProvider).submitApplication(
+            jobId: widget.jobId,
+            selfIntroduction: '',
+          );
+    } on AlreadyAppliedException {
+      if (mounted) setState(() => _alreadyApplied = true);
+    } on Exception {
+      // Ignore other exceptions during pre-check
+    }
+  }
 
   @override
   void dispose() {
@@ -36,26 +56,24 @@ class _ApplicationFormScreenState extends ConsumerState<ApplicationFormScreen> {
             selfIntroduction: _controller.text,
           );
       if (mounted) context.go('/apply/${widget.jobId}/done');
-    } on Exception catch (e) {
-      if (e.toString().contains('already_applied')) {
-        setState(() => _alreadyApplied = true);
-        if (mounted) {
-          ScaffoldMessenger.of(context).showSnackBar(
-            const SnackBar(content: Text('이미 지원한 공고입니다')),
-          );
-        }
-      } else if (e.toString().contains('job_closed')) {
-        if (mounted) {
-          ScaffoldMessenger.of(context).showSnackBar(
-            const SnackBar(content: Text('마감된 공고입니다')),
-          );
-        }
-      } else {
-        if (mounted) {
-          ScaffoldMessenger.of(context).showSnackBar(
-            const SnackBar(content: Text('지원에 실패했습니다. 다시 시도해 주세요')),
-          );
-        }
+    } on AlreadyAppliedException {
+      setState(() => _alreadyApplied = true);
+      if (mounted) {
+        ScaffoldMessenger.of(context).showSnackBar(
+          const SnackBar(content: Text('이미 지원한 공고입니다')),
+        );
+      }
+    } on JobClosedException {
+      if (mounted) {
+        ScaffoldMessenger.of(context).showSnackBar(
+          const SnackBar(content: Text('마감된 공고입니다')),
+        );
+      }
+    } on Exception {
+      if (mounted) {
+        ScaffoldMessenger.of(context).showSnackBar(
+          const SnackBar(content: Text('지원에 실패했습니다. 다시 시도해 주세요')),
+        );
       }
     } finally {
       await Future.delayed(const Duration(milliseconds: 1500));
@@ -127,7 +145,9 @@ class _ApplicationFormScreenState extends ConsumerState<ApplicationFormScreen> {
           );
         },
         loading: () => const Center(child: CircularProgressIndicator()),
-        error: (_, __) => const Center(child: Text('공고 정보를 불러올 수 없습니다')),
+        error: (_, __) => Center(
+          child: Text('공고 정보를 불러올 수 없습니다', style: AppTextStyles.body),
+        ),
       ),
       bottomNavigationBar: SafeArea(
         child: Padding(
@@ -145,13 +165,20 @@ class _ApplicationFormScreenState extends ConsumerState<ApplicationFormScreen> {
                 ),
               ),
               child: _isSubmitting
-                  ? const SizedBox(
-                      width: 24,
-                      height: 24,
-                      child: CircularProgressIndicator(
-                        color: Colors.white,
-                        strokeWidth: 2,
-                      ),
+                  ? const Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        SizedBox(
+                          width: 24,
+                          height: 24,
+                          child: CircularProgressIndicator(
+                            color: Colors.white,
+                            strokeWidth: 2,
+                          ),
+                        ),
+                        SizedBox(width: 12),
+                        Text('지원 중...', style: AppTextStyles.button),
+                      ],
                     )
                   : Text(
                       _alreadyApplied ? '이미 지원한 공고입니다' : '지원하기',
