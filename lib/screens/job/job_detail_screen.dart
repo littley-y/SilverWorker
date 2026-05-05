@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:go_router/go_router.dart';
 import '../../constants/app_colors.dart';
 import '../../constants/app_text_styles.dart';
 import '../../models/job_model.dart';
@@ -107,9 +108,7 @@ class _JobDetailBody extends StatelessWidget {
                 height: 56,
                 child: ElevatedButton(
                   onPressed: () {
-                    ScaffoldMessenger.of(context).showSnackBar(
-                      const SnackBar(content: Text('지원 기능은 곧 제공될 예정입니다')),
-                    );
+                    context.push('/apply/${job.jobId}');
                   },
                   style: ElevatedButton.styleFrom(
                     backgroundColor: AppColors.primary,
