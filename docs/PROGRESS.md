@@ -6,7 +6,7 @@
 
 ---
 
-## 현재 단계: Day 5 완료 → Day 6 시작 전
+## 현재 단계: Day 8 진행 중
 
 ---
 
@@ -19,7 +19,7 @@
 | [spec_03](planning/spec_03_job_data.md) | 공고 데이터 준비 | ✅ 완료 | Day 3 | 경로 A: Mock 30개 Firestore 등록 (PR #3 머지 완 - Claude/Gemini 승인) |
 | [spec_04](planning/spec_04_job_list_ui.md) | 공고 목록 UI | ✅ 완료 | Day 4 | PR #4 — Claude/Gemini 모두 승인 (Claude round 2 fc59d48: B-1·M-1·M-2 해결). 머지 가능. |
 | [spec_05](planning/spec_05_job_detail.md) | 공고 상세 + 세이프티 배지 | ✅ 완료 | Day 5 | PR #5 머지 완 (Claude/Gemini 승인) |
-| [spec_06](planning/spec_06_application.md) | 지원 기능 | ⬜ 대기 | Day 8 | |
+| [spec_06](planning/spec_06_application.md) | 지원 기능 | 🔄 진행 중 | Day 8 | feature/day8-application 브랜치에서 구현 중 |
 | [spec_07](planning/spec_07_mypage.md) | 마이페이지 | ⬜ 대기 | Day 9 | |
 | [spec_08](planning/spec_08_navigation.md) | 네비게이션 | ⬜ 대기 | Day 10 | |
 | [spec_09](planning/spec_09_ui_system.md) | 시니어 UI 시스템 | 🔄 진행 중 | Day 4, 11 | AppTextStyles/AppColors spec_09 정렬, MainScreen에 GoRouter 연결 |

@@ -9,6 +9,8 @@ import '../screens/auth/otp_input_screen.dart';
 import '../screens/auth/phone_input_screen.dart';
 import '../screens/auth/profile_register_screen.dart';
 import '../screens/job/job_detail_screen.dart';
+import '../screens/application/application_form_screen.dart';
+import '../screens/application/application_result_screen.dart';
 import '../screens/main/main_screen.dart';
 
 /// ---------------------------------------------------------------------------
@@ -20,6 +22,8 @@ abstract final class AppRoutes {
   static const String profile = '/auth/profile';
   static const String main = '/';
   static const String jobDetail = '/job/:jobId';
+  static const String apply = '/apply/:jobId';
+  static const String applyDone = '/apply/:jobId/done';
 }
 
 /// ---------------------------------------------------------------------------
@@ -111,6 +115,20 @@ final routerProvider = Provider<GoRouter>((ref) {
         builder: (BuildContext context, GoRouterState state) {
           final jobId = state.pathParameters['jobId'] ?? '';
           return JobDetailScreen(jobId: jobId);
+        },
+      ),
+      GoRoute(
+        path: AppRoutes.apply,
+        builder: (BuildContext context, GoRouterState state) {
+          final jobId = state.pathParameters['jobId'] ?? '';
+          return ApplicationFormScreen(jobId: jobId);
+        },
+      ),
+      GoRoute(
+        path: AppRoutes.applyDone,
+        builder: (BuildContext context, GoRouterState state) {
+          final jobId = state.pathParameters['jobId'] ?? '';
+          return ApplicationResultScreen(jobId: jobId);
         },
       ),
     ],
