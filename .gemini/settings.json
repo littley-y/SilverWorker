@@ -11,6 +11,17 @@
         ]
       }
     ],
+    "AfterTool": [
+      {
+        "matcher": "run_shell_command",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "bash tools/scripts/notify_hook.sh gemini"
+          }
+        ]
+      }
+    ],
     "SessionStart": [
       {
         "hooks": [

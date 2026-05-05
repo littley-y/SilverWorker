@@ -58,3 +58,4 @@ docs/study/
 
 # Windows Zone.Identifier ADS files
 *:Zone.Identifier
+__pycache__/
