@@ -135,4 +135,86 @@ void main() {
 
     expect(find.text('공고를 찾을 수 없습니다'), findsOneWidget);
   });
+
+  testWidgets('JobDetailScreen shows hourly salary correctly', (tester) async {
+    final hourlyJob = JobModel(
+      jobId: 'TEST_HOURLY',
+      source: 'mock',
+      title: '청소 도우미',
+      companyName: 'OO빌딩',
+      companyAddress: '서울 중구',
+      locationCode: '11140',
+      jobCategory: 'cleaning',
+      jobCategoryDetail: '',
+      employmentType: 'daily',
+      salaryType: 'hourly',
+      salaryAmount: 12000,
+      workHours: '09:00 ~ 17:00',
+      workDays: '월~금',
+      workPeriod: '3개월',
+      requirements: '',
+      benefits: '',
+      description: '',
+      physicalIntensity: 'light',
+      physicalBadges: [],
+      isActive: true,
+      rawData: {},
+    );
+
+    await tester.pumpWidget(
+      ProviderScope(
+        overrides: [
+          jobDetailProvider('TEST_HOURLY').overrideWith((ref) => Future.value(hourlyJob)),
+        ],
+        child: const MaterialApp(
+          home: JobDetailScreen(jobId: 'TEST_HOURLY'),
+        ),
+      ),
+    );
+
+    await tester.pumpAndSettle();
+
+    expect(find.text('시급 12,000원'), findsAtLeastNWidgets(1));
+  });
+
+  testWidgets('JobDetailScreen shows daily salary correctly', (tester) async {
+    final dailyJob = JobModel(
+      jobId: 'TEST_DAILY',
+      source: 'mock',
+      title: '건설 현장',
+      companyName: 'OO건설',
+      companyAddress: '서울 용산구',
+      locationCode: '11170',
+      jobCategory: 'simple_labor',
+      jobCategoryDetail: '',
+      employmentType: 'daily',
+      salaryType: 'daily',
+      salaryAmount: 80000,
+      workHours: '08:00 ~ 17:00',
+      workDays: '월~토',
+      workPeriod: '1개월',
+      requirements: '',
+      benefits: '',
+      description: '',
+      physicalIntensity: 'heavy',
+      physicalBadges: [],
+      isActive: true,
+      rawData: {},
+    );
+
+    await tester.pumpWidget(
+      ProviderScope(
+        overrides: [
+          jobDetailProvider('TEST_DAILY').overrideWith((ref) => Future.value(dailyJob)),
+        ],
+        child: const MaterialApp(
+          home: JobDetailScreen(jobId: 'TEST_DAILY'),
+        ),
+      ),
+    );
+
+    await tester.pumpAndSettle();
+
+    expect(find.text('일급 80,000원'), findsAtLeastNWidgets(1));
+  });
 }

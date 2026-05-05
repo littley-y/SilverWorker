@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:intl/intl.dart';
 import '../../constants/app_colors.dart';
 import '../../constants/app_text_styles.dart';
 import '../../models/job_model.dart';
@@ -25,12 +24,32 @@ class JobDetailScreen extends ConsumerWidget {
       body: jobAsync.when(
         data: (job) {
           if (job == null) {
-            return const Center(child: Text('공고를 찾을 수 없습니다'));
+            return Center(
+              child: Text('공고를 찾을 수 없습니다', style: AppTextStyles.body),
+            );
           }
           return _JobDetailBody(job: job);
         },
         loading: () => const Center(child: CircularProgressIndicator()),
-        error: (_, __) => const Center(child: Text('공고를 불러오는 중 오류가 발생했습니다')),
+        error: (_, __) => Center(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              const Icon(Icons.error_outline, size: 48, color: AppColors.textSecondary),
+              const SizedBox(height: 16),
+              Text('공고를 불러오는 중 오류가 발생했습니다', style: AppTextStyles.body),
+              const SizedBox(height: 24),
+              ElevatedButton(
+                onPressed: () => ref.invalidate(jobDetailProvider(jobId)),
+                style: ElevatedButton.styleFrom(
+                  backgroundColor: AppColors.primary,
+                  foregroundColor: Colors.white,
+                ),
+                child: const Text('다시 시도', style: AppTextStyles.button),
+              ),
+            ],
+          ),
+        ),
       ),
     );
   }
@@ -87,7 +106,11 @@ class _JobDetailBody extends StatelessWidget {
               child: SizedBox(
                 height: 56,
                 child: ElevatedButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    ScaffoldMessenger.of(context).showSnackBar(
+                      const SnackBar(content: Text('지원 기능은 곧 제공될 예정입니다')),
+                    );
+                  },
                   style: ElevatedButton.styleFrom(
                     backgroundColor: AppColors.primary,
                     foregroundColor: Colors.white,
@@ -121,26 +144,11 @@ class _HeaderSection extends StatelessWidget {
         Text(job.companyName, style: AppTextStyles.body.copyWith(color: AppColors.textSecondary)),
         const SizedBox(height: 12),
         Text(
-          _formatSalary(job),
+          job.formattedSalary,
           style: const TextStyle(fontSize: 22, fontWeight: FontWeight.bold, color: AppColors.primary),
         ),
       ],
     );
-  }
-
-  static String _formatSalary(JobModel job) {
-    final formatter = NumberFormat('#,###');
-    switch (job.salaryType) {
-      case 'hourly':
-        return '시급 ${formatter.format(job.salaryAmount)}원';
-      case 'daily':
-        return '일급 ${formatter.format(job.salaryAmount)}원';
-      case 'monthly':
-        final manwon = job.salaryAmount ~/ 10000;
-        return '월 ${manwon}만원';
-      default:
-        return '${formatter.format(job.salaryAmount)}원';
-    }
   }
 }
 
@@ -165,7 +173,7 @@ class _WorkConditionSection extends StatelessWidget {
         Text('근무 조건', style: AppTextStyles.sectionTitle),
         const SizedBox(height: 12),
         _ConditionRow(label: '근무지', value: job.companyAddress),
-        _ConditionRow(label: '급여', value: _HeaderSection._formatSalary(job)),
+        _ConditionRow(label: '급여', value: job.formattedSalary),
         _ConditionRow(label: '근무 시간', value: job.workHours),
         _ConditionRow(label: '근무 요일', value: job.workDays),
         _ConditionRow(label: '근무 기간', value: job.workPeriod),
@@ -212,7 +220,7 @@ class _SectionBlock extends StatelessWidget {
       children: [
         Text(title, style: AppTextStyles.sectionTitle),
         const SizedBox(height: 8),
-        Text(content.isNotEmpty ? content : '정보 없음', style: AppTextStyles.body),
+        Text(content.trim().isNotEmpty ? content : '정보 없음', style: AppTextStyles.body),
       ],
     );
   }
