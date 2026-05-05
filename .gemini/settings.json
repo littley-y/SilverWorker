@@ -11,13 +11,12 @@
         ]
       }
     ],
-    "AfterTool": [
+    "Stop": [
       {
-        "matcher": "run_shell_command",
         "hooks": [
           {
             "type": "command",
-            "command": "bash tools/scripts/notify_hook.sh gemini"
+            "command": "bash tools/scripts/notify_review_hook.sh gemini"
           }
         ]
       }

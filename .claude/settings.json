@@ -22,13 +22,12 @@
         ]
       }
     ],
-    "PostToolUse": [
+    "Stop": [
       {
-        "matcher": "Bash",
         "hooks": [
           {
             "type": "command",
-            "command": "bash tools/scripts/notify_hook.sh claude",
+            "command": "bash tools/scripts/notify_review_hook.sh claude",
             "timeout": 15000
           }
         ]

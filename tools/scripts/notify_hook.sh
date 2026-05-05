@@ -2,6 +2,7 @@
 set -euo pipefail
 
 AGENT_KEY="${1:-system}"
+FILE_PATH="${2:-}"
 MESSAGE=""
 
 case "$AGENT_KEY" in
@@ -9,10 +10,18 @@ case "$AGENT_KEY" in
     MESSAGE="OpenCode 구현 작업이 완료되었습니다. PR 및 코드 확인이 필요합니다."
     ;;
   claude)
-    MESSAGE="Claude 리뷰가 완료되었습니다. 피드백을 확인하세요."
+    if [[ "$FILE_PATH" == *"docs/PR_Review/"* || "$FILE_PATH" == *"review"* ]]; then
+      MESSAGE="Claude 리뷰가 완료되었습니다. 피드백을 확인하세요."
+    else
+      exit 0
+    fi
     ;;
   gemini)
-    MESSAGE="Gemini 리뷰가 완료되었습니다. 피드백을 확인하세요."
+    if [[ "$FILE_PATH" == *"docs/PR_Review/"* || "$FILE_PATH" == *"review"* ]]; then
+      MESSAGE="Gemini 리뷰가 완료되었습니다. 피드백을 확인하세요."
+    else
+      exit 0
+    fi
     ;;
   *)
     MESSAGE="시스템 알림이 발생했습니다."
