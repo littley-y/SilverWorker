@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
 import '../constants/app_colors.dart';
 import '../constants/app_text_styles.dart';
 import '../models/job_model.dart';
@@ -85,16 +86,23 @@ class JobCard extends StatelessWidget {
     );
   }
 
-  /// Formats salary as "월 200만원" style display.
+  /// Formats salary with type-appropriate display:
+  /// - hourly: "시급 12,000원"
+  /// - daily:  "일급 80,000원"
+  /// - monthly: "월 200만원" (만원 단위 convention)
   static String _formatSalary(JobModel job) {
-    final amount = (job.salaryAmount / 10000).toStringAsFixed(0);
-    final prefix = switch (job.salaryType) {
-      'hourly' => '시',
-      'daily' => '일',
-      'monthly' => '월',
-      _ => '',
-    };
-    return '$prefix ${amount}만원';
+    final formatter = NumberFormat('#,###');
+    switch (job.salaryType) {
+      case 'hourly':
+        return '시급 ${formatter.format(job.salaryAmount)}원';
+      case 'daily':
+        return '일급 ${formatter.format(job.salaryAmount)}원';
+      case 'monthly':
+        final manwon = job.salaryAmount ~/ 10000;
+        return '월 ${manwon}만원';
+      default:
+        return '${formatter.format(job.salaryAmount)}원';
+    }
   }
 
   /// Formats deadline as "D-n" or "D-day" or "마감" if passed.
@@ -125,14 +133,14 @@ class _EmploymentTypeChip extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 4),
+      padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 6),
       decoration: BoxDecoration(
         color: AppColors.background,
         borderRadius: BorderRadius.circular(8),
       ),
       child: Text(
         _label,
-        style: const TextStyle(fontSize: 12, color: AppColors.textSecondary),
+        style: AppTextStyles.caption,
       ),
     );
   }
@@ -170,9 +178,9 @@ class _IntensityBadge extends StatelessWidget {
     return Row(
       mainAxisSize: MainAxisSize.min,
       children: [
-        Icon(_icon, size: 14, color: _color),
+        Icon(_icon, size: 16, color: _color),
         const SizedBox(width: 2),
-        Text(_label, style: TextStyle(fontSize: 12, color: _color)),
+        Text(_label, style: TextStyle(fontSize: 14, color: _color)),
       ],
     );
   }

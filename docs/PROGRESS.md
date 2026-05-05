@@ -1,12 +1,12 @@
 # PROGRESS — SilverWorkerNow 개발 현황
 
-> 최종 업데이트: 2026-05-05
+> 최종 업데이트: 2026-05-01
 > 전체 목표: 2주 데모 (Day 1 ~ Day 14)
 > 참조 스펙: `docs/planning/spec_01~10.md`
 
 ---
 
-## 현재 단계: Day 4 진행 중
+## 현재 단계: Day 3 완료 → Day 4 시작 전
 
 ---
 
@@ -17,7 +17,7 @@
 | [spec_01](planning/spec_01_project_setup.md) | 프로젝트 초기 세팅 | ✅ 완료 | Day 1 | PR #1 수정 완(2차 리뷰 승인) |
 | [spec_02](planning/spec_02_auth.md) | 인증 및 프로필 등록 | ✅ 완료 | Day 2 | PR #2 머지 완 (Claude/Gemini 승인) |
 | [spec_03](planning/spec_03_job_data.md) | 공고 데이터 준비 | ✅ 완료 | Day 3 | 경로 A: Mock 30개 Firestore 등록 (PR #3 머지 완 - Claude/Gemini 승인) |
-| [spec_04](planning/spec_04_job_list_ui.md) | 공고 목록 UI | 🔄 Review Pending | Day 4 | PR #4 (feature/day4-job-list-ui), Claude/Gemini 리뷰 대기 |
+| [spec_04](planning/spec_04_job_list_ui.md) | 공고 목록 UI | 🔄 Review Fixes | Day 4 | PR #4 수정 중 — Claude Blocker/Major 3건, Minor 3건 반영 (Gemini: Approved) |
 | [spec_05](planning/spec_05_job_detail.md) | 공고 상세 + 세이프티 배지 | ⬜ 대기 | Day 5 | |
 | [spec_06](planning/spec_06_application.md) | 지원 기능 | ⬜ 대기 | Day 8 | |
 | [spec_07](planning/spec_07_mypage.md) | 마이페이지 | ⬜ 대기 | Day 9 | |

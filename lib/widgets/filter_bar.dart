@@ -46,15 +46,7 @@ class FilterBar extends StatelessWidget {
           options: _locationOptions,
           selectedCode: currentFilter.locationCode,
           onSelected: (code) {
-            onFilterChanged(
-              JobFilter(
-                locationCode: code,
-                jobCategory: currentFilter.jobCategory,
-                employmentType: currentFilter.employmentType,
-                physicalIntensity: currentFilter.physicalIntensity,
-                isActive: currentFilter.isActive,
-              ),
-            );
+            onFilterChanged(currentFilter.copyWith(locationCode: code));
           },
         ),
         const SizedBox(height: 8),
@@ -63,15 +55,7 @@ class FilterBar extends StatelessWidget {
           options: _categoryOptions,
           selectedCode: currentFilter.jobCategory,
           onSelected: (code) {
-            onFilterChanged(
-              JobFilter(
-                locationCode: currentFilter.locationCode,
-                jobCategory: code,
-                employmentType: currentFilter.employmentType,
-                physicalIntensity: currentFilter.physicalIntensity,
-                isActive: currentFilter.isActive,
-              ),
-            );
+            onFilterChanged(currentFilter.copyWith(jobCategory: code));
           },
         ),
       ],

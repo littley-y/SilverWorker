@@ -48,7 +48,7 @@ void main() {
     expect(find.text('OO아파트 관리사무소'), findsOneWidget);
   });
 
-  testWidgets('JobCard renders salary formatted correctly', (tester) async {
+  testWidgets('JobCard renders monthly salary as "월 N만원"', (tester) async {
     await tester.pumpWidget(
       MaterialApp(
         home: Scaffold(
@@ -59,6 +59,80 @@ void main() {
 
     // 2000000 → 월 200만원
     expect(find.text('월 200만원'), findsOneWidget);
+  });
+
+  testWidgets('JobCard renders hourly salary as "시급 N,NNN원"',
+      (tester) async {
+    final hourlyJob = JobModel(
+      jobId: 'TEST_002',
+      source: 'mock',
+      title: '청소 도우미',
+      companyName: 'OO빌딩',
+      companyAddress: '서울 중구',
+      locationCode: '11140',
+      jobCategory: 'cleaning',
+      jobCategoryDetail: '',
+      employmentType: 'daily',
+      salaryType: 'hourly',
+      salaryAmount: 12000,
+      workHours: '09:00 ~ 17:00',
+      workDays: '월~금',
+      workPeriod: '3개월',
+      requirements: '',
+      benefits: '',
+      description: '',
+      physicalIntensity: 'light',
+      physicalBadges: [],
+      isActive: true,
+      rawData: {},
+    );
+
+    await tester.pumpWidget(
+      MaterialApp(
+        home: Scaffold(
+          body: JobCard(job: hourlyJob, onTap: () {}),
+        ),
+      ),
+    );
+
+    expect(find.text('시급 12,000원'), findsOneWidget);
+  });
+
+  testWidgets('JobCard renders daily salary as "일급 N,NNN원"',
+      (tester) async {
+    final dailyJob = JobModel(
+      jobId: 'TEST_003',
+      source: 'mock',
+      title: '건설 현장',
+      companyName: 'OO건설',
+      companyAddress: '서울 용산구',
+      locationCode: '11170',
+      jobCategory: 'simple_labor',
+      jobCategoryDetail: '',
+      employmentType: 'daily',
+      salaryType: 'daily',
+      salaryAmount: 80000,
+      workHours: '08:00 ~ 17:00',
+      workDays: '월~토',
+      workPeriod: '1개월',
+      requirements: '',
+      benefits: '',
+      description: '',
+      physicalIntensity: 'heavy',
+      physicalBadges: [],
+      isActive: true,
+      rawData: {},
+    );
+
+    await tester.pumpWidget(
+      MaterialApp(
+        home: Scaffold(
+          body: JobCard(job: dailyJob, onTap: () {}),
+        ),
+      ),
+    );
+
+    expect(find.text('일급 80,000원'), findsOneWidget);
   });
 
   testWidgets('JobCard renders employment type chip in Korean', (tester) async {

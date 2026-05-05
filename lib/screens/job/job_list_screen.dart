@@ -23,6 +23,7 @@ class JobListScreen extends ConsumerWidget {
 
     return Scaffold(
       appBar: AppBar(
+        toolbarHeight: 64,
         title: const Text('은빛일자리', style: AppTextStyles.headline),
         centerTitle: false,
         backgroundColor: AppColors.cardBackground,
@@ -120,7 +121,7 @@ class _LoadingState extends StatelessWidget {
                     height: 20,
                     width: double.infinity,
                     decoration: BoxDecoration(
-                      color: AppColors.divider,
+                      color: AppColors.skeleton,
                       borderRadius: BorderRadius.circular(4),
                     ),
                   ),
@@ -130,7 +131,7 @@ class _LoadingState extends StatelessWidget {
                     height: 16,
                     width: 160,
                     decoration: BoxDecoration(
-                      color: AppColors.divider,
+                      color: AppColors.skeleton,
                       borderRadius: BorderRadius.circular(4),
                     ),
                   ),
@@ -142,7 +143,7 @@ class _LoadingState extends StatelessWidget {
                         height: 16,
                         width: 60,
                         decoration: BoxDecoration(
-                          color: AppColors.divider,
+                          color: AppColors.skeleton,
                           borderRadius: BorderRadius.circular(4),
                         ),
                       ),
@@ -151,7 +152,7 @@ class _LoadingState extends StatelessWidget {
                         height: 14,
                         width: 80,
                         decoration: BoxDecoration(
-                          color: AppColors.divider,
+                          color: AppColors.skeleton,
                           borderRadius: BorderRadius.circular(4),
                         ),
                       ),

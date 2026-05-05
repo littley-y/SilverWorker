@@ -18,6 +18,7 @@ abstract final class AppColors {
   static const Color background = Color(0xFFF5F5F5);
   static const Color cardBackground = Colors.white;
   static const Color divider = Color(0xFFE0E0E0);
+  static const Color skeleton = Color(0xFFCCCCCC);
 
   // Semantic
   static const Color success = Color(0xFF2E7D32);
