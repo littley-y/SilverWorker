@@ -8,6 +8,7 @@ import '../providers/auth_provider.dart';
 import '../screens/auth/otp_input_screen.dart';
 import '../screens/auth/phone_input_screen.dart';
 import '../screens/auth/profile_register_screen.dart';
+import '../screens/job/job_detail_screen.dart';
 import '../screens/main/main_screen.dart';
 
 /// ---------------------------------------------------------------------------
@@ -18,6 +19,7 @@ abstract final class AppRoutes {
   static const String otp = '/auth/otp';
   static const String profile = '/auth/profile';
   static const String main = '/';
+  static const String jobDetail = '/job/:jobId';
 }
 
 /// ---------------------------------------------------------------------------
@@ -102,6 +104,13 @@ final routerProvider = Provider<GoRouter>((ref) {
         path: AppRoutes.main,
         builder: (BuildContext context, GoRouterState state) {
           return const MainScreen();
+        },
+      ),
+      GoRoute(
+        path: AppRoutes.jobDetail,
+        builder: (BuildContext context, GoRouterState state) {
+          final jobId = state.pathParameters['jobId'] ?? '';
+          return JobDetailScreen(jobId: jobId);
         },
       ),
     ],

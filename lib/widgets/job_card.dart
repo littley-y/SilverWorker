@@ -1,18 +1,179 @@
 import 'package:flutter/material.dart';
+import '../constants/app_colors.dart';
+import '../constants/app_text_styles.dart';
+import '../models/job_model.dart';
 
-/// Placeholder job card widget.
+/// Job posting card widget aligned with spec_04 §2.
 ///
-/// Will display job title, company, region, and salary.
+/// Displays title, company, salary, employment type chip,
+/// deadline (D-n), and physical intensity badge.
+/// Entire card is tappable → navigates to JobDetailScreen.
 class JobCard extends StatelessWidget {
-  const JobCard({super.key});
+  final JobModel job;
+  final VoidCallback onTap;
+
+  const JobCard({super.key, required this.job, required this.onTap});
 
   @override
   Widget build(BuildContext context) {
-    return const Card(
-      child: ListTile(
-        title: Text('Job Title'),
-        subtitle: Text('Company • Region'),
+    return Card(
+      margin: const EdgeInsets.symmetric(horizontal: 16, vertical: 4),
+      elevation: 2,
+      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
+      child: InkWell(
+        onTap: onTap,
+        borderRadius: BorderRadius.circular(12),
+        child: Padding(
+          padding: const EdgeInsets.all(16),
+          child: ConstrainedBox(
+            constraints: const BoxConstraints(minHeight: 88),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                // Row 1: Title (left) + Salary (right)
+                Row(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Expanded(
+                      child: Text(
+                        job.title,
+                        style: AppTextStyles.title,
+                        maxLines: 2,
+                        overflow: TextOverflow.ellipsis,
+                      ),
+                    ),
+                    const SizedBox(width: 12),
+                    Text(
+                      _formatSalary(job),
+                      style: TextStyle(
+                        fontSize: 18,
+                        fontWeight: FontWeight.bold,
+                        color: AppColors.primary,
+                      ),
+                    ),
+                  ],
+                ),
+                const SizedBox(height: 4),
+
+                // Row 2: Company name
+                Text(
+                  job.companyName,
+                  style: AppTextStyles.sectionTitle,
+                  maxLines: 1,
+                  overflow: TextOverflow.ellipsis,
+                ),
+                const SizedBox(height: 10),
+
+                // Row 3: Employment chip (left) + Deadline & Intensity (right)
+                Row(
+                  children: [
+                    _EmploymentTypeChip(type: job.employmentType),
+                    const Spacer(),
+                    Text(
+                      _formatDeadline(job.deadline),
+                      style: AppTextStyles.caption,
+                    ),
+                    const SizedBox(width: 8),
+                    _IntensityBadge(intensity: job.physicalIntensity),
+                  ],
+                ),
+              ],
+            ),
+          ),
+        ),
       ),
+    );
+  }
+
+  /// Formats salary as "월 200만원" style display.
+  static String _formatSalary(JobModel job) {
+    final amount = (job.salaryAmount / 10000).toStringAsFixed(0);
+    final prefix = switch (job.salaryType) {
+      'hourly' => '시',
+      'daily' => '일',
+      'monthly' => '월',
+      _ => '',
+    };
+    return '$prefix ${amount}만원';
+  }
+
+  /// Formats deadline as "D-n" or "D-day" or "마감" if passed.
+  static String _formatDeadline(DateTime? deadline) {
+    if (deadline == null) return '상시';
+    final now = DateTime.now();
+    final diff = deadline.difference(now).inDays;
+    if (diff < 0) return '마감';
+    if (diff == 0) return 'D-day';
+    return 'D-$diff';
+  }
+}
+
+/// Employment type chip — small pill with light gray background.
+class _EmploymentTypeChip extends StatelessWidget {
+  final String type;
+
+  const _EmploymentTypeChip({required this.type});
+
+  String get _label => switch (type) {
+        'part_time' => '파트타임',
+        'daily' => '일용직',
+        'short_term' => '단기',
+        'full_time' => '정규직',
+        _ => type,
+      };
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 4),
+      decoration: BoxDecoration(
+        color: AppColors.background,
+        borderRadius: BorderRadius.circular(8),
+      ),
+      child: Text(
+        _label,
+        style: const TextStyle(fontSize: 12, color: AppColors.textSecondary),
+      ),
+    );
+  }
+}
+
+/// Physical intensity badge — colored icon + text.
+class _IntensityBadge extends StatelessWidget {
+  final String intensity;
+
+  const _IntensityBadge({required this.intensity});
+
+  Color get _color => switch (intensity) {
+        'light' => AppColors.intensityLight,
+        'moderate' => AppColors.intensityModerate,
+        'heavy' => AppColors.intensityHeavy,
+        _ => AppColors.intensityModerate,
+      };
+
+  String get _label => switch (intensity) {
+        'light' => '가벼움',
+        'moderate' => '보통',
+        'heavy' => '힘듦',
+        _ => intensity,
+      };
+
+  IconData get _icon => switch (intensity) {
+        'light' => Icons.fitness_center_outlined,
+        'moderate' => Icons.fitness_center,
+        'heavy' => Icons.engineering,
+        _ => Icons.fitness_center,
+      };
+
+  @override
+  Widget build(BuildContext context) {
+    return Row(
+      mainAxisSize: MainAxisSize.min,
+      children: [
+        Icon(_icon, size: 14, color: _color),
+        const SizedBox(width: 2),
+        Text(_label, style: TextStyle(fontSize: 12, color: _color)),
+      ],
     );
   }
 }
