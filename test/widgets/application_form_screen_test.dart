@@ -2,7 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:silver_worker_now/models/job_model.dart';
+import 'package:silver_worker_now/providers/application_provider.dart';
 import 'package:silver_worker_now/providers/job_provider.dart';
+import 'package:silver_worker_now/repositories/application_repository.dart';
 import 'package:silver_worker_now/screens/application/application_form_screen.dart';
 
 JobModel _sampleJob() => JobModel(
@@ -29,8 +31,32 @@ JobModel _sampleJob() => JobModel(
       rawData: {},
     );
 
+class _MockRepository extends Fake implements ApplicationRepository {
+  int submitCallCount = 0;
+  int hasAppliedCallCount = 0;
+  bool hasAppliedResult = false;
+  bool throwAlreadyApplied = false;
+  bool throwClosed = false;
+
+  @override
+  Future<bool> hasApplied(String jobId) async {
+    hasAppliedCallCount++;
+    return hasAppliedResult;
+  }
+
+  @override
+  Future<void> submitApplication({
+    required String jobId,
+    required String selfIntroduction,
+  }) async {
+    submitCallCount++;
+    if (throwAlreadyApplied) throw AlreadyAppliedException();
+    if (throwClosed) throw JobClosedException();
+  }
+}
+
 void main() {
-  testWidgets('ApplicationFormScreen shows job summary and textarea', (tester) async {
+  testWidgets('renders job summary and textarea', (tester) async {
     await tester.pumpWidget(
       ProviderScope(
         overrides: [
@@ -51,7 +77,7 @@ void main() {
     expect(find.text('지원하기'), findsOneWidget);
   });
 
-  testWidgets('ApplicationFormScreen shows textarea with 200 char limit', (tester) async {
+  testWidgets('textarea has 200 char limit', (tester) async {
     await tester.pumpWidget(
       ProviderScope(
         overrides: [
@@ -68,5 +94,80 @@ void main() {
     final textField = tester.widget<TextField>(find.byType(TextField));
     expect(textField.maxLength, 200);
     expect(textField.maxLines, 5);
+  });
+
+  testWidgets('submit calls repository once', (tester) async {
+    final mockRepo = _MockRepository();
+    mockRepo.throwClosed = true;
+
+    await tester.pumpWidget(
+      ProviderScope(
+        overrides: [
+          jobDetailProvider('TEST_001').overrideWith((ref) => Future.value(_sampleJob())),
+          applicationRepositoryProvider.overrideWithValue(mockRepo),
+        ],
+        child: const MaterialApp(
+          home: ApplicationFormScreen(jobId: 'TEST_001'),
+        ),
+      ),
+    );
+
+    await tester.pumpAndSettle();
+
+    expect(mockRepo.hasAppliedCallCount, 1);
+    expect(mockRepo.submitCallCount, 0);
+
+    await tester.tap(find.text('지원하기'));
+    await tester.pump();
+
+    expect(mockRepo.submitCallCount, 1);
+    expect(mockRepo.hasAppliedCallCount, 1);
+
+    await tester.pump(const Duration(seconds: 2));
+  });
+
+  testWidgets('hasApplied=true shows disabled button on entry', (tester) async {
+    final mockRepo = _MockRepository();
+    mockRepo.hasAppliedResult = true;
+
+    await tester.pumpWidget(
+      ProviderScope(
+        overrides: [
+          jobDetailProvider('TEST_001').overrideWith((ref) => Future.value(_sampleJob())),
+          applicationRepositoryProvider.overrideWithValue(mockRepo),
+        ],
+        child: const MaterialApp(
+          home: ApplicationFormScreen(jobId: 'TEST_001'),
+        ),
+      ),
+    );
+
+    await tester.pumpAndSettle();
+
+    expect(find.text('이미 지원한 공고입니다'), findsOneWidget);
+  });
+
+  testWidgets('submit error shows already-applied state', (tester) async {
+    final mockRepo = _MockRepository();
+    mockRepo.throwAlreadyApplied = true;
+
+    await tester.pumpWidget(
+      ProviderScope(
+        overrides: [
+          jobDetailProvider('TEST_001').overrideWith((ref) => Future.value(_sampleJob())),
+          applicationRepositoryProvider.overrideWithValue(mockRepo),
+        ],
+        child: const MaterialApp(
+          home: ApplicationFormScreen(jobId: 'TEST_001'),
+        ),
+      ),
+    );
+
+    await tester.pumpAndSettle();
+
+    await tester.tap(find.text('지원하기'));
+    await tester.pumpAndSettle();
+
+    expect(find.text('이미 지원한 공고입니다'), findsAtLeastNWidgets(1));
   });
 }

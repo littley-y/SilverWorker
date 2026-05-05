@@ -29,6 +29,17 @@ class ApplicationRepository {
         .toList();
   }
 
+  Future<bool> hasApplied(String jobId) async {
+    final uid = FirebaseAuth.instance.currentUser!.uid;
+    final snap = await _firestore
+        .collection('users')
+        .doc(uid)
+        .collection('applications')
+        .doc(jobId)
+        .get();
+    return snap.exists;
+  }
+
   Future<void> submitApplication({
     required String jobId,
     required String selfIntroduction,

@@ -29,14 +29,10 @@ class _ApplicationFormScreenState extends ConsumerState<ApplicationFormScreen> {
 
   Future<void> _checkAlreadyApplied() async {
     try {
-      await ref.read(applicationRepositoryProvider).submitApplication(
-            jobId: widget.jobId,
-            selfIntroduction: '',
-          );
-    } on AlreadyAppliedException {
-      if (mounted) setState(() => _alreadyApplied = true);
+      final applied = await ref.read(applicationRepositoryProvider).hasApplied(widget.jobId);
+      if (mounted && applied) setState(() => _alreadyApplied = true);
     } on Exception {
-      // Ignore other exceptions during pre-check
+      // Ignore errors during pre-check
     }
   }
 
