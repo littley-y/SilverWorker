@@ -6,7 +6,7 @@
 
 ---
 
-## 현재 단계: Day 8 진행 중
+## 현재 단계: Day 8 완료 → Day 9 시작 전
 
 ---
 
@@ -19,7 +19,7 @@
 | [spec_03](planning/spec_03_job_data.md) | 공고 데이터 준비 | ✅ 완료 | Day 3 | 경로 A: Mock 30개 Firestore 등록 (PR #3 머지 완 - Claude/Gemini 승인) |
 | [spec_04](planning/spec_04_job_list_ui.md) | 공고 목록 UI | ✅ 완료 | Day 4 | PR #4 — Claude/Gemini 모두 승인 (Claude round 2 fc59d48: B-1·M-1·M-2 해결). 머지 가능. |
 | [spec_05](planning/spec_05_job_detail.md) | 공고 상세 + 세이프티 배지 | ✅ 완료 | Day 5 | PR #5 머지 완 (Claude/Gemini 승인) |
-| [spec_06](planning/spec_06_application.md) | 지원 기능 | 🔄 진행 중 | Day 8 | feature/day8-application 브랜치에서 구현 중 |
+| [spec_06](planning/spec_06_application.md) | 지원 기능 | ✅ 완료 | Day 8 | PR #6 머지 완 (Claude/Gemini 승인, round 3) |
 | [spec_07](planning/spec_07_mypage.md) | 마이페이지 | ⬜ 대기 | Day 9 | |
 | [spec_08](planning/spec_08_navigation.md) | 네비게이션 | ⬜ 대기 | Day 10 | |
 | [spec_09](planning/spec_09_ui_system.md) | 시니어 UI 시스템 | 🔄 진행 중 | Day 4, 11 | AppTextStyles/AppColors spec_09 정렬, MainScreen에 GoRouter 연결 |
@@ -56,6 +56,7 @@
 - **2026-05-01** — Day 3 (spec_03) PR #3 머지 완료: Claude/Gemini 1차 리뷰 Blocker 2건(B-1 jobId 유실, M-1 복합 인덱스 누락) 수정 반영. `test/models/job_model_test.dart` 회귀 테스트 3건 추가. Claude/Gemini 2차 리뷰 승인 후 master 머지. `flutter test` 11/11 통과.
 - **2026-05-05** — Day 4 (spec_04) PR #4 머지 완료: 공고 목록 UI (JobCard, FilterBar, JobListScreen). AppTextStyles/AppColors spec_09 정렬. `main.dart` GoRouter 버그 수정. Claude 1차 리뷰 Blocker 1건(B-1 시급/일급 표시 버그), Major 2건(M-1 폰트 하한, M-2 copyWith null) 수정 반영. Claude/Gemini 2차 리뷰 승인 후 master 머지. `flutter test` 33/33 통과 (신규 위젯 테스트 22건).
 - **2026-05-05** — Day 5 (spec_05) PR #5 머지 완료: 공고 상세 화면 (SafetyCurationSection, JobDetailScreen). physicalIntensity 3단계 컬러 등급 + physicalBadges 6종 배지. 하단 고정 지원하기 버튼. `JobModel.formattedSalary` getter로 중복 제거. Claude 1차 리뷰 Major 1건(M-1 버튼 무반응), Minor 4건(m-1~m-4) 수정 반영. Claude/Gemini 2차 리뷰 승인 후 master 머지. `flutter test` 44/44 통과.
+- **2026-05-05** — Day 8 (spec_06) PR #6 머지 완료: 지원 기능 (ApplicationFormScreen, ApplicationResultScreen). `_isSubmitting` 오터치 방어, `runTransaction`으로 race condition 해결, `sealed class` ApplicationException, `hasApplied()` 사전 체크. Claude round 1 Blocker→round 2 Major→round 3 승인. `flutter test` 51/51 통과.
 
 ---
 
