@@ -1,4 +1,5 @@
 import '../utils/timestamp_helper.dart';
+import 'package:intl/intl.dart';
 
 /// Job posting model.
 ///
@@ -186,5 +187,15 @@ class JobModel {
       createdAt: createdAt ?? this.createdAt,
       updatedAt: updatedAt ?? this.updatedAt,
     );
+  }
+
+  String get formattedSalary {
+    final formatter = NumberFormat('#,###');
+    return switch (salaryType) {
+      'hourly' => '시급 ${formatter.format(salaryAmount)}원',
+      'daily' => '일급 ${formatter.format(salaryAmount)}원',
+      'monthly' => '월 ${salaryAmount ~/ 10000}만원',
+      _ => '${formatter.format(salaryAmount)}원',
+    };
   }
 }

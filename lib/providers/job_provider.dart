@@ -18,3 +18,8 @@ final jobListProvider = FutureProvider<List<JobModel>>((ref) {
   final filter = ref.watch(jobFilterProvider);
   return ref.read(jobRepositoryProvider).fetchJobs(filter);
 });
+
+/// Fetches a single job posting by document ID.
+final jobDetailProvider = FutureProvider.family<JobModel?, String>((ref, jobId) {
+  return ref.read(jobRepositoryProvider).fetchJobById(jobId);
+});

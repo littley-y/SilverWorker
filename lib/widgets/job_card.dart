@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:intl/intl.dart';
 import '../constants/app_colors.dart';
 import '../constants/app_text_styles.dart';
 import '../models/job_model.dart';
@@ -45,7 +44,7 @@ class JobCard extends StatelessWidget {
                     ),
                     const SizedBox(width: 12),
                     Text(
-                      _formatSalary(job),
+                      job.formattedSalary,
                       style: TextStyle(
                         fontSize: 18,
                         fontWeight: FontWeight.bold,
@@ -84,25 +83,6 @@ class JobCard extends StatelessWidget {
         ),
       ),
     );
-  }
-
-  /// Formats salary with type-appropriate display:
-  /// - hourly: "시급 12,000원"
-  /// - daily:  "일급 80,000원"
-  /// - monthly: "월 200만원" (만원 단위 convention)
-  static String _formatSalary(JobModel job) {
-    final formatter = NumberFormat('#,###');
-    switch (job.salaryType) {
-      case 'hourly':
-        return '시급 ${formatter.format(job.salaryAmount)}원';
-      case 'daily':
-        return '일급 ${formatter.format(job.salaryAmount)}원';
-      case 'monthly':
-        final manwon = job.salaryAmount ~/ 10000;
-        return '월 ${manwon}만원';
-      default:
-        return '${formatter.format(job.salaryAmount)}원';
-    }
   }
 
   /// Formats deadline as "D-n" or "D-day" or "마감" if passed.

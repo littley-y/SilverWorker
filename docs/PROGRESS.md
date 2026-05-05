@@ -6,7 +6,7 @@
 
 ---
 
-## 현재 단계: Day 4 완료 → Day 5 시작 전
+## 현재 단계: Day 5 진행 중
 
 ---
 
@@ -18,7 +18,7 @@
 | [spec_02](planning/spec_02_auth.md) | 인증 및 프로필 등록 | ✅ 완료 | Day 2 | PR #2 머지 완 (Claude/Gemini 승인) |
 | [spec_03](planning/spec_03_job_data.md) | 공고 데이터 준비 | ✅ 완료 | Day 3 | 경로 A: Mock 30개 Firestore 등록 (PR #3 머지 완 - Claude/Gemini 승인) |
 | [spec_04](planning/spec_04_job_list_ui.md) | 공고 목록 UI | ✅ 완료 | Day 4 | PR #4 — Claude/Gemini 모두 승인 (Claude round 2 fc59d48: B-1·M-1·M-2 해결). 머지 가능. |
-| [spec_05](planning/spec_05_job_detail.md) | 공고 상세 + 세이프티 배지 | ⬜ 대기 | Day 5 | |
+| [spec_05](planning/spec_05_job_detail.md) | 공고 상세 + 세이프티 배지 | 🔄 진행 중 | Day 5 | feature/day5-job-detail 브랜치에서 구현 중 |
 | [spec_06](planning/spec_06_application.md) | 지원 기능 | ⬜ 대기 | Day 8 | |
 | [spec_07](planning/spec_07_mypage.md) | 마이페이지 | ⬜ 대기 | Day 9 | |
 | [spec_08](planning/spec_08_navigation.md) | 네비게이션 | ⬜ 대기 | Day 10 | |
