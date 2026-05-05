@@ -90,7 +90,7 @@ class _PhoneInputScreenState extends ConsumerState<PhoneInputScreen> {
                       vertical: 18,
                     ),
                     decoration: BoxDecoration(
-                      color: AppColors.surface,
+                      color: AppColors.background,
                       borderRadius: BorderRadius.circular(12),
                       border: Border.all(color: Colors.grey.shade300),
                     ),
@@ -117,7 +117,7 @@ class _PhoneInputScreenState extends ConsumerState<PhoneInputScreen> {
                           color: Colors.grey.shade400,
                         ),
                         filled: true,
-                        fillColor: AppColors.surface,
+                        fillColor: AppColors.background,
                         border: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(12),
                           borderSide: BorderSide(
