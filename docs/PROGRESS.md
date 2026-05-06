@@ -20,7 +20,7 @@
 | [spec_04](planning/spec_04_job_list_ui.md) | 공고 목록 UI | ✅ 완료 | Day 4 | PR #4 — Claude/Gemini 모두 승인 (Claude round 2 fc59d48: B-1·M-1·M-2 해결). 머지 가능. |
 | [spec_05](planning/spec_05_job_detail.md) | 공고 상세 + 세이프티 배지 | ✅ 완료 | Day 5 | PR #5 머지 완 (Claude/Gemini 승인) |
 | [spec_06](planning/spec_06_application.md) | 지원 기능 | ✅ 완료 | Day 8 | PR #6 머지 완 (Claude/Gemini 승인, round 3) |
-| [spec_07](planning/spec_07_mypage.md) | 마이페이지 | ✅ 완료 | Day 9 | PR #7 머지 완 (Gemini 승인) |
+| [spec_07](planning/spec_07_mypage.md) | 마이페이지 | 🔄 Review Round 2 | Day 9 | PR #7 — Claude Round 1 Major 3건 수정 완료, Gemini 승인 |
 | [spec_08](planning/spec_08_navigation.md) | 네비게이션 | ⬜ 대기 | Day 10 | |
 | [spec_09](planning/spec_09_ui_system.md) | 시니어 UI 시스템 | 🔄 진행 중 | Day 4, 11 | AppTextStyles/AppColors spec_09 정렬, MainScreen에 GoRouter 연결 |
 | [spec_10](planning/spec_10_test_criteria.md) | 테스트 기준 + DoD | ⬜ 대기 | Day 12 | |
