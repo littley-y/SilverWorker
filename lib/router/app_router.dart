@@ -12,6 +12,8 @@ import '../screens/job/job_detail_screen.dart';
 import '../screens/application/application_form_screen.dart';
 import '../screens/application/application_result_screen.dart';
 import '../screens/main/main_screen.dart';
+import '../screens/mypage/application_list_screen.dart';
+import '../screens/mypage/my_page_screen.dart';
 
 /// ---------------------------------------------------------------------------
 /// Route paths
@@ -24,6 +26,8 @@ abstract final class AppRoutes {
   static const String jobDetail = '/job/:jobId';
   static const String apply = '/apply/:jobId';
   static const String applyDone = '/apply/:jobId/done';
+  static const String mypage = '/mypage';
+  static const String applications = '/mypage/applications';
 }
 
 /// ---------------------------------------------------------------------------
@@ -129,6 +133,18 @@ final routerProvider = Provider<GoRouter>((ref) {
         builder: (BuildContext context, GoRouterState state) {
           final jobId = state.pathParameters['jobId'] ?? '';
           return ApplicationResultScreen(jobId: jobId);
+        },
+      ),
+      GoRoute(
+        path: AppRoutes.mypage,
+        builder: (BuildContext context, GoRouterState state) {
+          return const MyPageScreen();
+        },
+      ),
+      GoRoute(
+        path: AppRoutes.applications,
+        builder: (BuildContext context, GoRouterState state) {
+          return const ApplicationListScreen();
         },
       ),
     ],

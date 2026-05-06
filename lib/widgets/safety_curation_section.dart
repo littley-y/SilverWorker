@@ -27,7 +27,9 @@ class SafetyCurationSection extends StatelessWidget {
           Wrap(
             spacing: 8,
             runSpacing: 8,
-            children: physicalBadges.map((b) => _PhysicalBadgeChip(badge: b)).toList(),
+            children: physicalBadges
+                .map((b) => _PhysicalBadgeChip(badge: b))
+                .toList(),
           ),
         ],
       ],
@@ -41,25 +43,25 @@ class _IntensityGradeBox extends StatelessWidget {
   const _IntensityGradeBox({required this.intensity});
 
   Color get _color => switch (intensity) {
-    'light' => AppColors.intensityLight,
-    'moderate' => AppColors.intensityModerate,
-    'heavy' => AppColors.intensityHeavy,
-    _ => AppColors.intensityModerate,
-  };
+        'light' => AppColors.intensityLight,
+        'moderate' => AppColors.intensityModerate,
+        'heavy' => AppColors.intensityHeavy,
+        _ => AppColors.intensityModerate,
+      };
 
   String get _label => switch (intensity) {
-    'light' => '가벼움',
-    'moderate' => '보통',
-    'heavy' => '무거움',
-    _ => intensity,
-  };
+        'light' => '가벼움',
+        'moderate' => '보통',
+        'heavy' => '무거움',
+        _ => intensity,
+      };
 
   IconData get _icon => switch (intensity) {
-    'light' => Icons.eco_outlined,
-    'moderate' => Icons.directions_walk,
-    'heavy' => Icons.fitness_center,
-    _ => Icons.fitness_center,
-  };
+        'light' => Icons.eco_outlined,
+        'moderate' => Icons.directions_walk,
+        'heavy' => Icons.fitness_center,
+        _ => Icons.fitness_center,
+      };
 
   @override
   Widget build(BuildContext context) {
@@ -89,24 +91,24 @@ class _PhysicalBadgeChip extends StatelessWidget {
   const _PhysicalBadgeChip({required this.badge});
 
   String get _label => switch (badge) {
-    'standing' => '계속 서있기',
-    'sitting' => '좌식 업무',
-    'heavy_lifting' => '무거운 짐',
-    'outdoor' => '야외 근무',
-    'repetitive' => '반복 동작',
-    'stairs' => '계단 오르내림',
-    _ => badge,
-  };
+        'standing' => '계속 서있기',
+        'sitting' => '좌식 업무',
+        'heavy_lifting' => '무거운 짐',
+        'outdoor' => '야외 근무',
+        'repetitive' => '반복 동작',
+        'stairs' => '계단 오르내림',
+        _ => badge,
+      };
 
   IconData get _icon => switch (badge) {
-    'standing' => Icons.accessibility_new,
-    'sitting' => Icons.chair,
-    'heavy_lifting' => Icons.inventory_2,
-    'outdoor' => Icons.wb_sunny,
-    'repetitive' => Icons.replay,
-    'stairs' => Icons.stairs,
-    _ => Icons.info_outline,
-  };
+        'standing' => Icons.accessibility_new,
+        'sitting' => Icons.chair,
+        'heavy_lifting' => Icons.inventory_2,
+        'outdoor' => Icons.wb_sunny,
+        'repetitive' => Icons.replay,
+        'stairs' => Icons.stairs,
+        _ => Icons.info_outline,
+      };
 
   @override
   Widget build(BuildContext context) {

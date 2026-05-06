@@ -61,8 +61,7 @@ void main() {
     expect(find.text('월 200만원'), findsOneWidget);
   });
 
-  testWidgets('JobCard renders hourly salary as "시급 N,NNN원"',
-      (tester) async {
+  testWidgets('JobCard renders hourly salary as "시급 N,NNN원"', (tester) async {
     final hourlyJob = JobModel(
       jobId: 'TEST_002',
       source: 'mock',
@@ -98,8 +97,7 @@ void main() {
     expect(find.text('시급 12,000원'), findsOneWidget);
   });
 
-  testWidgets('JobCard renders daily salary as "일급 N,NNN원"',
-      (tester) async {
+  testWidgets('JobCard renders daily salary as "일급 N,NNN원"', (tester) async {
     final dailyJob = JobModel(
       jobId: 'TEST_003',
       source: 'mock',

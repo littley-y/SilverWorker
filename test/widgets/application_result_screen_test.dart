@@ -34,7 +34,8 @@ void main() {
     await tester.pumpWidget(
       ProviderScope(
         overrides: [
-          jobDetailProvider('TEST_001').overrideWith((ref) => Future.value(_sampleJob())),
+          jobDetailProvider('TEST_001')
+              .overrideWith((ref) => Future.value(_sampleJob())),
         ],
         child: const MaterialApp(
           home: ApplicationResultScreen(jobId: 'TEST_001'),
@@ -54,7 +55,8 @@ void main() {
     await tester.pumpWidget(
       ProviderScope(
         overrides: [
-          jobDetailProvider('TEST_001').overrideWith((ref) => Future.value(_sampleJob())),
+          jobDetailProvider('TEST_001')
+              .overrideWith((ref) => Future.value(_sampleJob())),
         ],
         child: const MaterialApp(
           home: ApplicationResultScreen(jobId: 'TEST_001'),

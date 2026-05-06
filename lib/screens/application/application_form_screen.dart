@@ -13,7 +13,8 @@ class ApplicationFormScreen extends ConsumerStatefulWidget {
   const ApplicationFormScreen({super.key, required this.jobId});
 
   @override
-  ConsumerState<ApplicationFormScreen> createState() => _ApplicationFormScreenState();
+  ConsumerState<ApplicationFormScreen> createState() =>
+      _ApplicationFormScreenState();
 }
 
 class _ApplicationFormScreenState extends ConsumerState<ApplicationFormScreen> {
@@ -29,7 +30,9 @@ class _ApplicationFormScreenState extends ConsumerState<ApplicationFormScreen> {
 
   Future<void> _checkAlreadyApplied() async {
     try {
-      final applied = await ref.read(applicationRepositoryProvider).hasApplied(widget.jobId);
+      final applied = await ref
+          .read(applicationRepositoryProvider)
+          .hasApplied(widget.jobId);
       if (mounted && applied) setState(() => _alreadyApplied = true);
     } on Exception {
       // Ignore errors during pre-check

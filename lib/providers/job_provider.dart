@@ -20,6 +20,7 @@ final jobListProvider = FutureProvider<List<JobModel>>((ref) {
 });
 
 /// Fetches a single job posting by document ID.
-final jobDetailProvider = FutureProvider.family<JobModel?, String>((ref, jobId) {
+final jobDetailProvider =
+    FutureProvider.family<JobModel?, String>((ref, jobId) {
   return ref.read(jobRepositoryProvider).fetchJobById(jobId);
 });

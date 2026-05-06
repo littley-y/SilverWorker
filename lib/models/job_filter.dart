@@ -31,12 +31,10 @@ class JobFilter {
     Object? isActive = _unset,
   }) {
     return JobFilter(
-      locationCode: locationCode == _unset
-          ? this.locationCode
-          : locationCode as String?,
-      jobCategory: jobCategory == _unset
-          ? this.jobCategory
-          : jobCategory as String?,
+      locationCode:
+          locationCode == _unset ? this.locationCode : locationCode as String?,
+      jobCategory:
+          jobCategory == _unset ? this.jobCategory : jobCategory as String?,
       employmentType: employmentType == _unset
           ? this.employmentType
           : employmentType as String?,
