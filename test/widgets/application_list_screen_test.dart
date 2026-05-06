@@ -10,14 +10,11 @@ import 'package:silver_worker_now/repositories/application_repository.dart';
 import 'package:silver_worker_now/repositories/auth_repository.dart';
 import 'package:silver_worker_now/screens/mypage/application_list_screen.dart';
 
-class _MockUser extends Fake implements User {
-  @override
-  String get uid => 'test_uid';
-}
+import '../helpers/test_doubles.dart';
 
 class _MockAuthRepository extends Fake implements AuthRepository {
   @override
-  User? get currentUser => _MockUser();
+  User? get currentUser => MockUser();
 
   @override
   Stream<User?> authStateChanges() => Stream<User?>.value(currentUser);
@@ -100,8 +97,8 @@ void main() {
     expect(find.text('OO아파트 관리사무소'), findsOneWidget);
     expect(find.text('사무실 청소원'), findsOneWidget);
     expect(find.text('XX빌딩 관리'), findsOneWidget);
-    expect(find.text('5월 1일'), findsOneWidget);
-    expect(find.text('5월 3일'), findsOneWidget);
+    expect(find.text('05월 01일'), findsOneWidget);
+    expect(find.text('05월 03일'), findsOneWidget);
   });
 
   testWidgets('ApplicationCard shows correct status badge colors',

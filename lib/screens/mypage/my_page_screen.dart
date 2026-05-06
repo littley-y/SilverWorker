@@ -1,4 +1,3 @@
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
@@ -11,6 +10,9 @@ import '../../router/app_router.dart';
 /// 마이페이지 화면.
 ///
 /// 프로필 요약, 지원 내역 진입점, 로그아웃을 제공합니다.
+///
+/// 인증 상태는 go_router redirect가 보장하므로 본 화면에서는
+/// currentUser가 non-null임을 가정합니다.
 class MyPageScreen extends ConsumerWidget {
   const MyPageScreen({super.key});
 
@@ -18,10 +20,8 @@ class MyPageScreen extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     final user = ref.watch(authRepositoryProvider).currentUser;
 
+    // Router redirect가 user null을 보장하지만, defensive null-guard.
     if (user == null) {
-      WidgetsBinding.instance.addPostFrameCallback((_) {
-        if (context.mounted) context.go(AppRoutes.phone);
-      });
       return const Scaffold(
         body: Center(child: CircularProgressIndicator()),
       );
@@ -41,12 +41,8 @@ class MyPageScreen extends ConsumerWidget {
       body: profileAsync.when(
         data: (profile) {
           if (profile == null) {
-            WidgetsBinding.instance.addPostFrameCallback((_) {
-              if (context.mounted) context.go(AppRoutes.profile);
-            });
-            return const Scaffold(
-              body: Center(child: CircularProgressIndicator()),
-            );
+            // Router redirect가 profile null을 보장하지만, defensive guard.
+            return const Center(child: CircularProgressIndicator());
           }
 
           final applicationCount = applicationsAsync.value?.length ?? 0;
@@ -74,7 +70,7 @@ class MyPageScreen extends ConsumerWidget {
                   const Spacer(),
                   // 로그아웃 버튼
                   _LogoutButton(
-                    onLogout: () => _showLogoutDialog(context),
+                    onLogout: () => _showLogoutDialog(context, ref),
                   ),
                 ],
               ),
@@ -109,7 +105,7 @@ class MyPageScreen extends ConsumerWidget {
     );
   }
 
-  void _showLogoutDialog(BuildContext context) {
+  void _showLogoutDialog(BuildContext context, WidgetRef ref) {
     showDialog<void>(
       context: context,
       builder: (BuildContext dialogContext) {
@@ -127,7 +123,7 @@ class MyPageScreen extends ConsumerWidget {
             TextButton(
               onPressed: () async {
                 Navigator.of(dialogContext).pop();
-                await FirebaseAuth.instance.signOut();
+                await ref.read(authRepositoryProvider).signOut();
               },
               child: Text(
                 '로그아웃',
@@ -182,7 +178,7 @@ class _ProfileSummaryCard extends StatelessWidget {
           const SizedBox(height: 8),
           Text(
             careerSummary,
-            style: AppTextStyles.sectionTitle.copyWith(fontSize: 16),
+            style: AppTextStyles.body.copyWith(fontSize: 16),
             maxLines: 2,
             overflow: TextOverflow.ellipsis,
           ),

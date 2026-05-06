@@ -10,13 +10,11 @@ import 'package:silver_worker_now/repositories/application_repository.dart';
 import 'package:silver_worker_now/repositories/auth_repository.dart';
 import 'package:silver_worker_now/screens/mypage/my_page_screen.dart';
 
-class _MockUser extends Fake implements User {
-  @override
-  String get uid => 'test_uid';
-}
+import '../helpers/test_doubles.dart';
 
 class _MockAuthRepository extends Fake implements AuthRepository {
   final User? _user;
+  int signOutCallCount = 0;
 
   _MockAuthRepository({User? user}) : _user = user;
 
@@ -25,6 +23,11 @@ class _MockAuthRepository extends Fake implements AuthRepository {
 
   @override
   Stream<User?> authStateChanges() => Stream<User?>.value(_user);
+
+  @override
+  Future<void> signOut() async {
+    signOutCallCount++;
+  }
 
   @override
   Future<UserModel?> fetchProfile(String userId) async {
@@ -62,7 +65,7 @@ void main() {
       ProviderScope(
         overrides: [
           authRepositoryProvider.overrideWithValue(
-            _MockAuthRepository(user: _MockUser()),
+            _MockAuthRepository(user: MockUser()),
           ),
           applicationRepositoryProvider.overrideWithValue(
             _MockApplicationRepository(),
@@ -107,7 +110,7 @@ void main() {
       ProviderScope(
         overrides: [
           authRepositoryProvider.overrideWithValue(
-            _MockAuthRepository(user: _MockUser()),
+            _MockAuthRepository(user: MockUser()),
           ),
           applicationRepositoryProvider.overrideWithValue(
             _MockApplicationRepository(applications: applications),
@@ -129,7 +132,7 @@ void main() {
       ProviderScope(
         overrides: [
           authRepositoryProvider.overrideWithValue(
-            _MockAuthRepository(user: _MockUser()),
+            _MockAuthRepository(user: MockUser()),
           ),
           applicationRepositoryProvider.overrideWithValue(
             _MockApplicationRepository(),
@@ -153,7 +156,7 @@ void main() {
       ProviderScope(
         overrides: [
           authRepositoryProvider.overrideWithValue(
-            _MockAuthRepository(user: _MockUser()),
+            _MockAuthRepository(user: MockUser()),
           ),
           applicationRepositoryProvider.overrideWithValue(
             _MockApplicationRepository(),
@@ -170,13 +173,14 @@ void main() {
     expect(find.text('로그아웃'), findsOneWidget);
   });
 
-  testWidgets(' tapping logout shows confirmation dialog', (tester) async {
+  testWidgets('tapping logout shows confirmation dialog and calls signOut',
+      (tester) async {
+    final mockRepo = _MockAuthRepository(user: MockUser());
+
     await tester.pumpWidget(
       ProviderScope(
         overrides: [
-          authRepositoryProvider.overrideWithValue(
-            _MockAuthRepository(user: _MockUser()),
-          ),
+          authRepositoryProvider.overrideWithValue(mockRepo),
           applicationRepositoryProvider.overrideWithValue(
             _MockApplicationRepository(),
           ),
@@ -193,8 +197,23 @@ void main() {
 
     expect(find.text('로그아웃 하시겠습니까?'), findsOneWidget);
     expect(find.text('취소'), findsOneWidget);
-    expect(find.text('로그아웃'),
-        findsNWidgets(3)); // button + dialog title + dialog action
+
+    // 다이얼로그 actions 내 "로그아웃" 액션 버튼만 카운트
+    final dialogActions = find.descendant(
+      of: find.byType(AlertDialog),
+      matching: find.byType(TextButton),
+    );
+    final dialogLogoutAction = find.descendant(
+      of: dialogActions,
+      matching: find.text('로그아웃'),
+    );
+    expect(dialogLogoutAction, findsOneWidget);
+
+    // 로그아웃 액션 탭 → signOut 호출 확인
+    await tester.tap(dialogLogoutAction);
+    await tester.pumpAndSettle();
+
+    expect(mockRepo.signOutCallCount, 1);
   });
 
   testWidgets('MyPageScreen shows loading while profile loads', (tester) async {
@@ -225,7 +244,7 @@ void main() {
 
 class _SlowAuthRepository extends Fake implements AuthRepository {
   @override
-  User? get currentUser => _MockUser();
+  User? get currentUser => MockUser();
 
   @override
   Stream<User?> authStateChanges() => Stream<User?>.value(currentUser);

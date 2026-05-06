@@ -152,7 +152,9 @@ class ApplicationCard extends StatelessWidget {
   }
 
   String _formatDate(DateTime date) {
-    return '${date.month}월 ${date.day}일';
+    final month = date.month.toString().padLeft(2, '0');
+    final day = date.day.toString().padLeft(2, '0');
+    return '${month}월 ${day}일';
   }
 }
 
