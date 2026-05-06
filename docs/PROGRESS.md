@@ -1,12 +1,12 @@
 # PROGRESS — SilverWorkerNow 개발 현황
 
-> 최종 업데이트: 2026-05-05 (Claude PR #4 round 2 승인)
+> 최종 업데이트: 2026-05-06
 > 전체 목표: 2주 데모 (Day 1 ~ Day 14)
 > 참조 스펙: `docs/planning/spec_01~10.md`
 
 ---
 
-## 현재 단계: Day 8 완료 → Day 9 시작 전
+## 현재 단계: Day 9 완료 → Day 10 시작 전
 
 ---
 
@@ -20,7 +20,7 @@
 | [spec_04](planning/spec_04_job_list_ui.md) | 공고 목록 UI | ✅ 완료 | Day 4 | PR #4 — Claude/Gemini 모두 승인 (Claude round 2 fc59d48: B-1·M-1·M-2 해결). 머지 가능. |
 | [spec_05](planning/spec_05_job_detail.md) | 공고 상세 + 세이프티 배지 | ✅ 완료 | Day 5 | PR #5 머지 완 (Claude/Gemini 승인) |
 | [spec_06](planning/spec_06_application.md) | 지원 기능 | ✅ 완료 | Day 8 | PR #6 머지 완 (Claude/Gemini 승인, round 3) |
-| [spec_07](planning/spec_07_mypage.md) | 마이페이지 | ⬜ 대기 | Day 9 | |
+| [spec_07](planning/spec_07_mypage.md) | 마이페이지 | 🔄 Review Pending | Day 9 | PR #7 리뷰 요청 완료 |
 | [spec_08](planning/spec_08_navigation.md) | 네비게이션 | ⬜ 대기 | Day 10 | |
 | [spec_09](planning/spec_09_ui_system.md) | 시니어 UI 시스템 | 🔄 진행 중 | Day 4, 11 | AppTextStyles/AppColors spec_09 정렬, MainScreen에 GoRouter 연결 |
 | [spec_10](planning/spec_10_test_criteria.md) | 테스트 기준 + DoD | ⬜ 대기 | Day 12 | |
@@ -57,6 +57,7 @@
 - **2026-05-05** — Day 4 (spec_04) PR #4 머지 완료: 공고 목록 UI (JobCard, FilterBar, JobListScreen). AppTextStyles/AppColors spec_09 정렬. `main.dart` GoRouter 버그 수정. Claude 1차 리뷰 Blocker 1건(B-1 시급/일급 표시 버그), Major 2건(M-1 폰트 하한, M-2 copyWith null) 수정 반영. Claude/Gemini 2차 리뷰 승인 후 master 머지. `flutter test` 33/33 통과 (신규 위젯 테스트 22건).
 - **2026-05-05** — Day 5 (spec_05) PR #5 머지 완료: 공고 상세 화면 (SafetyCurationSection, JobDetailScreen). physicalIntensity 3단계 컬러 등급 + physicalBadges 6종 배지. 하단 고정 지원하기 버튼. `JobModel.formattedSalary` getter로 중복 제거. Claude 1차 리뷰 Major 1건(M-1 버튼 무반응), Minor 4건(m-1~m-4) 수정 반영. Claude/Gemini 2차 리뷰 승인 후 master 머지. `flutter test` 44/44 통과.
 - **2026-05-05** — Day 8 (spec_06) PR #6 머지 완료: 지원 기능 (ApplicationFormScreen, ApplicationResultScreen). `_isSubmitting` 오터치 방어, `runTransaction`으로 race condition 해결, `sealed class` ApplicationException, `hasApplied()` 사전 체크. Claude round 1 Blocker→round 2 Major→round 3 승인. `flutter test` 51/51 통과.
+- **2026-05-06** — Day 9 (spec_07) 구현 완료: 마이페이지 (MyPageScreen) + 지원 내역 (ApplicationListScreen, ApplicationCard). 프로필 요약 카드, 지원 횟수 뱃지, 메뉴 리스트, 로그아웃 확인 다이얼로그. 상태 배지 5종 색상 구분. `flutter analyze` 0경고, `flutter test` 62/62 통과.
 
 ---
 
