@@ -16,17 +16,7 @@
         "hooks": [
           {
             "type": "command",
-            "command": "AGENTS=AGENTS.md; REVIEWER=REVIEWER_PROMPT.md; if [ -f \"$AGENTS\" ]; then echo '{\"decision\":\"allow\",\"additionalContext\":\"AGENTS.md loaded.\"}' && cat \"$AGENTS\" \"$REVIEWER\" 2>/dev/null; fi"
-          }
-        ]
-      }
-    ],
-    "Stop": [
-      {
-        "hooks": [
-          {
-            "type": "command",
-            "command": "bash tools/scripts/notify_hook.sh gemini"
+            "command": "AGENTS=AGENTS.md; REVIEWER=REVIEWER_PROMPT.md; if [ -f \"$AGENTS\" ]; then echo '{\"decision\":\"allow\",\"additionalContext\":\"AGENTS.md loaded.\"}'; fi"
           }
         ]
       }

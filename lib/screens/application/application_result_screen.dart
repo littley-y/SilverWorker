@@ -24,16 +24,23 @@ class ApplicationResultScreen extends ConsumerWidget {
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    const Icon(Icons.check_circle, size: 72, color: AppColors.success),
+                    const Icon(Icons.check_circle,
+                        size: 72, color: AppColors.success),
                     const SizedBox(height: 24),
                     const Text('지원이 완료되었습니다!', style: AppTextStyles.headline),
                     if (job != null) ...[
                       const SizedBox(height: 16),
-                      Text(job.title, style: AppTextStyles.body, textAlign: TextAlign.center),
-                      Text(job.companyName, style: AppTextStyles.body.copyWith(color: AppColors.textSecondary), textAlign: TextAlign.center),
+                      Text(job.title,
+                          style: AppTextStyles.body,
+                          textAlign: TextAlign.center),
+                      Text(job.companyName,
+                          style: AppTextStyles.body
+                              .copyWith(color: AppColors.textSecondary),
+                          textAlign: TextAlign.center),
                     ],
                     const SizedBox(height: 12),
-                    Text('마이페이지에서 지원 현황을 확인하세요', style: AppTextStyles.sectionTitle),
+                    Text('마이페이지에서 지원 현황을 확인하세요',
+                        style: AppTextStyles.sectionTitle),
                     const SizedBox(height: 32),
                     SizedBox(
                       width: double.infinity,
@@ -60,9 +67,12 @@ class ApplicationResultScreen extends ConsumerWidget {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                const Icon(Icons.check_circle, size: 72, color: AppColors.success),
+                const Icon(Icons.check_circle,
+                    size: 72, color: AppColors.success),
                 const SizedBox(height: 24),
-                const Text('지원이 완료되었습니다!', style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold)),
+                const Text('지원이 완료되었습니다!',
+                    style:
+                        TextStyle(fontSize: 22, fontWeight: FontWeight.bold)),
                 const SizedBox(height: 32),
                 SizedBox(
                   width: double.infinity,

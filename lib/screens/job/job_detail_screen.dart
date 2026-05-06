@@ -36,7 +36,8 @@ class JobDetailScreen extends ConsumerWidget {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              const Icon(Icons.error_outline, size: 48, color: AppColors.textSecondary),
+              const Icon(Icons.error_outline,
+                  size: 48, color: AppColors.textSecondary),
               const SizedBox(height: 16),
               Text('공고를 불러오는 중 오류가 발생했습니다', style: AppTextStyles.body),
               const SizedBox(height: 24),
@@ -140,11 +141,15 @@ class _HeaderSection extends StatelessWidget {
       children: [
         Text(job.title, style: AppTextStyles.headline),
         const SizedBox(height: 8),
-        Text(job.companyName, style: AppTextStyles.body.copyWith(color: AppColors.textSecondary)),
+        Text(job.companyName,
+            style: AppTextStyles.body.copyWith(color: AppColors.textSecondary)),
         const SizedBox(height: 12),
         Text(
           job.formattedSalary,
-          style: const TextStyle(fontSize: 22, fontWeight: FontWeight.bold, color: AppColors.primary),
+          style: const TextStyle(
+              fontSize: 22,
+              fontWeight: FontWeight.bold,
+              color: AppColors.primary),
         ),
       ],
     );
@@ -157,12 +162,12 @@ class _WorkConditionSection extends StatelessWidget {
   const _WorkConditionSection({required this.job});
 
   String get _employmentLabel => switch (job.employmentType) {
-    'part_time' => '파트타임',
-    'daily' => '일용직',
-    'short_term' => '단기',
-    'full_time' => '정규직',
-    _ => job.employmentType,
-  };
+        'part_time' => '파트타임',
+        'daily' => '일용직',
+        'short_term' => '단기',
+        'full_time' => '정규직',
+        _ => job.employmentType,
+      };
 
   @override
   Widget build(BuildContext context) {
@@ -219,7 +224,8 @@ class _SectionBlock extends StatelessWidget {
       children: [
         Text(title, style: AppTextStyles.sectionTitle),
         const SizedBox(height: 8),
-        Text(content.trim().isNotEmpty ? content : '정보 없음', style: AppTextStyles.body),
+        Text(content.trim().isNotEmpty ? content : '정보 없음',
+            style: AppTextStyles.body),
       ],
     );
   }

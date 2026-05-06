@@ -39,7 +39,8 @@ void main() {
     await tester.pumpWidget(
       ProviderScope(
         overrides: [
-          jobDetailProvider('TEST_001').overrideWith((ref) => Future.value(job)),
+          jobDetailProvider('TEST_001')
+              .overrideWith((ref) => Future.value(job)),
         ],
         child: const MaterialApp(
           home: JobDetailScreen(jobId: 'TEST_001'),
@@ -61,7 +62,8 @@ void main() {
     await tester.pumpWidget(
       ProviderScope(
         overrides: [
-          jobDetailProvider('TEST_001').overrideWith((ref) => Future.value(job)),
+          jobDetailProvider('TEST_001')
+              .overrideWith((ref) => Future.value(job)),
         ],
         child: const MaterialApp(
           home: JobDetailScreen(jobId: 'TEST_001'),
@@ -84,7 +86,8 @@ void main() {
     await tester.pumpWidget(
       ProviderScope(
         overrides: [
-          jobDetailProvider('TEST_001').overrideWith((ref) => Future.value(job)),
+          jobDetailProvider('TEST_001')
+              .overrideWith((ref) => Future.value(job)),
         ],
         child: const MaterialApp(
           home: JobDetailScreen(jobId: 'TEST_001'),
@@ -106,7 +109,8 @@ void main() {
     await tester.pumpWidget(
       ProviderScope(
         overrides: [
-          jobDetailProvider('TEST_001').overrideWith((ref) => Future.value(job)),
+          jobDetailProvider('TEST_001')
+              .overrideWith((ref) => Future.value(job)),
         ],
         child: const MaterialApp(
           home: JobDetailScreen(jobId: 'TEST_001'),
@@ -119,11 +123,13 @@ void main() {
     expect(find.text('지원하기'), findsOneWidget);
   });
 
-  testWidgets('JobDetailScreen shows not found message for null job', (tester) async {
+  testWidgets('JobDetailScreen shows not found message for null job',
+      (tester) async {
     await tester.pumpWidget(
       ProviderScope(
         overrides: [
-          jobDetailProvider('MISSING').overrideWith((ref) => Future.value(null)),
+          jobDetailProvider('MISSING')
+              .overrideWith((ref) => Future.value(null)),
         ],
         child: const MaterialApp(
           home: JobDetailScreen(jobId: 'MISSING'),
@@ -164,7 +170,8 @@ void main() {
     await tester.pumpWidget(
       ProviderScope(
         overrides: [
-          jobDetailProvider('TEST_HOURLY').overrideWith((ref) => Future.value(hourlyJob)),
+          jobDetailProvider('TEST_HOURLY')
+              .overrideWith((ref) => Future.value(hourlyJob)),
         ],
         child: const MaterialApp(
           home: JobDetailScreen(jobId: 'TEST_HOURLY'),
@@ -205,7 +212,8 @@ void main() {
     await tester.pumpWidget(
       ProviderScope(
         overrides: [
-          jobDetailProvider('TEST_DAILY').overrideWith((ref) => Future.value(dailyJob)),
+          jobDetailProvider('TEST_DAILY')
+              .overrideWith((ref) => Future.value(dailyJob)),
         ],
         child: const MaterialApp(
           home: JobDetailScreen(jobId: 'TEST_DAILY'),

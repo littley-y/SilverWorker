@@ -60,7 +60,8 @@ void main() {
     await tester.pumpWidget(
       ProviderScope(
         overrides: [
-          jobDetailProvider('TEST_001').overrideWith((ref) => Future.value(_sampleJob())),
+          jobDetailProvider('TEST_001')
+              .overrideWith((ref) => Future.value(_sampleJob())),
         ],
         child: const MaterialApp(
           home: ApplicationFormScreen(jobId: 'TEST_001'),
@@ -81,7 +82,8 @@ void main() {
     await tester.pumpWidget(
       ProviderScope(
         overrides: [
-          jobDetailProvider('TEST_001').overrideWith((ref) => Future.value(_sampleJob())),
+          jobDetailProvider('TEST_001')
+              .overrideWith((ref) => Future.value(_sampleJob())),
         ],
         child: const MaterialApp(
           home: ApplicationFormScreen(jobId: 'TEST_001'),
@@ -103,7 +105,8 @@ void main() {
     await tester.pumpWidget(
       ProviderScope(
         overrides: [
-          jobDetailProvider('TEST_001').overrideWith((ref) => Future.value(_sampleJob())),
+          jobDetailProvider('TEST_001')
+              .overrideWith((ref) => Future.value(_sampleJob())),
           applicationRepositoryProvider.overrideWithValue(mockRepo),
         ],
         child: const MaterialApp(
@@ -133,7 +136,8 @@ void main() {
     await tester.pumpWidget(
       ProviderScope(
         overrides: [
-          jobDetailProvider('TEST_001').overrideWith((ref) => Future.value(_sampleJob())),
+          jobDetailProvider('TEST_001')
+              .overrideWith((ref) => Future.value(_sampleJob())),
           applicationRepositoryProvider.overrideWithValue(mockRepo),
         ],
         child: const MaterialApp(
@@ -154,7 +158,8 @@ void main() {
     await tester.pumpWidget(
       ProviderScope(
         overrides: [
-          jobDetailProvider('TEST_001').overrideWith((ref) => Future.value(_sampleJob())),
+          jobDetailProvider('TEST_001')
+              .overrideWith((ref) => Future.value(_sampleJob())),
           applicationRepositoryProvider.overrideWithValue(mockRepo),
         ],
         child: const MaterialApp(
