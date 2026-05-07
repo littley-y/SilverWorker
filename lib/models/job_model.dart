@@ -1,5 +1,7 @@
-import '../utils/timestamp_helper.dart';
+import 'package:flutter/painting.dart';
 import 'package:intl/intl.dart';
+
+import '../utils/timestamp_helper.dart';
 
 /// Job posting model.
 ///
@@ -188,6 +190,30 @@ class JobModel {
       updatedAt: updatedAt ?? this.updatedAt,
     );
   }
+
+  /// Korean label for the employment type enum value.
+  String get employmentTypeLabel => switch (employmentType) {
+        'part_time' => '파트타임',
+        'daily' => '일용직',
+        'short_term' => '단기',
+        'full_time' => '정규직',
+        _ => employmentType,
+      };
+
+  /// Korean label for the physical intensity enum value.
+  String get physicalIntensityLabel => switch (physicalIntensity) {
+        'light' => '가벼움',
+        'moderate' => '보통',
+        'heavy' => '무거움',
+        _ => physicalIntensity,
+      };
+
+  Color get physicalIntensityColor => switch (physicalIntensity) {
+        'light' => const Color(0xFF4CAF50), // intensityLight
+        'moderate' => const Color(0xFFFF9800), // intensityModerate
+        'heavy' => const Color(0xFFF44336), // intensityHeavy
+        _ => const Color(0xFFFF9800),
+      };
 
   String get formattedSalary {
     final formatter = NumberFormat('#,###');

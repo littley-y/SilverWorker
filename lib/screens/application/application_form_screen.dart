@@ -6,6 +6,10 @@ import '../../constants/app_text_styles.dart';
 import '../../providers/application_provider.dart';
 import '../../providers/job_provider.dart';
 import '../../repositories/application_repository.dart';
+import '../../router/app_router.dart';
+import 'package:logger/logger.dart';
+
+final _log = Logger();
 
 class ApplicationFormScreen extends ConsumerStatefulWidget {
   final String jobId;
@@ -34,8 +38,8 @@ class _ApplicationFormScreenState extends ConsumerState<ApplicationFormScreen> {
           .read(applicationRepositoryProvider)
           .hasApplied(widget.jobId);
       if (mounted && applied) setState(() => _alreadyApplied = true);
-    } on Exception {
-      // Ignore errors during pre-check
+    } on Exception catch (e) {
+      _log.w('Failed to check already-applied status', error: e);
     }
   }
 
@@ -54,7 +58,7 @@ class _ApplicationFormScreenState extends ConsumerState<ApplicationFormScreen> {
             jobId: widget.jobId,
             selfIntroduction: _controller.text,
           );
-      if (mounted) context.go('/apply/${widget.jobId}/done');
+      if (mounted) context.go(AppRoutes.applyDoneRoute(widget.jobId));
     } on AlreadyAppliedException {
       setState(() => _alreadyApplied = true);
       if (mounted) {
@@ -68,7 +72,8 @@ class _ApplicationFormScreenState extends ConsumerState<ApplicationFormScreen> {
           const SnackBar(content: Text('마감된 공고입니다')),
         );
       }
-    } on Exception {
+    } on Exception catch (e) {
+      _log.e('Submit application failed', error: e);
       if (mounted) {
         ScaffoldMessenger.of(context).showSnackBar(
           const SnackBar(content: Text('지원에 실패했습니다. 다시 시도해 주세요')),

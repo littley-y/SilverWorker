@@ -67,14 +67,14 @@ class JobCard extends StatelessWidget {
                 // Row 3: Employment chip (left) + Deadline & Intensity (right)
                 Row(
                   children: [
-                    _EmploymentTypeChip(type: job.employmentType),
+                    _EmploymentTypeChip(job: job),
                     const Spacer(),
                     Text(
                       _formatDeadline(job.deadline),
                       style: AppTextStyles.caption,
                     ),
                     const SizedBox(width: 8),
-                    _IntensityBadge(intensity: job.physicalIntensity),
+                    _IntensityBadge(job: job),
                   ],
                 ),
               ],
@@ -98,17 +98,9 @@ class JobCard extends StatelessWidget {
 
 /// Employment type chip — small pill with light gray background.
 class _EmploymentTypeChip extends StatelessWidget {
-  final String type;
+  final JobModel job;
 
-  const _EmploymentTypeChip({required this.type});
-
-  String get _label => switch (type) {
-        'part_time' => '파트타임',
-        'daily' => '일용직',
-        'short_term' => '단기',
-        'full_time' => '정규직',
-        _ => type,
-      };
+  const _EmploymentTypeChip({required this.job});
 
   @override
   Widget build(BuildContext context) {
@@ -119,7 +111,7 @@ class _EmploymentTypeChip extends StatelessWidget {
         borderRadius: BorderRadius.circular(8),
       ),
       child: Text(
-        _label,
+        job.employmentTypeLabel,
         style: AppTextStyles.caption,
       ),
     );
@@ -128,25 +120,13 @@ class _EmploymentTypeChip extends StatelessWidget {
 
 /// Physical intensity badge — colored icon + text.
 class _IntensityBadge extends StatelessWidget {
-  final String intensity;
+  final JobModel job;
 
-  const _IntensityBadge({required this.intensity});
+  const _IntensityBadge({required this.job});
 
-  Color get _color => switch (intensity) {
-        'light' => AppColors.intensityLight,
-        'moderate' => AppColors.intensityModerate,
-        'heavy' => AppColors.intensityHeavy,
-        _ => AppColors.intensityModerate,
-      };
+  Color get _color => job.physicalIntensityColor;
 
-  String get _label => switch (intensity) {
-        'light' => '가벼움',
-        'moderate' => '보통',
-        'heavy' => '힘듦',
-        _ => intensity,
-      };
-
-  IconData get _icon => switch (intensity) {
+  IconData get _icon => switch (job.physicalIntensity) {
         'light' => Icons.fitness_center_outlined,
         'moderate' => Icons.fitness_center,
         'heavy' => Icons.engineering,
@@ -160,7 +140,10 @@ class _IntensityBadge extends StatelessWidget {
       children: [
         Icon(_icon, size: 16, color: _color),
         const SizedBox(width: 2),
-        Text(_label, style: TextStyle(fontSize: 14, color: _color)),
+        Text(
+          job.physicalIntensityLabel,
+          style: TextStyle(fontSize: 14, color: _color),
+        ),
       ],
     );
   }

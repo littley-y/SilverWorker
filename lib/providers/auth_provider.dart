@@ -1,7 +1,10 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:logger/logger.dart';
 import '../repositories/auth_repository.dart';
 import '../models/user_model.dart';
+
+final _log = Logger();
 
 // ---------------------------------------------------------------------------
 // Repositories
@@ -69,7 +72,8 @@ Future<void> startPhoneVerification({
         // Auto-verification (e.g. on Android with instant verification)
         try {
           await repository.signInWithCredential(credential);
-        } on Exception catch (_) {
+        } on Exception catch (e) {
+          _log.w('Auto-verification failed', error: e);
           onError('자동 인증 중 오류가 발생했습니다.');
         } finally {
           notifier.state = false;
@@ -89,7 +93,8 @@ Future<void> startPhoneVerification({
         ref.read(verificationIdProvider.notifier).state = verificationId;
       },
     );
-  } on Exception catch (_) {
+  } on Exception catch (e) {
+    _log.w('Phone verification request failed', error: e);
     notifier.state = false;
     onError('인증 요청 중 오류가 발생했습니다.');
   }
@@ -126,7 +131,8 @@ Future<User?> verifyOtp({
     notifier.state = false;
     onError(_mapAuthError(e));
     return null;
-  } on Exception catch (_) {
+  } on Exception catch (e) {
+    _log.w('OTP verification failed', error: e);
     notifier.state = false;
     onError('인증 중 오류가 발생했습니다.');
     return null;

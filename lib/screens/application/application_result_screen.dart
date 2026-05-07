@@ -4,6 +4,7 @@ import 'package:go_router/go_router.dart';
 import '../../constants/app_colors.dart';
 import '../../constants/app_text_styles.dart';
 import '../../providers/job_provider.dart';
+import '../../router/app_router.dart';
 
 class ApplicationResultScreen extends ConsumerWidget {
   final String jobId;
@@ -46,7 +47,7 @@ class ApplicationResultScreen extends ConsumerWidget {
                       width: double.infinity,
                       height: 56,
                       child: ElevatedButton(
-                        onPressed: () => context.go('/'),
+                        onPressed: () => context.go(AppRoutes.main),
                         style: ElevatedButton.styleFrom(
                           backgroundColor: AppColors.primary,
                           foregroundColor: Colors.white,
