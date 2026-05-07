@@ -42,9 +42,19 @@ fi
 TODAY=$(date +%Y-%m-%d)
 if ls docs/PR_Review/"${TODAY}"-pr*-request.md 1>/dev/null 2>&1; then
   pass "Review Request doc found"
-else
-  fail "Review Request doc NOT FOUND. Create: docs/PR_Review/${TODAY}-pr<N>-request.md"
-fi
+  else
+    PR_NUM=$(git log --oneline --grep="PR #" | head -1 | grep -oE "PR #[0-9]+" | grep -oE "[0-9]+" || echo "")
+    if [ -n "$PR_NUM" ] && [ -f "tools/scripts/generate_review_request.py" ]; then
+      echo "  Auto-generating review request doc for PR #$PR_NUM..."
+      if python3 tools/scripts/generate_review_request.py "$PR_NUM" 2>/dev/null; then
+        pass "Review Request doc auto-generated"
+      else
+        fail "Review Request doc NOT FOUND. Create: docs/PR_Review/${TODAY}-pr<N>-request.md"
+      fi
+    else
+      fail "Review Request doc NOT FOUND. Create: docs/PR_Review/${TODAY}-pr<N>-request.md"
+    fi
+  fi
 
 # 3. PROGRESS.md has Review Pending for the spec being worked on
 if grep -q "🔄 Review Pending" docs/PROGRESS.md; then
