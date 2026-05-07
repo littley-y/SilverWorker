@@ -66,6 +66,34 @@ Day 1~9 구현물에 대해 코드 중복, 데드코드, 하드코딩, 일관성
 | `lib/screens/auth/phone_input_screen.dart` | 경로 상수화 |
 | `lib/screens/auth/profile_register_screen.dart` | Logger 추가 |
 
+### Round 2 수정 (Claude REQUEST CHANGES 반영)
+
+| 파일 | 주요 변경 |
+|---|---|
+| `lib/models/job_model.dart` | `physicalIntensityColor` getter 및 `flutter/painting.dart` import **삭제** |
+| `lib/widgets/job_card.dart` | `_IntensityBadge._color`가 `AppColors.intensity*` 직접 참조하도록 복원 |
+| `lib/widgets/primary_button.dart` | `disabled` 파라미터 추가. 임시 변수 제거 |
+| `lib/screens/application/application_form_screen.dart` | `PrimaryButton` + `showErrorSnack` 적용. `appLogger` 사용 |
+| `lib/screens/application/application_result_screen.dart` | `PrimaryButton` 적용 |
+| `lib/providers/auth_provider.dart` | `appLogger` 공유 인스턴스 사용 |
+| `lib/utils/app_logger.dart` | 🆕 **신규** — 단일 `Logger` 인스턴스 |
+| `lib/utils/snack_utils.dart` | 기본 배경색 `AppColors.primary`로 수정 |
+
+### Round 3 수정 (Claude Blocker B-1 반영)
+
+| 파일 | 주요 변경 |
+|---|---|
+| `lib/screens/application/application_form_screen.dart` | 외곽 `SizedBox` + `ElevatedButton` 제거. `PrimaryButton`만 남김 |
+| `lib/widgets/primary_button.dart` | `disabledBackgroundColor`: `AppColors.border` → `AppColors.disabled` |
+
+### 인프라 개선
+
+| 파일 | 주요 변경 |
+|---|---|
+| `.git/hooks/pre-commit` | 리뷰 파일 차단 패턴 수정: `review_claude\|review_gemini` → `review_claude.*\.md$\|review_gemini.*\.md$` |
+| `tools/scripts/generate_review_request.py` | 🆕 **신규** — PR 리뷰 요청 문서 자동 생성 스크립트 |
+| `tools/scripts/pre_pr_checklist.sh` | 리뷰 요청 문서 누락 시 자동 생성 시도 |
+
 ---
 
 ## 검증
@@ -95,6 +123,8 @@ $ bash tools/verify_local.sh
 - **브랜치**: `feature/refactoring-cleanup`
 - **PR**: #8
 - **리뷰 요청**: `docs/PR_Review/2026-05-07-pr8-request.md`
+- **리뷰 피드백**: `docs/PR_Review/2026-05-07-pr8-review_claude.md` (Round 1), `docs/PR_Review/2026-05-07-pr8-review_claude_round2.md` (Round 2)
+- **커밋**: `954a42a` (Round 1) → `4b2d067` (Round 2) → `f464d9f` (Round 3) → `54e3c48` (인프라) → `747f8dd` (문서)
 
 ---
 
@@ -104,7 +134,7 @@ $ bash tools/verify_local.sh
 |---|---|---|
 | Low | `PhoneInputScreen._hasError` → `StateProvider<bool>` | `setState` → Riverpod 마이그레이션 |
 | Low | `Container+BoxDecoration` → `Card` 위젯 | 시맨틱 개선 (3곳) |
-| Low | `PrimaryButton` / `SnackBar` 기존 코드 적용 | 유틸은 생성했으나 기존 화면 교체는 별도 PR로 분리 |
+| Low | `PrimaryButton` / `SnackBar` 기존 화면 적용 | 유틸은 생성했으나 기존 화면 교체는 별도 PR로 분리 |
 | Low | `freezed` 도입 | `copyWith` 보일러플레이트 150라인 제거 가능 |
 
 ---
