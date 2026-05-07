@@ -11,7 +11,8 @@ import '../screens/auth/profile_register_screen.dart';
 import '../screens/job/job_detail_screen.dart';
 import '../screens/application/application_form_screen.dart';
 import '../screens/application/application_result_screen.dart';
-import '../screens/main/main_screen.dart';
+import '../screens/job/job_list_screen.dart';
+import '../screens/main/main_shell.dart';
 import '../screens/mypage/application_list_screen.dart';
 import '../screens/mypage/my_page_screen.dart';
 
@@ -22,12 +23,12 @@ abstract final class AppRoutes {
   static const String phone = '/auth/phone';
   static const String otp = '/auth/otp';
   static const String profile = '/auth/profile';
-  static const String main = '/';
+  static const String home = '/home';
+  static const String applications = '/applications';
+  static const String mypage = '/mypage';
   static const String jobDetail = '/job/:jobId';
   static const String apply = '/apply/:jobId';
   static const String applyDone = '/apply/:jobId/done';
-  static const String mypage = '/mypage';
-  static const String applications = '/mypage/applications';
 
   /// Builders for parameterised routes.
   static String jobDetailRoute(String jobId) => '/job/$jobId';
@@ -62,7 +63,7 @@ final routerProvider = Provider<GoRouter>((ref) {
   ref.onDispose(refresh.dispose);
 
   return GoRouter(
-    initialLocation: AppRoutes.phone,
+    initialLocation: AppRoutes.home,
     refreshListenable: refresh,
     redirect: (BuildContext context, GoRouterState state) {
       final user = authRepository.currentUser;
@@ -76,17 +77,11 @@ final routerProvider = Provider<GoRouter>((ref) {
         return isAuthRoute ? null : AppRoutes.phone;
       }
 
-      // Logged in — check profile existence asynchronously via provider
-      // Synchronous check: if we're on an auth route and logged in,
-      // let the route resolve (profile screen will redirect if needed).
-      // For Day 2 we use a simple heuristic: if navigating to / and
-      // we don't know profile state yet, allow it; profile route handles
-      // its own guard via FutureBuilder if needed.
+      // Logged in on auth route → redirect to home (except profile setup)
       if (isLoggedIn && isAuthRoute) {
-        // If on phone/otp but already logged in, redirect to main
         if (state.matchedLocation == AppRoutes.phone ||
             state.matchedLocation == AppRoutes.otp) {
-          return AppRoutes.main;
+          return AppRoutes.home;
         }
         // Profile route is allowed when logged in (it checks itself)
         return null;
@@ -113,11 +108,30 @@ final routerProvider = Provider<GoRouter>((ref) {
           return const ProfileSetupScreen();
         },
       ),
-      GoRoute(
-        path: AppRoutes.main,
-        builder: (BuildContext context, GoRouterState state) {
-          return const MainScreen();
+      ShellRoute(
+        builder: (BuildContext context, GoRouterState state, Widget child) {
+          return MainShell(child: child);
         },
+        routes: <RouteBase>[
+          GoRoute(
+            path: AppRoutes.home,
+            builder: (BuildContext context, GoRouterState state) {
+              return const JobListScreen();
+            },
+          ),
+          GoRoute(
+            path: AppRoutes.applications,
+            builder: (BuildContext context, GoRouterState state) {
+              return const ApplicationListScreen();
+            },
+          ),
+          GoRoute(
+            path: AppRoutes.mypage,
+            builder: (BuildContext context, GoRouterState state) {
+              return const MyPageScreen();
+            },
+          ),
+        ],
       ),
       GoRoute(
         path: AppRoutes.jobDetail,
@@ -138,18 +152,6 @@ final routerProvider = Provider<GoRouter>((ref) {
         builder: (BuildContext context, GoRouterState state) {
           final jobId = state.pathParameters['jobId'] ?? '';
           return ApplicationResultScreen(jobId: jobId);
-        },
-      ),
-      GoRoute(
-        path: AppRoutes.mypage,
-        builder: (BuildContext context, GoRouterState state) {
-          return const MyPageScreen();
-        },
-      ),
-      GoRoute(
-        path: AppRoutes.applications,
-        builder: (BuildContext context, GoRouterState state) {
-          return const ApplicationListScreen();
         },
       ),
     ],

@@ -5,6 +5,7 @@ import '../../constants/app_colors.dart';
 import '../../constants/app_text_styles.dart';
 import '../../models/job_model.dart';
 import '../../providers/job_provider.dart';
+import '../../router/app_router.dart';
 import '../../widgets/safety_curation_section.dart';
 
 class JobDetailScreen extends ConsumerWidget {
@@ -109,7 +110,7 @@ class _JobDetailBody extends StatelessWidget {
                 height: 56,
                 child: ElevatedButton(
                   onPressed: () {
-                    context.push('/apply/${job.jobId}');
+                    context.push(AppRoutes.applyRoute(job.jobId));
                   },
                   style: ElevatedButton.styleFrom(
                     backgroundColor: AppColors.primary,

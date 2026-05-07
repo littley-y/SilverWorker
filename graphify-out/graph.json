@@ -36,7 +36,7 @@
       "source_file": "tools/notify.py",
       "source_location": "L1",
       "id": "tools_notify_py",
-      "community": 13,
+      "community": 14,
       "norm_label": "notify.py"
     },
     {
@@ -45,7 +45,7 @@
       "source_file": "tools/notify.py",
       "source_location": "L29",
       "id": "notify_send_notification",
-      "community": 13,
+      "community": 14,
       "norm_label": "send_notification()"
     },
     {
@@ -54,7 +54,7 @@
       "source_file": "tools/common/discord_notifier.py",
       "source_location": "L1",
       "id": "tools_common_discord_notifier_py",
-      "community": 13,
+      "community": 14,
       "norm_label": "discord_notifier.py"
     },
     {
@@ -63,7 +63,7 @@
       "source_file": "tools/common/discord_notifier.py",
       "source_location": "L24",
       "id": "discord_notifier_discordnotifier",
-      "community": 13,
+      "community": 14,
       "norm_label": "discordnotifier"
     },
     {
@@ -72,7 +72,7 @@
       "source_file": "tools/common/discord_notifier.py",
       "source_location": "L25",
       "id": "discord_notifier_discordnotifier_init",
-      "community": 13,
+      "community": 14,
       "norm_label": ".__init__()"
     },
     {
@@ -81,7 +81,7 @@
       "source_file": "tools/common/discord_notifier.py",
       "source_location": "L28",
       "id": "discord_notifier_discordnotifier_send",
-      "community": 13,
+      "community": 14,
       "norm_label": ".send()"
     },
     {
@@ -90,7 +90,7 @@
       "source_file": "tools/common/discord_notifier.py",
       "source_location": "L37",
       "id": "discord_notifier_discordnotifier_send_webhook",
-      "community": 13,
+      "community": 14,
       "norm_label": "._send_webhook()"
     },
     {
@@ -108,7 +108,7 @@
       "source_file": "tools/scripts/hook_session_start.py",
       "source_location": "L1",
       "id": "tools_scripts_hook_session_start_py",
-      "community": 14,
+      "community": 15,
       "norm_label": "hook_session_start.py"
     },
     {
@@ -117,7 +117,7 @@
       "source_file": "tools/scripts/hook_session_start.py",
       "source_location": "L32",
       "id": "hook_session_start_read_file",
-      "community": 14,
+      "community": 15,
       "norm_label": "read_file()"
     },
     {
@@ -126,7 +126,7 @@
       "source_file": "tools/scripts/hook_session_start.py",
       "source_location": "L38",
       "id": "hook_session_start_latest_meaningful_md",
-      "community": 14,
+      "community": 15,
       "norm_label": "latest_meaningful_md()"
     },
     {
@@ -135,7 +135,7 @@
       "source_file": "tools/scripts/hook_session_start.py",
       "source_location": "L55",
       "id": "hook_session_start_load_docs",
-      "community": 14,
+      "community": 15,
       "norm_label": "load_docs()"
     },
     {
@@ -144,7 +144,7 @@
       "source_file": "tools/scripts/hook_session_start.py",
       "source_location": "L71",
       "id": "hook_session_start_main",
-      "community": 14,
+      "community": 15,
       "norm_label": "main()"
     },
     {
@@ -152,7 +152,7 @@
       "file_type": "rationale",
       "source_file": "tools/scripts/hook_session_start.py",
       "source_location": "L1",
-      "community": 14,
+      "community": 15,
       "norm_label": "claude code sessionstart / subagentstart hook - injects general folder context.",
       "id": "hook_session_start_rationale_1"
     },
@@ -161,7 +161,7 @@
       "file_type": "rationale",
       "source_file": "tools/scripts/hook_session_start.py",
       "source_location": "L39",
-      "community": 14,
+      "community": 15,
       "norm_label": "return the most recent .md that isn't an empty session-summary.",
       "id": "hook_session_start_rationale_39"
     },
@@ -189,7 +189,7 @@
       "source_file": "tools/scripts/hook_pre_git.py",
       "source_location": "L1",
       "id": "tools_scripts_hook_pre_git_py",
-      "community": 11,
+      "community": 12,
       "norm_label": "hook_pre_git.py"
     },
     {
@@ -198,7 +198,7 @@
       "source_file": "tools/scripts/hook_pre_git.py",
       "source_location": "L38",
       "id": "hook_pre_git_is_repo_root",
-      "community": 11,
+      "community": 12,
       "norm_label": "is_repo_root()"
     },
     {
@@ -207,7 +207,7 @@
       "source_file": "tools/scripts/hook_pre_git.py",
       "source_location": "L46",
       "id": "hook_pre_git_is_direct_master_push",
-      "community": 11,
+      "community": 12,
       "norm_label": "is_direct_master_push()"
     },
     {
@@ -216,7 +216,7 @@
       "source_file": "tools/scripts/hook_pre_git.py",
       "source_location": "L56",
       "id": "hook_pre_git_is_write_git_command",
-      "community": 11,
+      "community": 12,
       "norm_label": "is_write_git_command()"
     },
     {
@@ -225,7 +225,7 @@
       "source_file": "tools/scripts/hook_pre_git.py",
       "source_location": "L65",
       "id": "hook_pre_git_extract_working_dir",
-      "community": 11,
+      "community": 12,
       "norm_label": "extract_working_dir()"
     },
     {
@@ -234,7 +234,7 @@
       "source_file": "tools/scripts/hook_pre_git.py",
       "source_location": "L78",
       "id": "hook_pre_git_run_verify",
-      "community": 11,
+      "community": 12,
       "norm_label": "run_verify()"
     },
     {
@@ -243,7 +243,7 @@
       "source_file": "tools/scripts/hook_pre_git.py",
       "source_location": "L90",
       "id": "hook_pre_git_block",
-      "community": 11,
+      "community": 12,
       "norm_label": "block()"
     },
     {
@@ -252,7 +252,7 @@
       "source_file": "tools/scripts/hook_pre_git.py",
       "source_location": "L94",
       "id": "hook_pre_git_main",
-      "community": 11,
+      "community": 12,
       "norm_label": "main()"
     },
     {
@@ -260,7 +260,7 @@
       "file_type": "rationale",
       "source_file": "tools/scripts/hook_pre_git.py",
       "source_location": "L1",
-      "community": 11,
+      "community": 12,
       "norm_label": "claude code pretooluse hook - guards git write operations.  rules:   1. git push",
       "id": "hook_pre_git_rationale_1"
     },
@@ -269,7 +269,7 @@
       "file_type": "rationale",
       "source_file": "tools/scripts/hook_pre_git.py",
       "source_location": "L39",
-      "community": 11,
+      "community": 12,
       "norm_label": "working_dir\u1100\u1161 \u1111\u1173\u1105\u1169\u110c\u1166\u11a8\u1110\u1173 \u1105\u116e\u1110\u1173\u110b\u1175\u11ab\u110c\u1175 \u1112\u116a\u11a8\u110b\u1175\u11ab.",
       "id": "hook_pre_git_rationale_39"
     },
@@ -278,7 +278,7 @@
       "file_type": "rationale",
       "source_file": "tools/scripts/hook_pre_git.py",
       "source_location": "L47",
-      "community": 11,
+      "community": 12,
       "norm_label": "git push origin master/main \u1112\u1167\u11bc\u1110\u1162\u110b\u1174 \u110c\u1175\u11a8\u110c\u1165\u11b8 \u1111\u116e\u1109\u1175 \u1100\u1161\u11b7\u110c\u1175.",
       "id": "hook_pre_git_rationale_47"
     },
@@ -287,7 +287,7 @@
       "file_type": "rationale",
       "source_file": "tools/scripts/hook_pre_git.py",
       "source_location": "L66",
-      "community": 11,
+      "community": 12,
       "norm_label": "cd 'path' && \u1104\u1169\u1102\u1173\u11ab cd \"path\" && \u1111\u1162\u1110\u1165\u11ab\u110b\u1166\u1109\u1165 \u1100\u1167\u11bc\u1105\u1169\u1105\u1173\u11af \u110e\u116e\u110e\u116e\u11af. \u110b\u1165\u11b9\u110b\u1173\u1106\u1167\u11ab \u1112\u1167\u11ab\u110c\u1162 cwd \u1107\u1161\u11ab\u1112\u116a\u11ab.",
       "id": "hook_pre_git_rationale_66"
     },
@@ -306,7 +306,7 @@
       "source_file": "tools/scripts/seed_jobs.py",
       "source_location": "L1",
       "id": "tools_scripts_seed_jobs_py",
-      "community": 12,
+      "community": 13,
       "norm_label": "seed_jobs.py"
     },
     {
@@ -315,7 +315,7 @@
       "source_file": "tools/scripts/seed_jobs.py",
       "source_location": "L175",
       "id": "seed_jobs_random_date_in_future",
-      "community": 12,
+      "community": 13,
       "norm_label": "_random_date_in_future()"
     },
     {
@@ -324,7 +324,7 @@
       "source_file": "tools/scripts/seed_jobs.py",
       "source_location": "L181",
       "id": "seed_jobs_random_employment_type",
-      "community": 12,
+      "community": 13,
       "norm_label": "_random_employment_type()"
     },
     {
@@ -333,7 +333,7 @@
       "source_file": "tools/scripts/seed_jobs.py",
       "source_location": "L185",
       "id": "seed_jobs_random_salary",
-      "community": 12,
+      "community": 13,
       "norm_label": "_random_salary()"
     },
     {
@@ -342,7 +342,7 @@
       "source_file": "tools/scripts/seed_jobs.py",
       "source_location": "L199",
       "id": "seed_jobs_generate_one",
-      "community": 12,
+      "community": 13,
       "norm_label": "generate_one()"
     },
     {
@@ -351,7 +351,7 @@
       "source_file": "tools/scripts/seed_jobs.py",
       "source_location": "L247",
       "id": "seed_jobs_generate_all",
-      "community": 12,
+      "community": 13,
       "norm_label": "generate_all()"
     },
     {
@@ -360,7 +360,7 @@
       "source_file": "tools/scripts/seed_jobs.py",
       "source_location": "L273",
       "id": "seed_jobs_upload_to_firestore",
-      "community": 12,
+      "community": 13,
       "norm_label": "upload_to_firestore()"
     },
     {
@@ -369,7 +369,7 @@
       "source_file": "tools/scripts/seed_jobs.py",
       "source_location": "L348",
       "id": "seed_jobs_main",
-      "community": 12,
+      "community": 13,
       "norm_label": "main()"
     },
     {
@@ -387,7 +387,7 @@
       "source_file": "SilverWorkerNow/tools/scripts/hook_agent_notify.py",
       "source_location": "L1",
       "id": "home_dudxo13_projects_silverworker_silverworkernow_tools_scripts_hook_agent_notify_py",
-      "community": 17,
+      "community": 4,
       "norm_label": "hook_agent_notify.py"
     },
     {
@@ -396,7 +396,7 @@
       "source_file": "SilverWorkerNow/tools/scripts/hook_agent_notify.py",
       "source_location": "L19",
       "id": "hook_agent_notify_main",
-      "community": 17,
+      "community": 4,
       "norm_label": "main()"
     },
     {
@@ -404,9 +404,216 @@
       "file_type": "rationale",
       "source_file": "tools/scripts/hook_agent_notify.py",
       "source_location": "L1",
-      "community": 17,
+      "community": 4,
       "norm_label": "claude code posttooluse hook - discord notification on agent completion. called",
       "id": "hook_agent_notify_rationale_1"
+    },
+    {
+      "label": "generate_review_request.py",
+      "file_type": "code",
+      "source_file": "tools/scripts/generate_review_request.py",
+      "source_location": "L1",
+      "id": "tools_scripts_generate_review_request_py",
+      "community": 4,
+      "norm_label": "generate_review_request.py"
+    },
+    {
+      "label": "run()",
+      "file_type": "code",
+      "source_file": "tools/scripts/generate_review_request.py",
+      "source_location": "L30",
+      "id": "generate_review_request_run",
+      "community": 4,
+      "norm_label": "run()"
+    },
+    {
+      "label": "get_pr_info()",
+      "file_type": "code",
+      "source_file": "tools/scripts/generate_review_request.py",
+      "source_location": "L35",
+      "id": "generate_review_request_get_pr_info",
+      "community": 4,
+      "norm_label": "get_pr_info()"
+    },
+    {
+      "label": "get_git_diff_stats()",
+      "file_type": "code",
+      "source_file": "tools/scripts/generate_review_request.py",
+      "source_location": "L59",
+      "id": "generate_review_request_get_git_diff_stats",
+      "community": 4,
+      "norm_label": "get_git_diff_stats()"
+    },
+    {
+      "label": "get_changed_files()",
+      "file_type": "code",
+      "source_file": "tools/scripts/generate_review_request.py",
+      "source_location": "L67",
+      "id": "generate_review_request_get_changed_files",
+      "community": 4,
+      "norm_label": "get_changed_files()"
+    },
+    {
+      "label": "get_commit_messages()",
+      "file_type": "code",
+      "source_file": "tools/scripts/generate_review_request.py",
+      "source_location": "L75",
+      "id": "generate_review_request_get_commit_messages",
+      "community": 4,
+      "norm_label": "get_commit_messages()"
+    },
+    {
+      "label": "categorize_files()",
+      "file_type": "code",
+      "source_file": "tools/scripts/generate_review_request.py",
+      "source_location": "L83",
+      "id": "generate_review_request_categorize_files",
+      "community": 4,
+      "norm_label": "categorize_files()"
+    },
+    {
+      "label": "get_previous_request_path()",
+      "file_type": "code",
+      "source_file": "tools/scripts/generate_review_request.py",
+      "source_location": "L107",
+      "id": "generate_review_request_get_previous_request_path",
+      "community": 4,
+      "norm_label": "get_previous_request_path()"
+    },
+    {
+      "label": "get_previous_review_paths()",
+      "file_type": "code",
+      "source_file": "tools/scripts/generate_review_request.py",
+      "source_location": "L122",
+      "id": "generate_review_request_get_previous_review_paths",
+      "community": 4,
+      "norm_label": "get_previous_review_paths()"
+    },
+    {
+      "label": "determine_round()",
+      "file_type": "code",
+      "source_file": "tools/scripts/generate_review_request.py",
+      "source_location": "L136",
+      "id": "generate_review_request_determine_round",
+      "community": 4,
+      "norm_label": "determine_round()"
+    },
+    {
+      "label": "extract_spec_from_commits()",
+      "file_type": "code",
+      "source_file": "tools/scripts/generate_review_request.py",
+      "source_location": "L149",
+      "id": "generate_review_request_extract_spec_from_commits",
+      "community": 4,
+      "norm_label": "extract_spec_from_commits()"
+    },
+    {
+      "label": "generate_request_doc()",
+      "file_type": "code",
+      "source_file": "tools/scripts/generate_review_request.py",
+      "source_location": "L159",
+      "id": "generate_review_request_generate_request_doc",
+      "community": 4,
+      "norm_label": "generate_request_doc()"
+    },
+    {
+      "label": "main()",
+      "file_type": "code",
+      "source_file": "tools/scripts/generate_review_request.py",
+      "source_location": "L281",
+      "id": "generate_review_request_main",
+      "community": 4,
+      "norm_label": "main()"
+    },
+    {
+      "label": "Fetch PR info from GitHub CLI.",
+      "file_type": "rationale",
+      "source_file": "tools/scripts/generate_review_request.py",
+      "source_location": "L36",
+      "community": 4,
+      "norm_label": "fetch pr info from github cli.",
+      "id": "generate_review_request_rationale_36"
+    },
+    {
+      "label": "Get git diff stats for the current branch vs main.",
+      "file_type": "rationale",
+      "source_file": "tools/scripts/generate_review_request.py",
+      "source_location": "L60",
+      "community": 4,
+      "norm_label": "get git diff stats for the current branch vs main.",
+      "id": "generate_review_request_rationale_60"
+    },
+    {
+      "label": "Get list of changed files.",
+      "file_type": "rationale",
+      "source_file": "tools/scripts/generate_review_request.py",
+      "source_location": "L68",
+      "community": 4,
+      "norm_label": "get list of changed files.",
+      "id": "generate_review_request_rationale_68"
+    },
+    {
+      "label": "Get commit messages for the current branch.",
+      "file_type": "rationale",
+      "source_file": "tools/scripts/generate_review_request.py",
+      "source_location": "L76",
+      "community": 4,
+      "norm_label": "get commit messages for the current branch.",
+      "id": "generate_review_request_rationale_76"
+    },
+    {
+      "label": "Categorize changed files by type.",
+      "file_type": "rationale",
+      "source_file": "tools/scripts/generate_review_request.py",
+      "source_location": "L84",
+      "community": 4,
+      "norm_label": "categorize changed files by type.",
+      "id": "generate_review_request_rationale_84"
+    },
+    {
+      "label": "Find the latest existing request doc for this PR.",
+      "file_type": "rationale",
+      "source_file": "tools/scripts/generate_review_request.py",
+      "source_location": "L108",
+      "community": 4,
+      "norm_label": "find the latest existing request doc for this pr.",
+      "id": "generate_review_request_rationale_108"
+    },
+    {
+      "label": "Find review docs for this PR.",
+      "file_type": "rationale",
+      "source_file": "tools/scripts/generate_review_request.py",
+      "source_location": "L123",
+      "community": 4,
+      "norm_label": "find review docs for this pr.",
+      "id": "generate_review_request_rationale_123"
+    },
+    {
+      "label": "Determine the review round number.",
+      "file_type": "rationale",
+      "source_file": "tools/scripts/generate_review_request.py",
+      "source_location": "L137",
+      "community": 4,
+      "norm_label": "determine the review round number.",
+      "id": "generate_review_request_rationale_137"
+    },
+    {
+      "label": "Try to extract spec reference from commit messages.",
+      "file_type": "rationale",
+      "source_file": "tools/scripts/generate_review_request.py",
+      "source_location": "L150",
+      "community": 4,
+      "norm_label": "try to extract spec reference from commit messages.",
+      "id": "generate_review_request_rationale_150"
+    },
+    {
+      "label": "Generate the review request markdown content.",
+      "file_type": "rationale",
+      "source_file": "tools/scripts/generate_review_request.py",
+      "source_location": "L168",
+      "community": 4,
+      "norm_label": "generate the review request markdown content.",
+      "id": "generate_review_request_rationale_168"
     },
     {
       "label": "build.gradle.kts",
@@ -441,7 +648,7 @@
       "source_file": "SilverWorkerNow/android/app/src/main/java/io/flutter/plugins/GeneratedPluginRegistrant.java",
       "source_location": "L1",
       "id": "home_dudxo13_projects_silverworker_silverworkernow_android_app_src_main_java_io_flutter_plugins_generatedpluginregistrant_java",
-      "community": 15,
+      "community": 16,
       "norm_label": "generatedpluginregistrant.java"
     },
     {
@@ -450,7 +657,7 @@
       "source_file": "SilverWorkerNow/ios/Runner/GeneratedPluginRegistrant.m",
       "source_location": "L63",
       "id": "generatedpluginregistrant_generatedpluginregistrant",
-      "community": 15,
+      "community": 16,
       "norm_label": "generatedpluginregistrant"
     },
     {
@@ -459,7 +666,7 @@
       "source_file": "SilverWorkerNow/android/app/src/main/java/io/flutter/plugins/GeneratedPluginRegistrant.java",
       "source_location": "L17",
       "id": "generatedpluginregistrant_generatedpluginregistrant_registerwith",
-      "community": 15,
+      "community": 16,
       "norm_label": ".registerwith()"
     },
     {
@@ -468,7 +675,7 @@
       "source_file": "lib/main.dart",
       "source_location": null,
       "id": "lib_main_dart",
-      "community": 3,
+      "community": 1,
       "norm_label": "main.dart"
     },
     {
@@ -477,7 +684,7 @@
       "source_file": "lib/main.dart",
       "source_location": null,
       "id": "home_dudxo13_projects_silverworker_lib_main_dart_myapp",
-      "community": 3,
+      "community": 1,
       "norm_label": "myapp"
     },
     {
@@ -486,7 +693,7 @@
       "source_file": "lib/main.dart",
       "source_location": null,
       "id": "home_dudxo13_projects_silverworker_lib_main_dart_main",
-      "community": 3,
+      "community": 1,
       "norm_label": "main"
     },
     {
@@ -495,7 +702,7 @@
       "source_file": "lib/main.dart",
       "source_location": null,
       "id": "home_dudxo13_projects_silverworker_lib_main_dart_build",
-      "community": 3,
+      "community": 1,
       "norm_label": "build"
     },
     {
@@ -513,7 +720,7 @@
       "source_file": "test/widgets/my_page_screen_test.dart",
       "source_location": null,
       "id": "package_flutter_riverpod_flutter_riverpod_dart",
-      "community": 7,
+      "community": 1,
       "norm_label": "package:flutter_riverpod/flutter_riverpod.dart"
     },
     {
@@ -522,7 +729,7 @@
       "source_file": "SilverWorkerNow/lib/firebase_options.dart",
       "source_location": null,
       "id": "package_firebase_core_firebase_core_dart",
-      "community": 3,
+      "community": 7,
       "norm_label": "package:firebase_core/firebase_core.dart"
     },
     {
@@ -531,7 +738,7 @@
       "source_file": "lib/main.dart",
       "source_location": null,
       "id": "firebase_options_dart",
-      "community": 3,
+      "community": 1,
       "norm_label": "firebase_options.dart"
     },
     {
@@ -540,7 +747,7 @@
       "source_file": "lib/screens/auth/profile_register_screen.dart",
       "source_location": null,
       "id": "router_app_router_dart",
-      "community": 3,
+      "community": 1,
       "norm_label": "../../router/app_router.dart"
     },
     {
@@ -549,7 +756,7 @@
       "source_file": "SilverWorkerNow/lib/firebase_options.dart",
       "source_location": null,
       "id": "home_dudxo13_projects_silverworker_silverworkernow_lib_firebase_options_dart",
-      "community": 3,
+      "community": 7,
       "norm_label": "firebase_options.dart"
     },
     {
@@ -558,7 +765,7 @@
       "source_file": "SilverWorkerNow/lib/firebase_options.dart",
       "source_location": null,
       "id": "home_dudxo13_projects_silverworker_silverworkernow_lib_firebase_options_dart_defaultfirebaseoptions",
-      "community": 3,
+      "community": 7,
       "norm_label": "defaultfirebaseoptions"
     },
     {
@@ -567,7 +774,7 @@
       "source_file": "SilverWorkerNow/lib/firebase_options.dart",
       "source_location": null,
       "id": "home_dudxo13_projects_silverworker_silverworkernow_lib_firebase_options_dart_unsupportederror",
-      "community": 3,
+      "community": 7,
       "norm_label": "unsupportederror"
     },
     {
@@ -576,62 +783,89 @@
       "source_file": "SilverWorkerNow/lib/firebase_options.dart",
       "source_location": null,
       "id": "package_flutter_foundation_dart",
-      "community": 3,
+      "community": 7,
       "norm_label": "package:flutter/foundation.dart"
     },
     {
-      "label": "main_screen.dart",
+      "label": "main_shell.dart",
       "file_type": "code",
-      "source_file": "lib/screens/main/main_screen.dart",
+      "source_file": "lib/screens/main/main_shell.dart",
       "source_location": null,
-      "id": "lib_screens_main_main_screen_dart",
+      "id": "lib_screens_main_main_shell_dart",
       "community": 1,
-      "norm_label": "main_screen.dart"
+      "norm_label": "main_shell.dart"
     },
     {
-      "label": "MainScreen",
+      "label": "MainShell",
       "file_type": "code",
-      "source_file": "lib/screens/main/main_screen.dart",
+      "source_file": "lib/screens/main/main_shell.dart",
       "source_location": null,
-      "id": "home_dudxo13_projects_silverworker_lib_screens_main_main_screen_dart_mainscreen",
+      "id": "home_dudxo13_projects_silverworker_lib_screens_main_main_shell_dart_mainshell",
       "community": 1,
-      "norm_label": "mainscreen"
+      "norm_label": "mainshell"
+    },
+    {
+      "label": "_TabItem",
+      "file_type": "code",
+      "source_file": "lib/screens/main/main_shell.dart",
+      "source_location": null,
+      "id": "home_dudxo13_projects_silverworker_lib_screens_main_main_shell_dart_tabitem",
+      "community": 1,
+      "norm_label": "_tabitem"
     },
     {
       "label": "build",
       "file_type": "code",
-      "source_file": "lib/screens/main/main_screen.dart",
+      "source_file": "lib/screens/main/main_shell.dart",
       "source_location": null,
-      "id": "home_dudxo13_projects_silverworker_lib_screens_main_main_screen_dart_build",
+      "id": "home_dudxo13_projects_silverworker_lib_screens_main_main_shell_dart_build",
       "community": 1,
       "norm_label": "build"
     },
     {
       "label": "Scaffold",
       "file_type": "code",
-      "source_file": "lib/screens/main/main_screen.dart",
+      "source_file": "lib/screens/main/main_shell.dart",
       "source_location": null,
-      "id": "home_dudxo13_projects_silverworker_lib_screens_main_main_screen_dart_scaffold",
+      "id": "home_dudxo13_projects_silverworker_lib_screens_main_main_shell_dart_scaffold",
       "community": 1,
       "norm_label": "scaffold"
     },
     {
-      "label": "JobListScreen",
+      "label": "_buildScaffold",
       "file_type": "code",
-      "source_file": "lib/screens/main/main_screen.dart",
+      "source_file": "lib/screens/main/main_shell.dart",
       "source_location": null,
-      "id": "home_dudxo13_projects_silverworker_lib_screens_main_main_screen_dart_joblistscreen",
+      "id": "home_dudxo13_projects_silverworker_lib_screens_main_main_shell_dart_buildscaffold",
       "community": 1,
-      "norm_label": "joblistscreen"
+      "norm_label": "_buildscaffold"
     },
     {
       "label": "SizedBox",
       "file_type": "code",
-      "source_file": "lib/screens/main/main_screen.dart",
+      "source_file": "lib/screens/main/main_shell.dart",
       "source_location": null,
-      "id": "home_dudxo13_projects_silverworker_lib_screens_main_main_screen_dart_sizedbox",
+      "id": "home_dudxo13_projects_silverworker_lib_screens_main_main_shell_dart_sizedbox",
       "community": 1,
       "norm_label": "sizedbox"
+    },
+    {
+      "label": "_resolveIndex",
+      "file_type": "code",
+      "source_file": "lib/screens/main/main_shell.dart",
+      "source_location": null,
+      "id": "home_dudxo13_projects_silverworker_lib_screens_main_main_shell_dart_resolveindex",
+      "community": 1,
+      "norm_label": "_resolveindex"
+    },
+    {
+      "label": "_onTap",
+      "file_type": "code",
+      "source_file": "lib/screens/main/main_shell.dart",
+      "source_location": null,
+      "id": "home_dudxo13_projects_silverworker_lib_screens_main_main_shell_dart_ontap",
+      "community": 1,
+      "norm_label": "_ontap"
     },
     {
       "label": "package:go_router/go_router.dart",
@@ -670,21 +904,12 @@
       "norm_label": "../providers/auth_provider.dart"
     },
     {
-      "label": "../job/job_list_screen.dart",
-      "file_type": "code",
-      "source_file": "lib/screens/main/main_screen.dart",
-      "source_location": null,
-      "id": "job_job_list_screen_dart",
-      "community": 1,
-      "norm_label": "../job/job_list_screen.dart"
-    },
-    {
       "label": "job_list_screen.dart",
       "file_type": "code",
       "source_file": "lib/screens/job/job_list_screen.dart",
       "source_location": null,
       "id": "lib_screens_job_job_list_screen_dart",
-      "community": 8,
+      "community": 5,
       "norm_label": "job_list_screen.dart"
     },
     {
@@ -693,7 +918,7 @@
       "source_file": "lib/screens/job/job_list_screen.dart",
       "source_location": null,
       "id": "home_dudxo13_projects_silverworker_lib_screens_job_job_list_screen_dart_joblistscreen",
-      "community": 8,
+      "community": 5,
       "norm_label": "joblistscreen"
     },
     {
@@ -702,7 +927,7 @@
       "source_file": "lib/screens/job/job_list_screen.dart",
       "source_location": null,
       "id": "home_dudxo13_projects_silverworker_lib_screens_job_job_list_screen_dart_joblistview",
-      "community": 8,
+      "community": 5,
       "norm_label": "_joblistview"
     },
     {
@@ -711,7 +936,7 @@
       "source_file": "lib/screens/job/job_list_screen.dart",
       "source_location": null,
       "id": "home_dudxo13_projects_silverworker_lib_screens_job_job_list_screen_dart_loadingstate",
-      "community": 8,
+      "community": 5,
       "norm_label": "_loadingstate"
     },
     {
@@ -720,7 +945,7 @@
       "source_file": "lib/screens/job/job_list_screen.dart",
       "source_location": null,
       "id": "home_dudxo13_projects_silverworker_lib_screens_job_job_list_screen_dart_errorstate",
-      "community": 8,
+      "community": 5,
       "norm_label": "_errorstate"
     },
     {
@@ -729,7 +954,7 @@
       "source_file": "lib/screens/job/job_list_screen.dart",
       "source_location": null,
       "id": "home_dudxo13_projects_silverworker_lib_screens_job_job_list_screen_dart_emptystate",
-      "community": 8,
+      "community": 5,
       "norm_label": "_emptystate"
     },
     {
@@ -738,7 +963,7 @@
       "source_file": "lib/screens/job/job_list_screen.dart",
       "source_location": null,
       "id": "home_dudxo13_projects_silverworker_lib_screens_job_job_list_screen_dart_build",
-      "community": 8,
+      "community": 5,
       "norm_label": "build"
     },
     {
@@ -747,7 +972,7 @@
       "source_file": "lib/screens/job/job_list_screen.dart",
       "source_location": null,
       "id": "home_dudxo13_projects_silverworker_lib_screens_job_job_list_screen_dart_scaffold",
-      "community": 8,
+      "community": 5,
       "norm_label": "scaffold"
     },
     {
@@ -756,7 +981,7 @@
       "source_file": "lib/screens/job/job_list_screen.dart",
       "source_location": null,
       "id": "home_dudxo13_projects_silverworker_lib_screens_job_job_list_screen_dart_divider",
-      "community": 8,
+      "community": 5,
       "norm_label": "divider"
     },
     {
@@ -765,7 +990,7 @@
       "source_file": "lib/screens/job/job_list_screen.dart",
       "source_location": null,
       "id": "home_dudxo13_projects_silverworker_lib_screens_job_job_list_screen_dart_function",
-      "community": 8,
+      "community": 5,
       "norm_label": "function"
     },
     {
@@ -774,7 +999,7 @@
       "source_file": "lib/screens/job/job_list_screen.dart",
       "source_location": null,
       "id": "home_dudxo13_projects_silverworker_lib_screens_job_job_list_screen_dart_jobcard",
-      "community": 8,
+      "community": 5,
       "norm_label": "jobcard"
     },
     {
@@ -783,7 +1008,7 @@
       "source_file": "lib/screens/job/job_list_screen.dart",
       "source_location": null,
       "id": "home_dudxo13_projects_silverworker_lib_screens_job_job_list_screen_dart_card",
-      "community": 8,
+      "community": 5,
       "norm_label": "card"
     },
     {
@@ -792,7 +1017,7 @@
       "source_file": "lib/screens/job/job_list_screen.dart",
       "source_location": null,
       "id": "home_dudxo13_projects_silverworker_lib_screens_job_job_list_screen_dart_sizedbox",
-      "community": 8,
+      "community": 5,
       "norm_label": "sizedbox"
     },
     {
@@ -801,7 +1026,7 @@
       "source_file": "lib/screens/job/job_list_screen.dart",
       "source_location": null,
       "id": "home_dudxo13_projects_silverworker_lib_screens_job_job_list_screen_dart_spacer",
-      "community": 8,
+      "community": 5,
       "norm_label": "spacer"
     },
     {
@@ -810,7 +1035,7 @@
       "source_file": "lib/screens/job/job_list_screen.dart",
       "source_location": null,
       "id": "home_dudxo13_projects_silverworker_lib_screens_job_job_list_screen_dart_center",
-      "community": 8,
+      "community": 5,
       "norm_label": "center"
     },
     {
@@ -819,7 +1044,7 @@
       "source_file": "lib/screens/job/job_list_screen.dart",
       "source_location": null,
       "id": "home_dudxo13_projects_silverworker_lib_screens_job_job_list_screen_dart_icon",
-      "community": 8,
+      "community": 5,
       "norm_label": "icon"
     },
     {
@@ -846,7 +1071,7 @@
       "source_file": "lib/screens/application/application_result_screen.dart",
       "source_location": null,
       "id": "providers_job_provider_dart",
-      "community": 3,
+      "community": 8,
       "norm_label": "../../providers/job_provider.dart"
     },
     {
@@ -855,7 +1080,7 @@
       "source_file": "lib/screens/job/job_list_screen.dart",
       "source_location": null,
       "id": "widgets_filter_bar_dart",
-      "community": 8,
+      "community": 5,
       "norm_label": "../../widgets/filter_bar.dart"
     },
     {
@@ -864,7 +1089,7 @@
       "source_file": "lib/screens/job/job_list_screen.dart",
       "source_location": null,
       "id": "widgets_job_card_dart",
-      "community": 8,
+      "community": 5,
       "norm_label": "../../widgets/job_card.dart"
     },
     {
@@ -873,7 +1098,7 @@
       "source_file": "lib/screens/job/job_detail_screen.dart",
       "source_location": null,
       "id": "lib_screens_job_job_detail_screen_dart",
-      "community": 5,
+      "community": 7,
       "norm_label": "job_detail_screen.dart"
     },
     {
@@ -882,7 +1107,7 @@
       "source_file": "lib/screens/job/job_detail_screen.dart",
       "source_location": null,
       "id": "home_dudxo13_projects_silverworker_lib_screens_job_job_detail_screen_dart_jobdetailscreen",
-      "community": 5,
+      "community": 7,
       "norm_label": "jobdetailscreen"
     },
     {
@@ -891,7 +1116,7 @@
       "source_file": "lib/screens/job/job_detail_screen.dart",
       "source_location": null,
       "id": "home_dudxo13_projects_silverworker_lib_screens_job_job_detail_screen_dart_jobdetailbody",
-      "community": 5,
+      "community": 7,
       "norm_label": "_jobdetailbody"
     },
     {
@@ -900,7 +1125,7 @@
       "source_file": "lib/screens/job/job_detail_screen.dart",
       "source_location": null,
       "id": "home_dudxo13_projects_silverworker_lib_screens_job_job_detail_screen_dart_headersection",
-      "community": 5,
+      "community": 7,
       "norm_label": "_headersection"
     },
     {
@@ -909,7 +1134,7 @@
       "source_file": "lib/screens/job/job_detail_screen.dart",
       "source_location": null,
       "id": "home_dudxo13_projects_silverworker_lib_screens_job_job_detail_screen_dart_workconditionsection",
-      "community": 5,
+      "community": 7,
       "norm_label": "_workconditionsection"
     },
     {
@@ -918,7 +1143,7 @@
       "source_file": "lib/screens/job/job_detail_screen.dart",
       "source_location": null,
       "id": "home_dudxo13_projects_silverworker_lib_screens_job_job_detail_screen_dart_conditionrow",
-      "community": 5,
+      "community": 7,
       "norm_label": "_conditionrow"
     },
     {
@@ -927,7 +1152,7 @@
       "source_file": "lib/screens/job/job_detail_screen.dart",
       "source_location": null,
       "id": "home_dudxo13_projects_silverworker_lib_screens_job_job_detail_screen_dart_sectionblock",
-      "community": 5,
+      "community": 7,
       "norm_label": "_sectionblock"
     },
     {
@@ -936,7 +1161,7 @@
       "source_file": "lib/screens/job/job_detail_screen.dart",
       "source_location": null,
       "id": "home_dudxo13_projects_silverworker_lib_screens_job_job_detail_screen_dart_build",
-      "community": 5,
+      "community": 7,
       "norm_label": "build"
     },
     {
@@ -945,7 +1170,7 @@
       "source_file": "lib/screens/job/job_detail_screen.dart",
       "source_location": null,
       "id": "home_dudxo13_projects_silverworker_lib_screens_job_job_detail_screen_dart_scaffold",
-      "community": 5,
+      "community": 7,
       "norm_label": "scaffold"
     },
     {
@@ -954,7 +1179,7 @@
       "source_file": "lib/screens/job/job_detail_screen.dart",
       "source_location": null,
       "id": "home_dudxo13_projects_silverworker_lib_screens_job_job_detail_screen_dart_center",
-      "community": 5,
+      "community": 7,
       "norm_label": "center"
     },
     {
@@ -963,7 +1188,7 @@
       "source_file": "lib/screens/job/job_detail_screen.dart",
       "source_location": null,
       "id": "home_dudxo13_projects_silverworker_lib_screens_job_job_detail_screen_dart_icon",
-      "community": 5,
+      "community": 7,
       "norm_label": "icon"
     },
     {
@@ -972,7 +1197,7 @@
       "source_file": "lib/screens/job/job_detail_screen.dart",
       "source_location": null,
       "id": "home_dudxo13_projects_silverworker_lib_screens_job_job_detail_screen_dart_sizedbox",
-      "community": 5,
+      "community": 7,
       "norm_label": "sizedbox"
     },
     {
@@ -981,7 +1206,7 @@
       "source_file": "lib/screens/job/job_detail_screen.dart",
       "source_location": null,
       "id": "home_dudxo13_projects_silverworker_lib_screens_job_job_detail_screen_dart_stack",
-      "community": 5,
+      "community": 7,
       "norm_label": "stack"
     },
     {
@@ -990,7 +1215,7 @@
       "source_file": "lib/screens/job/job_detail_screen.dart",
       "source_location": null,
       "id": "home_dudxo13_projects_silverworker_lib_screens_job_job_detail_screen_dart_divider",
-      "community": 5,
+      "community": 7,
       "norm_label": "divider"
     },
     {
@@ -999,7 +1224,7 @@
       "source_file": "lib/screens/job/job_detail_screen.dart",
       "source_location": null,
       "id": "home_dudxo13_projects_silverworker_lib_screens_job_job_detail_screen_dart_column",
-      "community": 5,
+      "community": 7,
       "norm_label": "column"
     },
     {
@@ -1008,7 +1233,7 @@
       "source_file": "lib/screens/job/job_detail_screen.dart",
       "source_location": null,
       "id": "home_dudxo13_projects_silverworker_lib_screens_job_job_detail_screen_dart_padding",
-      "community": 5,
+      "community": 7,
       "norm_label": "padding"
     },
     {
@@ -1017,7 +1242,7 @@
       "source_file": "lib/screens/job/job_detail_screen.dart",
       "source_location": null,
       "id": "widgets_safety_curation_section_dart",
-      "community": 5,
+      "community": 7,
       "norm_label": "../../widgets/safety_curation_section.dart"
     },
     {
@@ -1026,7 +1251,7 @@
       "source_file": "lib/screens/mypage/application_list_screen.dart",
       "source_location": null,
       "id": "lib_screens_mypage_application_list_screen_dart",
-      "community": 7,
+      "community": 10,
       "norm_label": "application_list_screen.dart"
     },
     {
@@ -1035,7 +1260,7 @@
       "source_file": "lib/screens/mypage/application_list_screen.dart",
       "source_location": null,
       "id": "home_dudxo13_projects_silverworker_lib_screens_mypage_application_list_screen_dart_applicationlistscreen",
-      "community": 7,
+      "community": 10,
       "norm_label": "applicationlistscreen"
     },
     {
@@ -1044,7 +1269,7 @@
       "source_file": "lib/screens/mypage/application_list_screen.dart",
       "source_location": null,
       "id": "home_dudxo13_projects_silverworker_lib_screens_mypage_application_list_screen_dart_applicationcard",
-      "community": 7,
+      "community": 10,
       "norm_label": "applicationcard"
     },
     {
@@ -1053,7 +1278,7 @@
       "source_file": "lib/screens/mypage/application_list_screen.dart",
       "source_location": null,
       "id": "home_dudxo13_projects_silverworker_lib_screens_mypage_application_list_screen_dart_emptystate",
-      "community": 7,
+      "community": 10,
       "norm_label": "_emptystate"
     },
     {
@@ -1062,7 +1287,7 @@
       "source_file": "lib/screens/mypage/application_list_screen.dart",
       "source_location": null,
       "id": "home_dudxo13_projects_silverworker_lib_screens_mypage_application_list_screen_dart_build",
-      "community": 7,
+      "community": 10,
       "norm_label": "build"
     },
     {
@@ -1071,7 +1296,7 @@
       "source_file": "lib/screens/mypage/application_list_screen.dart",
       "source_location": null,
       "id": "home_dudxo13_projects_silverworker_lib_screens_mypage_application_list_screen_dart_scaffold",
-      "community": 7,
+      "community": 10,
       "norm_label": "scaffold"
     },
     {
@@ -1080,7 +1305,7 @@
       "source_file": "lib/screens/mypage/application_list_screen.dart",
       "source_location": null,
       "id": "home_dudxo13_projects_silverworker_lib_screens_mypage_application_list_screen_dart_padding",
-      "community": 7,
+      "community": 10,
       "norm_label": "padding"
     },
     {
@@ -1089,7 +1314,7 @@
       "source_file": "lib/screens/mypage/application_list_screen.dart",
       "source_location": null,
       "id": "home_dudxo13_projects_silverworker_lib_screens_mypage_application_list_screen_dart_container",
-      "community": 7,
+      "community": 10,
       "norm_label": "container"
     },
     {
@@ -1098,7 +1323,7 @@
       "source_file": "lib/screens/mypage/application_list_screen.dart",
       "source_location": null,
       "id": "home_dudxo13_projects_silverworker_lib_screens_mypage_application_list_screen_dart_sizedbox",
-      "community": 7,
+      "community": 10,
       "norm_label": "sizedbox"
     },
     {
@@ -1107,7 +1332,7 @@
       "source_file": "lib/screens/mypage/application_list_screen.dart",
       "source_location": null,
       "id": "home_dudxo13_projects_silverworker_lib_screens_mypage_application_list_screen_dart_formatdate",
-      "community": 7,
+      "community": 10,
       "norm_label": "_formatdate"
     },
     {
@@ -1116,7 +1341,7 @@
       "source_file": "lib/screens/mypage/application_list_screen.dart",
       "source_location": null,
       "id": "home_dudxo13_projects_silverworker_lib_screens_mypage_application_list_screen_dart_center",
-      "community": 7,
+      "community": 10,
       "norm_label": "center"
     },
     {
@@ -1125,7 +1350,7 @@
       "source_file": "lib/repositories/application_repository.dart",
       "source_location": null,
       "id": "models_application_model_dart",
-      "community": 7,
+      "community": 10,
       "norm_label": "../models/application_model.dart"
     },
     {
@@ -1134,7 +1359,7 @@
       "source_file": "lib/screens/application/application_form_screen.dart",
       "source_location": null,
       "id": "providers_application_provider_dart",
-      "community": 7,
+      "community": 10,
       "norm_label": "../../providers/application_provider.dart"
     },
     {
@@ -1305,7 +1530,7 @@
       "source_file": "lib/screens/application/application_form_screen.dart",
       "source_location": null,
       "id": "lib_screens_application_application_form_screen_dart",
-      "community": 3,
+      "community": 8,
       "norm_label": "application_form_screen.dart"
     },
     {
@@ -1314,7 +1539,7 @@
       "source_file": "lib/screens/application/application_form_screen.dart",
       "source_location": null,
       "id": "home_dudxo13_projects_silverworker_lib_screens_application_application_form_screen_dart_applicationformscreen",
-      "community": 3,
+      "community": 8,
       "norm_label": "applicationformscreen"
     },
     {
@@ -1323,7 +1548,7 @@
       "source_file": "lib/screens/application/application_form_screen.dart",
       "source_location": null,
       "id": "home_dudxo13_projects_silverworker_lib_screens_application_application_form_screen_dart_applicationformscreenstate",
-      "community": 3,
+      "community": 8,
       "norm_label": "_applicationformscreenstate"
     },
     {
@@ -1332,7 +1557,7 @@
       "source_file": "lib/screens/application/application_form_screen.dart",
       "source_location": null,
       "id": "home_dudxo13_projects_silverworker_lib_screens_application_application_form_screen_dart_initstate",
-      "community": 3,
+      "community": 8,
       "norm_label": "initstate"
     },
     {
@@ -1341,7 +1566,7 @@
       "source_file": "lib/screens/application/application_form_screen.dart",
       "source_location": null,
       "id": "home_dudxo13_projects_silverworker_lib_screens_application_application_form_screen_dart_dispose",
-      "community": 3,
+      "community": 8,
       "norm_label": "dispose"
     },
     {
@@ -1350,7 +1575,7 @@
       "source_file": "lib/screens/application/application_form_screen.dart",
       "source_location": null,
       "id": "home_dudxo13_projects_silverworker_lib_screens_application_application_form_screen_dart_build",
-      "community": 3,
+      "community": 8,
       "norm_label": "build"
     },
     {
@@ -1359,7 +1584,7 @@
       "source_file": "lib/screens/application/application_form_screen.dart",
       "source_location": null,
       "id": "home_dudxo13_projects_silverworker_lib_screens_application_application_form_screen_dart_scaffold",
-      "community": 3,
+      "community": 8,
       "norm_label": "scaffold"
     },
     {
@@ -1368,7 +1593,7 @@
       "source_file": "lib/screens/application/application_form_screen.dart",
       "source_location": null,
       "id": "home_dudxo13_projects_silverworker_lib_screens_application_application_form_screen_dart_center",
-      "community": 3,
+      "community": 8,
       "norm_label": "center"
     },
     {
@@ -1377,7 +1602,7 @@
       "source_file": "lib/screens/application/application_form_screen.dart",
       "source_location": null,
       "id": "home_dudxo13_projects_silverworker_lib_screens_application_application_form_screen_dart_column",
-      "community": 3,
+      "community": 8,
       "norm_label": "column"
     },
     {
@@ -1386,7 +1611,7 @@
       "source_file": "lib/screens/application/application_form_screen.dart",
       "source_location": null,
       "id": "home_dudxo13_projects_silverworker_lib_screens_application_application_form_screen_dart_sizedbox",
-      "community": 3,
+      "community": 8,
       "norm_label": "sizedbox"
     },
     {
@@ -1395,7 +1620,7 @@
       "source_file": "lib/providers/application_provider.dart",
       "source_location": null,
       "id": "repositories_application_repository_dart",
-      "community": 7,
+      "community": 10,
       "norm_label": "../repositories/application_repository.dart"
     },
     {
@@ -1413,7 +1638,7 @@
       "source_file": "lib/screens/application/application_form_screen.dart",
       "source_location": null,
       "id": "utils_snack_utils_dart",
-      "community": 3,
+      "community": 8,
       "norm_label": "../../utils/snack_utils.dart"
     },
     {
@@ -1422,7 +1647,7 @@
       "source_file": "lib/screens/application/application_result_screen.dart",
       "source_location": null,
       "id": "widgets_primary_button_dart",
-      "community": 3,
+      "community": 8,
       "norm_label": "../../widgets/primary_button.dart"
     },
     {
@@ -1431,7 +1656,7 @@
       "source_file": "lib/screens/application/application_result_screen.dart",
       "source_location": null,
       "id": "lib_screens_application_application_result_screen_dart",
-      "community": 3,
+      "community": 8,
       "norm_label": "application_result_screen.dart"
     },
     {
@@ -1440,7 +1665,7 @@
       "source_file": "lib/screens/application/application_result_screen.dart",
       "source_location": null,
       "id": "home_dudxo13_projects_silverworker_lib_screens_application_application_result_screen_dart_applicationresultscreen",
-      "community": 3,
+      "community": 8,
       "norm_label": "applicationresultscreen"
     },
     {
@@ -1449,7 +1674,7 @@
       "source_file": "lib/screens/application/application_result_screen.dart",
       "source_location": null,
       "id": "home_dudxo13_projects_silverworker_lib_screens_application_application_result_screen_dart_build",
-      "community": 3,
+      "community": 8,
       "norm_label": "build"
     },
     {
@@ -1458,7 +1683,7 @@
       "source_file": "lib/screens/application/application_result_screen.dart",
       "source_location": null,
       "id": "home_dudxo13_projects_silverworker_lib_screens_application_application_result_screen_dart_scaffold",
-      "community": 3,
+      "community": 8,
       "norm_label": "scaffold"
     },
     {
@@ -1467,7 +1692,7 @@
       "source_file": "lib/screens/application/application_result_screen.dart",
       "source_location": null,
       "id": "home_dudxo13_projects_silverworker_lib_screens_application_application_result_screen_dart_center",
-      "community": 3,
+      "community": 8,
       "norm_label": "center"
     },
     {
@@ -1476,7 +1701,7 @@
       "source_file": "lib/screens/application/application_result_screen.dart",
       "source_location": null,
       "id": "home_dudxo13_projects_silverworker_lib_screens_application_application_result_screen_dart_icon",
-      "community": 3,
+      "community": 8,
       "norm_label": "icon"
     },
     {
@@ -1485,7 +1710,7 @@
       "source_file": "lib/screens/application/application_result_screen.dart",
       "source_location": null,
       "id": "home_dudxo13_projects_silverworker_lib_screens_application_application_result_screen_dart_sizedbox",
-      "community": 3,
+      "community": 8,
       "norm_label": "sizedbox"
     },
     {
@@ -1494,7 +1719,7 @@
       "source_file": "lib/screens/application/application_result_screen.dart",
       "source_location": null,
       "id": "home_dudxo13_projects_silverworker_lib_screens_application_application_result_screen_dart_text",
-      "community": 3,
+      "community": 8,
       "norm_label": "text"
     },
     {
@@ -1606,13 +1831,13 @@
       "norm_label": "build"
     },
     {
-      "label": "Scaffold",
+      "label": "PopScope",
       "file_type": "code",
       "source_file": "lib/screens/auth/otp_input_screen.dart",
       "source_location": null,
-      "id": "home_dudxo13_projects_silverworker_lib_screens_auth_otp_input_screen_dart_scaffold",
+      "id": "home_dudxo13_projects_silverworker_lib_screens_auth_otp_input_screen_dart_popscope",
       "community": 1,
-      "norm_label": "scaffold"
+      "norm_label": "popscope"
     },
     {
       "label": "SizedBox",
@@ -1696,13 +1921,13 @@
       "norm_label": "build"
     },
     {
-      "label": "Scaffold",
+      "label": "PopScope",
       "file_type": "code",
       "source_file": "lib/screens/auth/phone_input_screen.dart",
       "source_location": null,
-      "id": "home_dudxo13_projects_silverworker_lib_screens_auth_phone_input_screen_dart_scaffold",
+      "id": "home_dudxo13_projects_silverworker_lib_screens_auth_phone_input_screen_dart_popscope",
       "community": 1,
-      "norm_label": "scaffold"
+      "norm_label": "popscope"
     },
     {
       "label": "SizedBox",
@@ -1899,7 +2124,7 @@
       "source_file": "lib/providers/bookmark_provider.dart",
       "source_location": null,
       "id": "lib_providers_bookmark_provider_dart",
-      "community": 7,
+      "community": 1,
       "norm_label": "bookmark_provider.dart"
     },
     {
@@ -1908,7 +2133,7 @@
       "source_file": "lib/providers/bookmark_provider.dart",
       "source_location": null,
       "id": "home_dudxo13_projects_silverworker_lib_providers_bookmark_provider_dart_bookmarkrepository",
-      "community": 7,
+      "community": 1,
       "norm_label": "bookmarkrepository"
     },
     {
@@ -1917,7 +2142,7 @@
       "source_file": "lib/providers/bookmark_provider.dart",
       "source_location": null,
       "id": "repositories_bookmark_repository_dart",
-      "community": 7,
+      "community": 1,
       "norm_label": "../repositories/bookmark_repository.dart"
     },
     {
@@ -1935,7 +2160,7 @@
       "source_file": "lib/providers/application_provider.dart",
       "source_location": null,
       "id": "lib_providers_application_provider_dart",
-      "community": 7,
+      "community": 10,
       "norm_label": "application_provider.dart"
     },
     {
@@ -1944,7 +2169,7 @@
       "source_file": "lib/providers/application_provider.dart",
       "source_location": null,
       "id": "home_dudxo13_projects_silverworker_lib_providers_application_provider_dart_applicationrepository",
-      "community": 7,
+      "community": 10,
       "norm_label": "applicationrepository"
     },
     {
@@ -1989,7 +2214,7 @@
       "source_file": "lib/router/app_router.dart",
       "source_location": null,
       "id": "lib_router_app_router_dart",
-      "community": 4,
+      "community": 3,
       "norm_label": "app_router.dart"
     },
     {
@@ -1998,7 +2223,7 @@
       "source_file": "lib/router/app_router.dart",
       "source_location": null,
       "id": "home_dudxo13_projects_silverworker_lib_router_app_router_dart_authrefresh",
-      "community": 4,
+      "community": 3,
       "norm_label": "_authrefresh"
     },
     {
@@ -2007,7 +2232,7 @@
       "source_file": "lib/router/app_router.dart",
       "source_location": null,
       "id": "home_dudxo13_projects_silverworker_lib_router_app_router_dart_jobdetailroute",
-      "community": 4,
+      "community": 3,
       "norm_label": "jobdetailroute"
     },
     {
@@ -2016,7 +2241,7 @@
       "source_file": "lib/router/app_router.dart",
       "source_location": null,
       "id": "home_dudxo13_projects_silverworker_lib_router_app_router_dart_applyroute",
-      "community": 4,
+      "community": 3,
       "norm_label": "applyroute"
     },
     {
@@ -2025,7 +2250,7 @@
       "source_file": "lib/router/app_router.dart",
       "source_location": null,
       "id": "home_dudxo13_projects_silverworker_lib_router_app_router_dart_applydoneroute",
-      "community": 4,
+      "community": 3,
       "norm_label": "applydoneroute"
     },
     {
@@ -2034,7 +2259,7 @@
       "source_file": "lib/router/app_router.dart",
       "source_location": null,
       "id": "home_dudxo13_projects_silverworker_lib_router_app_router_dart_dispose",
-      "community": 4,
+      "community": 3,
       "norm_label": "dispose"
     },
     {
@@ -2043,7 +2268,7 @@
       "source_file": "lib/router/app_router.dart",
       "source_location": null,
       "id": "home_dudxo13_projects_silverworker_lib_router_app_router_dart_gorouter",
-      "community": 4,
+      "community": 3,
       "norm_label": "gorouter"
     },
     {
@@ -2052,7 +2277,7 @@
       "source_file": "lib/router/app_router.dart",
       "source_location": null,
       "id": "home_dudxo13_projects_silverworker_lib_router_app_router_dart_phoneinputscreen",
-      "community": 4,
+      "community": 3,
       "norm_label": "phoneinputscreen"
     },
     {
@@ -2061,7 +2286,7 @@
       "source_file": "lib/router/app_router.dart",
       "source_location": null,
       "id": "home_dudxo13_projects_silverworker_lib_router_app_router_dart_otpinputscreen",
-      "community": 4,
+      "community": 3,
       "norm_label": "otpinputscreen"
     },
     {
@@ -2070,17 +2295,44 @@
       "source_file": "lib/router/app_router.dart",
       "source_location": null,
       "id": "home_dudxo13_projects_silverworker_lib_router_app_router_dart_profilesetupscreen",
-      "community": 4,
+      "community": 3,
       "norm_label": "profilesetupscreen"
     },
     {
-      "label": "MainScreen",
+      "label": "MainShell",
       "file_type": "code",
       "source_file": "lib/router/app_router.dart",
       "source_location": null,
-      "id": "home_dudxo13_projects_silverworker_lib_router_app_router_dart_mainscreen",
-      "community": 4,
-      "norm_label": "mainscreen"
+      "id": "home_dudxo13_projects_silverworker_lib_router_app_router_dart_mainshell",
+      "community": 3,
+      "norm_label": "mainshell"
+    },
+    {
+      "label": "JobListScreen",
+      "file_type": "code",
+      "source_file": "lib/router/app_router.dart",
+      "source_location": null,
+      "id": "home_dudxo13_projects_silverworker_lib_router_app_router_dart_joblistscreen",
+      "community": 3,
+      "norm_label": "joblistscreen"
+    },
+    {
+      "label": "ApplicationListScreen",
+      "file_type": "code",
+      "source_file": "lib/router/app_router.dart",
+      "source_location": null,
+      "id": "home_dudxo13_projects_silverworker_lib_router_app_router_dart_applicationlistscreen",
+      "community": 3,
+      "norm_label": "applicationlistscreen"
+    },
+    {
+      "label": "MyPageScreen",
+      "file_type": "code",
+      "source_file": "lib/router/app_router.dart",
+      "source_location": null,
+      "id": "home_dudxo13_projects_silverworker_lib_router_app_router_dart_mypagescreen",
+      "community": 3,
+      "norm_label": "mypagescreen"
     },
     {
       "label": "JobDetailScreen",
@@ -2088,7 +2340,7 @@
       "source_file": "lib/router/app_router.dart",
       "source_location": null,
       "id": "home_dudxo13_projects_silverworker_lib_router_app_router_dart_jobdetailscreen",
-      "community": 4,
+      "community": 3,
       "norm_label": "jobdetailscreen"
     },
     {
@@ -2097,7 +2349,7 @@
       "source_file": "lib/router/app_router.dart",
       "source_location": null,
       "id": "home_dudxo13_projects_silverworker_lib_router_app_router_dart_applicationformscreen",
-      "community": 4,
+      "community": 3,
       "norm_label": "applicationformscreen"
     },
     {
@@ -2106,26 +2358,8 @@
       "source_file": "lib/router/app_router.dart",
       "source_location": null,
       "id": "home_dudxo13_projects_silverworker_lib_router_app_router_dart_applicationresultscreen",
-      "community": 4,
+      "community": 3,
       "norm_label": "applicationresultscreen"
-    },
-    {
-      "label": "MyPageScreen",
-      "file_type": "code",
-      "source_file": "lib/router/app_router.dart",
-      "source_location": null,
-      "id": "home_dudxo13_projects_silverworker_lib_router_app_router_dart_mypagescreen",
-      "community": 4,
-      "norm_label": "mypagescreen"
-    },
-    {
-      "label": "ApplicationListScreen",
-      "file_type": "code",
-      "source_file": "lib/router/app_router.dart",
-      "source_location": null,
-      "id": "home_dudxo13_projects_silverworker_lib_router_app_router_dart_applicationlistscreen",
-      "community": 4,
-      "norm_label": "applicationlistscreen"
     },
     {
       "label": "dart:async",
@@ -2133,7 +2367,7 @@
       "source_file": "lib/router/app_router.dart",
       "source_location": null,
       "id": "dart_async",
-      "community": 4,
+      "community": 3,
       "norm_label": "dart:async"
     },
     {
@@ -2142,7 +2376,7 @@
       "source_file": "lib/router/app_router.dart",
       "source_location": null,
       "id": "screens_auth_otp_input_screen_dart",
-      "community": 4,
+      "community": 3,
       "norm_label": "../screens/auth/otp_input_screen.dart"
     },
     {
@@ -2151,7 +2385,7 @@
       "source_file": "lib/router/app_router.dart",
       "source_location": null,
       "id": "screens_auth_phone_input_screen_dart",
-      "community": 4,
+      "community": 3,
       "norm_label": "../screens/auth/phone_input_screen.dart"
     },
     {
@@ -2160,7 +2394,7 @@
       "source_file": "lib/router/app_router.dart",
       "source_location": null,
       "id": "screens_auth_profile_register_screen_dart",
-      "community": 4,
+      "community": 3,
       "norm_label": "../screens/auth/profile_register_screen.dart"
     },
     {
@@ -2169,7 +2403,7 @@
       "source_file": "lib/router/app_router.dart",
       "source_location": null,
       "id": "screens_job_job_detail_screen_dart",
-      "community": 4,
+      "community": 3,
       "norm_label": "../screens/job/job_detail_screen.dart"
     },
     {
@@ -2178,7 +2412,7 @@
       "source_file": "lib/router/app_router.dart",
       "source_location": null,
       "id": "screens_application_application_form_screen_dart",
-      "community": 4,
+      "community": 3,
       "norm_label": "../screens/application/application_form_screen.dart"
     },
     {
@@ -2187,17 +2421,26 @@
       "source_file": "lib/router/app_router.dart",
       "source_location": null,
       "id": "screens_application_application_result_screen_dart",
-      "community": 4,
+      "community": 3,
       "norm_label": "../screens/application/application_result_screen.dart"
     },
     {
-      "label": "../screens/main/main_screen.dart",
+      "label": "../screens/job/job_list_screen.dart",
       "file_type": "code",
       "source_file": "lib/router/app_router.dart",
       "source_location": null,
-      "id": "screens_main_main_screen_dart",
-      "community": 4,
-      "norm_label": "../screens/main/main_screen.dart"
+      "id": "screens_job_job_list_screen_dart",
+      "community": 3,
+      "norm_label": "../screens/job/job_list_screen.dart"
+    },
+    {
+      "label": "../screens/main/main_shell.dart",
+      "file_type": "code",
+      "source_file": "lib/router/app_router.dart",
+      "source_location": null,
+      "id": "screens_main_main_shell_dart",
+      "community": 3,
+      "norm_label": "../screens/main/main_shell.dart"
     },
     {
       "label": "../screens/mypage/application_list_screen.dart",
@@ -2205,7 +2448,7 @@
       "source_file": "lib/router/app_router.dart",
       "source_location": null,
       "id": "screens_mypage_application_list_screen_dart",
-      "community": 4,
+      "community": 3,
       "norm_label": "../screens/mypage/application_list_screen.dart"
     },
     {
@@ -2214,7 +2457,7 @@
       "source_file": "lib/router/app_router.dart",
       "source_location": null,
       "id": "screens_mypage_my_page_screen_dart",
-      "community": 4,
+      "community": 3,
       "norm_label": "../screens/mypage/my_page_screen.dart"
     },
     {
@@ -2403,7 +2646,7 @@
       "source_file": "lib/models/application_model.dart",
       "source_location": null,
       "id": "lib_models_application_model_dart",
-      "community": 10,
+      "community": 11,
       "norm_label": "application_model.dart"
     },
     {
@@ -2412,7 +2655,7 @@
       "source_file": "lib/models/application_model.dart",
       "source_location": null,
       "id": "home_dudxo13_projects_silverworker_lib_models_application_model_dart_applicationmodel",
-      "community": 10,
+      "community": 11,
       "norm_label": "applicationmodel"
     },
     {
@@ -2421,7 +2664,7 @@
       "source_file": "lib/models/application_model.dart",
       "source_location": null,
       "id": "home_dudxo13_projects_silverworker_lib_models_application_model_dart_copywith",
-      "community": 10,
+      "community": 11,
       "norm_label": "copywith"
     },
     {
@@ -2430,7 +2673,7 @@
       "source_file": "lib/models/job_model.dart",
       "source_location": null,
       "id": "utils_timestamp_helper_dart",
-      "community": 10,
+      "community": 11,
       "norm_label": "../utils/timestamp_helper.dart"
     },
     {
@@ -2439,7 +2682,7 @@
       "source_file": "SilverWorkerNow/lib/models/bookmark_model.dart",
       "source_location": null,
       "id": "home_dudxo13_projects_silverworker_silverworkernow_lib_models_bookmark_model_dart",
-      "community": 10,
+      "community": 11,
       "norm_label": "bookmark_model.dart"
     },
     {
@@ -2448,7 +2691,7 @@
       "source_file": "SilverWorkerNow/lib/models/bookmark_model.dart",
       "source_location": null,
       "id": "home_dudxo13_projects_silverworker_silverworkernow_lib_models_bookmark_model_dart_bookmarkmodel",
-      "community": 10,
+      "community": 11,
       "norm_label": "bookmarkmodel"
     },
     {
@@ -2457,7 +2700,7 @@
       "source_file": "SilverWorkerNow/lib/models/bookmark_model.dart",
       "source_location": null,
       "id": "home_dudxo13_projects_silverworker_silverworkernow_lib_models_bookmark_model_dart_copywith",
-      "community": 10,
+      "community": 11,
       "norm_label": "copywith"
     },
     {
@@ -2466,7 +2709,7 @@
       "source_file": "lib/models/user_model.dart",
       "source_location": null,
       "id": "lib_models_user_model_dart",
-      "community": 10,
+      "community": 11,
       "norm_label": "user_model.dart"
     },
     {
@@ -2475,7 +2718,7 @@
       "source_file": "lib/models/user_model.dart",
       "source_location": null,
       "id": "home_dudxo13_projects_silverworker_lib_models_user_model_dart_address",
-      "community": 10,
+      "community": 11,
       "norm_label": "address"
     },
     {
@@ -2484,7 +2727,7 @@
       "source_file": "lib/models/user_model.dart",
       "source_location": null,
       "id": "home_dudxo13_projects_silverworker_lib_models_user_model_dart_usermodel",
-      "community": 10,
+      "community": 11,
       "norm_label": "usermodel"
     },
     {
@@ -2493,7 +2736,7 @@
       "source_file": "lib/models/user_model.dart",
       "source_location": null,
       "id": "home_dudxo13_projects_silverworker_lib_models_user_model_dart_copywith",
-      "community": 10,
+      "community": 11,
       "norm_label": "copywith"
     },
     {
@@ -2502,7 +2745,7 @@
       "source_file": "lib/models/job_model.dart",
       "source_location": null,
       "id": "lib_models_job_model_dart",
-      "community": 10,
+      "community": 11,
       "norm_label": "job_model.dart"
     },
     {
@@ -2511,7 +2754,7 @@
       "source_file": "lib/models/job_model.dart",
       "source_location": null,
       "id": "home_dudxo13_projects_silverworker_lib_models_job_model_dart_jobmodel",
-      "community": 10,
+      "community": 11,
       "norm_label": "jobmodel"
     },
     {
@@ -2520,7 +2763,7 @@
       "source_file": "lib/models/job_model.dart",
       "source_location": null,
       "id": "home_dudxo13_projects_silverworker_lib_models_job_model_dart_copywith",
-      "community": 10,
+      "community": 11,
       "norm_label": "copywith"
     },
     {
@@ -2529,7 +2772,7 @@
       "source_file": "lib/models/job_model.dart",
       "source_location": null,
       "id": "package_intl_intl_dart",
-      "community": 10,
+      "community": 11,
       "norm_label": "package:intl/intl.dart"
     },
     {
@@ -3474,7 +3717,7 @@
       "source_file": "SilverWorkerNow/ios/Runner/GeneratedPluginRegistrant.m",
       "source_location": "L1",
       "id": "home_dudxo13_projects_silverworker_silverworkernow_ios_runner_generatedpluginregistrant_m",
-      "community": 15,
+      "community": 16,
       "norm_label": "generatedpluginregistrant.m"
     },
     {
@@ -3483,7 +3726,7 @@
       "source_file": "SilverWorkerNow/ios/Runner/GeneratedPluginRegistrant.m",
       "source_location": "L65",
       "id": "generatedpluginregistrant_generatedpluginregistrant_registerwithregistry",
-      "community": 15,
+      "community": 16,
       "norm_label": "-registerwithregistry"
     },
     {
@@ -3492,7 +3735,7 @@
       "source_file": "SilverWorkerNow/ios/Flutter/ephemeral/flutter_lldb_helper.py",
       "source_location": "L1",
       "id": "home_dudxo13_projects_silverworker_silverworkernow_ios_flutter_ephemeral_flutter_lldb_helper_py",
-      "community": 16,
+      "community": 17,
       "norm_label": "flutter_lldb_helper.py"
     },
     {
@@ -3501,7 +3744,7 @@
       "source_file": "SilverWorkerNow/ios/Flutter/ephemeral/flutter_lldb_helper.py",
       "source_location": "L7",
       "id": "flutter_lldb_helper_handle_new_rx_page",
-      "community": 16,
+      "community": 17,
       "norm_label": "handle_new_rx_page()"
     },
     {
@@ -3510,7 +3753,7 @@
       "source_file": "SilverWorkerNow/ios/Flutter/ephemeral/flutter_lldb_helper.py",
       "source_location": "L24",
       "id": "flutter_lldb_helper_lldb_init_module",
-      "community": 16,
+      "community": 17,
       "norm_label": "__lldb_init_module()"
     },
     {
@@ -3518,7 +3761,7 @@
       "file_type": "rationale",
       "source_file": "ios/Flutter/ephemeral/flutter_lldb_helper.py",
       "source_location": "L8",
-      "community": 16,
+      "community": 17,
       "norm_label": "intercept notify_debugger_about_rx_pages and touch the pages.",
       "id": "flutter_lldb_helper_rationale_8"
     }
@@ -3958,6 +4201,18 @@
     },
     {
       "relation": "calls",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "tools/scripts/hook_pre_git.py",
+      "source_location": "L80",
+      "weight": 1.0,
+      "_src": "hook_pre_git_run_verify",
+      "_tgt": "generate_review_request_run",
+      "source": "hook_pre_git_run_verify",
+      "target": "generate_review_request_run"
+    },
+    {
+      "relation": "calls",
       "confidence": "EXTRACTED",
       "source_file": "tools/scripts/hook_pre_git.py",
       "source_location": "L108",
@@ -4149,6 +4404,474 @@
       "confidence_score": 1.0
     },
     {
+      "relation": "calls",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "SilverWorkerNow/tools/scripts/hook_agent_notify.py",
+      "source_location": "L31",
+      "weight": 1.0,
+      "_src": "hook_agent_notify_main",
+      "_tgt": "generate_review_request_run",
+      "source": "hook_agent_notify_main",
+      "target": "generate_review_request_run"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "tools/scripts/generate_review_request.py",
+      "source_location": "L30",
+      "weight": 1.0,
+      "_src": "tools_scripts_generate_review_request_py",
+      "_tgt": "generate_review_request_run",
+      "source": "tools_scripts_generate_review_request_py",
+      "target": "generate_review_request_run",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "tools/scripts/generate_review_request.py",
+      "source_location": "L35",
+      "weight": 1.0,
+      "_src": "tools_scripts_generate_review_request_py",
+      "_tgt": "generate_review_request_get_pr_info",
+      "source": "tools_scripts_generate_review_request_py",
+      "target": "generate_review_request_get_pr_info",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "tools/scripts/generate_review_request.py",
+      "source_location": "L59",
+      "weight": 1.0,
+      "_src": "tools_scripts_generate_review_request_py",
+      "_tgt": "generate_review_request_get_git_diff_stats",
+      "source": "tools_scripts_generate_review_request_py",
+      "target": "generate_review_request_get_git_diff_stats",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "tools/scripts/generate_review_request.py",
+      "source_location": "L67",
+      "weight": 1.0,
+      "_src": "tools_scripts_generate_review_request_py",
+      "_tgt": "generate_review_request_get_changed_files",
+      "source": "tools_scripts_generate_review_request_py",
+      "target": "generate_review_request_get_changed_files",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "tools/scripts/generate_review_request.py",
+      "source_location": "L75",
+      "weight": 1.0,
+      "_src": "tools_scripts_generate_review_request_py",
+      "_tgt": "generate_review_request_get_commit_messages",
+      "source": "tools_scripts_generate_review_request_py",
+      "target": "generate_review_request_get_commit_messages",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "tools/scripts/generate_review_request.py",
+      "source_location": "L83",
+      "weight": 1.0,
+      "_src": "tools_scripts_generate_review_request_py",
+      "_tgt": "generate_review_request_categorize_files",
+      "source": "tools_scripts_generate_review_request_py",
+      "target": "generate_review_request_categorize_files",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "tools/scripts/generate_review_request.py",
+      "source_location": "L107",
+      "weight": 1.0,
+      "_src": "tools_scripts_generate_review_request_py",
+      "_tgt": "generate_review_request_get_previous_request_path",
+      "source": "tools_scripts_generate_review_request_py",
+      "target": "generate_review_request_get_previous_request_path",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "tools/scripts/generate_review_request.py",
+      "source_location": "L122",
+      "weight": 1.0,
+      "_src": "tools_scripts_generate_review_request_py",
+      "_tgt": "generate_review_request_get_previous_review_paths",
+      "source": "tools_scripts_generate_review_request_py",
+      "target": "generate_review_request_get_previous_review_paths",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "tools/scripts/generate_review_request.py",
+      "source_location": "L136",
+      "weight": 1.0,
+      "_src": "tools_scripts_generate_review_request_py",
+      "_tgt": "generate_review_request_determine_round",
+      "source": "tools_scripts_generate_review_request_py",
+      "target": "generate_review_request_determine_round",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "tools/scripts/generate_review_request.py",
+      "source_location": "L149",
+      "weight": 1.0,
+      "_src": "tools_scripts_generate_review_request_py",
+      "_tgt": "generate_review_request_extract_spec_from_commits",
+      "source": "tools_scripts_generate_review_request_py",
+      "target": "generate_review_request_extract_spec_from_commits",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "tools/scripts/generate_review_request.py",
+      "source_location": "L159",
+      "weight": 1.0,
+      "_src": "tools_scripts_generate_review_request_py",
+      "_tgt": "generate_review_request_generate_request_doc",
+      "source": "tools_scripts_generate_review_request_py",
+      "target": "generate_review_request_generate_request_doc",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "tools/scripts/generate_review_request.py",
+      "source_location": "L281",
+      "weight": 1.0,
+      "_src": "tools_scripts_generate_review_request_py",
+      "_tgt": "generate_review_request_main",
+      "source": "tools_scripts_generate_review_request_py",
+      "target": "generate_review_request_main",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "tools/scripts/generate_review_request.py",
+      "source_location": "L46",
+      "weight": 1.0,
+      "_src": "generate_review_request_get_pr_info",
+      "_tgt": "generate_review_request_run",
+      "source": "generate_review_request_run",
+      "target": "generate_review_request_get_pr_info",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "tools/scripts/generate_review_request.py",
+      "source_location": "L61",
+      "weight": 1.0,
+      "_src": "generate_review_request_get_git_diff_stats",
+      "_tgt": "generate_review_request_run",
+      "source": "generate_review_request_run",
+      "target": "generate_review_request_get_git_diff_stats",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "tools/scripts/generate_review_request.py",
+      "source_location": "L69",
+      "weight": 1.0,
+      "_src": "generate_review_request_get_changed_files",
+      "_tgt": "generate_review_request_run",
+      "source": "generate_review_request_run",
+      "target": "generate_review_request_get_changed_files",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "tools/scripts/generate_review_request.py",
+      "source_location": "L77",
+      "weight": 1.0,
+      "_src": "generate_review_request_get_commit_messages",
+      "_tgt": "generate_review_request_run",
+      "source": "generate_review_request_run",
+      "target": "generate_review_request_get_commit_messages",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "tools/scripts/generate_review_request.py",
+      "source_location": "L176",
+      "weight": 1.0,
+      "_src": "generate_review_request_generate_request_doc",
+      "_tgt": "generate_review_request_run",
+      "source": "generate_review_request_run",
+      "target": "generate_review_request_generate_request_doc",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "tools/scripts/generate_review_request.py",
+      "source_location": "L299",
+      "weight": 1.0,
+      "_src": "generate_review_request_main",
+      "_tgt": "generate_review_request_run",
+      "source": "generate_review_request_run",
+      "target": "generate_review_request_main",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "tools/scripts/generate_review_request.py",
+      "source_location": "L303",
+      "weight": 1.0,
+      "_src": "generate_review_request_main",
+      "_tgt": "generate_review_request_get_pr_info",
+      "source": "generate_review_request_get_pr_info",
+      "target": "generate_review_request_main",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "tools/scripts/generate_review_request.py",
+      "source_location": "L36",
+      "weight": 1.0,
+      "_src": "generate_review_request_rationale_36",
+      "_tgt": "generate_review_request_get_pr_info",
+      "source": "generate_review_request_get_pr_info",
+      "target": "generate_review_request_rationale_36",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "tools/scripts/generate_review_request.py",
+      "source_location": "L306",
+      "weight": 1.0,
+      "_src": "generate_review_request_main",
+      "_tgt": "generate_review_request_get_git_diff_stats",
+      "source": "generate_review_request_get_git_diff_stats",
+      "target": "generate_review_request_main",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "tools/scripts/generate_review_request.py",
+      "source_location": "L60",
+      "weight": 1.0,
+      "_src": "generate_review_request_rationale_60",
+      "_tgt": "generate_review_request_get_git_diff_stats",
+      "source": "generate_review_request_get_git_diff_stats",
+      "target": "generate_review_request_rationale_60",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "tools/scripts/generate_review_request.py",
+      "source_location": "L305",
+      "weight": 1.0,
+      "_src": "generate_review_request_main",
+      "_tgt": "generate_review_request_get_changed_files",
+      "source": "generate_review_request_get_changed_files",
+      "target": "generate_review_request_main",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "tools/scripts/generate_review_request.py",
+      "source_location": "L68",
+      "weight": 1.0,
+      "_src": "generate_review_request_rationale_68",
+      "_tgt": "generate_review_request_get_changed_files",
+      "source": "generate_review_request_get_changed_files",
+      "target": "generate_review_request_rationale_68",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "tools/scripts/generate_review_request.py",
+      "source_location": "L304",
+      "weight": 1.0,
+      "_src": "generate_review_request_main",
+      "_tgt": "generate_review_request_get_commit_messages",
+      "source": "generate_review_request_get_commit_messages",
+      "target": "generate_review_request_main",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "tools/scripts/generate_review_request.py",
+      "source_location": "L76",
+      "weight": 1.0,
+      "_src": "generate_review_request_rationale_76",
+      "_tgt": "generate_review_request_get_commit_messages",
+      "source": "generate_review_request_get_commit_messages",
+      "target": "generate_review_request_rationale_76",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "tools/scripts/generate_review_request.py",
+      "source_location": "L84",
+      "weight": 1.0,
+      "_src": "generate_review_request_rationale_84",
+      "_tgt": "generate_review_request_categorize_files",
+      "source": "generate_review_request_categorize_files",
+      "target": "generate_review_request_rationale_84",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "tools/scripts/generate_review_request.py",
+      "source_location": "L138",
+      "weight": 1.0,
+      "_src": "generate_review_request_determine_round",
+      "_tgt": "generate_review_request_get_previous_request_path",
+      "source": "generate_review_request_get_previous_request_path",
+      "target": "generate_review_request_determine_round",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "tools/scripts/generate_review_request.py",
+      "source_location": "L203",
+      "weight": 1.0,
+      "_src": "generate_review_request_generate_request_doc",
+      "_tgt": "generate_review_request_get_previous_request_path",
+      "source": "generate_review_request_get_previous_request_path",
+      "target": "generate_review_request_generate_request_doc",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "tools/scripts/generate_review_request.py",
+      "source_location": "L108",
+      "weight": 1.0,
+      "_src": "generate_review_request_rationale_108",
+      "_tgt": "generate_review_request_get_previous_request_path",
+      "source": "generate_review_request_get_previous_request_path",
+      "target": "generate_review_request_rationale_108",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "tools/scripts/generate_review_request.py",
+      "source_location": "L204",
+      "weight": 1.0,
+      "_src": "generate_review_request_generate_request_doc",
+      "_tgt": "generate_review_request_get_previous_review_paths",
+      "source": "generate_review_request_get_previous_review_paths",
+      "target": "generate_review_request_generate_request_doc",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "tools/scripts/generate_review_request.py",
+      "source_location": "L123",
+      "weight": 1.0,
+      "_src": "generate_review_request_rationale_123",
+      "_tgt": "generate_review_request_get_previous_review_paths",
+      "source": "generate_review_request_get_previous_review_paths",
+      "target": "generate_review_request_rationale_123",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "tools/scripts/generate_review_request.py",
+      "source_location": "L307",
+      "weight": 1.0,
+      "_src": "generate_review_request_main",
+      "_tgt": "generate_review_request_determine_round",
+      "source": "generate_review_request_determine_round",
+      "target": "generate_review_request_main",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "tools/scripts/generate_review_request.py",
+      "source_location": "L137",
+      "weight": 1.0,
+      "_src": "generate_review_request_rationale_137",
+      "_tgt": "generate_review_request_determine_round",
+      "source": "generate_review_request_determine_round",
+      "target": "generate_review_request_rationale_137",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "tools/scripts/generate_review_request.py",
+      "source_location": "L173",
+      "weight": 1.0,
+      "_src": "generate_review_request_generate_request_doc",
+      "_tgt": "generate_review_request_extract_spec_from_commits",
+      "source": "generate_review_request_extract_spec_from_commits",
+      "target": "generate_review_request_generate_request_doc",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "tools/scripts/generate_review_request.py",
+      "source_location": "L150",
+      "weight": 1.0,
+      "_src": "generate_review_request_rationale_150",
+      "_tgt": "generate_review_request_extract_spec_from_commits",
+      "source": "generate_review_request_extract_spec_from_commits",
+      "target": "generate_review_request_rationale_150",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "tools/scripts/generate_review_request.py",
+      "source_location": "L309",
+      "weight": 1.0,
+      "_src": "generate_review_request_main",
+      "_tgt": "generate_review_request_generate_request_doc",
+      "source": "generate_review_request_generate_request_doc",
+      "target": "generate_review_request_main",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "tools/scripts/generate_review_request.py",
+      "source_location": "L168",
+      "weight": 1.0,
+      "_src": "generate_review_request_rationale_168",
+      "_tgt": "generate_review_request_generate_request_doc",
+      "source": "generate_review_request_generate_request_doc",
+      "target": "generate_review_request_rationale_168",
+      "confidence_score": 1.0
+    },
+    {
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "SilverWorkerNow/android/app/src/main/java/io/flutter/plugins/GeneratedPluginRegistrant.java",
@@ -4296,13 +5019,13 @@
       "relation": "imports",
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
-      "source_file": "lib/screens/main/main_screen.dart",
+      "source_file": "lib/screens/main/main_shell.dart",
       "source_location": null,
       "weight": 1.0,
-      "_src": "lib_screens_main_main_screen_dart",
+      "_src": "lib_screens_main_main_shell_dart",
       "_tgt": "package_flutter_material_dart",
       "source": "package_flutter_material_dart",
-      "target": "lib_screens_main_main_screen_dart"
+      "target": "lib_screens_main_main_shell_dart"
     },
     {
       "relation": "imports",
@@ -4620,13 +5343,13 @@
       "relation": "imports",
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
-      "source_file": "lib/screens/main/main_screen.dart",
+      "source_file": "lib/screens/main/main_shell.dart",
       "source_location": null,
       "weight": 1.0,
-      "_src": "lib_screens_main_main_screen_dart",
+      "_src": "lib_screens_main_main_shell_dart",
       "_tgt": "package_flutter_riverpod_flutter_riverpod_dart",
       "source": "package_flutter_riverpod_flutter_riverpod_dart",
-      "target": "lib_screens_main_main_screen_dart"
+      "target": "lib_screens_main_main_shell_dart"
     },
     {
       "relation": "imports",
@@ -4884,13 +5607,13 @@
       "relation": "imports",
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
-      "source_file": "lib/screens/main/main_screen.dart",
+      "source_file": "lib/screens/main/main_shell.dart",
       "source_location": null,
       "weight": 1.0,
-      "_src": "lib_screens_main_main_screen_dart",
+      "_src": "lib_screens_main_main_shell_dart",
       "_tgt": "router_app_router_dart",
       "source": "router_app_router_dart",
-      "target": "lib_screens_main_main_screen_dart"
+      "target": "lib_screens_main_main_shell_dart"
     },
     {
       "relation": "imports",
@@ -4903,6 +5626,18 @@
       "_tgt": "router_app_router_dart",
       "source": "router_app_router_dart",
       "target": "lib_screens_job_job_list_screen_dart"
+    },
+    {
+      "relation": "imports",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "lib/screens/job/job_detail_screen.dart",
+      "source_location": null,
+      "weight": 1.0,
+      "_src": "lib_screens_job_job_detail_screen_dart",
+      "_tgt": "router_app_router_dart",
+      "source": "router_app_router_dart",
+      "target": "lib_screens_job_job_detail_screen_dart"
     },
     {
       "relation": "imports",
@@ -4939,6 +5674,18 @@
       "_tgt": "router_app_router_dart",
       "source": "router_app_router_dart",
       "target": "lib_screens_application_application_result_screen_dart"
+    },
+    {
+      "relation": "imports",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "lib/screens/auth/otp_input_screen.dart",
+      "source_location": null,
+      "weight": 1.0,
+      "_src": "lib_screens_auth_otp_input_screen_dart",
+      "_tgt": "router_app_router_dart",
+      "source": "router_app_router_dart",
+      "target": "lib_screens_auth_otp_input_screen_dart"
     },
     {
       "relation": "imports",
@@ -5004,121 +5751,145 @@
       "relation": "defines",
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
-      "source_file": "lib/screens/main/main_screen.dart",
+      "source_file": "lib/screens/main/main_shell.dart",
       "source_location": null,
       "weight": 1.0,
-      "_src": "lib_screens_main_main_screen_dart",
-      "_tgt": "home_dudxo13_projects_silverworker_lib_screens_main_main_screen_dart_mainscreen",
-      "source": "lib_screens_main_main_screen_dart",
-      "target": "home_dudxo13_projects_silverworker_lib_screens_main_main_screen_dart_mainscreen"
+      "_src": "lib_screens_main_main_shell_dart",
+      "_tgt": "home_dudxo13_projects_silverworker_lib_screens_main_main_shell_dart_mainshell",
+      "source": "lib_screens_main_main_shell_dart",
+      "target": "home_dudxo13_projects_silverworker_lib_screens_main_main_shell_dart_mainshell"
     },
     {
       "relation": "defines",
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
-      "source_file": "lib/screens/main/main_screen.dart",
+      "source_file": "lib/screens/main/main_shell.dart",
       "source_location": null,
       "weight": 1.0,
-      "_src": "lib_screens_main_main_screen_dart",
-      "_tgt": "home_dudxo13_projects_silverworker_lib_screens_main_main_screen_dart_build",
-      "source": "lib_screens_main_main_screen_dart",
-      "target": "home_dudxo13_projects_silverworker_lib_screens_main_main_screen_dart_build"
+      "_src": "lib_screens_main_main_shell_dart",
+      "_tgt": "home_dudxo13_projects_silverworker_lib_screens_main_main_shell_dart_tabitem",
+      "source": "lib_screens_main_main_shell_dart",
+      "target": "home_dudxo13_projects_silverworker_lib_screens_main_main_shell_dart_tabitem"
     },
     {
       "relation": "defines",
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
-      "source_file": "lib/screens/main/main_screen.dart",
+      "source_file": "lib/screens/main/main_shell.dart",
       "source_location": null,
       "weight": 1.0,
-      "_src": "lib_screens_main_main_screen_dart",
-      "_tgt": "home_dudxo13_projects_silverworker_lib_screens_main_main_screen_dart_scaffold",
-      "source": "lib_screens_main_main_screen_dart",
-      "target": "home_dudxo13_projects_silverworker_lib_screens_main_main_screen_dart_scaffold"
+      "_src": "lib_screens_main_main_shell_dart",
+      "_tgt": "home_dudxo13_projects_silverworker_lib_screens_main_main_shell_dart_build",
+      "source": "lib_screens_main_main_shell_dart",
+      "target": "home_dudxo13_projects_silverworker_lib_screens_main_main_shell_dart_build"
     },
     {
       "relation": "defines",
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
-      "source_file": "lib/screens/main/main_screen.dart",
+      "source_file": "lib/screens/main/main_shell.dart",
       "source_location": null,
       "weight": 1.0,
-      "_src": "lib_screens_main_main_screen_dart",
-      "_tgt": "home_dudxo13_projects_silverworker_lib_screens_main_main_screen_dart_joblistscreen",
-      "source": "lib_screens_main_main_screen_dart",
-      "target": "home_dudxo13_projects_silverworker_lib_screens_main_main_screen_dart_joblistscreen"
+      "_src": "lib_screens_main_main_shell_dart",
+      "_tgt": "home_dudxo13_projects_silverworker_lib_screens_main_main_shell_dart_scaffold",
+      "source": "lib_screens_main_main_shell_dart",
+      "target": "home_dudxo13_projects_silverworker_lib_screens_main_main_shell_dart_scaffold"
     },
     {
       "relation": "defines",
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
-      "source_file": "lib/screens/main/main_screen.dart",
+      "source_file": "lib/screens/main/main_shell.dart",
       "source_location": null,
       "weight": 1.0,
-      "_src": "lib_screens_main_main_screen_dart",
-      "_tgt": "home_dudxo13_projects_silverworker_lib_screens_main_main_screen_dart_sizedbox",
-      "source": "lib_screens_main_main_screen_dart",
-      "target": "home_dudxo13_projects_silverworker_lib_screens_main_main_screen_dart_sizedbox"
+      "_src": "lib_screens_main_main_shell_dart",
+      "_tgt": "home_dudxo13_projects_silverworker_lib_screens_main_main_shell_dart_buildscaffold",
+      "source": "lib_screens_main_main_shell_dart",
+      "target": "home_dudxo13_projects_silverworker_lib_screens_main_main_shell_dart_buildscaffold"
+    },
+    {
+      "relation": "defines",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "lib/screens/main/main_shell.dart",
+      "source_location": null,
+      "weight": 1.0,
+      "_src": "lib_screens_main_main_shell_dart",
+      "_tgt": "home_dudxo13_projects_silverworker_lib_screens_main_main_shell_dart_sizedbox",
+      "source": "lib_screens_main_main_shell_dart",
+      "target": "home_dudxo13_projects_silverworker_lib_screens_main_main_shell_dart_sizedbox"
+    },
+    {
+      "relation": "defines",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "lib/screens/main/main_shell.dart",
+      "source_location": null,
+      "weight": 1.0,
+      "_src": "lib_screens_main_main_shell_dart",
+      "_tgt": "home_dudxo13_projects_silverworker_lib_screens_main_main_shell_dart_resolveindex",
+      "source": "lib_screens_main_main_shell_dart",
+      "target": "home_dudxo13_projects_silverworker_lib_screens_main_main_shell_dart_resolveindex"
+    },
+    {
+      "relation": "defines",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "lib/screens/main/main_shell.dart",
+      "source_location": null,
+      "weight": 1.0,
+      "_src": "lib_screens_main_main_shell_dart",
+      "_tgt": "home_dudxo13_projects_silverworker_lib_screens_main_main_shell_dart_ontap",
+      "source": "lib_screens_main_main_shell_dart",
+      "target": "home_dudxo13_projects_silverworker_lib_screens_main_main_shell_dart_ontap"
     },
     {
       "relation": "imports",
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
-      "source_file": "lib/screens/main/main_screen.dart",
+      "source_file": "lib/screens/main/main_shell.dart",
       "source_location": null,
       "weight": 1.0,
-      "_src": "lib_screens_main_main_screen_dart",
+      "_src": "lib_screens_main_main_shell_dart",
       "_tgt": "package_go_router_go_router_dart",
-      "source": "lib_screens_main_main_screen_dart",
+      "source": "lib_screens_main_main_shell_dart",
       "target": "package_go_router_go_router_dart"
     },
     {
       "relation": "imports",
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
-      "source_file": "lib/screens/main/main_screen.dart",
+      "source_file": "lib/screens/main/main_shell.dart",
       "source_location": null,
       "weight": 1.0,
-      "_src": "lib_screens_main_main_screen_dart",
+      "_src": "lib_screens_main_main_shell_dart",
       "_tgt": "constants_app_colors_dart",
-      "source": "lib_screens_main_main_screen_dart",
+      "source": "lib_screens_main_main_shell_dart",
       "target": "constants_app_colors_dart"
     },
     {
       "relation": "imports",
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
-      "source_file": "lib/screens/main/main_screen.dart",
+      "source_file": "lib/screens/main/main_shell.dart",
       "source_location": null,
       "weight": 1.0,
-      "_src": "lib_screens_main_main_screen_dart",
+      "_src": "lib_screens_main_main_shell_dart",
       "_tgt": "constants_app_text_styles_dart",
-      "source": "lib_screens_main_main_screen_dart",
+      "source": "lib_screens_main_main_shell_dart",
       "target": "constants_app_text_styles_dart"
     },
     {
       "relation": "imports",
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
-      "source_file": "lib/screens/main/main_screen.dart",
+      "source_file": "lib/screens/main/main_shell.dart",
       "source_location": null,
       "weight": 1.0,
-      "_src": "lib_screens_main_main_screen_dart",
+      "_src": "lib_screens_main_main_shell_dart",
       "_tgt": "providers_auth_provider_dart",
-      "source": "lib_screens_main_main_screen_dart",
+      "source": "lib_screens_main_main_shell_dart",
       "target": "providers_auth_provider_dart"
-    },
-    {
-      "relation": "imports",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "lib/screens/main/main_screen.dart",
-      "source_location": null,
-      "weight": 1.0,
-      "_src": "lib_screens_main_main_screen_dart",
-      "_tgt": "job_job_list_screen_dart",
-      "source": "lib_screens_main_main_screen_dart",
-      "target": "job_job_list_screen_dart"
     },
     {
       "relation": "imports",
@@ -7012,9 +7783,9 @@
       "source_location": null,
       "weight": 1.0,
       "_src": "lib_screens_auth_otp_input_screen_dart",
-      "_tgt": "home_dudxo13_projects_silverworker_lib_screens_auth_otp_input_screen_dart_scaffold",
+      "_tgt": "home_dudxo13_projects_silverworker_lib_screens_auth_otp_input_screen_dart_popscope",
       "source": "lib_screens_auth_otp_input_screen_dart",
-      "target": "home_dudxo13_projects_silverworker_lib_screens_auth_otp_input_screen_dart_scaffold"
+      "target": "home_dudxo13_projects_silverworker_lib_screens_auth_otp_input_screen_dart_popscope"
     },
     {
       "relation": "defines",
@@ -7132,9 +7903,9 @@
       "source_location": null,
       "weight": 1.0,
       "_src": "lib_screens_auth_phone_input_screen_dart",
-      "_tgt": "home_dudxo13_projects_silverworker_lib_screens_auth_phone_input_screen_dart_scaffold",
+      "_tgt": "home_dudxo13_projects_silverworker_lib_screens_auth_phone_input_screen_dart_popscope",
       "source": "lib_screens_auth_phone_input_screen_dart",
-      "target": "home_dudxo13_projects_silverworker_lib_screens_auth_phone_input_screen_dart_scaffold"
+      "target": "home_dudxo13_projects_silverworker_lib_screens_auth_phone_input_screen_dart_popscope"
     },
     {
       "relation": "defines",
@@ -7624,9 +8395,45 @@
       "source_location": null,
       "weight": 1.0,
       "_src": "lib_router_app_router_dart",
-      "_tgt": "home_dudxo13_projects_silverworker_lib_router_app_router_dart_mainscreen",
+      "_tgt": "home_dudxo13_projects_silverworker_lib_router_app_router_dart_mainshell",
       "source": "lib_router_app_router_dart",
-      "target": "home_dudxo13_projects_silverworker_lib_router_app_router_dart_mainscreen"
+      "target": "home_dudxo13_projects_silverworker_lib_router_app_router_dart_mainshell"
+    },
+    {
+      "relation": "defines",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "lib/router/app_router.dart",
+      "source_location": null,
+      "weight": 1.0,
+      "_src": "lib_router_app_router_dart",
+      "_tgt": "home_dudxo13_projects_silverworker_lib_router_app_router_dart_joblistscreen",
+      "source": "lib_router_app_router_dart",
+      "target": "home_dudxo13_projects_silverworker_lib_router_app_router_dart_joblistscreen"
+    },
+    {
+      "relation": "defines",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "lib/router/app_router.dart",
+      "source_location": null,
+      "weight": 1.0,
+      "_src": "lib_router_app_router_dart",
+      "_tgt": "home_dudxo13_projects_silverworker_lib_router_app_router_dart_applicationlistscreen",
+      "source": "lib_router_app_router_dart",
+      "target": "home_dudxo13_projects_silverworker_lib_router_app_router_dart_applicationlistscreen"
+    },
+    {
+      "relation": "defines",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "lib/router/app_router.dart",
+      "source_location": null,
+      "weight": 1.0,
+      "_src": "lib_router_app_router_dart",
+      "_tgt": "home_dudxo13_projects_silverworker_lib_router_app_router_dart_mypagescreen",
+      "source": "lib_router_app_router_dart",
+      "target": "home_dudxo13_projects_silverworker_lib_router_app_router_dart_mypagescreen"
     },
     {
       "relation": "defines",
@@ -7663,30 +8470,6 @@
       "_tgt": "home_dudxo13_projects_silverworker_lib_router_app_router_dart_applicationresultscreen",
       "source": "lib_router_app_router_dart",
       "target": "home_dudxo13_projects_silverworker_lib_router_app_router_dart_applicationresultscreen"
-    },
-    {
-      "relation": "defines",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "lib/router/app_router.dart",
-      "source_location": null,
-      "weight": 1.0,
-      "_src": "lib_router_app_router_dart",
-      "_tgt": "home_dudxo13_projects_silverworker_lib_router_app_router_dart_mypagescreen",
-      "source": "lib_router_app_router_dart",
-      "target": "home_dudxo13_projects_silverworker_lib_router_app_router_dart_mypagescreen"
-    },
-    {
-      "relation": "defines",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "lib/router/app_router.dart",
-      "source_location": null,
-      "weight": 1.0,
-      "_src": "lib_router_app_router_dart",
-      "_tgt": "home_dudxo13_projects_silverworker_lib_router_app_router_dart_applicationlistscreen",
-      "source": "lib_router_app_router_dart",
-      "target": "home_dudxo13_projects_silverworker_lib_router_app_router_dart_applicationlistscreen"
     },
     {
       "relation": "imports",
@@ -7780,9 +8563,21 @@
       "source_location": null,
       "weight": 1.0,
       "_src": "lib_router_app_router_dart",
-      "_tgt": "screens_main_main_screen_dart",
+      "_tgt": "screens_job_job_list_screen_dart",
       "source": "lib_router_app_router_dart",
-      "target": "screens_main_main_screen_dart"
+      "target": "screens_job_job_list_screen_dart"
+    },
+    {
+      "relation": "imports",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "lib/router/app_router.dart",
+      "source_location": null,
+      "weight": 1.0,
+      "_src": "lib_router_app_router_dart",
+      "_tgt": "screens_main_main_shell_dart",
+      "source": "lib_router_app_router_dart",
+      "target": "screens_main_main_shell_dart"
     },
     {
       "relation": "imports",

@@ -69,7 +69,7 @@ class _ProfileSetupScreenState extends ConsumerState<ProfileSetupScreen> {
       ref.invalidate(userProfileProvider(user.uid));
 
       if (mounted) {
-        context.go(AppRoutes.main);
+        context.go(AppRoutes.home);
       }
     } on Exception catch (e) {
       appLogger.w('Profile save failed', error: e);
@@ -120,7 +120,7 @@ class _ProfileSetupScreenState extends ConsumerState<ProfileSetupScreen> {
         if (profile != null) {
           // Profile already exists → redirect to main
           WidgetsBinding.instance.addPostFrameCallback((_) {
-            if (context.mounted) context.go(AppRoutes.main);
+            if (context.mounted) context.go(AppRoutes.home);
           });
           return const Scaffold(
             body: Center(child: CircularProgressIndicator()),

@@ -21,7 +21,7 @@
 | [spec_05](planning/spec_05_job_detail.md) | 공고 상세 + 세이프티 배지 | ✅ 완료 | Day 5 | PR #5 머지 완 (Claude/Gemini 승인) |
 | [spec_06](planning/spec_06_application.md) | 지원 기능 | ✅ 완료 | Day 8 | PR #6 머지 완 (Claude/Gemini 승인, round 3) |
 | [spec_07](planning/spec_07_mypage.md) | 마이페이지 | ✅ 완료 | Day 9 | PR #7 머지 완 (Claude Round 2 / Gemini 승인)
-| [spec_08](planning/spec_08_navigation.md) | 네비게이션 | ⬜ 대기 | Day 10 | |
+| [spec_08](planning/spec_08_navigation.md) | 네비게이션 | 🔄 진행 중 | Day 10 | |
 | [spec_09](planning/spec_09_ui_system.md) | 시니어 UI 시스템 | ✅ 완료 | Day 4, 11 | PR #8 머지 완 (Claude Round 3 / Gemini 승인). AppTextStyles/AppColors 정렬, PrimaryButton/SnackUtils 공통 위젯화 |
 | [spec_10](planning/spec_10_test_criteria.md) | 테스트 기준 + DoD | ⬜ 대기 | Day 12 | |
 
