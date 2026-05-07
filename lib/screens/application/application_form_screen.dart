@@ -150,25 +150,11 @@ class _ApplicationFormScreenState extends ConsumerState<ApplicationFormScreen> {
       bottomNavigationBar: SafeArea(
         child: Padding(
           padding: const EdgeInsets.fromLTRB(16, 8, 16, 16),
-          child: SizedBox(
-            height: 56,
-            child: ElevatedButton(
-              onPressed: _alreadyApplied || _isSubmitting ? null : _submit,
-              style: ElevatedButton.styleFrom(
-                backgroundColor: AppColors.primary,
-                disabledBackgroundColor: Colors.grey,
-                foregroundColor: Colors.white,
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(12),
-                ),
-              ),
-              child: PrimaryButton(
-                label: _alreadyApplied ? '이미 지원한 공고입니다' : '지원하기',
-                onPressed: _submit,
-                isLoading: _isSubmitting,
-                disabled: _alreadyApplied,
-              ),
-            ),
+          child: PrimaryButton(
+            label: _alreadyApplied ? '이미 지원한 공고입니다' : '지원하기',
+            onPressed: _submit,
+            isLoading: _isSubmitting,
+            disabled: _alreadyApplied,
           ),
         ),
       ),
