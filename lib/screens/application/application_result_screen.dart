@@ -46,7 +46,7 @@ class ApplicationResultScreen extends ConsumerWidget {
                     const SizedBox(height: 32),
                     PrimaryButton(
                       label: '확인',
-                      onPressed: () => context.go(AppRoutes.main),
+                      onPressed: () => context.go(AppRoutes.home),
                     ),
                   ],
                 ),
@@ -67,7 +67,7 @@ class ApplicationResultScreen extends ConsumerWidget {
                 const SizedBox(height: 32),
                 PrimaryButton(
                   label: '확인',
-                  onPressed: () => context.go(AppRoutes.main),
+                  onPressed: () => context.go(AppRoutes.home),
                 ),
               ],
             ),
