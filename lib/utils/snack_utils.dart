@@ -33,7 +33,7 @@ void showSnack(
   ScaffoldMessenger.of(context).showSnackBar(
     SnackBar(
       content: Text(message, style: AppTextStyles.body),
-      backgroundColor: backgroundColor ?? AppColors.textSecondary,
+      backgroundColor: backgroundColor ?? AppColors.primary,
       action: action,
     ),
   );

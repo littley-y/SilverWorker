@@ -1,4 +1,3 @@
-import 'package:flutter/painting.dart';
 import 'package:intl/intl.dart';
 
 import '../utils/timestamp_helper.dart';
@@ -205,14 +204,7 @@ class JobModel {
         'light' => '가벼움',
         'moderate' => '보통',
         'heavy' => '무거움',
-        _ => physicalIntensity,
-      };
-
-  Color get physicalIntensityColor => switch (physicalIntensity) {
-        'light' => const Color(0xFF4CAF50), // intensityLight
-        'moderate' => const Color(0xFFFF9800), // intensityModerate
-        'heavy' => const Color(0xFFF44336), // intensityHeavy
-        _ => const Color(0xFFFF9800),
+        _ => '알 수 없음',
       };
 
   String get formattedSalary {

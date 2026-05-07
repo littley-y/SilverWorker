@@ -12,6 +12,7 @@ class PrimaryButton extends StatelessWidget {
   final String label;
   final VoidCallback? onPressed;
   final bool isLoading;
+  final bool disabled;
   final bool fullWidth;
 
   const PrimaryButton({
@@ -19,20 +20,21 @@ class PrimaryButton extends StatelessWidget {
     required this.label,
     required this.onPressed,
     this.isLoading = false,
+    this.disabled = false,
     this.fullWidth = true,
   });
 
   @override
   Widget build(BuildContext context) {
-    final button = SizedBox(
+    return SizedBox(
       height: 56,
       width: fullWidth ? double.infinity : null,
       child: ElevatedButton(
-        onPressed: isLoading ? null : onPressed,
+        onPressed: (isLoading || disabled) ? null : onPressed,
         style: ElevatedButton.styleFrom(
           backgroundColor: AppColors.primary,
           foregroundColor: Colors.white,
-          disabledBackgroundColor: AppColors.disabled,
+          disabledBackgroundColor: AppColors.border,
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(12),
           ),
@@ -50,7 +52,5 @@ class PrimaryButton extends StatelessWidget {
             : Text(label),
       ),
     );
-
-    return button;
   }
 }

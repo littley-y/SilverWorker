@@ -7,9 +7,9 @@ import '../../providers/application_provider.dart';
 import '../../providers/job_provider.dart';
 import '../../repositories/application_repository.dart';
 import '../../router/app_router.dart';
-import 'package:logger/logger.dart';
-
-final _log = Logger();
+import '../../utils/app_logger.dart';
+import '../../utils/snack_utils.dart';
+import '../../widgets/primary_button.dart';
 
 class ApplicationFormScreen extends ConsumerStatefulWidget {
   final String jobId;
@@ -39,7 +39,7 @@ class _ApplicationFormScreenState extends ConsumerState<ApplicationFormScreen> {
           .hasApplied(widget.jobId);
       if (mounted && applied) setState(() => _alreadyApplied = true);
     } on Exception catch (e) {
-      _log.w('Failed to check already-applied status', error: e);
+      appLogger.w('Failed to check already-applied status', error: e);
     }
   }
 
@@ -62,22 +62,16 @@ class _ApplicationFormScreenState extends ConsumerState<ApplicationFormScreen> {
     } on AlreadyAppliedException {
       setState(() => _alreadyApplied = true);
       if (mounted) {
-        ScaffoldMessenger.of(context).showSnackBar(
-          const SnackBar(content: Text('이미 지원한 공고입니다')),
-        );
+        showErrorSnack(context, '이미 지원한 공고입니다');
       }
     } on JobClosedException {
       if (mounted) {
-        ScaffoldMessenger.of(context).showSnackBar(
-          const SnackBar(content: Text('마감된 공고입니다')),
-        );
+        showErrorSnack(context, '마감된 공고입니다');
       }
     } on Exception catch (e) {
-      _log.e('Submit application failed', error: e);
+      appLogger.e('Submit application failed', error: e);
       if (mounted) {
-        ScaffoldMessenger.of(context).showSnackBar(
-          const SnackBar(content: Text('지원에 실패했습니다. 다시 시도해 주세요')),
-        );
+        showErrorSnack(context, '지원에 실패했습니다. 다시 시도해 주세요');
       }
     } finally {
       await Future.delayed(const Duration(milliseconds: 1500));
@@ -168,26 +162,12 @@ class _ApplicationFormScreenState extends ConsumerState<ApplicationFormScreen> {
                   borderRadius: BorderRadius.circular(12),
                 ),
               ),
-              child: _isSubmitting
-                  ? const Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        SizedBox(
-                          width: 24,
-                          height: 24,
-                          child: CircularProgressIndicator(
-                            color: Colors.white,
-                            strokeWidth: 2,
-                          ),
-                        ),
-                        SizedBox(width: 12),
-                        Text('지원 중...', style: AppTextStyles.button),
-                      ],
-                    )
-                  : Text(
-                      _alreadyApplied ? '이미 지원한 공고입니다' : '지원하기',
-                      style: AppTextStyles.button,
-                    ),
+              child: PrimaryButton(
+                label: _alreadyApplied ? '이미 지원한 공고입니다' : '지원하기',
+                onPressed: _submit,
+                isLoading: _isSubmitting,
+                disabled: _alreadyApplied,
+              ),
             ),
           ),
         ),

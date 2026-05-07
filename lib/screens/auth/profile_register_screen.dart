@@ -1,14 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
-import 'package:logger/logger.dart';
 import '../../constants/address_data.dart';
 import '../../constants/app_colors.dart';
 import '../../constants/app_text_styles.dart';
 import '../../providers/auth_provider.dart';
 import '../../router/app_router.dart';
-
-final _log = Logger();
+import '../../utils/app_logger.dart';
 
 /// Profile setup screen — shown once after first successful phone auth.
 class ProfileSetupScreen extends ConsumerStatefulWidget {
@@ -74,7 +72,7 @@ class _ProfileSetupScreenState extends ConsumerState<ProfileSetupScreen> {
         context.go(AppRoutes.main);
       }
     } on Exception catch (e) {
-      _log.w('Profile save failed', error: e);
+      appLogger.w('Profile save failed', error: e);
       setState(() => _isSaving = false);
       if (mounted) {
         ScaffoldMessenger.of(context).showSnackBar(

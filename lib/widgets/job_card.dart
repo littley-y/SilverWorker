@@ -124,7 +124,12 @@ class _IntensityBadge extends StatelessWidget {
 
   const _IntensityBadge({required this.job});
 
-  Color get _color => job.physicalIntensityColor;
+  Color get _color => switch (job.physicalIntensity) {
+        'light' => AppColors.intensityLight,
+        'moderate' => AppColors.intensityModerate,
+        'heavy' => AppColors.intensityHeavy,
+        _ => AppColors.intensityModerate,
+      };
 
   IconData get _icon => switch (job.physicalIntensity) {
         'light' => Icons.fitness_center_outlined,
