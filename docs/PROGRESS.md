@@ -22,7 +22,7 @@
 | [spec_06](planning/spec_06_application.md) | 지원 기능 | ✅ 완료 | Day 8 | PR #6 머지 완 (Claude/Gemini 승인, round 3) |
 | [spec_07](planning/spec_07_mypage.md) | 마이페이지 | ✅ 완료 | Day 9 | PR #7 머지 완 (Claude Round 2 / Gemini 승인)
 | [spec_08](planning/spec_08_navigation.md) | 네비게이션 | ⬜ 대기 | Day 10 | |
-| [spec_09](planning/spec_09_ui_system.md) | 시니어 UI 시스템 | 🔄 진행 중 | Day 4, 11 | AppTextStyles/AppColors spec_09 정렬, MainScreen에 GoRouter 연결 |
+| [spec_09](planning/spec_09_ui_system.md) | 시니어 UI 시스템 | ✅ 완료 | Day 4, 11 | PR #8 머지 완 (Claude Round 3 / Gemini 승인). AppTextStyles/AppColors 정렬, PrimaryButton/SnackUtils 공통 위젯화 |
 | [spec_10](planning/spec_10_test_criteria.md) | 테스트 기준 + DoD | ⬜ 대기 | Day 12 | |
 
 **상태 범례**: ✅ 완료 / 🔄 진행 중 / ⛔ 블로커 / ⬜ 대기
@@ -58,7 +58,7 @@
 - **2026-05-05** — Day 5 (spec_05) PR #5 머지 완료: 공고 상세 화면 (SafetyCurationSection, JobDetailScreen). physicalIntensity 3단계 컬러 등급 + physicalBadges 6종 배지. 하단 고정 지원하기 버튼. `JobModel.formattedSalary` getter로 중복 제거. Claude 1차 리뷰 Major 1건(M-1 버튼 무반응), Minor 4건(m-1~m-4) 수정 반영. Claude/Gemini 2차 리뷰 승인 후 master 머지. `flutter test` 44/44 통과.
 - **2026-05-05** — Day 8 (spec_06) PR #6 머지 완료: 지원 기능 (ApplicationFormScreen, ApplicationResultScreen). `_isSubmitting` 오터치 방어, `runTransaction`으로 race condition 해결, `sealed class` ApplicationException, `hasApplied()` 사전 체크. Claude round 1 Blocker→round 2 Major→round 3 승인. `flutter test` 51/51 통과.
 - **2026-05-06** — Day 9 (spec_07) PR #7 머지 완료: 마이페이지 (MyPageScreen) + 지원 내역 (ApplicationListScreen, ApplicationCard). 프로필 요약 카드, 지원 횟수 뱃지, 메뉴 리스트, 로그아웃 확인 다이얼로그. 상태 배지 5종 색상 구분. Claude Round 1 Major 3건(M-1~M-3), Minor 3건(m-1~m-3), Nit 2건(n-1~n-2) 수정 반영. Claude Round 2 / Gemini 승인. `flutter analyze` 0경고, `flutter test` 62/62 통과.
-- **2026-05-07** — 전체 리펙토링 PR #8: 데드코드 2건 삭제, 중복 코드 2건 제거, 하드코딩 3건 정리, 코드 품질 3건 개선, 공통 유틸 2건 신규. `flutter analyze` 0경고, `flutter test` 62/62 통과. 히스토리: `docs/history/2026-05-07-refactoring.md`. Gemini 리뷰 승인.
+- **2026-05-07** — 전체 리펙토링 PR #8 머지 완료: 데드코드 2건 삭제, 중복 코드 2건 제거, 하드코딩 3건 정리, 코드 품질 3건 개선, 공통 유틸 2건 신규. `flutter analyze` 0경고, `flutter test` 62/62 통과. Claude Round 3 / Gemini 승인. 히스토리: `docs/history/2026-05-07-refactoring.md`.
 
 ---
 
