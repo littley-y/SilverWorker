@@ -161,14 +161,6 @@ class _WorkConditionSection extends StatelessWidget {
 
   const _WorkConditionSection({required this.job});
 
-  String get _employmentLabel => switch (job.employmentType) {
-        'part_time' => '파트타임',
-        'daily' => '일용직',
-        'short_term' => '단기',
-        'full_time' => '정규직',
-        _ => job.employmentType,
-      };
-
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -181,7 +173,7 @@ class _WorkConditionSection extends StatelessWidget {
         _ConditionRow(label: '근무 시간', value: job.workHours),
         _ConditionRow(label: '근무 요일', value: job.workDays),
         _ConditionRow(label: '근무 기간', value: job.workPeriod),
-        _ConditionRow(label: '고용 형태', value: _employmentLabel),
+        _ConditionRow(label: '고용 형태', value: job.employmentTypeLabel),
       ],
     );
   }

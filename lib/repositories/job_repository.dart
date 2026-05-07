@@ -8,6 +8,10 @@ import '../models/job_filter.dart';
 /// to Cloud Functions / admin SDK per `firestore.rules` §jobs.
 class JobRepository {
   static const String _collection = 'jobs';
+  final FirebaseFirestore _firestore;
+
+  JobRepository({FirebaseFirestore? firestore})
+      : _firestore = firestore ?? FirebaseFirestore.instance;
 
   /// Fetches job postings matching the given filter.
   ///
@@ -21,7 +25,7 @@ class JobRepository {
   /// Requires composite index: `jobs` `isActive` ASC, `deadline` ASC
   /// (see firestore.indexes.json).
   Future<List<JobModel>> fetchJobs(JobFilter filter) async {
-    Query query = FirebaseFirestore.instance
+    Query query = _firestore
         .collection(_collection)
         .where('isActive', isEqualTo: true)
         .where('deadline', isGreaterThan: Timestamp.now());
@@ -44,10 +48,7 @@ class JobRepository {
 
   /// Fetches a single job posting by document ID.
   Future<JobModel?> fetchJobById(String jobId) async {
-    final doc = await FirebaseFirestore.instance
-        .collection(_collection)
-        .doc(jobId)
-        .get();
+    final doc = await _firestore.collection(_collection).doc(jobId).get();
     if (!doc.exists) return null;
     return JobModel.fromJson({...doc.data()!, 'jobId': doc.id});
   }

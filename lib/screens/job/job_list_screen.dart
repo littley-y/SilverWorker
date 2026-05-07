@@ -6,6 +6,7 @@ import '../../constants/app_text_styles.dart';
 import '../../models/job_filter.dart';
 import '../../models/job_model.dart';
 import '../../providers/job_provider.dart';
+import '../../router/app_router.dart';
 import '../../widgets/filter_bar.dart';
 import '../../widgets/job_card.dart';
 
@@ -57,7 +58,8 @@ class JobListScreen extends ConsumerWidget {
                 }
                 return _JobListView(
                   jobs: jobs,
-                  onJobTap: (job) => context.push('/job/${job.jobId}'),
+                  onJobTap: (job) =>
+                      context.push(AppRoutes.jobDetailRoute(job.jobId)),
                 );
               },
               loading: () => const _LoadingState(),

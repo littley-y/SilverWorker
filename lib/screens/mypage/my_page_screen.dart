@@ -163,7 +163,7 @@ class _ProfileSummaryCard extends StatelessWidget {
         borderRadius: BorderRadius.circular(16),
         boxShadow: const <BoxShadow>[
           BoxShadow(
-            color: Color(0x1A000000),
+            color: AppColors.cardShadow,
             blurRadius: 8,
             offset: Offset(0, 2),
           ),
@@ -219,7 +219,7 @@ class _MenuList extends StatelessWidget {
         borderRadius: BorderRadius.circular(16),
         boxShadow: const <BoxShadow>[
           BoxShadow(
-            color: Color(0x1A000000),
+            color: AppColors.cardShadow,
             blurRadius: 8,
             offset: Offset(0, 2),
           ),

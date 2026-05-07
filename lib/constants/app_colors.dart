@@ -25,6 +25,14 @@ abstract final class AppColors {
   static const Color warning = Color(0xFFF9A825);
   static const Color error = Color(0xFFC62828);
 
+  // Borders & UI chrome
+  static const Color border =
+      Color(0xFFE0E0E0); // replaces Colors.grey.shade300
+  static const Color hintText =
+      Color(0xFFBDBDBD); // replaces Colors.grey.shade400
+  static const Color disabled = Color(0xFF9E9E9E); // replaces Colors.grey
+  static const Color cardShadow = Color(0x1A000000); // box-shadow for cards
+
   // Physical intensity (safety badges)
   static const Color intensityLight = Color(0xFF4CAF50);
   static const Color intensityModerate = Color(0xFFFF9800);

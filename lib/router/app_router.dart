@@ -28,6 +28,11 @@ abstract final class AppRoutes {
   static const String applyDone = '/apply/:jobId/done';
   static const String mypage = '/mypage';
   static const String applications = '/mypage/applications';
+
+  /// Builders for parameterised routes.
+  static String jobDetailRoute(String jobId) => '/job/$jobId';
+  static String applyRoute(String jobId) => '/apply/$jobId';
+  static String applyDoneRoute(String jobId) => '/apply/$jobId/done';
 }
 
 /// ---------------------------------------------------------------------------

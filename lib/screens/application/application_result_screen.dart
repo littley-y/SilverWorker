@@ -4,6 +4,8 @@ import 'package:go_router/go_router.dart';
 import '../../constants/app_colors.dart';
 import '../../constants/app_text_styles.dart';
 import '../../providers/job_provider.dart';
+import '../../router/app_router.dart';
+import '../../widgets/primary_button.dart';
 
 class ApplicationResultScreen extends ConsumerWidget {
   final String jobId;
@@ -42,20 +44,9 @@ class ApplicationResultScreen extends ConsumerWidget {
                     Text('마이페이지에서 지원 현황을 확인하세요',
                         style: AppTextStyles.sectionTitle),
                     const SizedBox(height: 32),
-                    SizedBox(
-                      width: double.infinity,
-                      height: 56,
-                      child: ElevatedButton(
-                        onPressed: () => context.go('/'),
-                        style: ElevatedButton.styleFrom(
-                          backgroundColor: AppColors.primary,
-                          foregroundColor: Colors.white,
-                          shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(12),
-                          ),
-                        ),
-                        child: const Text('확인', style: AppTextStyles.button),
-                      ),
+                    PrimaryButton(
+                      label: '확인',
+                      onPressed: () => context.go(AppRoutes.main),
                     ),
                   ],
                 ),
@@ -74,20 +65,9 @@ class ApplicationResultScreen extends ConsumerWidget {
                     style:
                         TextStyle(fontSize: 22, fontWeight: FontWeight.bold)),
                 const SizedBox(height: 32),
-                SizedBox(
-                  width: double.infinity,
-                  height: 56,
-                  child: ElevatedButton(
-                    onPressed: () => context.go('/'),
-                    style: ElevatedButton.styleFrom(
-                      backgroundColor: AppColors.primary,
-                      foregroundColor: Colors.white,
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(12),
-                      ),
-                    ),
-                    child: const Text('확인', style: AppTextStyles.button),
-                  ),
+                PrimaryButton(
+                  label: '확인',
+                  onPressed: () => context.go(AppRoutes.main),
                 ),
               ],
             ),

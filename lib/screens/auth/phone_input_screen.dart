@@ -5,6 +5,7 @@ import 'package:go_router/go_router.dart';
 import '../../constants/app_colors.dart';
 import '../../constants/app_text_styles.dart';
 import '../../providers/auth_provider.dart';
+import '../../router/app_router.dart';
 
 /// Phone number input screen — first step of authentication.
 class PhoneInputScreen extends ConsumerStatefulWidget {
@@ -56,7 +57,7 @@ class _PhoneInputScreenState extends ConsumerState<PhoneInputScreen> {
       },
       onCodeSent: () {
         if (mounted) {
-          context.push('/auth/otp');
+          context.push(AppRoutes.otp);
         }
       },
     );
