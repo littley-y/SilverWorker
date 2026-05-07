@@ -1,11 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:go_router/go_router.dart';
 import '../../constants/app_colors.dart';
 import '../../constants/app_text_styles.dart';
 import '../../providers/application_provider.dart';
 import '../../providers/auth_provider.dart';
-import '../../router/app_router.dart';
 
 /// 마이페이지 화면.
 ///
@@ -62,11 +60,7 @@ class MyPageScreen extends ConsumerWidget {
                   ),
                   const SizedBox(height: 24),
                   // 메뉴 리스트
-                  _MenuList(
-                    onApplicationsTap: () {
-                      context.go(AppRoutes.applications);
-                    },
-                  ),
+                  _MenuList(),
                   const Spacer(),
                   // 로그아웃 버튼
                   _LogoutButton(
@@ -207,9 +201,7 @@ class _ProfileSummaryCard extends StatelessWidget {
 // 메뉴 리스트
 // ---------------------------------------------------------------------------
 class _MenuList extends StatelessWidget {
-  const _MenuList({required this.onApplicationsTap});
-
-  final VoidCallback onApplicationsTap;
+  const _MenuList();
 
   @override
   Widget build(BuildContext context) {
@@ -227,12 +219,6 @@ class _MenuList extends StatelessWidget {
       ),
       child: Column(
         children: <Widget>[
-          _MenuItem(
-            icon: Icons.description_outlined,
-            label: '지원 내역',
-            onTap: onApplicationsTap,
-          ),
-          const Divider(height: 1, indent: 16, endIndent: 16),
           _MenuItem(
             icon: Icons.favorite_border,
             label: '찜한 공고',

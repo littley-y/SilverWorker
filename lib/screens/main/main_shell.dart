@@ -18,20 +18,23 @@ class MainShell extends ConsumerWidget {
 
   static const _tabs = <_TabItem>[
     _TabItem(
-        icon: Icons.home_outlined,
-        activeIcon: Icons.home,
-        label: '홈',
-        route: AppRoutes.home),
+      icon: Icons.home_outlined,
+      activeIcon: Icons.home,
+      label: '홈',
+      route: AppRoutes.home,
+    ),
     _TabItem(
-        icon: Icons.list_alt_outlined,
-        activeIcon: Icons.list_alt,
-        label: '지원현황',
-        route: AppRoutes.applications),
+      icon: Icons.list_alt_outlined,
+      activeIcon: Icons.list_alt,
+      label: '지원현황',
+      route: AppRoutes.applications,
+    ),
     _TabItem(
-        icon: Icons.person_outline,
-        activeIcon: Icons.person,
-        label: '마이페이지',
-        route: AppRoutes.mypage),
+      icon: Icons.person_outline,
+      activeIcon: Icons.person,
+      label: '마이페이지',
+      route: AppRoutes.mypage,
+    ),
   ];
 
   @override
@@ -132,9 +135,10 @@ class _TabItem {
   final String label;
   final String route;
 
-  const _TabItem(
-      {required this.icon,
-      required this.activeIcon,
-      required this.label,
-      required this.route});
+  const _TabItem({
+    required this.icon,
+    required this.activeIcon,
+    required this.label,
+    required this.route,
+  });
 }

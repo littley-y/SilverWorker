@@ -146,7 +146,6 @@ void main() {
 
     await tester.pumpAndSettle();
 
-    expect(find.text('지원 내역'), findsOneWidget);
     expect(find.text('찜한 공고'), findsOneWidget);
     expect(find.text('알림 설정'), findsOneWidget);
   });

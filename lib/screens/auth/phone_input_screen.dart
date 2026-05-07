@@ -100,7 +100,7 @@ class _PhoneInputScreenState extends ConsumerState<PhoneInputScreen> {
                       decoration: BoxDecoration(
                         color: AppColors.background,
                         borderRadius: BorderRadius.circular(12),
-                        border: Border.all(color: Colors.grey.shade300),
+                        border: Border.all(color: AppColors.border),
                       ),
                       child: Text(
                         '+82',
@@ -122,7 +122,7 @@ class _PhoneInputScreenState extends ConsumerState<PhoneInputScreen> {
                         decoration: InputDecoration(
                           hintText: '01012345678',
                           hintStyle: AppTextStyles.body.copyWith(
-                            color: Colors.grey.shade400,
+                            color: AppColors.hintText,
                           ),
                           filled: true,
                           fillColor: AppColors.background,
@@ -131,7 +131,7 @@ class _PhoneInputScreenState extends ConsumerState<PhoneInputScreen> {
                             borderSide: BorderSide(
                               color: _hasError
                                   ? AppColors.error
-                                  : Colors.grey.shade300,
+                                  : AppColors.border,
                             ),
                           ),
                           enabledBorder: OutlineInputBorder(
@@ -139,7 +139,7 @@ class _PhoneInputScreenState extends ConsumerState<PhoneInputScreen> {
                             borderSide: BorderSide(
                               color: _hasError
                                   ? AppColors.error
-                                  : Colors.grey.shade300,
+                                  : AppColors.border,
                             ),
                           ),
                           focusedBorder: OutlineInputBorder(
