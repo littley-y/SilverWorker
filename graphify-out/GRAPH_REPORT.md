@@ -1,11 +1,11 @@
 # Graph Report - SilverWorker  (2026-05-07)
 
 ## Corpus Check
-- 72 files · ~91,400 words
+- 72 files · ~92,341 words
 - Verdict: corpus is large enough that graph structure adds value.
 
 ## Summary
-- 418 nodes · 549 edges · 20 communities detected
+- 414 nodes · 543 edges · 20 communities detected
 - Extraction: 99% EXTRACTED · 1% INFERRED · 0% AMBIGUOUS · INFERRED: 4 edges (avg confidence: 0.8)
 - Token cost: 0 input · 0 output
 
@@ -37,10 +37,10 @@
 3. `../constants/app_colors.dart` - 15 edges
 4. `../constants/app_text_styles.dart` - 15 edges
 5. `package:flutter_test/flutter_test.dart` - 13 edges
-6. `../../router/app_router.dart` - 10 edges
-7. `package:go_router/go_router.dart` - 10 edges
-8. `run()` - 9 edges
-9. `main()` - 8 edges
+6. `package:go_router/go_router.dart` - 10 edges
+7. `run()` - 9 edges
+8. `main()` - 8 edges
+9. `../../router/app_router.dart` - 8 edges
 10. `main()` - 7 edges
 
 ## Surprising Connections (you probably didn't know these)
@@ -60,48 +60,48 @@ Cohesion: 0.04
 Nodes (50): app_colors.dart, ../helpers/test_doubles.dart, main, main, main, main, _MockRepository, _sampleJob (+42 more)
 
 ### Community 1 - "Community 1"
-Cohesion: 0.04
-Nodes (49): ../../constants/address_data.dart, firebase_options.dart, build, main, MyApp, BookmarkRepository, build, dispose (+41 more)
+Cohesion: 0.05
+Nodes (34): ApplicationRepository, AuthRepository, Function, _mapAuthError, BookmarkRepository, AlreadyAppliedException, ApplicationRepository, JobClosedException (+26 more)
 
 ### Community 2 - "Community 2"
 Cohesion: 0.06
-Nodes (34): ../constants/app_colors.dart, ../constants/app_text_styles.dart, showErrorSnack, showSnack, showSuccessSnack, build, _ChipRow, Column (+26 more)
+Nodes (34): ../../constants/address_data.dart, firebase_options.dart, build, main, MyApp, build, dispose, PhoneInputScreen (+26 more)
 
 ### Community 3 - "Community 3"
-Cohesion: 0.07
-Nodes (27): dart:async, ApplicationFormScreen, ApplicationListScreen, ApplicationResultScreen, applyDoneRoute, applyRoute, _AuthRefresh, dispose (+19 more)
+Cohesion: 0.06
+Nodes (34): ../constants/app_colors.dart, ../constants/app_text_styles.dart, showErrorSnack, showSnack, showSuccessSnack, build, _ChipRow, Column (+26 more)
 
 ### Community 4 - "Community 4"
 Cohesion: 0.13
 Nodes (24): categorize_files(), determine_round(), extract_spec_from_commits(), generate_request_doc(), get_changed_files(), get_commit_messages(), get_git_diff_stats(), get_pr_info() (+16 more)
 
 ### Community 5 - "Community 5"
-Cohesion: 0.09
-Nodes (22): JobRepository, JobRepository, build, Card, Center, Divider, _EmptyState, _ErrorState (+14 more)
+Cohesion: 0.08
+Nodes (25): dart:async, ApplicationFormScreen, ApplicationListScreen, ApplicationResultScreen, applyDoneRoute, applyRoute, _AuthRefresh, dispose (+17 more)
 
 ### Community 6 - "Community 6"
 Cohesion: 0.09
-Nodes (17): AuthRepository, Function, _mapAuthError, AlreadyAppliedException, ApplicationRepository, JobClosedException, JobNotFoundException, AuthRepository (+9 more)
+Nodes (22): JobRepository, JobRepository, build, Card, Center, Divider, _EmptyState, _ErrorState (+14 more)
 
 ### Community 7 - "Community 7"
-Cohesion: 0.09
-Nodes (20): build, Center, Column, _ConditionRow, Divider, _HeaderSection, Icon, _JobDetailBody (+12 more)
-
-### Community 8 - "Community 8"
 Cohesion: 0.1
 Nodes (19): ApplicationFormScreen, _ApplicationFormScreenState, build, Center, Column, dispose, initState, Scaffold (+11 more)
 
-### Community 9 - "Community 9"
+### Community 8 - "Community 8"
 Cohesion: 0.11
 Nodes (17): AlertDialog, build, Center, Container, Divider, Icon, InkWell, _LogoutButton (+9 more)
 
-### Community 10 - "Community 10"
+### Community 9 - "Community 9"
 Cohesion: 0.12
-Nodes (14): ApplicationRepository, ApplicationCard, ApplicationListScreen, build, Center, Container, _EmptyState, _formatDate (+6 more)
+Nodes (16): build, Center, Column, _ConditionRow, Divider, _HeaderSection, Icon, _JobDetailBody (+8 more)
+
+### Community 10 - "Community 10"
+Cohesion: 0.13
+Nodes (11): ApplicationModel, copyWith, copyWith, JobModel, Address, copyWith, UserModel, BookmarkModel (+3 more)
 
 ### Community 11 - "Community 11"
 Cohesion: 0.13
-Nodes (11): ApplicationModel, copyWith, copyWith, JobModel, Address, copyWith, UserModel, BookmarkModel (+3 more)
+Nodes (14): build, dispose, _distributeDigits, initState, _onDigitChanged, _onKeyEvent, OtpInputScreen, _OtpInputScreenState (+6 more)
 
 ### Community 12 - "Community 12"
 Cohesion: 0.26
@@ -136,7 +136,7 @@ Cohesion: 1.0
 Nodes (1): package:logger/logger.dart
 
 ## Knowledge Gaps
-- **269 isolated node(s):** `Claude Code SessionStart / SubagentStart hook - injects General folder context.`, `Return the most recent .md that isn't an empty session-summary.`, `Claude Code PreToolUse hook - guards git write operations.  Rules:   1. git push`, `working_dir가 프로젝트 루트인지 확인.`, `git push origin master/main 형태의 직접 푸시 감지.` (+264 more)
+- **265 isolated node(s):** `Claude Code SessionStart / SubagentStart hook - injects General folder context.`, `Return the most recent .md that isn't an empty session-summary.`, `Claude Code PreToolUse hook - guards git write operations.  Rules:   1. git push`, `working_dir가 프로젝트 루트인지 확인.`, `git push origin master/main 형태의 직접 푸시 감지.` (+260 more)
   These have ≤1 connection - possible missing edges or undocumented components.
 - **Thin community `Community 14`** (7 nodes): `DiscordNotifier`, `.__init__()`, `.send()`, `._send_webhook()`, `send_notification()`, `discord_notifier.py`, `notify.py`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
@@ -152,17 +152,17 @@ Nodes (1): package:logger/logger.dart
 ## Suggested Questions
 _Questions this graph is uniquely positioned to answer:_
 
-- **Why does `package:flutter/material.dart` connect `Community 0` to `Community 1`, `Community 2`, `Community 3`, `Community 5`, `Community 7`, `Community 8`, `Community 9`, `Community 10`?**
-  _High betweenness centrality (0.203) - this node is a cross-community bridge._
-- **Why does `package:flutter_riverpod/flutter_riverpod.dart` connect `Community 1` to `Community 0`, `Community 3`, `Community 5`, `Community 6`, `Community 7`, `Community 8`, `Community 9`, `Community 10`?**
-  _High betweenness centrality (0.143) - this node is a cross-community bridge._
-- **Why does `../constants/app_colors.dart` connect `Community 2` to `Community 1`, `Community 5`, `Community 7`, `Community 8`, `Community 9`, `Community 10`?**
-  _High betweenness centrality (0.039) - this node is a cross-community bridge._
+- **Why does `package:flutter/material.dart` connect `Community 0` to `Community 1`, `Community 2`, `Community 3`, `Community 5`, `Community 6`, `Community 7`, `Community 8`, `Community 9`, `Community 11`?**
+  _High betweenness centrality (0.204) - this node is a cross-community bridge._
+- **Why does `package:flutter_riverpod/flutter_riverpod.dart` connect `Community 1` to `Community 0`, `Community 2`, `Community 5`, `Community 6`, `Community 7`, `Community 8`, `Community 9`, `Community 11`?**
+  _High betweenness centrality (0.144) - this node is a cross-community bridge._
+- **Why does `../constants/app_colors.dart` connect `Community 3` to `Community 1`, `Community 2`, `Community 6`, `Community 7`, `Community 8`, `Community 9`, `Community 11`?**
+  _High betweenness centrality (0.040) - this node is a cross-community bridge._
 - **What connects `Claude Code SessionStart / SubagentStart hook - injects General folder context.`, `Return the most recent .md that isn't an empty session-summary.`, `Claude Code PreToolUse hook - guards git write operations.  Rules:   1. git push` to the rest of the system?**
-  _269 weakly-connected nodes found - possible documentation gaps or missing edges._
+  _265 weakly-connected nodes found - possible documentation gaps or missing edges._
 - **Should `Community 0` be split into smaller, more focused modules?**
   _Cohesion score 0.04 - nodes in this community are weakly interconnected._
 - **Should `Community 1` be split into smaller, more focused modules?**
-  _Cohesion score 0.04 - nodes in this community are weakly interconnected._
+  _Cohesion score 0.05 - nodes in this community are weakly interconnected._
 - **Should `Community 2` be split into smaller, more focused modules?**
   _Cohesion score 0.06 - nodes in this community are weakly interconnected._
