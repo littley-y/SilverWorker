@@ -1,118 +1,48 @@
 import 'package:flutter_test/flutter_test.dart';
 import 'package:silver_worker_now/models/job_model.dart';
 
+JobModel _jobWithIntensity(String intensity) {
+  return JobModel(
+    jobId: '1',
+    source: 'mock',
+    title: 'test',
+    companyName: 'test',
+    companyAddress: 'test',
+    locationCode: '11110',
+    jobCategory: 'security_management',
+    jobCategoryDetail: 'test',
+    employmentType: 'part_time',
+    salaryType: 'monthly',
+    salaryAmount: 1000000,
+    workHours: '09:00 ~ 18:00',
+    workDays: '월~금',
+    workPeriod: '3개월',
+    requirements: '',
+    benefits: '',
+    description: '',
+    physicalIntensity: intensity,
+    physicalBadges: const <String>[],
+    isActive: true,
+    rawData: const <String, dynamic>{},
+  );
+}
+
 void main() {
   group('JobModel.physicalIntensityLabel', () {
     test('returns 가벼움 for light', () {
-      const job = JobModel(
-        jobId: '1',
-        source: 'mock',
-        title: 'test',
-        companyName: 'test',
-        companyAddress: 'test',
-        locationCode: '11110',
-        jobCategory: 'security_management',
-        jobCategoryDetail: 'test',
-        employmentType: 'part_time',
-        salaryType: 'monthly',
-        salaryAmount: 1000000,
-        workHours: '09:00 ~ 18:00',
-        workDays: '월~금',
-        workPeriod: '3개월',
-        requirements: '',
-        benefits: '',
-        description: '',
-        physicalIntensity: 'light',
-        physicalBadges: <String>[],
-        isActive: true,
-        rawData: <String, dynamic>{},
-      );
-
-      expect(job.physicalIntensityLabel, '가벼움');
+      expect(_jobWithIntensity('light').physicalIntensityLabel, '가벼움');
     });
 
     test('returns 보통 for moderate', () {
-      const job = JobModel(
-        jobId: '1',
-        source: 'mock',
-        title: 'test',
-        companyName: 'test',
-        companyAddress: 'test',
-        locationCode: '11110',
-        jobCategory: 'security_management',
-        jobCategoryDetail: 'test',
-        employmentType: 'part_time',
-        salaryType: 'monthly',
-        salaryAmount: 1000000,
-        workHours: '09:00 ~ 18:00',
-        workDays: '월~금',
-        workPeriod: '3개월',
-        requirements: '',
-        benefits: '',
-        description: '',
-        physicalIntensity: 'moderate',
-        physicalBadges: <String>[],
-        isActive: true,
-        rawData: <String, dynamic>{},
-      );
-
-      expect(job.physicalIntensityLabel, '보통');
+      expect(_jobWithIntensity('moderate').physicalIntensityLabel, '보통');
     });
 
     test('returns 무거움 for heavy', () {
-      const job = JobModel(
-        jobId: '1',
-        source: 'mock',
-        title: 'test',
-        companyName: 'test',
-        companyAddress: 'test',
-        locationCode: '11110',
-        jobCategory: 'security_management',
-        jobCategoryDetail: 'test',
-        employmentType: 'part_time',
-        salaryType: 'monthly',
-        salaryAmount: 1000000,
-        workHours: '09:00 ~ 18:00',
-        workDays: '월~금',
-        workPeriod: '3개월',
-        requirements: '',
-        benefits: '',
-        description: '',
-        physicalIntensity: 'heavy',
-        physicalBadges: <String>[],
-        isActive: true,
-        rawData: <String, dynamic>{},
-      );
-
-      expect(job.physicalIntensityLabel, '무거움');
+      expect(_jobWithIntensity('heavy').physicalIntensityLabel, '무거움');
     });
 
     test('returns 알 수 없음 for unknown intensity', () {
-      const job = JobModel(
-        jobId: '1',
-        source: 'mock',
-        title: 'test',
-        companyName: 'test',
-        companyAddress: 'test',
-        locationCode: '11110',
-        jobCategory: 'security_management',
-        jobCategoryDetail: 'test',
-        employmentType: 'part_time',
-        salaryType: 'monthly',
-        salaryAmount: 1000000,
-        workHours: '09:00 ~ 18:00',
-        workDays: '월~금',
-        workPeriod: '3개월',
-        requirements: '',
-        benefits: '',
-        description: '',
-        physicalIntensity: 'unknown',
-        physicalBadges: <String>[],
-        isActive: true,
-        rawData: <String, dynamic>{},
-      );
-
-      expect(job.physicalIntensityLabel, '알 수 없음');
+      expect(_jobWithIntensity('unknown').physicalIntensityLabel, '알 수 없음');
     });
   });
 
