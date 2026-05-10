@@ -12,48 +12,57 @@ class ApplicationListScreen extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final user = ref.watch(authRepositoryProvider).currentUser;
+    final authAsync = ref.watch(authStateProvider);
 
-    if (user == null) {
-      return const Scaffold(
-        body: Center(child: CircularProgressIndicator()),
-      );
-    }
+    return authAsync.when(
+      data: (user) {
+        if (user == null) {
+          return const Scaffold(
+            body: Center(child: CircularProgressIndicator()),
+          );
+        }
 
-    final applicationsAsync = ref.watch(myApplicationsProvider(user.uid));
+        final applicationsAsync = ref.watch(myApplicationsProvider(user.uid));
 
-    return Scaffold(
-      appBar: AppBar(
-        title: const Text('지원 내역', style: AppTextStyles.headline),
-        backgroundColor: AppColors.background,
-        foregroundColor: AppColors.textPrimary,
-        elevation: 0,
-      ),
-      backgroundColor: AppColors.background,
-      body: applicationsAsync.when(
-        data: (applications) {
-          if (applications.isEmpty) {
-            return const _EmptyState();
-          }
-          return ListView.builder(
-            padding: const EdgeInsets.all(16),
-            itemCount: applications.length,
-            itemBuilder: (BuildContext context, int index) {
-              return Padding(
-                padding: const EdgeInsets.only(bottom: 12),
-                child: ApplicationCard(application: applications[index]),
+        return Scaffold(
+          appBar: AppBar(
+            title: const Text('지원 내역', style: AppTextStyles.headline),
+            backgroundColor: AppColors.background,
+            foregroundColor: AppColors.textPrimary,
+            elevation: 0,
+          ),
+          backgroundColor: AppColors.background,
+          body: applicationsAsync.when(
+            data: (applications) {
+              if (applications.isEmpty) {
+                return const _EmptyState();
+              }
+              return ListView.builder(
+                padding: const EdgeInsets.all(16),
+                itemCount: applications.length,
+                itemBuilder: (BuildContext context, int index) {
+                  return Padding(
+                    padding: const EdgeInsets.only(bottom: 12),
+                    child: ApplicationCard(application: applications[index]),
+                  );
+                },
               );
             },
-          );
-        },
-        loading: () => const Center(child: CircularProgressIndicator()),
-        error: (_, __) => Center(
-          child: Text(
-            '지원 내역을 불러오는 중 오류가 발생했습니다.',
-            style: AppTextStyles.body,
-            textAlign: TextAlign.center,
+            loading: () => const Center(child: CircularProgressIndicator()),
+            error: (_, __) => Center(
+              child: Text(
+                '지원 내역을 불러오는 중 오류가 발생했습니다.',
+                style: AppTextStyles.body,
+                textAlign: TextAlign.center,
+              ),
+            ),
           ),
-        ),
+        );
+      },
+      loading: () =>
+          const Scaffold(body: Center(child: CircularProgressIndicator())),
+      error: (_, __) => const Scaffold(
+        body: Center(child: Text('인증 상태를 확인할 수 없습니다.')),
       ),
     );
   }

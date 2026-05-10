@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import '../constants/app_colors.dart';
 import '../constants/app_text_styles.dart';
+import '../utils/intensity_helper.dart';
 
 class SafetyCurationSection extends StatelessWidget {
   final String physicalIntensity;
@@ -42,43 +43,26 @@ class _IntensityGradeBox extends StatelessWidget {
 
   const _IntensityGradeBox({required this.intensity});
 
-  Color get _color => switch (intensity) {
-        'light' => AppColors.intensityLight,
-        'moderate' => AppColors.intensityModerate,
-        'heavy' => AppColors.intensityHeavy,
-        _ => AppColors.intensityModerate,
-      };
-
-  String get _label => switch (intensity) {
-        'light' => '가벼움',
-        'moderate' => '보통',
-        'heavy' => '무거움',
-        _ => intensity,
-      };
-
-  IconData get _icon => switch (intensity) {
-        'light' => Icons.eco_outlined,
-        'moderate' => Icons.directions_walk,
-        'heavy' => Icons.fitness_center,
-        _ => Icons.fitness_center,
-      };
-
   @override
   Widget build(BuildContext context) {
+    final color = IntensityHelper.color(intensity);
     return Container(
       height: 48,
       padding: const EdgeInsets.symmetric(horizontal: 16),
       decoration: BoxDecoration(
-        color: _color.withValues(alpha: 0.1),
+        color: color.withValues(alpha: 0.1),
         borderRadius: BorderRadius.circular(12),
-        border: Border.all(color: _color.withValues(alpha: 0.3)),
+        border: Border.all(color: color.withValues(alpha: 0.3)),
       ),
       child: Row(
         mainAxisSize: MainAxisSize.min,
         children: [
-          Icon(_icon, size: 24, color: _color),
+          Icon(IntensityHelper.icon(intensity), size: 24, color: color),
           const SizedBox(width: 8),
-          Text(_label, style: AppTextStyles.bodyBold.copyWith(color: _color)),
+          Text(
+            IntensityHelper.label(intensity),
+            style: AppTextStyles.bodyBold.copyWith(color: color),
+          ),
         ],
       ),
     );

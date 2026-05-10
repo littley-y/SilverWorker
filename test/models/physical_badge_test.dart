@@ -161,11 +161,11 @@ void main() {
         'physicalIntensity': 'heavy',
         'physicalBadges': <String>[
           'standing',
-          'outdoor',
-          'lifting',
-          'bending',
-          'walking',
           'sitting',
+          'heavy_lifting',
+          'outdoor',
+          'repetitive',
+          'stairs',
         ],
         'isActive': true,
         'rawData': <String, dynamic>{},
@@ -175,11 +175,11 @@ void main() {
 
       expect(job.physicalBadges, [
         'standing',
-        'outdoor',
-        'lifting',
-        'bending',
-        'walking',
         'sitting',
+        'heavy_lifting',
+        'outdoor',
+        'repetitive',
+        'stairs',
       ]);
     });
   });
