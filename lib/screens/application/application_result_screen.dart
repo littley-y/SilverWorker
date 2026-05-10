@@ -61,9 +61,9 @@ class ApplicationResultScreen extends ConsumerWidget {
                 const Icon(Icons.check_circle,
                     size: 72, color: AppColors.success),
                 const SizedBox(height: 24),
-                const Text('지원이 완료되었습니다!',
+                Text('지원이 완료되었습니다!',
                     style:
-                        TextStyle(fontSize: 22, fontWeight: FontWeight.bold)),
+                        AppTextStyles.headline.copyWith(fontSize: 22)),
                 const SizedBox(height: 32),
                 PrimaryButton(
                   label: '확인',

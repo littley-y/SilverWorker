@@ -147,7 +147,7 @@ class _IntensityBadge extends StatelessWidget {
         const SizedBox(width: 2),
         Text(
           job.physicalIntensityLabel,
-          style: TextStyle(fontSize: 14, color: _color),
+          style: AppTextStyles.caption.copyWith(color: _color),
         ),
       ],
     );

@@ -7,6 +7,7 @@ import '../../constants/app_text_styles.dart';
 import '../../providers/auth_provider.dart';
 import '../../router/app_router.dart';
 import '../../utils/app_logger.dart';
+import '../../widgets/primary_button.dart';
 
 /// Profile setup screen — shown once after first successful phone auth.
 class ProfileSetupScreen extends ConsumerStatefulWidget {
@@ -170,14 +171,14 @@ class _ProfileSetupScreenState extends ConsumerState<ProfileSetupScreen> {
                 decoration: InputDecoration(
                   hintText: '이름을 입력하세요',
                   hintStyle: AppTextStyles.body.copyWith(
-                    color: Colors.grey.shade400,
+                    color: AppColors.hintText,
                   ),
                   filled: true,
                   fillColor: AppColors.background,
                   counterText: '',
                   border: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(12),
-                    borderSide: BorderSide(color: Colors.grey.shade300),
+                    borderSide: BorderSide(color: AppColors.border),
                   ),
                   focusedBorder: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(12),
@@ -204,7 +205,7 @@ class _ProfileSetupScreenState extends ConsumerState<ProfileSetupScreen> {
                   fillColor: AppColors.background,
                   border: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(12),
-                    borderSide: BorderSide(color: Colors.grey.shade300),
+                    borderSide: BorderSide(color: AppColors.border),
                   ),
                   focusedBorder: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(12),
@@ -224,7 +225,7 @@ class _ProfileSetupScreenState extends ConsumerState<ProfileSetupScreen> {
                     hint: Text(
                       '시 / 도 선택',
                       style: AppTextStyles.body.copyWith(
-                        color: Colors.grey.shade400,
+                        color: AppColors.hintText,
                       ),
                     ),
                     style: AppTextStyles.body.copyWith(
@@ -255,7 +256,7 @@ class _ProfileSetupScreenState extends ConsumerState<ProfileSetupScreen> {
                   fillColor: AppColors.background,
                   border: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(12),
-                    borderSide: BorderSide(color: Colors.grey.shade300),
+                    borderSide: BorderSide(color: AppColors.border),
                   ),
                   focusedBorder: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(12),
@@ -275,7 +276,7 @@ class _ProfileSetupScreenState extends ConsumerState<ProfileSetupScreen> {
                     hint: Text(
                       '구 / 군 선택',
                       style: AppTextStyles.body.copyWith(
-                        color: Colors.grey.shade400,
+                        color: AppColors.hintText,
                       ),
                     ),
                     style: AppTextStyles.body.copyWith(
@@ -308,13 +309,13 @@ class _ProfileSetupScreenState extends ConsumerState<ProfileSetupScreen> {
                 decoration: InputDecoration(
                   hintText: '간단한 경력을 소개해 주세요 (최대 500자)',
                   hintStyle: AppTextStyles.body.copyWith(
-                    color: Colors.grey.shade400,
+                    color: AppColors.hintText,
                   ),
                   filled: true,
                   fillColor: AppColors.background,
                   border: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(12),
-                    borderSide: BorderSide(color: Colors.grey.shade300),
+                    borderSide: BorderSide(color: AppColors.border),
                   ),
                   focusedBorder: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(12),
@@ -337,31 +338,11 @@ class _ProfileSetupScreenState extends ConsumerState<ProfileSetupScreen> {
               ),
               const SizedBox(height: 40),
 
-              SizedBox(
-                width: double.infinity,
-                height: 56,
-                child: ElevatedButton(
-                  onPressed: (_isFormValid && !_isSaving) ? _onStart : null,
-                  style: ElevatedButton.styleFrom(
-                    backgroundColor: AppColors.primary,
-                    foregroundColor: Colors.white,
-                    disabledBackgroundColor: Colors.grey.shade300,
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(12),
-                    ),
-                    textStyle: AppTextStyles.button,
-                  ),
-                  child: _isSaving
-                      ? const SizedBox(
-                          width: 24,
-                          height: 24,
-                          child: CircularProgressIndicator(
-                            strokeWidth: 2.5,
-                            color: Colors.white,
-                          ),
-                        )
-                      : const Text('시작하기'),
-                ),
+              PrimaryButton(
+                label: '시작하기',
+                onPressed: _onStart,
+                isLoading: _isSaving,
+                disabled: !_isFormValid,
               ),
               const SizedBox(height: 32),
             ],

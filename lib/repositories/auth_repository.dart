@@ -2,6 +2,29 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import '../models/user_model.dart';
 
+sealed class AuthException implements Exception {}
+
+class InvalidPhoneException extends AuthException {}
+class InvalidCodeException extends AuthException {}
+class SessionExpiredException extends AuthException {}
+class TooManyRequestsException extends AuthException {}
+class NetworkRequestFailedException extends AuthException {}
+class UnknownAuthException extends AuthException {
+  final String? message;
+  UnknownAuthException([this.message]);
+}
+
+AuthException mapFirebaseAuthException(FirebaseAuthException e) {
+  return switch (e.code) {
+    'invalid-phone-number' => InvalidPhoneException(),
+    'invalid-verification-code' => InvalidCodeException(),
+    'session-expired' => SessionExpiredException(),
+    'too-many-requests' => TooManyRequestsException(),
+    'network-request-failed' => NetworkRequestFailedException(),
+    _ => UnknownAuthException(e.message),
+  };
+}
+
 /// Repository for user authentication and profile operations.
 class AuthRepository {
   final FirebaseFirestore _firestore;

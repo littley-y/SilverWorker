@@ -1,5 +1,6 @@
 import 'package:flutter_test/flutter_test.dart';
 import 'package:silver_worker_now/models/job_model.dart';
+import 'package:silver_worker_now/models/physical_badge.dart';
 
 JobModel _jobWithIntensity(String intensity) {
   return JobModel(
@@ -159,28 +160,14 @@ void main() {
         'benefits': '',
         'description': '',
         'physicalIntensity': 'heavy',
-        'physicalBadges': <String>[
-          'standing',
-          'sitting',
-          'heavy_lifting',
-          'outdoor',
-          'repetitive',
-          'stairs',
-        ],
+        'physicalBadges': PhysicalBadge.values,
         'isActive': true,
         'rawData': <String, dynamic>{},
       };
 
       final job = JobModel.fromJson(json);
 
-      expect(job.physicalBadges, [
-        'standing',
-        'sitting',
-        'heavy_lifting',
-        'outdoor',
-        'repetitive',
-        'stairs',
-      ]);
+      expect(job.physicalBadges, PhysicalBadge.values);
     });
   });
 }

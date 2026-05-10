@@ -5,6 +5,7 @@ import '../../constants/app_text_styles.dart';
 import '../../models/application_model.dart';
 import '../../providers/application_provider.dart';
 import '../../providers/auth_provider.dart';
+import '../../widgets/error_retry_view.dart';
 
 /// 지원 내역 목록 화면.
 class ApplicationListScreen extends ConsumerWidget {
@@ -49,11 +50,9 @@ class ApplicationListScreen extends ConsumerWidget {
               );
             },
             loading: () => const Center(child: CircularProgressIndicator()),
-            error: (_, __) => Center(
-              child: Text(
-                '지원 내역을 불러오는 중 오류가 발생했습니다.',
-                style: AppTextStyles.body,
-                textAlign: TextAlign.center,
+            error: (_, __) => const Center(
+              child: ErrorRetryView(
+                message: '지원 내역을 불러오는 중 오류가 발생했습니다.',
               ),
             ),
           ),

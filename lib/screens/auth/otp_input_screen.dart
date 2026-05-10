@@ -291,7 +291,7 @@ class _OtpInputScreenState extends ConsumerState<OtpInputScreen> {
                     style: ElevatedButton.styleFrom(
                       backgroundColor: AppColors.primary,
                       foregroundColor: Colors.white,
-                      disabledBackgroundColor: Colors.grey.shade300,
+                      disabledBackgroundColor: AppColors.disabled,
                       shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(12),
                       ),

@@ -4,6 +4,7 @@ import '../../constants/app_colors.dart';
 import '../../constants/app_text_styles.dart';
 import '../../providers/application_provider.dart';
 import '../../providers/auth_provider.dart';
+import '../../widgets/error_retry_view.dart';
 
 /// 마이페이지 화면.
 ///
@@ -75,26 +76,11 @@ class MyPageScreen extends ConsumerWidget {
             },
             loading: () => const Center(child: CircularProgressIndicator()),
             error: (_, __) => Center(
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: <Widget>[
-                  Text(
-                    '프로필을 불러오는 중 오류가 발생했습니다.',
-                    style: AppTextStyles.body,
-                    textAlign: TextAlign.center,
-                  ),
-                  const SizedBox(height: 16),
-                  ElevatedButton(
-                    onPressed: () {
-                      ref.invalidate(userProfileProvider(user.uid));
-                    },
-                    style: ElevatedButton.styleFrom(
-                      backgroundColor: AppColors.primary,
-                      foregroundColor: Colors.white,
-                    ),
-                    child: const Text('다시 시도'),
-                  ),
-                ],
+              child: ErrorRetryView(
+                message: '프로필을 불러오는 중 오류가 발생했습니다.',
+                onRetry: () {
+                  ref.invalidate(userProfileProvider(user.uid));
+                },
               ),
             ),
           ),

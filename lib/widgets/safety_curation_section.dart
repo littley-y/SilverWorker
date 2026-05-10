@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import '../constants/app_colors.dart';
 import '../constants/app_text_styles.dart';
+import '../models/physical_badge.dart';
 import '../utils/intensity_helper.dart';
 
 class SafetyCurationSection extends StatelessWidget {
@@ -74,26 +75,6 @@ class _PhysicalBadgeChip extends StatelessWidget {
 
   const _PhysicalBadgeChip({required this.badge});
 
-  String get _label => switch (badge) {
-        'standing' => '계속 서있기',
-        'sitting' => '좌식 업무',
-        'heavy_lifting' => '무거운 짐',
-        'outdoor' => '야외 근무',
-        'repetitive' => '반복 동작',
-        'stairs' => '계단 오르내림',
-        _ => badge,
-      };
-
-  IconData get _icon => switch (badge) {
-        'standing' => Icons.accessibility_new,
-        'sitting' => Icons.chair,
-        'heavy_lifting' => Icons.inventory_2,
-        'outdoor' => Icons.wb_sunny,
-        'repetitive' => Icons.replay,
-        'stairs' => Icons.stairs,
-        _ => Icons.info_outline,
-      };
-
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -106,9 +87,10 @@ class _PhysicalBadgeChip extends StatelessWidget {
       child: Row(
         mainAxisSize: MainAxisSize.min,
         children: [
-          Icon(_icon, size: 16, color: AppColors.textSecondary),
+          Icon(PhysicalBadge.icon(badge),
+              size: 16, color: AppColors.textSecondary),
           const SizedBox(width: 4),
-          Text(_label, style: AppTextStyles.caption),
+          Text(PhysicalBadge.label(badge), style: AppTextStyles.caption),
         ],
       ),
     );
