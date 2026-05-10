@@ -5,10 +5,15 @@ import '../models/user_model.dart';
 sealed class AuthException implements Exception {}
 
 class InvalidPhoneException extends AuthException {}
+
 class InvalidCodeException extends AuthException {}
+
 class SessionExpiredException extends AuthException {}
+
 class TooManyRequestsException extends AuthException {}
+
 class NetworkRequestFailedException extends AuthException {}
+
 class UnknownAuthException extends AuthException {
   final String? message;
   UnknownAuthException([this.message]);

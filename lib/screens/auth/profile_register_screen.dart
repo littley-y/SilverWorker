@@ -286,8 +286,7 @@ class _AddressSelector extends StatelessWidget {
             ),
             focusedBorder: OutlineInputBorder(
               borderRadius: BorderRadius.circular(12),
-              borderSide:
-                  const BorderSide(color: AppColors.primary, width: 2),
+              borderSide: const BorderSide(color: AppColors.primary, width: 2),
             ),
             contentPadding:
                 const EdgeInsets.symmetric(horizontal: 16, vertical: 4),
@@ -298,8 +297,7 @@ class _AddressSelector extends StatelessWidget {
               hint: Text('시 / 도 선택',
                   style:
                       AppTextStyles.body.copyWith(color: AppColors.hintText)),
-              style:
-                  AppTextStyles.body.copyWith(color: AppColors.textPrimary),
+              style: AppTextStyles.body.copyWith(color: AppColors.textPrimary),
               isExpanded: true,
               items: AddressData.sidoList.map((String sido) {
                 return DropdownMenuItem<String>(
@@ -322,8 +320,7 @@ class _AddressSelector extends StatelessWidget {
             ),
             focusedBorder: OutlineInputBorder(
               borderRadius: BorderRadius.circular(12),
-              borderSide:
-                  const BorderSide(color: AppColors.primary, width: 2),
+              borderSide: const BorderSide(color: AppColors.primary, width: 2),
             ),
             contentPadding:
                 const EdgeInsets.symmetric(horizontal: 16, vertical: 4),
@@ -334,8 +331,7 @@ class _AddressSelector extends StatelessWidget {
               hint: Text('구 / 군 선택',
                   style:
                       AppTextStyles.body.copyWith(color: AppColors.hintText)),
-              style:
-                  AppTextStyles.body.copyWith(color: AppColors.textPrimary),
+              style: AppTextStyles.body.copyWith(color: AppColors.textPrimary),
               isExpanded: true,
               items:
                   AddressData.sigunguList(selectedSido ?? '').map((String s) {

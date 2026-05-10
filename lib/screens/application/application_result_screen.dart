@@ -62,8 +62,7 @@ class ApplicationResultScreen extends ConsumerWidget {
                     size: 72, color: AppColors.success),
                 const SizedBox(height: 24),
                 Text('지원이 완료되었습니다!',
-                    style:
-                        AppTextStyles.headline.copyWith(fontSize: 22)),
+                    style: AppTextStyles.headline.copyWith(fontSize: 22)),
                 const SizedBox(height: 32),
                 PrimaryButton(
                   label: '확인',

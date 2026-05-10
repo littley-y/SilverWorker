@@ -44,10 +44,7 @@ class MainShell extends ConsumerWidget {
     return authAsync.when(
       data: (user) {
         if (user == null) {
-          // Router redirect should prevent this, but guard anyway.
-          WidgetsBinding.instance.addPostFrameCallback((_) {
-            if (context.mounted) context.go(AppRoutes.phone);
-          });
+          // Router redirect handles this; safe fallback.
           return const Scaffold(
               body: Center(child: CircularProgressIndicator()));
         }
@@ -72,8 +69,7 @@ class MainShell extends ConsumerWidget {
             body: Center(
               child: ErrorRetryView(
                 message: '프로필을 불러오는 중 오류가 발생했습니다.',
-                onRetry: () =>
-                    ref.invalidate(userProfileProvider(user.uid)),
+                onRetry: () => ref.invalidate(userProfileProvider(user.uid)),
               ),
             ),
           ),
