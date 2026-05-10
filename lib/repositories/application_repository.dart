@@ -12,9 +12,13 @@ class JobNotFoundException extends ApplicationException {}
 
 class ApplicationRepository {
   final FirebaseFirestore _firestore;
+  final FirebaseAuth _auth;
 
-  ApplicationRepository({FirebaseFirestore? firestore})
-      : _firestore = firestore ?? FirebaseFirestore.instance;
+  ApplicationRepository({
+    FirebaseFirestore? firestore,
+    FirebaseAuth? auth,
+  })  : _firestore = firestore ?? FirebaseFirestore.instance,
+        _auth = auth ?? FirebaseAuth.instance;
 
   Future<List<ApplicationModel>> fetchApplications(String userId) async {
     final snapshot = await _firestore
@@ -30,7 +34,7 @@ class ApplicationRepository {
   }
 
   Future<bool> hasApplied(String jobId) async {
-    final uid = FirebaseAuth.instance.currentUser!.uid;
+    final uid = _auth.currentUser!.uid;
     final snap = await _firestore
         .collection('users')
         .doc(uid)
@@ -44,7 +48,7 @@ class ApplicationRepository {
     required String jobId,
     required String selfIntroduction,
   }) async {
-    final uid = FirebaseAuth.instance.currentUser!.uid;
+    final uid = _auth.currentUser!.uid;
     final ref = _firestore
         .collection('users')
         .doc(uid)

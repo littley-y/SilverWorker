@@ -1,6 +1,6 @@
 # PROGRESS — SilverWorkerNow 개발 현황
 
-> 최종 업데이트: 2026-05-07
+> 최종 업데이트: 2026-05-10
 > 전체 목표: 2주 데모 (Day 1 ~ Day 14)
 > 참조 스펙: `docs/planning/spec_01~10.md`
 
@@ -23,7 +23,7 @@
 | [spec_07](planning/spec_07_mypage.md) | 마이페이지 | ✅ 완료 | Day 9 | PR #7 머지 완 (Claude Round 2 / Gemini 승인)
 | [spec_08](planning/spec_08_navigation.md) | 네비게이션 | ✅ 완료 | Day 10 | PR #9 머지 완 (Claude/Gemini 승인). ShellRoute + BottomNav 3탭, auth redirect, PopScope |
 | [spec_09](planning/spec_09_ui_system.md) | 시니어 UI 시스템 | ✅ 완료 | Day 4, 11 | PR #8 머지 완 (Claude Round 3 / Gemini 승인). AppTextStyles/AppColors 정렬, PrimaryButton/SnackUtils 공통 위젯화 |
-| [spec_10](planning/spec_10_test_criteria.md) | 테스트 기준 + DoD | ⬜ 대기 | Day 12 | |
+| [spec_10](planning/spec_10_test_criteria.md) | 테스트 기준 + DoD | ✅ 완료 | Day 12 | |
 
 **상태 범례**: ✅ 완료 / 🔄 진행 중 / ⛔ 블로커 / ⬜ 대기
 
@@ -60,6 +60,7 @@
 - **2026-05-06** — Day 9 (spec_07) PR #7 머지 완료: 마이페이지 (MyPageScreen) + 지원 내역 (ApplicationListScreen, ApplicationCard). 프로필 요약 카드, 지원 횟수 뱃지, 메뉴 리스트, 로그아웃 확인 다이얼로그. 상태 배지 5종 색상 구분. Claude Round 1 Major 3건(M-1~M-3), Minor 3건(m-1~m-3), Nit 2건(n-1~n-2) 수정 반영. Claude Round 2 / Gemini 승인. `flutter analyze` 0경고, `flutter test` 62/62 통과.
 - **2026-05-07** — 전체 리펙토링 PR #8 머지 완료: 데드코드 2건 삭제, 중복 코드 2건 제거, 하드코딩 3건 정리, 코드 품질 3건 개선, 공통 유틸 2건 신규. `flutter analyze` 0경고, `flutter test` 62/62 통과. Claude Round 3 / Gemini 승인. 히스토리: `docs/history/2026-05-07-refactoring.md`.
 - **2026-05-07** — Day 10 (spec_08) PR #9 머지 완료: 네비게이션 구조 개편. `MainShell` + `BottomNavigationBar` (홈/지원현황/마이페이지 3탭) via `go_router` `ShellRoute`. `initialLocation` → `/home`. 인증 화면 `PopScope`로 Android 백 버튼 시 앱 종료. `MainScreen` 제거 및 profile guard를 `MainShell`로 이전. 잔여 하드코딩 경로 상수화. Claude Round 1 Minor/Nit 수정 (중복 메뉴 제거, 포맷 정리, grey 상수 교체). 히스토리: `docs/history/2026-05-07-navigation.md`.
+- **2026-05-10** — Day 12 (spec_10) 완료: 테스트 기준 및 DoD. `application_repository_test.dart` (7건: 중복 지원 방지, 공고 없음/마감 예외), `job_filter_test.dart` (6건: 필터 조합, copyWith null 설정), `physical_badge_test.dart` (8건: 강도 레이블, 배지 파싱). `ApplicationRepository`에 `FirebaseAuth` 생성자 주입 추가로 테스트 가능하도록 리팩토링. `flutter analyze` 0경고, `flutter test` 84/84 통과. 추가로 Android release APK 크래시 2건 수정: `MainActivity.kt` 누락 (`ClassNotFoundException`), `INTERNET` 권한 누락.
 
 ---
 
