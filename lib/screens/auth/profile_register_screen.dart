@@ -164,168 +164,36 @@ class _ProfileSetupScreenState extends ConsumerState<ProfileSetupScreen> {
               // Name
               Text('이름', style: AppTextStyles.bodyBold),
               const SizedBox(height: 8),
-              TextField(
+              _NameField(
                 controller: _nameController,
-                style: AppTextStyles.body,
-                maxLength: 20,
-                decoration: InputDecoration(
-                  hintText: '이름을 입력하세요',
-                  hintStyle: AppTextStyles.body.copyWith(
-                    color: AppColors.hintText,
-                  ),
-                  filled: true,
-                  fillColor: AppColors.background,
-                  counterText: '',
-                  border: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(12),
-                    borderSide: BorderSide(color: AppColors.border),
-                  ),
-                  focusedBorder: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(12),
-                    borderSide: const BorderSide(
-                      color: AppColors.primary,
-                      width: 2,
-                    ),
-                  ),
-                  contentPadding: const EdgeInsets.symmetric(
-                    horizontal: 16,
-                    vertical: 18,
-                  ),
-                ),
-                onChanged: (_) => setState(() {}),
+                onChanged: () => setState(() {}),
               ),
               const SizedBox(height: 24),
 
-              // Address — Sido
+              // Address — Sido / Sigungu
               Text('거주 지역', style: AppTextStyles.bodyBold),
               const SizedBox(height: 8),
-              InputDecorator(
-                decoration: InputDecoration(
-                  filled: true,
-                  fillColor: AppColors.background,
-                  border: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(12),
-                    borderSide: BorderSide(color: AppColors.border),
-                  ),
-                  focusedBorder: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(12),
-                    borderSide: const BorderSide(
-                      color: AppColors.primary,
-                      width: 2,
-                    ),
-                  ),
-                  contentPadding: const EdgeInsets.symmetric(
-                    horizontal: 16,
-                    vertical: 4,
-                  ),
-                ),
-                child: DropdownButtonHideUnderline(
-                  child: DropdownButton<String>(
-                    value: _selectedSido,
-                    hint: Text(
-                      '시 / 도 선택',
-                      style: AppTextStyles.body.copyWith(
-                        color: AppColors.hintText,
-                      ),
-                    ),
-                    style: AppTextStyles.body.copyWith(
-                      color: AppColors.textPrimary,
-                    ),
-                    isExpanded: true,
-                    items: AddressData.sidoList.map((String sido) {
-                      return DropdownMenuItem<String>(
-                        value: sido,
-                        child: Text(sido, style: AppTextStyles.body),
-                      );
-                    }).toList(),
-                    onChanged: (String? value) {
-                      setState(() {
-                        _selectedSido = value;
-                        _selectedSigungu = null;
-                      });
-                    },
-                  ),
-                ),
-              ),
-              const SizedBox(height: 12),
-
-              // Address — Sigungu
-              InputDecorator(
-                decoration: InputDecoration(
-                  filled: true,
-                  fillColor: AppColors.background,
-                  border: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(12),
-                    borderSide: BorderSide(color: AppColors.border),
-                  ),
-                  focusedBorder: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(12),
-                    borderSide: const BorderSide(
-                      color: AppColors.primary,
-                      width: 2,
-                    ),
-                  ),
-                  contentPadding: const EdgeInsets.symmetric(
-                    horizontal: 16,
-                    vertical: 4,
-                  ),
-                ),
-                child: DropdownButtonHideUnderline(
-                  child: DropdownButton<String>(
-                    value: _selectedSigungu,
-                    hint: Text(
-                      '구 / 군 선택',
-                      style: AppTextStyles.body.copyWith(
-                        color: AppColors.hintText,
-                      ),
-                    ),
-                    style: AppTextStyles.body.copyWith(
-                      color: AppColors.textPrimary,
-                    ),
-                    isExpanded: true,
-                    items: AddressData.sigunguList(_selectedSido ?? '')
-                        .map((String sigungu) {
-                      return DropdownMenuItem<String>(
-                        value: sigungu,
-                        child: Text(sigungu, style: AppTextStyles.body),
-                      );
-                    }).toList(),
-                    onChanged: (String? value) {
-                      setState(() => _selectedSigungu = value);
-                    },
-                  ),
-                ),
+              _AddressSelector(
+                selectedSido: _selectedSido,
+                selectedSigungu: _selectedSigungu,
+                onSelectedSido: (v) {
+                  setState(() {
+                    _selectedSido = v;
+                    _selectedSigungu = null;
+                  });
+                },
+                onSelectedSigungu: (v) {
+                  setState(() => _selectedSigungu = v);
+                },
               ),
               const SizedBox(height: 24),
 
               // Career summary
               Text('경력 소개 (선택)', style: AppTextStyles.bodyBold),
               const SizedBox(height: 8),
-              TextField(
+              _CareerField(
                 controller: _careerController,
-                style: AppTextStyles.body,
-                maxLength: 500,
-                maxLines: 5,
-                decoration: InputDecoration(
-                  hintText: '간단한 경력을 소개해 주세요 (최대 500자)',
-                  hintStyle: AppTextStyles.body.copyWith(
-                    color: AppColors.hintText,
-                  ),
-                  filled: true,
-                  fillColor: AppColors.background,
-                  border: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(12),
-                    borderSide: BorderSide(color: AppColors.border),
-                  ),
-                  focusedBorder: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(12),
-                    borderSide: const BorderSide(
-                      color: AppColors.primary,
-                      width: 2,
-                    ),
-                  ),
-                  contentPadding: const EdgeInsets.all(16),
-                ),
+                onChanged: () => setState(() {}),
               ),
               Align(
                 alignment: Alignment.centerRight,
@@ -348,6 +216,170 @@ class _ProfileSetupScreenState extends ConsumerState<ProfileSetupScreen> {
             ],
           ),
         ),
+      ),
+    );
+  }
+}
+
+// ---------------------------------------------------------------------------
+// Extracted form field widgets
+// ---------------------------------------------------------------------------
+
+class _NameField extends StatelessWidget {
+  final TextEditingController controller;
+  final VoidCallback onChanged;
+
+  const _NameField({required this.controller, required this.onChanged});
+
+  @override
+  Widget build(BuildContext context) {
+    return TextField(
+      controller: controller,
+      style: AppTextStyles.body,
+      maxLength: 20,
+      decoration: InputDecoration(
+        hintText: '이름을 입력하세요',
+        hintStyle: AppTextStyles.body.copyWith(color: AppColors.hintText),
+        filled: true,
+        fillColor: AppColors.background,
+        counterText: '',
+        border: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(12),
+          borderSide: const BorderSide(color: AppColors.border),
+        ),
+        focusedBorder: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(12),
+          borderSide: const BorderSide(color: AppColors.primary, width: 2),
+        ),
+        contentPadding:
+            const EdgeInsets.symmetric(horizontal: 16, vertical: 18),
+      ),
+      onChanged: (_) => onChanged(),
+    );
+  }
+}
+
+class _AddressSelector extends StatelessWidget {
+  final String? selectedSido;
+  final String? selectedSigungu;
+  final ValueChanged<String?> onSelectedSido;
+  final ValueChanged<String?> onSelectedSigungu;
+
+  const _AddressSelector({
+    required this.selectedSido,
+    required this.selectedSigungu,
+    required this.onSelectedSido,
+    required this.onSelectedSigungu,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      children: [
+        InputDecorator(
+          decoration: InputDecoration(
+            filled: true,
+            fillColor: AppColors.background,
+            border: OutlineInputBorder(
+              borderRadius: BorderRadius.circular(12),
+              borderSide: const BorderSide(color: AppColors.border),
+            ),
+            focusedBorder: OutlineInputBorder(
+              borderRadius: BorderRadius.circular(12),
+              borderSide:
+                  const BorderSide(color: AppColors.primary, width: 2),
+            ),
+            contentPadding:
+                const EdgeInsets.symmetric(horizontal: 16, vertical: 4),
+          ),
+          child: DropdownButtonHideUnderline(
+            child: DropdownButton<String>(
+              value: selectedSido,
+              hint: Text('시 / 도 선택',
+                  style:
+                      AppTextStyles.body.copyWith(color: AppColors.hintText)),
+              style:
+                  AppTextStyles.body.copyWith(color: AppColors.textPrimary),
+              isExpanded: true,
+              items: AddressData.sidoList.map((String sido) {
+                return DropdownMenuItem<String>(
+                  value: sido,
+                  child: Text(sido, style: AppTextStyles.body),
+                );
+              }).toList(),
+              onChanged: onSelectedSido,
+            ),
+          ),
+        ),
+        const SizedBox(height: 12),
+        InputDecorator(
+          decoration: InputDecoration(
+            filled: true,
+            fillColor: AppColors.background,
+            border: OutlineInputBorder(
+              borderRadius: BorderRadius.circular(12),
+              borderSide: const BorderSide(color: AppColors.border),
+            ),
+            focusedBorder: OutlineInputBorder(
+              borderRadius: BorderRadius.circular(12),
+              borderSide:
+                  const BorderSide(color: AppColors.primary, width: 2),
+            ),
+            contentPadding:
+                const EdgeInsets.symmetric(horizontal: 16, vertical: 4),
+          ),
+          child: DropdownButtonHideUnderline(
+            child: DropdownButton<String>(
+              value: selectedSigungu,
+              hint: Text('구 / 군 선택',
+                  style:
+                      AppTextStyles.body.copyWith(color: AppColors.hintText)),
+              style:
+                  AppTextStyles.body.copyWith(color: AppColors.textPrimary),
+              isExpanded: true,
+              items:
+                  AddressData.sigunguList(selectedSido ?? '').map((String s) {
+                return DropdownMenuItem<String>(
+                  value: s,
+                  child: Text(s, style: AppTextStyles.body),
+                );
+              }).toList(),
+              onChanged: onSelectedSigungu,
+            ),
+          ),
+        ),
+      ],
+    );
+  }
+}
+
+class _CareerField extends StatelessWidget {
+  final TextEditingController controller;
+  final VoidCallback onChanged;
+
+  const _CareerField({required this.controller, required this.onChanged});
+
+  @override
+  Widget build(BuildContext context) {
+    return TextField(
+      controller: controller,
+      style: AppTextStyles.body,
+      maxLength: 500,
+      maxLines: 5,
+      decoration: InputDecoration(
+        hintText: '간단한 경력을 소개해 주세요 (최대 500자)',
+        hintStyle: AppTextStyles.body.copyWith(color: AppColors.hintText),
+        filled: true,
+        fillColor: AppColors.background,
+        border: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(12),
+          borderSide: const BorderSide(color: AppColors.border),
+        ),
+        focusedBorder: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(12),
+          borderSide: const BorderSide(color: AppColors.primary, width: 2),
+        ),
+        contentPadding: const EdgeInsets.all(16),
       ),
     );
   }
