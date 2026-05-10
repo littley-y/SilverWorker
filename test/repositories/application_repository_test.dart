@@ -65,7 +65,10 @@ void main() {
     });
 
     test('saves application when job is open and not yet applied', () async {
-      await fakeFirestore.collection('jobs').doc('job_001').set(<String, dynamic>{
+      await fakeFirestore
+          .collection('jobs')
+          .doc('job_001')
+          .set(<String, dynamic>{
         'title': '아파트 경비원',
         'companyName': 'OO아파트',
         'isActive': true,
@@ -93,7 +96,10 @@ void main() {
     });
 
     test('throws AlreadyAppliedException when already applied', () async {
-      await fakeFirestore.collection('jobs').doc('job_001').set(<String, dynamic>{
+      await fakeFirestore
+          .collection('jobs')
+          .doc('job_001')
+          .set(<String, dynamic>{
         'title': 'test',
         'companyName': 'test',
         'isActive': true,
@@ -125,7 +131,10 @@ void main() {
     });
 
     test('throws JobClosedException when job is inactive', () async {
-      await fakeFirestore.collection('jobs').doc('job_001').set(<String, dynamic>{
+      await fakeFirestore
+          .collection('jobs')
+          .doc('job_001')
+          .set(<String, dynamic>{
         'title': 'test',
         'companyName': 'test',
         'isActive': false,
@@ -141,7 +150,10 @@ void main() {
     });
 
     test('throws JobClosedException when deadline has passed', () async {
-      await fakeFirestore.collection('jobs').doc('job_001').set(<String, dynamic>{
+      await fakeFirestore
+          .collection('jobs')
+          .doc('job_001')
+          .set(<String, dynamic>{
         'title': 'test',
         'companyName': 'test',
         'isActive': true,
