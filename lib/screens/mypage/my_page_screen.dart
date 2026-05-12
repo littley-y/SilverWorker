@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:go_router/go_router.dart';
 import '../../constants/app_colors.dart';
 import '../../constants/app_text_styles.dart';
 import '../../providers/application_provider.dart';
 import '../../providers/auth_provider.dart';
+import '../../router/app_router.dart';
 import '../../widgets/error_retry_view.dart';
 
 /// 마이페이지 화면.
@@ -228,6 +230,12 @@ class _MenuList extends StatelessWidget {
             onTap: () {
               // 추후 구현
             },
+          ),
+          const Divider(height: 1, indent: 16, endIndent: 16),
+          _MenuItem(
+            icon: Icons.settings,
+            label: '설정',
+            onTap: () => context.push(AppRoutes.settings),
           ),
         ],
       ),
