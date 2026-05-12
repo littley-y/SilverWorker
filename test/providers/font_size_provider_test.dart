@@ -31,7 +31,7 @@ void main() {
     addTearDown(container.dispose);
 
     await container.read(fontSizeProvider.notifier).setScale(0.5);
-    expect(container.read(fontSizeProvider), FontSizeNotifier.minScale);
+    expect(container.read(fontSizeProvider), 0.86);
   });
 
   test('FontSizeNotifier clamps to maxScale', () async {
@@ -39,35 +39,30 @@ void main() {
     addTearDown(container.dispose);
 
     await container.read(fontSizeProvider.notifier).setScale(2.0);
-    expect(container.read(fontSizeProvider), FontSizeNotifier.maxScale);
+    expect(container.read(fontSizeProvider), 1.33);
   });
 
   test('FontSizeNotifier persists to SharedPreferences', () async {
     final container = ProviderContainer();
     addTearDown(container.dispose);
 
-    await container.read(fontSizeProvider.notifier).setScale(1.3);
-
+    await container.read(fontSizeProvider.notifier).setScale(1.2);
     final prefs = await SharedPreferences.getInstance();
-    expect(prefs.getDouble('font_scale'), 1.3);
+    expect(prefs.getDouble('font_scale'), 1.2);
   });
 
   test('FontSizeNotifier ignores out-of-range saved value', () async {
     SharedPreferences.setMockInitialValues({'font_scale': 5.0});
-
     final container = ProviderContainer();
     addTearDown(container.dispose);
-
     await container.read(fontSizeProvider.notifier).initialized;
-    expect(container.read(fontSizeProvider), FontSizeNotifier.maxScale);
+    expect(container.read(fontSizeProvider), 1.33);
   });
 
   test('FontSizeNotifier loads saved value', () async {
     SharedPreferences.setMockInitialValues({'font_scale': 1.15});
-
     final container = ProviderContainer();
     addTearDown(container.dispose);
-
     await container.read(fontSizeProvider.notifier).initialized;
     expect(container.read(fontSizeProvider), 1.15);
   });

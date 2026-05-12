@@ -22,7 +22,6 @@ class MyApp extends ConsumerWidget {
     final fontScale = ref.watch(fontSizeProvider);
 
     return MaterialApp.router(
-      key: ValueKey<double>(fontScale),
       title: 'SilverWorkerNow',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(

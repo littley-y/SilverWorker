@@ -88,4 +88,43 @@ void main() {
     final textScaler = MediaQuery.textScalerOf(element);
     expect(textScaler, const TextScaler.linear(1.4));
   });
+
+  testWidgets(
+      "MyApp-equivalent builder propagates fontScale to textScaler",
+      (WidgetTester tester) async {
+    final container = ProviderContainer();
+    await container.read(fontSizeProvider.notifier).setScale(1.3);
+
+    await tester.pumpWidget(
+      UncontrolledProviderScope(
+        container: container,
+        child: const _AppWithFontScaler(),
+      ),
+    );
+
+    await tester.pumpAndSettle();
+    final textScaler = MediaQuery.textScalerOf(tester.element(find.text('Hello')));
+    expect(textScaler, const TextScaler.linear(1.3));
+  });
+}
+
+class _AppWithFontScaler extends ConsumerWidget {
+  const _AppWithFontScaler();
+
+  @override
+  Widget build(BuildContext context, WidgetRef ref) {
+    final fontScale = ref.watch(fontSizeProvider);
+    return MaterialApp(
+      home: Builder(
+        builder: (context) {
+          return MediaQuery(
+            data: MediaQuery.of(context).copyWith(
+              textScaler: TextScaler.linear(fontScale),
+            ),
+            child: const Scaffold(body: Text('Hello')),
+          );
+        },
+      ),
+    );
+  }
 }
