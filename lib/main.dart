@@ -21,20 +21,24 @@ class MyApp extends ConsumerWidget {
     final router = ref.watch(routerProvider);
     final fontScale = ref.watch(fontSizeProvider);
 
-    return MediaQuery(
-      data: MediaQuery.of(context).copyWith(
-        textScaler: TextScaler.linear(fontScale),
+    return MaterialApp.router(
+      key: ValueKey<double>(fontScale),
+      title: 'SilverWorkerNow',
+      debugShowCheckedModeBanner: false,
+      theme: ThemeData(
+        colorScheme: ColorScheme.fromSeed(seedColor: const Color(0xFF1565C0)),
+        useMaterial3: true,
+        fontFamily: 'Roboto',
       ),
-      child: MaterialApp.router(
-        title: 'SilverWorkerNow',
-        debugShowCheckedModeBanner: false,
-        theme: ThemeData(
-          colorScheme: ColorScheme.fromSeed(seedColor: const Color(0xFF1565C0)),
-          useMaterial3: true,
-          fontFamily: 'Roboto',
-        ),
-        routerConfig: router,
-      ),
+      routerConfig: router,
+      builder: (BuildContext context, Widget? child) {
+        return MediaQuery(
+          data: MediaQuery.of(context).copyWith(
+            textScaler: TextScaler.linear(fontScale),
+          ),
+          child: child!,
+        );
+      },
     );
   }
 }

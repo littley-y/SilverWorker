@@ -3,7 +3,8 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:silver_worker_now/widgets/mascot_widget.dart';
 
 void main() {
-  testWidgets('MascotWidget renders with default size', (WidgetTester tester) async {
+  testWidgets('MascotWidget renders with default size',
+      (WidgetTester tester) async {
     await tester.pumpWidget(
       const MaterialApp(
         home: Scaffold(
@@ -16,7 +17,8 @@ void main() {
     expect(find.byType(Image), findsOneWidget);
   });
 
-  testWidgets('MascotWidget renders fallback on error', (WidgetTester tester) async {
+  testWidgets('MascotWidget renders fallback on error',
+      (WidgetTester tester) async {
     await tester.pumpWidget(
       const MaterialApp(
         home: Scaffold(
@@ -27,10 +29,11 @@ void main() {
 
     await tester.pump();
 
-    expect(find.byType(AnimatedScale), findsOneWidget);
+    expect(find.byType(TweenAnimationBuilder<double>), findsOneWidget);
   });
 
-  testWidgets('MascotWidget respects size parameter', (WidgetTester tester) async {
+  testWidgets('MascotWidget respects size parameter',
+      (WidgetTester tester) async {
     await tester.pumpWidget(
       const MaterialApp(
         home: Scaffold(
@@ -53,7 +56,7 @@ void main() {
       ),
     );
 
-    expect(find.byType(AnimatedScale), findsNothing);
+    expect(find.byType(TweenAnimationBuilder<double>), findsNothing);
     expect(find.byType(Image), findsOneWidget);
   });
 }

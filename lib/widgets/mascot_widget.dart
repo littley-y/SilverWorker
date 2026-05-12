@@ -36,9 +36,16 @@ class MascotWidget extends StatelessWidget {
 
     if (!animated) return widget;
 
-    return AnimatedScale(
-      scale: 1.0,
-      duration: const Duration(milliseconds: 300),
+    return TweenAnimationBuilder<double>(
+      tween: Tween<double>(begin: 0.0, end: 1.0),
+      duration: const Duration(milliseconds: 400),
+      curve: Curves.easeOutBack,
+      builder: (BuildContext context, double scale, Widget? child) {
+        return Transform.scale(
+          scale: scale,
+          child: child,
+        );
+      },
       child: widget,
     );
   }

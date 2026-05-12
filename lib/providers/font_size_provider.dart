@@ -27,7 +27,7 @@ class FontSizeNotifier extends StateNotifier<double> {
 
   Future<void> setScale(double value) async {
     final clamped = value.clamp(minScale, maxScale);
-    if (state == clamped) return;
+    if ((state - clamped).abs() < 1e-9) return;
     state = clamped;
     final prefs = await SharedPreferences.getInstance();
     await prefs.setDouble(_key, clamped);

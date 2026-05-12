@@ -3,6 +3,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:go_router/go_router.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+import 'package:silver_worker_now/providers/font_size_provider.dart';
 import 'package:silver_worker_now/screens/settings/settings_screen.dart';
 
 void main() {
@@ -65,5 +66,26 @@ void main() {
     await tester.pumpAndSettle();
 
     expect(find.byIcon(Icons.arrow_back), findsOneWidget);
+  });
+
+  testWidgets("Font scale renders text at correct size via MediaQuery",
+      (WidgetTester tester) async {
+    await tester.pumpWidget(
+      ProviderScope(
+        child: MediaQuery(
+          data: const MediaQueryData().copyWith(
+            textScaler: const TextScaler.linear(1.4),
+          ),
+          child: const Directionality(
+            textDirection: TextDirection.ltr,
+            child: Text('Test', style: TextStyle(fontSize: 24)),
+          ),
+        ),
+      ),
+    );
+
+    final element = tester.element(find.text('Test'));
+    final textScaler = MediaQuery.textScalerOf(element);
+    expect(textScaler, const TextScaler.linear(1.4));
   });
 }

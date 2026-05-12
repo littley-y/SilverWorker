@@ -32,15 +32,12 @@ class SettingsScreen extends ConsumerWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: <Widget>[
-              Row(
+              const Row(
                 children: <Widget>[
-                  const Expanded(
-                    child: Text(
-                      '앱 설정',
-                      style: AppTextStyles.headline,
-                    ),
+                  Expanded(
+                    child: SizedBox.shrink(),
                   ),
-                  const MascotWidget(size: 60),
+                  MascotWidget(size: 60),
                 ],
               ),
               const SizedBox(height: 32),

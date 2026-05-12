@@ -7,6 +7,7 @@ import '../../providers/application_provider.dart';
 import '../../providers/auth_provider.dart';
 import '../../router/app_router.dart';
 import '../../widgets/error_retry_view.dart';
+import '../../widgets/mascot_widget.dart';
 
 /// 마이페이지 화면.
 ///
@@ -57,11 +58,20 @@ class MyPageScreen extends ConsumerWidget {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: <Widget>[
                       // 프로필 요약 카드
-                      _ProfileSummaryCard(
-                        name: profile.name,
-                        address: profile.address.display,
-                        careerSummary: profile.careerSummary,
-                        applicationCount: applicationCount,
+                      Stack(
+                        children: [
+                          _ProfileSummaryCard(
+                            name: profile.name,
+                            address: profile.address.display,
+                            careerSummary: profile.careerSummary,
+                            applicationCount: applicationCount,
+                          ),
+                          const Positioned(
+                            top: 12,
+                            right: 12,
+                            child: MascotWidget(size: 48),
+                          ),
+                        ],
                       ),
                       const SizedBox(height: 24),
                       // 메뉴 리스트
