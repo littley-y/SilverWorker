@@ -77,7 +77,7 @@ class _MascotBannerState extends State<MascotBanner> {
                 child: ClipRRect(
                   borderRadius: BorderRadius.circular(20),
                   child: Image.asset(
-                    'assets/mascot/silver_dog.png',
+                    'assets/mascot/silver_bunny.png',
                     fit: BoxFit.contain,
                     errorBuilder: (context, error, stackTrace) {
                       return Center(

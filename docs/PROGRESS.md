@@ -25,7 +25,7 @@
 | [spec_09](planning/spec_09_ui_system.md) | 시니어 UI 시스템 | ✅ 완료 | Day 4, 11 | PR #8 머지 완 (Claude Round 3 / Gemini 승인). AppTextStyles/AppColors 정렬, PrimaryButton/SnackUtils 공통 위젯화 |
 | [spec_10](planning/spec_10_test_criteria.md) | 테스트 기준 + DoD | ✅ 완료 | Day 12 | |
 | [spec_11](planning/spec_11_senior_ui_enhancement.md) | 시니어 특화 UI/UX 고도화 | ✅ 완료 | Day 13 | PR #10 머지 완 (Claude/Gemini 승인). 113/113 테스트 통과. |
-| [spec_12](planning/spec_12_home_ui_refinement.md) | 홈 화면 UI 개선 | 🔄 진행 중 | Day 14 | 마스코트 배너, 공고 카드 개선, 필터 슬라이드. PR #11 준비 중. |
+| [spec_12](planning/spec_12_home_ui_refinement.md) | 홈 화면 UI 개선 | 🔄 Review Pending | Day 14 | PR #11 리뷰 반영 중 (Claude Major 2 / Gemini Minor 3 수정). |
 
 **상태 범례**: ✅ 완료 / 🔄 진행 중 / ⛔ 블로커 / ⬜ 대기
 

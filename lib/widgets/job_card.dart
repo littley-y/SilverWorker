@@ -17,7 +17,7 @@ class JobCard extends StatelessWidget {
 
   /// Removes trailing "모집" from the title.
   String get _displayTitle {
-    return job.title.replaceAll(RegExp(r'모집$'), '').trim();
+    return job.title.trim().replaceAll(RegExp(r'모집$'), '').trim();
   }
 
   /// Formats deadline as "D-n" or "D-day" or "마감" if passed.

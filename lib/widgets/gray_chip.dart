@@ -22,7 +22,7 @@ class GrayChip extends StatelessWidget {
       child: Text(
         icon != null ? '$icon $label' : label,
         style: const TextStyle(
-          fontSize: 13,
+          fontSize: 14,
           fontWeight: FontWeight.w500,
           color: AppColors.textSecondary,
           height: 1.2,
