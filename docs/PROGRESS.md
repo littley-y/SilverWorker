@@ -1,12 +1,12 @@
 # PROGRESS — SilverWorkerNow 개발 현황
 
-> 최종 업데이트: 2026-05-07
+> 최종 업데이트: 2026-05-12
 > 전체 목표: 2주 데모 (Day 1 ~ Day 14)
-> 참조 스펙: `docs/planning/spec_01~10.md`
+> 참조 스펙: `docs/planning/spec_01~11.md`
 
 ---
 
-## 현재 단계: Day 9 완료 → Day 10 시작 전
+## 현재 단계: Day 13 — spec_11 리뷰 대기 중
 
 ---
 
@@ -23,7 +23,8 @@
 | [spec_07](planning/spec_07_mypage.md) | 마이페이지 | ✅ 완료 | Day 9 | PR #7 머지 완 (Claude Round 2 / Gemini 승인)
 | [spec_08](planning/spec_08_navigation.md) | 네비게이션 | ✅ 완료 | Day 10 | PR #9 머지 완 (Claude/Gemini 승인). ShellRoute + BottomNav 3탭, auth redirect, PopScope |
 | [spec_09](planning/spec_09_ui_system.md) | 시니어 UI 시스템 | ✅ 완료 | Day 4, 11 | PR #8 머지 완 (Claude Round 3 / Gemini 승인). AppTextStyles/AppColors 정렬, PrimaryButton/SnackUtils 공통 위젯화 |
-| [spec_10](planning/spec_10_test_criteria.md) | 테스트 기준 + DoD | ⬜ 대기 | Day 12 | |
+| [spec_10](planning/spec_10_test_criteria.md) | 테스트 기준 + DoD | ✅ 완료 | Day 12 | |
+| [spec_11](planning/spec_11_senior_ui_enhancement.md) | 시니어 특화 UI/UX 고도화 | 🔄 Review Pending | Day 13 | PR #10 Round 2 제출 (B-1·M-1·M-2·M-3·N-1·U-1·U-2 수정, 113/113 통과). Claude 승인 대기 중. |
 
 **상태 범례**: ✅ 완료 / 🔄 진행 중 / ⛔ 블로커 / ⬜ 대기
 
@@ -60,6 +61,10 @@
 - **2026-05-06** — Day 9 (spec_07) PR #7 머지 완료: 마이페이지 (MyPageScreen) + 지원 내역 (ApplicationListScreen, ApplicationCard). 프로필 요약 카드, 지원 횟수 뱃지, 메뉴 리스트, 로그아웃 확인 다이얼로그. 상태 배지 5종 색상 구분. Claude Round 1 Major 3건(M-1~M-3), Minor 3건(m-1~m-3), Nit 2건(n-1~n-2) 수정 반영. Claude Round 2 / Gemini 승인. `flutter analyze` 0경고, `flutter test` 62/62 통과.
 - **2026-05-07** — 전체 리펙토링 PR #8 머지 완료: 데드코드 2건 삭제, 중복 코드 2건 제거, 하드코딩 3건 정리, 코드 품질 3건 개선, 공통 유틸 2건 신규. `flutter analyze` 0경고, `flutter test` 62/62 통과. Claude Round 3 / Gemini 승인. 히스토리: `docs/history/2026-05-07-refactoring.md`.
 - **2026-05-07** — Day 10 (spec_08) PR #9 머지 완료: 네비게이션 구조 개편. `MainShell` + `BottomNavigationBar` (홈/지원현황/마이페이지 3탭) via `go_router` `ShellRoute`. `initialLocation` → `/home`. 인증 화면 `PopScope`로 Android 백 버튼 시 앱 종료. `MainScreen` 제거 및 profile guard를 `MainShell`로 이전. 잔여 하드코딩 경로 상수화. Claude Round 1 Minor/Nit 수정 (중복 메뉴 제거, 포맷 정리, grey 상수 교체). 히스토리: `docs/history/2026-05-07-navigation.md`.
+- **2026-05-10** — Day 12 (spec_10) 완료: 테스트 기준 및 DoD. `application_repository_test.dart` (7건: 중복 지원 방지, 공고 없음/마감 예외), `job_filter_test.dart` (6건: 필터 조합, copyWith null 설정), `physical_badge_test.dart` (8건: 강도 레이블, 배지 파싱). `ApplicationRepository`에 `FirebaseAuth` 생성자 주입 추가로 테스트 가능하도록 리팩토링. `flutter analyze` 0경고, `flutter test` 84/84 통과. 추가로 Android release APK 크래시 2건 수정: `MainActivity.kt` 누락 (`ClassNotFoundException`), `INTERNET` 권한 누락.
+- **2026-05-10** — 헤파이스토스 아키텍처 검수 완료: P0 4건(P0-1 AuthException sealed class, P0-2 ErrorRetryView 통합, P0-3 디자인 토큰 교체, P0-4 MainShell dead code 제거) + P1 5건(P1-5 profile_register 분해, P1-6 otp_input 분해 + OtpPinBox 테스트, P1-8 PhoneAuthNotifier로 리팩토링 + cache invalidation, P1-9 Clock 주입) + 기타 3건(A~C). Claude 구현 리뷰 round 2 승인. `flutter analyze` 0경고, `flutter test` 97/97 통과, `verify_local.sh` 6/6. 히스토리: `docs/history/2026-05-10-architecture-fix.md`.
+- **2026-05-12** — Day 13 (spec_11) PR #10 생성 및 리뷰 대응. 시니어 특화 UI/UX 고도화: MascotWidget (TweenAnimationBuilder 등장 애니메이션), FontSizeNotifier (SharedPreferences, 0.86~1.33 범위), SettingsScreen (Slider + 실시간 미리보기), MyPage 설정 메뉴, `/settings` 라우트. Round 1: B-1(MaterialApp.builder), M-2(마스코트 3곳), M-3(고대비 P1 강등), M-1(MediaQuery.textScaler 테스트), m-1~m-3, n-1 수정. Round 2: N-1(ValueKey 제거), U-1(builder 와이어링 테스트), U-2(scale 범위 조정). `flutter analyze` 0경고, `flutter test` 113/113 통과. 사업계획서 PDF 수정본 생성. 히스토리: `docs/history/2026-05-12-spec-11-senior-ui.md`.
+
 
 ---
 

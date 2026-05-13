@@ -6,6 +6,8 @@ import '../../constants/app_colors.dart';
 import '../../constants/app_text_styles.dart';
 import '../../providers/auth_provider.dart';
 import '../../router/app_router.dart';
+import '../../widgets/otp_pin_box.dart';
+import '../../widgets/primary_button.dart';
 
 /// OTP (6-digit SMS code) input screen.
 class OtpInputScreen extends ConsumerStatefulWidget {
@@ -21,11 +23,6 @@ class _OtpInputScreenState extends ConsumerState<OtpInputScreen> {
     6,
     (_) => TextEditingController(),
   );
-  final _keyboardFocusNodes = List<FocusNode>.generate(
-    6,
-    (_) => FocusNode(skipTraversal: true),
-  );
-
   int _countdown = 60;
   bool _canResend = false;
 
@@ -116,69 +113,65 @@ class _OtpInputScreenState extends ConsumerState<OtpInputScreen> {
   Future<void> _onVerify() async {
     if (!_isComplete) return;
 
-    final user = await verifyOtp(
-      ref: ref,
-      smsCode: _enteredCode,
-      onError: (String msg) {
-        if (mounted) {
-          ScaffoldMessenger.of(context).showSnackBar(
-            SnackBar(
-              content: Text(msg, style: AppTextStyles.body),
-              backgroundColor: AppColors.error,
-            ),
-          );
-        }
-      },
-    );
+    final user =
+        await ref.read(phoneAuthProvider.notifier).verifyOtp(_enteredCode);
 
-    if (user != null && mounted) {
-      context.go(AppRoutes.home);
+    if (!mounted) return;
+
+    if (user == null) {
+      final error = ref.read(phoneAuthProvider).errorMessage;
+      if (error != null) {
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(
+            content: Text(error, style: AppTextStyles.body),
+            backgroundColor: AppColors.error,
+          ),
+        );
+      }
+      return;
     }
+
+    context.go(AppRoutes.home);
   }
 
   Future<void> _onResend() async {
-    final phoneNumber = ref.read(phoneNumberProvider);
+    final phoneNumber = ref.read(phoneAuthProvider).phoneNumber;
     if (phoneNumber.isEmpty) return;
 
-    final resendToken = ref.read(resendTokenProvider);
+    final resendToken = ref.read(phoneAuthProvider).resendToken;
 
-    await startPhoneVerification(
-      ref: ref,
-      phoneNumber: phoneNumber,
-      forceResendingToken: resendToken,
-      onError: (String msg) {
-        if (mounted) {
-          ScaffoldMessenger.of(context).showSnackBar(
-            SnackBar(
-              content: Text(msg, style: AppTextStyles.body),
-              backgroundColor: AppColors.error,
-            ),
-          );
-        }
-      },
-      onCodeSent: () {
-        if (mounted) {
-          ScaffoldMessenger.of(context).showSnackBar(
-            SnackBar(
-              content: Text(
-                '인증번호가 재발송되었습니다.',
-                style: AppTextStyles.body,
-              ),
-              backgroundColor: AppColors.success,
-            ),
-          );
-          _startCountdown();
-        }
-      },
-    );
+    await ref.read(phoneAuthProvider.notifier).startVerification(
+          phoneNumber,
+          forceResendingToken: resendToken,
+        );
+
+    if (!mounted) return;
+
+    final authState = ref.read(phoneAuthProvider);
+    if (authState.errorMessage != null) {
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(
+          content: Text(authState.errorMessage!, style: AppTextStyles.body),
+          backgroundColor: AppColors.error,
+        ),
+      );
+    } else {
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(
+          content: Text(
+            '인증번호가 재발송되었습니다.',
+            style: AppTextStyles.body,
+          ),
+          backgroundColor: AppColors.success,
+        ),
+      );
+      _startCountdown();
+    }
   }
 
   @override
   void dispose() {
     for (final node in _focusNodes) {
-      node.dispose();
-    }
-    for (final node in _keyboardFocusNodes) {
       node.dispose();
     }
     for (final ctrl in _controllers) {
@@ -189,7 +182,7 @@ class _OtpInputScreenState extends ConsumerState<OtpInputScreen> {
 
   @override
   Widget build(BuildContext context) {
-    final isLoading = ref.watch(authLoadingProvider);
+    final isLoading = ref.watch(phoneAuthProvider).isLoading;
 
     return PopScope(
       canPop: false,
@@ -226,45 +219,12 @@ class _OtpInputScreenState extends ConsumerState<OtpInputScreen> {
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: List<Widget>.generate(6, (int index) {
-                    return SizedBox(
-                      width: 56,
-                      height: 64,
-                      child: KeyboardListener(
-                        focusNode: _keyboardFocusNodes[index],
-                        onKeyEvent: (KeyEvent event) =>
-                            _onKeyEvent(index, event),
-                        child: TextField(
-                          controller: _controllers[index],
-                          focusNode: _focusNodes[index],
-                          keyboardType: TextInputType.number,
-                          textAlign: TextAlign.center,
-                          style: AppTextStyles.title.copyWith(
-                            fontSize: 24,
-                            color: AppColors.textPrimary,
-                          ),
-                          inputFormatters: <TextInputFormatter>[
-                            FilteringTextInputFormatter.digitsOnly,
-                          ],
-                          decoration: InputDecoration(
-                            counterText: '',
-                            filled: true,
-                            fillColor: AppColors.background,
-                            border: OutlineInputBorder(
-                              borderRadius: BorderRadius.circular(12),
-                              borderSide: BorderSide(color: AppColors.border),
-                            ),
-                            focusedBorder: OutlineInputBorder(
-                              borderRadius: BorderRadius.circular(12),
-                              borderSide: const BorderSide(
-                                color: AppColors.primary,
-                                width: 2,
-                              ),
-                            ),
-                          ),
-                          onChanged: (String value) =>
-                              _onDigitChanged(index, value),
-                        ),
-                      ),
+                    return OtpPinBox(
+                      controller: _controllers[index],
+                      focusNode: _focusNodes[index],
+                      onChanged: (String value) =>
+                          _onDigitChanged(index, value),
+                      onKeyEvent: (KeyEvent event) => _onKeyEvent(index, event),
                     );
                   }),
                 ),
@@ -283,31 +243,10 @@ class _OtpInputScreenState extends ConsumerState<OtpInputScreen> {
                   ),
                 ),
                 const Spacer(),
-                SizedBox(
-                  width: double.infinity,
-                  height: 56,
-                  child: ElevatedButton(
-                    onPressed: (_isComplete && !isLoading) ? _onVerify : null,
-                    style: ElevatedButton.styleFrom(
-                      backgroundColor: AppColors.primary,
-                      foregroundColor: Colors.white,
-                      disabledBackgroundColor: Colors.grey.shade300,
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(12),
-                      ),
-                      textStyle: AppTextStyles.button,
-                    ),
-                    child: isLoading
-                        ? const SizedBox(
-                            width: 24,
-                            height: 24,
-                            child: CircularProgressIndicator(
-                              strokeWidth: 2.5,
-                              color: Colors.white,
-                            ),
-                          )
-                        : const Text('확인'),
-                  ),
+                PrimaryButton(
+                  label: '확인',
+                  onPressed: (_isComplete && !isLoading) ? _onVerify : null,
+                  isLoading: isLoading,
                 ),
                 const SizedBox(height: 32),
               ],

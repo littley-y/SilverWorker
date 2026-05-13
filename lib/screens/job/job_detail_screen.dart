@@ -6,6 +6,8 @@ import '../../constants/app_text_styles.dart';
 import '../../models/job_model.dart';
 import '../../providers/job_provider.dart';
 import '../../router/app_router.dart';
+import '../../widgets/error_retry_view.dart';
+import '../../widgets/primary_button.dart';
 import '../../widgets/safety_curation_section.dart';
 
 class JobDetailScreen extends ConsumerWidget {
@@ -34,23 +36,9 @@ class JobDetailScreen extends ConsumerWidget {
         },
         loading: () => const Center(child: CircularProgressIndicator()),
         error: (_, __) => Center(
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              const Icon(Icons.error_outline,
-                  size: 48, color: AppColors.textSecondary),
-              const SizedBox(height: 16),
-              Text('공고를 불러오는 중 오류가 발생했습니다', style: AppTextStyles.body),
-              const SizedBox(height: 24),
-              ElevatedButton(
-                onPressed: () => ref.invalidate(jobDetailProvider(jobId)),
-                style: ElevatedButton.styleFrom(
-                  backgroundColor: AppColors.primary,
-                  foregroundColor: Colors.white,
-                ),
-                child: const Text('다시 시도', style: AppTextStyles.button),
-              ),
-            ],
+          child: ErrorRetryView(
+            message: '공고를 불러오는 중 오류가 발생했습니다',
+            onRetry: () => ref.invalidate(jobDetailProvider(jobId)),
           ),
         ),
       ),
@@ -106,21 +94,11 @@ class _JobDetailBody extends StatelessWidget {
           child: SafeArea(
             child: Padding(
               padding: const EdgeInsets.fromLTRB(16, 8, 16, 16),
-              child: SizedBox(
-                height: 56,
-                child: ElevatedButton(
-                  onPressed: () {
-                    context.push(AppRoutes.applyRoute(job.jobId));
-                  },
-                  style: ElevatedButton.styleFrom(
-                    backgroundColor: AppColors.primary,
-                    foregroundColor: Colors.white,
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(12),
-                    ),
-                  ),
-                  child: const Text('지원하기', style: AppTextStyles.button),
-                ),
+              child: PrimaryButton(
+                label: '지원하기',
+                onPressed: () {
+                  context.push(AppRoutes.applyRoute(job.jobId));
+                },
               ),
             ),
           ),

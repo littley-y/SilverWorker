@@ -6,6 +6,7 @@ import '../../constants/app_colors.dart';
 import '../../constants/app_text_styles.dart';
 import '../../providers/auth_provider.dart';
 import '../../router/app_router.dart';
+import '../../widgets/primary_button.dart';
 
 /// Phone number input screen — first step of authentication.
 class PhoneInputScreen extends ConsumerStatefulWidget {
@@ -42,30 +43,26 @@ class _PhoneInputScreenState extends ConsumerState<PhoneInputScreen> {
     final normalized = digits.startsWith('0') ? digits.substring(1) : digits;
     final phoneNumber = '+82$normalized';
 
-    await startPhoneVerification(
-      ref: ref,
-      phoneNumber: phoneNumber,
-      onError: (String msg) {
-        if (mounted) {
-          ScaffoldMessenger.of(context).showSnackBar(
-            SnackBar(
-              content: Text(msg, style: AppTextStyles.body),
-              backgroundColor: AppColors.error,
-            ),
-          );
-        }
-      },
-      onCodeSent: () {
-        if (mounted) {
-          context.push(AppRoutes.otp);
-        }
-      },
-    );
+    await ref.read(phoneAuthProvider.notifier).startVerification(phoneNumber);
+
+    if (!mounted) return;
+
+    final authState = ref.read(phoneAuthProvider);
+    if (authState.errorMessage != null) {
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(
+          content: Text(authState.errorMessage!, style: AppTextStyles.body),
+          backgroundColor: AppColors.error,
+        ),
+      );
+    } else if (authState.verificationId != null) {
+      context.push(AppRoutes.otp);
+    }
   }
 
   @override
   Widget build(BuildContext context) {
-    final isLoading = ref.watch(authLoadingProvider);
+    final isLoading = ref.watch(phoneAuthProvider).isLoading;
 
     return PopScope(
       canPop: false,
@@ -166,30 +163,10 @@ class _PhoneInputScreenState extends ConsumerState<PhoneInputScreen> {
                   ],
                 ),
                 const Spacer(),
-                SizedBox(
-                  width: double.infinity,
-                  height: 56,
-                  child: ElevatedButton(
-                    onPressed: isLoading ? null : _onSendCode,
-                    style: ElevatedButton.styleFrom(
-                      backgroundColor: AppColors.primary,
-                      foregroundColor: Colors.white,
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(12),
-                      ),
-                      textStyle: AppTextStyles.button,
-                    ),
-                    child: isLoading
-                        ? const SizedBox(
-                            width: 24,
-                            height: 24,
-                            child: CircularProgressIndicator(
-                              strokeWidth: 2.5,
-                              color: Colors.white,
-                            ),
-                          )
-                        : const Text('인증번호 받기'),
-                  ),
+                PrimaryButton(
+                  label: '인증번호 받기',
+                  onPressed: isLoading ? null : _onSendCode,
+                  isLoading: isLoading,
                 ),
                 const SizedBox(height: 16),
                 Center(

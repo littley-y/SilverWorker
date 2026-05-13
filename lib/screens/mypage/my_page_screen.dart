@@ -1,9 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:go_router/go_router.dart';
 import '../../constants/app_colors.dart';
 import '../../constants/app_text_styles.dart';
 import '../../providers/application_provider.dart';
 import '../../providers/auth_provider.dart';
+import '../../router/app_router.dart';
+import '../../widgets/error_retry_view.dart';
+import '../../widgets/mascot_widget.dart';
 
 /// 마이페이지 화면.
 ///
@@ -16,85 +20,88 @@ class MyPageScreen extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final user = ref.watch(authRepositoryProvider).currentUser;
+    final authAsync = ref.watch(authStateProvider);
 
-    // Router redirect가 user null을 보장하지만, defensive null-guard.
-    if (user == null) {
-      return const Scaffold(
-        body: Center(child: CircularProgressIndicator()),
-      );
-    }
-
-    final profileAsync = ref.watch(userProfileProvider(user.uid));
-    final applicationsAsync = ref.watch(myApplicationsProvider(user.uid));
-
-    return Scaffold(
-      appBar: AppBar(
-        title: const Text('마이페이지', style: AppTextStyles.headline),
-        backgroundColor: AppColors.background,
-        foregroundColor: AppColors.textPrimary,
-        elevation: 0,
-      ),
-      backgroundColor: AppColors.background,
-      body: profileAsync.when(
-        data: (profile) {
-          if (profile == null) {
-            // Router redirect가 profile null을 보장하지만, defensive guard.
-            return const Center(child: CircularProgressIndicator());
-          }
-
-          final applicationCount = applicationsAsync.value?.length ?? 0;
-
-          return SafeArea(
-            child: Padding(
-              padding: const EdgeInsets.all(20),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: <Widget>[
-                  // 프로필 요약 카드
-                  _ProfileSummaryCard(
-                    name: profile.name,
-                    address: profile.address.display,
-                    careerSummary: profile.careerSummary,
-                    applicationCount: applicationCount,
-                  ),
-                  const SizedBox(height: 24),
-                  // 메뉴 리스트
-                  _MenuList(),
-                  const Spacer(),
-                  // 로그아웃 버튼
-                  _LogoutButton(
-                    onLogout: () => _showLogoutDialog(context, ref),
-                  ),
-                ],
-              ),
-            ),
+    return authAsync.when(
+      data: (user) {
+        // Router redirect가 user null을 보장하지만, defensive null-guard.
+        if (user == null) {
+          return const Scaffold(
+            body: Center(child: CircularProgressIndicator()),
           );
-        },
-        loading: () => const Center(child: CircularProgressIndicator()),
-        error: (_, __) => Center(
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: <Widget>[
-              Text(
-                '프로필을 불러오는 중 오류가 발생했습니다.',
-                style: AppTextStyles.body,
-                textAlign: TextAlign.center,
-              ),
-              const SizedBox(height: 16),
-              ElevatedButton(
-                onPressed: () {
+        }
+
+        final profileAsync = ref.watch(userProfileProvider(user.uid));
+        final applicationsAsync = ref.watch(myApplicationsProvider(user.uid));
+
+        return Scaffold(
+          appBar: AppBar(
+            title: const Text('마이페이지', style: AppTextStyles.headline),
+            backgroundColor: AppColors.background,
+            foregroundColor: AppColors.textPrimary,
+            elevation: 0,
+          ),
+          backgroundColor: AppColors.background,
+          body: profileAsync.when(
+            data: (profile) {
+              if (profile == null) {
+                // Router redirect가 profile null을 보장하지만, defensive guard.
+                return const Center(child: CircularProgressIndicator());
+              }
+
+              final applicationCount = applicationsAsync.value?.length ?? 0;
+
+              return SafeArea(
+                child: Padding(
+                  padding: const EdgeInsets.all(20),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: <Widget>[
+                      // 프로필 요약 카드
+                      Stack(
+                        children: [
+                          _ProfileSummaryCard(
+                            name: profile.name,
+                            address: profile.address.display,
+                            careerSummary: profile.careerSummary,
+                            applicationCount: applicationCount,
+                          ),
+                          const Positioned(
+                            top: 12,
+                            right: 12,
+                            child: MascotWidget(size: 48),
+                          ),
+                        ],
+                      ),
+                      const SizedBox(height: 24),
+                      // 메뉴 리스트
+                      _MenuList(),
+                      const Spacer(),
+                      // 로그아웃 버튼
+                      _LogoutButton(
+                        onLogout: () => _showLogoutDialog(context, ref),
+                      ),
+                    ],
+                  ),
+                ),
+              );
+            },
+            loading: () => const Center(child: CircularProgressIndicator()),
+            error: (_, __) => Center(
+              child: ErrorRetryView(
+                message: '프로필을 불러오는 중 오류가 발생했습니다.',
+                onRetry: () {
                   ref.invalidate(userProfileProvider(user.uid));
                 },
-                style: ElevatedButton.styleFrom(
-                  backgroundColor: AppColors.primary,
-                  foregroundColor: Colors.white,
-                ),
-                child: const Text('다시 시도'),
               ),
-            ],
+            ),
           ),
-        ),
+        );
+      },
+      loading: () =>
+          const Scaffold(body: Center(child: CircularProgressIndicator())),
+      error: (_, __) => const Scaffold(
+        body: Center(child: Text('인증 상태를 확인할 수 없습니다.')),
       ),
     );
   }
@@ -222,9 +229,9 @@ class _MenuList extends StatelessWidget {
           _MenuItem(
             icon: Icons.favorite_border,
             label: '찜한 공고',
-            onTap: () {
-              // 추후 구현
-            },
+            // TODO(spec_XX): Bookmark 기능 구현 시 연결
+            // 현재 MVP 범위 외이므로 비활성화 상태 유지
+            onTap: () {},
           ),
           const Divider(height: 1, indent: 16, endIndent: 16),
           _MenuItem(
@@ -233,6 +240,12 @@ class _MenuList extends StatelessWidget {
             onTap: () {
               // 추후 구현
             },
+          ),
+          const Divider(height: 1, indent: 16, endIndent: 16),
+          _MenuItem(
+            icon: Icons.settings,
+            label: '설정',
+            onTap: () => context.push(AppRoutes.settings),
           ),
         ],
       ),

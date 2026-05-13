@@ -7,8 +7,10 @@ import '../../models/job_filter.dart';
 import '../../models/job_model.dart';
 import '../../providers/job_provider.dart';
 import '../../router/app_router.dart';
+import '../../widgets/error_retry_view.dart';
 import '../../widgets/filter_bar.dart';
 import '../../widgets/job_card.dart';
+import '../../widgets/mascot_widget.dart';
 
 /// Job list screen — main home screen showing job postings.
 ///
@@ -29,6 +31,12 @@ class JobListScreen extends ConsumerWidget {
         centerTitle: false,
         backgroundColor: AppColors.cardBackground,
         surfaceTintColor: Colors.transparent,
+        actions: const [
+          Padding(
+            padding: EdgeInsets.only(right: 16),
+            child: MascotWidget(size: 40),
+          ),
+        ],
       ),
       body: Column(
         children: [
@@ -178,38 +186,11 @@ class _ErrorState extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Center(
-      child: Padding(
-        padding: const EdgeInsets.all(32),
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            const Icon(Icons.error_outline,
-                size: 48, color: AppColors.textSecondary),
-            const SizedBox(height: 16),
-            Text(
-              '공고를 불러올 수 없습니다',
-              style: AppTextStyles.body,
-              textAlign: TextAlign.center,
-            ),
-            const SizedBox(height: 24),
-            SizedBox(
-              height: 56,
-              width: double.infinity,
-              child: ElevatedButton(
-                onPressed: onRetry,
-                style: ElevatedButton.styleFrom(
-                  backgroundColor: AppColors.primary,
-                  foregroundColor: Colors.white,
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(12),
-                  ),
-                ),
-                child: const Text('다시 시도', style: AppTextStyles.button),
-              ),
-            ),
-          ],
-        ),
+    return Padding(
+      padding: const EdgeInsets.all(32),
+      child: ErrorRetryView(
+        message: '공고를 불러올 수 없습니다',
+        onRetry: onRetry,
       ),
     );
   }
@@ -229,6 +210,8 @@ class _EmptyState extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
+            const MascotWidget(size: 100),
+            const SizedBox(height: 16),
             const Icon(Icons.search_off,
                 size: 48, color: AppColors.textSecondary),
             const SizedBox(height: 16),

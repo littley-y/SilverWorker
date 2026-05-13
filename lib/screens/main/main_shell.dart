@@ -2,9 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import '../../constants/app_colors.dart';
-import '../../constants/app_text_styles.dart';
 import '../../providers/auth_provider.dart';
 import '../../router/app_router.dart';
+import '../../widgets/error_retry_view.dart';
 
 /// Main shell with BottomNavigationBar for the 3 primary tabs.
 ///
@@ -39,50 +39,46 @@ class MainShell extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final user = ref.watch(authRepositoryProvider).currentUser;
+    final authAsync = ref.watch(authStateProvider);
 
-    if (user == null) {
-      // Router redirect should prevent this, but guard anyway.
-      WidgetsBinding.instance.addPostFrameCallback((_) {
-        if (context.mounted) context.go(AppRoutes.phone);
-      });
-      return const Scaffold(body: Center(child: CircularProgressIndicator()));
-    }
-
-    final profileAsync = ref.watch(userProfileProvider(user.uid));
-
-    return profileAsync.when(
-      data: (profile) {
-        if (profile == null) {
-          // Logged in but no profile → redirect to profile setup.
-          WidgetsBinding.instance.addPostFrameCallback((_) {
-            if (context.mounted) context.go(AppRoutes.profile);
-          });
+    return authAsync.when(
+      data: (user) {
+        if (user == null) {
+          // Router redirect handles this; safe fallback.
           return const Scaffold(
               body: Center(child: CircularProgressIndicator()));
         }
-        return _buildScaffold(context);
+
+        final profileAsync = ref.watch(userProfileProvider(user.uid));
+
+        return profileAsync.when(
+          data: (profile) {
+            if (profile == null) {
+              // Logged in but no profile → redirect to profile setup.
+              WidgetsBinding.instance.addPostFrameCallback((_) {
+                if (context.mounted) context.go(AppRoutes.profile);
+              });
+              return const Scaffold(
+                  body: Center(child: CircularProgressIndicator()));
+            }
+            return _buildScaffold(context);
+          },
+          loading: () =>
+              const Scaffold(body: Center(child: CircularProgressIndicator())),
+          error: (_, __) => Scaffold(
+            body: Center(
+              child: ErrorRetryView(
+                message: '프로필을 불러오는 중 오류가 발생했습니다.',
+                onRetry: () => ref.invalidate(userProfileProvider(user.uid)),
+              ),
+            ),
+          ),
+        );
       },
       loading: () =>
           const Scaffold(body: Center(child: CircularProgressIndicator())),
-      error: (_, __) => Scaffold(
-        body: Center(
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: <Widget>[
-              Text('프로필을 불러오는 중 오류가 발생했습니다.',
-                  style: AppTextStyles.body, textAlign: TextAlign.center),
-              const SizedBox(height: 16),
-              ElevatedButton(
-                onPressed: () => ref.invalidate(userProfileProvider(user.uid)),
-                style: ElevatedButton.styleFrom(
-                    backgroundColor: AppColors.primary,
-                    foregroundColor: Colors.white),
-                child: const Text('다시 시도'),
-              ),
-            ],
-          ),
-        ),
+      error: (_, __) => const Scaffold(
+        body: Center(child: Text('인증 상태를 확인할 수 없습니다.')),
       ),
     );
   }

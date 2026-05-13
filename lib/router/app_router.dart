@@ -15,6 +15,7 @@ import '../screens/job/job_list_screen.dart';
 import '../screens/main/main_shell.dart';
 import '../screens/mypage/application_list_screen.dart';
 import '../screens/mypage/my_page_screen.dart';
+import '../screens/settings/settings_screen.dart';
 
 /// ---------------------------------------------------------------------------
 /// Route paths
@@ -29,6 +30,7 @@ abstract final class AppRoutes {
   static const String jobDetail = '/job/:jobId';
   static const String apply = '/apply/:jobId';
   static const String applyDone = '/apply/:jobId/done';
+  static const String settings = '/settings';
 
   /// Builders for parameterised routes.
   static String jobDetailRoute(String jobId) => '/job/$jobId';
@@ -152,6 +154,12 @@ final routerProvider = Provider<GoRouter>((ref) {
         builder: (BuildContext context, GoRouterState state) {
           final jobId = state.pathParameters['jobId'] ?? '';
           return ApplicationResultScreen(jobId: jobId);
+        },
+      ),
+      GoRoute(
+        path: AppRoutes.settings,
+        builder: (BuildContext context, GoRouterState state) {
+          return const SettingsScreen();
         },
       ),
     ],
