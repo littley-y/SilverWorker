@@ -11,7 +11,7 @@ class FontSizeNotifier extends StateNotifier<double> {
   }
 
   static const String _key = 'font_scale';
-  static const double minScale = 0.86;  // caption 14pt × 0.86 ≈ 12pt 하한
+  static const double minScale = 1.0;   // 축소 비허용 (spec_09 §1: 최소 14pt)
   static const double maxScale = 1.33;  // headline 24pt × 1.33 ≈ 32pt 상한
   late final Future<void> _loadFuture;
 

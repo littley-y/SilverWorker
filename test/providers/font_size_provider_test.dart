@@ -31,7 +31,7 @@ void main() {
     addTearDown(container.dispose);
 
     await container.read(fontSizeProvider.notifier).setScale(0.5);
-    expect(container.read(fontSizeProvider), 0.86);
+    expect(container.read(fontSizeProvider), 1.0);
   });
 
   test('FontSizeNotifier clamps to maxScale', () async {
