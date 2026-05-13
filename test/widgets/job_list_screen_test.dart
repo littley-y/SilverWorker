@@ -19,7 +19,7 @@ void main() {
       ),
     );
 
-    await tester.pumpAndSettle();
+    await tester.pump(const Duration(milliseconds: 100));
 
     expect(find.text('해당 조건의 공고가 없습니다'), findsOneWidget);
     expect(find.text('필터 초기화'), findsOneWidget);
@@ -39,7 +39,7 @@ void main() {
       ),
     );
 
-    await tester.pumpAndSettle();
+    await tester.pump(const Duration(milliseconds: 100));
 
     expect(find.text('공고를 불러올 수 없습니다'), findsOneWidget);
     expect(find.text('다시 시도'), findsOneWidget);
@@ -85,7 +85,7 @@ void main() {
       ),
     );
 
-    await tester.pumpAndSettle();
+    await tester.pump(const Duration(milliseconds: 100));
 
     expect(find.text('아파트 경비원'), findsOneWidget);
     expect(find.text('OO아파트 관리사무소'), findsOneWidget);
@@ -103,7 +103,7 @@ void main() {
       ),
     );
 
-    await tester.pumpAndSettle();
+    await tester.pump(const Duration(milliseconds: 100));
 
     expect(find.text('은빛일자리'), findsOneWidget);
   });
@@ -120,7 +120,7 @@ void main() {
       ),
     );
 
-    await tester.pumpAndSettle();
+    await tester.pump(const Duration(milliseconds: 100));
 
     expect(find.text('지역'), findsOneWidget);
     expect(find.text('직종'), findsOneWidget);

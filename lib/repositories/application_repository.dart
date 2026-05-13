@@ -13,6 +13,8 @@ class JobClosedException extends ApplicationException {}
 
 class JobNotFoundException extends ApplicationException {}
 
+class NoApplicationException extends ApplicationException {}
+
 class ApplicationRepository {
   final FirebaseFirestore _firestore;
   final FirebaseAuth _auth;
@@ -72,7 +74,9 @@ class ApplicationRepository {
 
     await _firestore.runTransaction((tx) async {
       final snap = await tx.get(ref);
-      if (snap.exists) throw AlreadyAppliedException();
+      if (snap.exists && snap.data()?['status'] != 'cancelled') {
+        throw AlreadyAppliedException();
+      }
 
       final jobDoc = await tx.get(_firestore.collection('jobs').doc(jobId));
       if (!jobDoc.exists) throw JobNotFoundException();
@@ -109,7 +113,7 @@ class ApplicationRepository {
 
     final snap = await ref.get();
     if (!snap.exists) {
-      throw Exception('지원 내역이 없습니다');
+      throw NoApplicationException();
     }
 
     await ref.update({

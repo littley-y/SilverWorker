@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 
+/// 은일이 마스코트 위젯.
+///
+/// 등장 시 통통 튀는 애니메이션을 가집니다.
 class MascotWidget extends StatelessWidget {
   const MascotWidget({
     super.key,
@@ -13,7 +16,7 @@ class MascotWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final widget = Image.asset(
-      'assets/mascot/silver_bunny.png',
+      'assets/mascot/silver_dog.png',
       width: size,
       height: size,
       fit: BoxFit.contain,

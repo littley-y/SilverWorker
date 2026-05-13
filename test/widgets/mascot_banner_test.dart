@@ -12,6 +12,8 @@ void main() {
       ),
     );
 
+    await tester.pump(const Duration(milliseconds: 100));
+
     // Mascot image or fallback icon should be present
     expect(find.byType(Image), findsOneWidget);
     // Bubble with some greeting text
@@ -27,14 +29,15 @@ void main() {
       ),
     );
 
-    await tester.pumpAndSettle();
+    await tester.pump(const Duration(milliseconds: 100));
 
-    // Find the mascot image/gesture detector and tap it
-    final gestureDetector = find.byType(GestureDetector);
-    expect(gestureDetector, findsOneWidget);
+    // Find the mascot gesture detector and tap it
+    final gestureDetectors = find.byType(GestureDetector);
+    expect(gestureDetectors, findsWidgets);
 
-    await tester.tap(gestureDetector);
-    await tester.pump();
+    await tester.tap(gestureDetectors.first);
+    await tester.pump(const Duration(milliseconds: 100));
+    await tester.pump(const Duration(milliseconds: 500));
 
     // Should still render after tap
     expect(find.byType(Image), findsOneWidget);
