@@ -16,9 +16,7 @@ class JobCard extends StatelessWidget {
   const JobCard({super.key, required this.job, required this.onTap});
 
   /// Removes trailing "모집" from the title.
-  String get _displayTitle {
-    return job.title.trim().replaceAll(RegExp(r'모집$'), '').trim();
-  }
+  String get _displayTitle => job.displayTitle;
 
   /// Formats deadline as "D-n" or "D-day" or "마감" if passed.
   static String _formatDeadline(DateTime? deadline) {

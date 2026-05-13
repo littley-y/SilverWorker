@@ -243,8 +243,7 @@ Day 14 [데모]                   시연
 |---|---|---|---|
 | **Week 3** | spec_13 | 리뷰 시스템 구현 (CRUD + 별점) | 리뷰 작성/조회 화면, Firestore 서브컬렉션 |
 | **Week 4** | spec_14 | AI 리뷰 자동 요약 | `summarizeReviews` Cloud Function, 요약 카드 UI |
-| **Week 5** | spec_15 | 컨디션 기반 가변 매칭 | 컨디션 입력 FAB, 클라이언트 사이드 재정렬 |
-| **Week 6** | spec_16 | 대화형 커리어 에이전트 (1/2) | STT 연동, 대화 UI, 이력서 생성 |
-| **Week 7** | spec_16 | 대화형 커리어 에이전트 (2/2) | 이력서 저장, 마이페이지 연동, 다듬기 |
-| **Week 8** | spec_17 (Phase 1) | 안면 확인 출근 인증 (ML Kit) | 블링크/헤드묵 챌린지, 위치 검증 |
-| **Week 9~10** | spec_17 (Phase 2) | AWS Rekognition Liveness 연동 | AWS 통합, 비용 모니터링, 단계적 전환 |
+| **Week 5** | spec_15 | 대화형 커리어 에이전트 (1/2) | STT 연동, 대화 UI, 이력서 생성 |
+| **Week 6** | spec_15 | 대화형 커리어 에이전트 (2/2) | 이력서 저장, 마이페이지 연동, 다듬기 |
+| **Week 7** | spec_16 (Phase 1) | 안면 확인 출근 인증 (ML Kit) | 블링크/헤드묵 챌린지, 위치 검증 |
+| **Week 8~9** | spec_16 (Phase 2) | AWS Rekognition Liveness 연동 | AWS 통합, 비용 모니터링, 단계적 전환 |

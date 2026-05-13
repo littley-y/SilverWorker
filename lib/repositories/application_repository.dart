@@ -98,4 +98,23 @@ class ApplicationRepository {
       });
     });
   }
+
+  Future<void> cancelApplication(String jobId) async {
+    final uid = _requireAuth.uid;
+    final ref = _firestore
+        .collection('users')
+        .doc(uid)
+        .collection('applications')
+        .doc(jobId);
+
+    final snap = await ref.get();
+    if (!snap.exists) {
+      throw Exception('지원 내역이 없습니다');
+    }
+
+    await ref.update({
+      'status': 'cancelled',
+      'updatedAt': FieldValue.serverTimestamp(),
+    });
+  }
 }

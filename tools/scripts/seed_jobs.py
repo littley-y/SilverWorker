@@ -171,6 +171,39 @@ OTHER_LOCATIONS = [
     ("11260", "서울 중랑구 망우로 353"),
 ]
 
+COMPANY_NAMES: dict[str, list[str]] = {
+    "security_management": [
+        "종로타워 관리사무소", "강남파이낸스센터 보안팀", "롯데월드타워 주차팀",
+        "삼성래미안 관리단", "현대아이파크 보안팀", "두산위브 관리사무소",
+        "자이아파트 관리단", "힐스테이트 보안팀", "e편한세상 관리사무소",
+        "포레나 관리단", "더샵 보안팀", "래미안 관리사무소",
+    ],
+    "cleaning": [
+        "서울아산병원 시설팀", "삼성서울병원 청소팀", "세브란스병원 위생팀",
+        "서울대병원 시설관리팀", "고려대병원 청소팀", "연세세브란스 위생팀",
+        "삼성래미안 청소팀", "현대아이파크 시설팀", "두산위브 청소팀",
+        "자이아파트 청소팀", "힐스테이트 시설팀", "e편한세상 청소팀",
+    ],
+    "simple_labor": [
+        "쿠팡 물류센터", "마켓컬리 물류센터", "SSG닷컴 물류센터",
+        "이마트 물류센터", "롯데마트 물류센터", "홈플러스 물류센터",
+        "CJ대한통운 물류센터", "로젠택배 물류센터", "한진택배 물류센터",
+        "우체국택배 물류센터", "쿠팡 로켓배송 센터", "마켓컬리 새벽배송 센터",
+    ],
+    "service": [
+        "GS25 편의점", "CU 편의점", "7-ELEVEN 편의점",
+        "미니스톱 편의점", "이마트24 편의점", "롯데리아 매장",
+        "맥도날드 매장", "버거킹 매장", "KFC 매장",
+        "스타벅스 매장", "투썸플레이스 매장", "이디야커피 매장",
+    ],
+    "office_work": [
+        "삼성전자 사무실", "LG전자 사무실", "현대자동차 사무실",
+        "SK하이닉스 사무실", "POSCO 사무실", "KT 사무실",
+        "LG유플러스 사무실", "SK텔레콤 사무실", "한국전력 사무실",
+        "한화그룹 사무실", "롯데그룹 사무실", "신한은행 사무실",
+    ],
+}
+
 
 def _random_date_in_future(days_min: int = 3, days_max: int = 60) -> str:
     delta = random.randint(days_min, days_max)
@@ -199,8 +232,7 @@ def _random_salary(category: str) -> tuple[str, int]:
 def generate_one(index: int, location_code: str, job_category: str, intensity: str) -> dict:
     template = CATEGORY_TEMPLATES[job_category]
     title_prefix = random.choice(template["title_prefixes"])
-    company_suffixes = ["관리사무소", "관리단", "주식회사", "협동조합", "관리센터", "서비스센터"]
-    company = f"{title_prefix} {index}호 {random.choice(company_suffixes)}"
+    company = random.choice(COMPANY_NAMES.get(job_category, ["알 수 없는 회사"]))
 
     address = (
         random.choice(COMPANY_ADDRESSES.get(location_code, ["서울 OO구 OO로 123"]))
@@ -213,11 +245,13 @@ def generate_one(index: int, location_code: str, job_category: str, intensity: s
         effective_location = OTHER_LOCATIONS[index % 3][0]
 
     sal_type, sal_amount = _random_salary(job_category)
+    work_hours = "08:00 ~ 17:00 (휴게 1시간)" if random.random() > 0.3 else "09:00 ~ 18:00 (휴게 1시간)"
+    work_hours_per_day = 8
 
     return {
         "jobId": f"MOCK_{index:03d}",
         "source": "mock",
-        "title": f"{title_prefix} 모집",
+        "title": title_prefix,
         "companyName": company,
         "companyAddress": address,
         "locationCode": effective_location,
@@ -226,7 +260,8 @@ def generate_one(index: int, location_code: str, job_category: str, intensity: s
         "employmentType": _random_employment_type(),
         "salaryType": sal_type,
         "salaryAmount": sal_amount,
-        "workHours": "08:00 ~ 17:00 (휴게 1시간)" if random.random() > 0.3 else "09:00 ~ 18:00 (휴게 1시간)",
+        "workHours": work_hours,
+        "workHoursPerDay": work_hours_per_day,
         "workDays": random.choice(["월~금", "월~토", "월~금 (격주 토요일)", "월~수"]),
         "workPeriod": random.choice(["3개월", "6개월", "12개월", "협의"]),
         "requirements": random.choice(template["requirements"]),

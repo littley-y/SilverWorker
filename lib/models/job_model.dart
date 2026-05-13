@@ -22,6 +22,7 @@ class JobModel {
   final String salaryType; // "hourly" | "daily" | "monthly"
   final int salaryAmount;
   final String workHours;
+  final int? workHoursPerDay; // 일일 근무 시간(시간)
   final String workDays;
   final String workPeriod;
   final String requirements;
@@ -51,6 +52,7 @@ class JobModel {
     required this.salaryType,
     required this.salaryAmount,
     required this.workHours,
+    this.workHoursPerDay,
     required this.workDays,
     required this.workPeriod,
     required this.requirements,
@@ -82,6 +84,7 @@ class JobModel {
       salaryType: json['salaryType'] as String? ?? '',
       salaryAmount: (json['salaryAmount'] as num?)?.toInt() ?? 0,
       workHours: json['workHours'] as String? ?? '',
+      workHoursPerDay: (json['workHoursPerDay'] as num?)?.toInt(),
       workDays: json['workDays'] as String? ?? '',
       workPeriod: json['workPeriod'] as String? ?? '',
       requirements: json['requirements'] as String? ?? '',
@@ -118,6 +121,7 @@ class JobModel {
       'salaryType': salaryType,
       'salaryAmount': salaryAmount,
       'workHours': workHours,
+      'workHoursPerDay': workHoursPerDay,
       'workDays': workDays,
       'workPeriod': workPeriod,
       'requirements': requirements,
@@ -149,6 +153,7 @@ class JobModel {
     String? salaryType,
     int? salaryAmount,
     String? workHours,
+    int? workHoursPerDay,
     String? workDays,
     String? workPeriod,
     String? requirements,
@@ -178,6 +183,7 @@ class JobModel {
       salaryType: salaryType ?? this.salaryType,
       salaryAmount: salaryAmount ?? this.salaryAmount,
       workHours: workHours ?? this.workHours,
+      workHoursPerDay: workHoursPerDay ?? this.workHoursPerDay,
       workDays: workDays ?? this.workDays,
       workPeriod: workPeriod ?? this.workPeriod,
       requirements: requirements ?? this.requirements,
@@ -194,6 +200,15 @@ class JobModel {
       createdAt: createdAt ?? this.createdAt,
       updatedAt: updatedAt ?? this.updatedAt,
     );
+  }
+
+  /// Display title with trailing '모집' removed.
+  String get displayTitle {
+    final t = title.trim();
+    if (t.endsWith('모집')) {
+      return t.substring(0, t.length - 2).trim();
+    }
+    return t;
   }
 
   /// Korean label for the employment type enum value.

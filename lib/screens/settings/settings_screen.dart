@@ -5,7 +5,6 @@ import '../../constants/app_colors.dart';
 import '../../constants/app_text_styles.dart';
 import '../../providers/font_size_provider.dart';
 import '../../widgets/mascot_widget.dart';
-import '../../widgets/primary_button.dart';
 
 class SettingsScreen extends ConsumerWidget {
   const SettingsScreen({super.key});
@@ -62,25 +61,29 @@ class SettingsScreen extends ConsumerWidget {
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: <Widget>[
-                        Text('작게', style: AppTextStyles.caption),
+                        Text('현재 설정', style: AppTextStyles.body),
                         Text(
                           '${(fontScale * 100).toInt()}%',
-                          style: AppTextStyles.bodyBold,
+                          style: AppTextStyles.bodyBold.copyWith(
+                            color: AppColors.primary,
+                          ),
                         ),
-                        Text('크게', style: AppTextStyles.caption),
                       ],
                     ),
                     const SizedBox(height: 8),
-                    Slider(
-                      value: fontScale,
-                      min: FontSizeNotifier.minScale,
-                      max: FontSizeNotifier.maxScale,
-                      divisions: 6,
-                      activeColor: AppColors.primary,
-                      inactiveColor: AppColors.primaryLight,
-                      onChanged: (value) {
-                        ref.read(fontSizeProvider.notifier).setScale(value);
-                      },
+                    Container(
+                      width: double.infinity,
+                      padding: const EdgeInsets.all(12),
+                      decoration: BoxDecoration(
+                        color: AppColors.primaryLight,
+                        borderRadius: BorderRadius.circular(12),
+                      ),
+                      child: Text(
+                        '시니어 분들의 가독성을 위해 글자 크기는 130%로 고정되어 있습니다.',
+                        style: AppTextStyles.caption.copyWith(
+                          color: AppColors.primary,
+                        ),
+                      ),
                     ),
                     const SizedBox(height: 16),
                     Container(
@@ -138,10 +141,7 @@ class SettingsScreen extends ConsumerWidget {
                 ),
               ),
               const SizedBox(height: 32),
-              PrimaryButton(
-                label: '설정 초기화',
-                onPressed: () => _showResetDialog(context, ref),
-              ),
+              // Font scale is fixed at 130% — no reset needed
             ],
           ),
         ),
@@ -160,37 +160,6 @@ class SettingsScreen extends ConsumerWidget {
         Text(label, style: AppTextStyles.body),
         Text(value, style: AppTextStyles.bodyBold),
       ],
-    );
-  }
-
-  void _showResetDialog(BuildContext context, WidgetRef ref) {
-    showDialog<void>(
-      context: context,
-      builder: (BuildContext dialogContext) {
-        return AlertDialog(
-          title: const Text('설정 초기화', style: AppTextStyles.title),
-          content: const Text(
-            '모든 설정을 기본값으로 되돌리시겠습니까?',
-            style: AppTextStyles.body,
-          ),
-          actions: <Widget>[
-            TextButton(
-              onPressed: () => Navigator.of(dialogContext).pop(),
-              child: const Text('취소', style: AppTextStyles.body),
-            ),
-            TextButton(
-              onPressed: () async {
-                Navigator.of(dialogContext).pop();
-                await ref.read(fontSizeProvider.notifier).setScale(1.0);
-              },
-              child: Text(
-                '초기화',
-                style: AppTextStyles.body.copyWith(color: AppColors.error),
-              ),
-            ),
-          ],
-        );
-      },
     );
   }
 }
