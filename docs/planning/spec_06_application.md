@@ -136,7 +136,9 @@ Future<void> cancelApplication(String jobId) async {
       .doc(jobId);
 
   final snap = await ref.get();
-  if (!snap.exists) throw Exception('지원 내역이 없습니다');
+  if (!snap.exists) {
+    throw NoApplicationException();
+  }
 
   await ref.update({
     'status': 'cancelled',
@@ -144,6 +146,11 @@ Future<void> cancelApplication(String jobId) async {
   });
 }
 ```
+
+### 재지원 정책
+- 취소 후 동일 공고에 **재지원 가능**
+- `submitApplication` 트랜잭션에서 `status == 'cancelled'`인 문서는 존재 체크 예외 처리
+- 취소 내역은 `status: 'cancelled'`로 보존 (히스토리 유지)
 
 ---
 

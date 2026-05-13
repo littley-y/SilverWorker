@@ -7,6 +7,7 @@ import '../../constants/app_text_styles.dart';
 import '../../models/job_model.dart';
 import '../../models/physical_badge.dart';
 import '../../providers/application_provider.dart';
+import '../../repositories/application_repository.dart';
 import '../../providers/auth_provider.dart';
 import '../../providers/job_provider.dart';
 import '../../router/app_router.dart';
@@ -60,7 +61,7 @@ class _JobDetailBody extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     final hasAppliedAsync = authAsync.when(
       data: (user) => user != null
-          ? ref.watch(hasAppliedProvider((userId: user.uid, jobId: job.jobId)))
+          ? ref.watch(hasAppliedProvider(job.jobId))
           : const AsyncData(false),
       loading: () => const AsyncData(false),
       error: (_, __) => const AsyncData(false),
@@ -466,17 +467,15 @@ class _CancelButtonState extends ConsumerState<_CancelButton> {
                   ref.invalidate(myApplicationsProvider(
                     ref.read(authStateProvider).value!.uid,
                   ));
-                  ref.invalidate(hasAppliedProvider(
-                    (
-                      userId: ref.read(authStateProvider).value!.uid,
-                      jobId: widget.jobId
-                    ),
-                  ));
+                  ref.invalidate(hasAppliedProvider(widget.jobId));
                 }
               } catch (e) {
                 if (mounted) {
+                  final message = e is NoApplicationException
+                      ? '지원 내역이 없습니다.'
+                      : '취소에 실패했습니다. 다시 시도해 주세요.';
                   ScaffoldMessenger.of(context).showSnackBar(
-                    SnackBar(content: Text('취소에 실패했습니다: $e')),
+                    SnackBar(content: Text(message)),
                   );
                 }
               } finally {

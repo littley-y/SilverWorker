@@ -14,8 +14,6 @@ final myApplicationsProvider =
 });
 
 /// Checks if a user has applied for a specific job.
-/// Parameters: (userId: String, jobId: String)
-final hasAppliedProvider =
-    FutureProvider.family<bool, ({String userId, String jobId})>((ref, params) {
-  return ref.read(applicationRepositoryProvider).hasApplied(params.jobId);
+final hasAppliedProvider = FutureProvider.family<bool, String>((ref, jobId) {
+  return ref.read(applicationRepositoryProvider).hasApplied(jobId);
 });
