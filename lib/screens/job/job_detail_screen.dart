@@ -87,7 +87,9 @@ class _JobDetailBody extends ConsumerWidget {
               _DetailCard(
                 icon: Icons.access_time,
                 title: '근무 시간',
-                content: job.workHours,
+                content: job.workHoursPerDay != null
+                    ? '${job.workHoursPerDay}시간'
+                    : job.workHours,
               ),
 
               // 업무 세부 내용
