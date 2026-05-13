@@ -23,7 +23,7 @@ void main() {
       ),
     );
 
-    await tester.pumpAndSettle();
+    await tester.pump(const Duration(milliseconds: 100));
 
     expect(find.text('설정'), findsOneWidget);
     expect(find.text('글자 크기'), findsOneWidget);
@@ -42,12 +42,13 @@ void main() {
       ),
     );
 
-    await tester.pumpAndSettle();
+    await tester.pump(const Duration(milliseconds: 100));
 
     expect(find.text('130%'), findsOneWidget);
   });
 
-  testWidgets('SettingsScreen back button pops', (WidgetTester tester) async {
+  testWidgets('SettingsScreen back button pops',
+      (WidgetTester tester) async {
     final router = GoRouter(
       routes: [
         GoRoute(
@@ -65,7 +66,7 @@ void main() {
       ),
     );
 
-    await tester.pumpAndSettle();
+    await tester.pump(const Duration(milliseconds: 100));
 
     expect(find.byIcon(Icons.arrow_back), findsOneWidget);
   });
@@ -103,7 +104,7 @@ void main() {
       ),
     );
 
-    await tester.pumpAndSettle();
+    await tester.pump(const Duration(milliseconds: 100));
     final textScaler =
         MediaQuery.textScalerOf(tester.element(find.text('Hello')));
     expect(textScaler, const TextScaler.linear(1.3));
