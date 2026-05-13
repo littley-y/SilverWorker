@@ -2,6 +2,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import '../repositories/job_repository.dart';
 import '../models/job_model.dart';
 import '../models/job_filter.dart';
+import '../utils/app_logger.dart';
 import 'application_provider.dart';
 import 'auth_provider.dart';
 
@@ -33,7 +34,9 @@ final visibleJobListProvider = FutureProvider<List<JobModel>>((ref) async {
         await ref.watch(myApplicationsProvider(user.uid).future);
     final appliedIds = applications.map((a) => a.jobId).toSet();
     return jobs.where((job) => !appliedIds.contains(job.jobId)).toList();
-  } on Exception {
+  } on Object catch (e, st) {
+    // Graceful degradation: 애플리케이션 조회 실패 시 전체 공고 표시
+    appLogger.w('Failed to filter applied jobs', error: e, stackTrace: st);
     return jobs;
   }
 });

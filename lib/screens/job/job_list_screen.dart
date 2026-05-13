@@ -68,7 +68,10 @@ class JobListScreen extends ConsumerWidget {
               },
               loading: () => const _LoadingState(),
               error: (error, _) => _ErrorState(
-                onRetry: () => ref.invalidate(visibleJobListProvider),
+                onRetry: () {
+                  ref.invalidate(jobListProvider);
+                  ref.invalidate(visibleJobListProvider);
+                },
               ),
             ),
           ),

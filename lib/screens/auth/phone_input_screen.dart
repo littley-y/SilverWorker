@@ -39,8 +39,9 @@ class _PhoneInputScreenState extends ConsumerState<PhoneInputScreen> {
     setState(() => _hasError = false);
 
     final digits = _controller.text.replaceAll(RegExp(r'\D'), '');
-    // E.164 format for Korea: prepend +82
-    final phoneNumber = '+82$digits';
+    // E.164 형식: 국가코드(+82) + 선두 0 제거한 가입자 번호 10자리 (예: +821012345678)
+    final normalized = digits.startsWith('0') ? digits.substring(1) : digits;
+    final phoneNumber = '+82$normalized';
 
     await ref.read(phoneAuthProvider.notifier).startVerification(phoneNumber);
 
@@ -86,80 +87,52 @@ class _PhoneInputScreenState extends ConsumerState<PhoneInputScreen> {
                   ),
                 ),
                 const SizedBox(height: 40),
-                Row(
-                  children: <Widget>[
-                    Container(
-                      padding: const EdgeInsets.symmetric(
-                        horizontal: 16,
-                        vertical: 18,
-                      ),
-                      decoration: BoxDecoration(
-                        color: AppColors.background,
-                        borderRadius: BorderRadius.circular(12),
-                        border: Border.all(color: AppColors.border),
-                      ),
-                      child: Text(
-                        '+82',
-                        style: AppTextStyles.bodyBold.copyWith(
-                          color: AppColors.textSecondary,
-                        ),
-                      ),
-                    ),
-                    const SizedBox(width: 12),
-                    Expanded(
-                      child: TextField(
-                        controller: _controller,
-                        keyboardType: TextInputType.phone,
-                        style: AppTextStyles.body,
-                        inputFormatters: <TextInputFormatter>[
-                          FilteringTextInputFormatter.digitsOnly,
-                          LengthLimitingTextInputFormatter(11),
-                        ],
-                        decoration: InputDecoration(
-                          hintText: '01012345678',
-                          hintStyle: AppTextStyles.body.copyWith(
-                            color: AppColors.hintText,
-                          ),
-                          filled: true,
-                          fillColor: AppColors.background,
-                          border: OutlineInputBorder(
-                            borderRadius: BorderRadius.circular(12),
-                            borderSide: BorderSide(
-                              color: _hasError
-                                  ? AppColors.error
-                                  : AppColors.border,
-                            ),
-                          ),
-                          enabledBorder: OutlineInputBorder(
-                            borderRadius: BorderRadius.circular(12),
-                            borderSide: BorderSide(
-                              color: _hasError
-                                  ? AppColors.error
-                                  : AppColors.border,
-                            ),
-                          ),
-                          focusedBorder: OutlineInputBorder(
-                            borderRadius: BorderRadius.circular(12),
-                            borderSide: const BorderSide(
-                              color: AppColors.primary,
-                              width: 2,
-                            ),
-                          ),
-                          contentPadding: const EdgeInsets.symmetric(
-                            horizontal: 16,
-                            vertical: 18,
-                          ),
-                          errorText: _hasError ? '올바른 번호를 입력하세요' : null,
-                          errorStyle: AppTextStyles.caption.copyWith(
-                            color: AppColors.error,
-                          ),
-                        ),
-                        onChanged: (_) {
-                          if (_hasError) setState(() => _hasError = false);
-                        },
-                      ),
-                    ),
+                TextField(
+                  controller: _controller,
+                  keyboardType: TextInputType.phone,
+                  style: AppTextStyles.body,
+                  inputFormatters: <TextInputFormatter>[
+                    FilteringTextInputFormatter.digitsOnly,
+                    LengthLimitingTextInputFormatter(11),
                   ],
+                  decoration: InputDecoration(
+                    hintText: '01012345678',
+                    hintStyle: AppTextStyles.body.copyWith(
+                      color: AppColors.hintText,
+                    ),
+                    filled: true,
+                    fillColor: AppColors.background,
+                    border: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(12),
+                      borderSide: BorderSide(
+                        color: _hasError ? AppColors.error : AppColors.border,
+                      ),
+                    ),
+                    enabledBorder: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(12),
+                      borderSide: BorderSide(
+                        color: _hasError ? AppColors.error : AppColors.border,
+                      ),
+                    ),
+                    focusedBorder: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(12),
+                      borderSide: const BorderSide(
+                        color: AppColors.primary,
+                        width: 2,
+                      ),
+                    ),
+                    contentPadding: const EdgeInsets.symmetric(
+                      horizontal: 16,
+                      vertical: 18,
+                    ),
+                    errorText: _hasError ? '올바른 번호를 입력하세요' : null,
+                    errorStyle: AppTextStyles.caption.copyWith(
+                      color: AppColors.error,
+                    ),
+                  ),
+                  onChanged: (_) {
+                    if (_hasError) setState(() => _hasError = false);
+                  },
                 ),
                 const Spacer(),
                 PrimaryButton(

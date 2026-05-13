@@ -33,12 +33,11 @@ class ApplicationRepository {
         .collection('users')
         .doc(userId)
         .collection('applications')
-        .where('status', isNotEqualTo: 'cancelled')
-        .orderBy('status')
         .orderBy('submittedAt', descending: true)
         .get();
 
     return snapshot.docs
+        .where((doc) => doc.data()['status'] != 'cancelled')
         .map((doc) => ApplicationModel.fromJson({
               ...doc.data(),
               'applicationId': doc.id,
@@ -60,7 +59,8 @@ class ApplicationRepository {
         .collection('applications')
         .doc(jobId)
         .get();
-    return snap.exists;
+    if (!snap.exists) return false;
+    return snap.data()?['status'] != 'cancelled';
   }
 
   Future<void> submitApplication({

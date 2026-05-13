@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import '../repositories/auth_repository.dart';
@@ -92,6 +94,12 @@ class PhoneAuthNotifier extends StateNotifier<PhoneAuthState> {
   ///
   /// On success stores [verificationId] and [resendToken] in state.
   /// [forceResendingToken] is used for OTP re-sending on the same session.
+  ///
+  /// Uses a [Completer] instead of awaiting [verifyPhoneNumber] directly
+  /// because the underlying Firebase Future may not complete on [codeSent]
+  /// (Android behavior — only [verificationCompleted]/[verificationFailed]
+  /// resolve the Future). The completer is resolved in the callbacks so
+  /// callers can reliably await the code-sent event.
   Future<void> startVerification(
     String phoneNumber, {
     int? forceResendingToken,
@@ -102,8 +110,10 @@ class PhoneAuthNotifier extends StateNotifier<PhoneAuthState> {
       phoneNumber: phoneNumber,
     );
 
+    final completer = Completer<void>();
+
     try {
-      await _repository.verifyPhoneNumber(
+      unawaited(_repository.verifyPhoneNumber(
         phoneNumber: phoneNumber,
         forceResendingToken: forceResendingToken,
         verificationCompleted: (PhoneAuthCredential credential) async {
@@ -116,12 +126,14 @@ class PhoneAuthNotifier extends StateNotifier<PhoneAuthState> {
               errorMessage: '자동 인증 중 오류가 발생했습니다.',
             );
           }
+          if (!completer.isCompleted) completer.complete();
         },
         verificationFailed: (FirebaseAuthException e) {
           state = state.copyWith(
             isLoading: false,
             errorMessage: _exceptionToMessage(mapFirebaseAuthException(e)),
           );
+          if (!completer.isCompleted) completer.complete();
         },
         codeSent: (String verificationId, int? resendToken) {
           state = state.copyWith(
@@ -129,16 +141,26 @@ class PhoneAuthNotifier extends StateNotifier<PhoneAuthState> {
             verificationId: verificationId,
             resendToken: resendToken,
           );
+          if (!completer.isCompleted) completer.complete();
         },
         codeAutoRetrievalTimeout: (String verificationId) {
           state = state.copyWith(verificationId: verificationId);
         },
-      );
+      ));
+
+      await completer.future.timeout(const Duration(seconds: 60));
     } on FirebaseAuthException catch (e) {
       if (state.errorMessage == null) {
         state = state.copyWith(
           isLoading: false,
           errorMessage: _exceptionToMessage(mapFirebaseAuthException(e)),
+        );
+      }
+    } on TimeoutException {
+      if (state.errorMessage == null) {
+        state = state.copyWith(
+          isLoading: false,
+          errorMessage: '인증 시간이 초과되었습니다. 다시 시도해 주세요.',
         );
       }
     } on Exception catch (e) {
