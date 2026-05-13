@@ -18,6 +18,7 @@ JobModel _sampleJob() => JobModel(
       salaryType: 'monthly',
       salaryAmount: 2000000,
       workHours: '08:00 ~ 17:00',
+      workHoursPerDay: 8,
       workDays: '월~금',
       workPeriod: '6개월',
       requirements: '경비원 신임교육 이수자',
@@ -51,12 +52,12 @@ void main() {
     await tester.pumpAndSettle();
 
     expect(find.text('공고 상세'), findsOneWidget);
-    expect(find.text('아파트 경비원 모집'), findsOneWidget);
+    expect(find.text('아파트 경비원'), findsOneWidget);
     expect(find.text('OO아파트 관리사무소'), findsOneWidget);
     expect(find.text('월 200만원'), findsAtLeastNWidgets(1));
   });
 
-  testWidgets('JobDetailScreen shows work conditions', (tester) async {
+  testWidgets('JobDetailScreen shows info cards', (tester) async {
     final job = _sampleJob();
 
     await tester.pumpWidget(
@@ -73,14 +74,17 @@ void main() {
 
     await tester.pumpAndSettle();
 
-    expect(find.text('근무 조건'), findsOneWidget);
-    expect(find.text('서울 종로구 종로 1'), findsOneWidget);
-    expect(find.text('08:00 ~ 17:00'), findsOneWidget);
+    expect(find.text('근무시간'), findsOneWidget);
+    expect(find.text('8시간'), findsOneWidget);
+    expect(find.text('근무기간'), findsOneWidget);
+    expect(find.text('6개월'), findsOneWidget);
+    expect(find.text('근무요일'), findsOneWidget);
     expect(find.text('월~금'), findsOneWidget);
+    expect(find.text('고용형태'), findsOneWidget);
     expect(find.text('파트타임'), findsOneWidget);
   });
 
-  testWidgets('JobDetailScreen shows safety curation', (tester) async {
+  testWidgets('JobDetailScreen shows detail cards', (tester) async {
     final job = _sampleJob();
 
     await tester.pumpWidget(
@@ -97,9 +101,35 @@ void main() {
 
     await tester.pumpAndSettle();
 
-    expect(find.text('업무 강도'), findsOneWidget);
-    expect(find.text('보통'), findsOneWidget);
+    expect(find.text('업무 세부 내용'), findsOneWidget);
+    expect(find.text('공동주택 출입 및 순찰 관리'), findsOneWidget);
+    expect(find.text('자격 요건'), findsOneWidget);
+    expect(find.text('경비원 신임교육 이수자'), findsOneWidget);
+  });
+
+  testWidgets('JobDetailScreen shows physical detail card', (tester) async {
+    final job = _sampleJob();
+
+    await tester.pumpWidget(
+      ProviderScope(
+        overrides: [
+          jobDetailProvider('TEST_001')
+              .overrideWith((ref) => Future.value(job)),
+        ],
+        child: const MaterialApp(
+          home: JobDetailScreen(jobId: 'TEST_001'),
+        ),
+      ),
+    );
+
+    await tester.pumpAndSettle();
+
+    expect(find.text('업무 강도 상세'), findsOneWidget);
+    expect(find.text('서있는 시간'), findsOneWidget);
     expect(find.text('계속 서있기'), findsOneWidget);
+    expect(find.text('무거운 짐'), findsOneWidget);
+    expect(find.text('없음'), findsOneWidget);
+    expect(find.text('실내 / 외'), findsOneWidget);
     expect(find.text('야외 근무'), findsOneWidget);
   });
 

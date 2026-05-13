@@ -112,7 +112,42 @@ Future<void> submitApplication({
 
 ---
 
-## 5. 에러 처리
+## 5. 지원 취소
+
+### 조건
+- 지원현황 페이지에서 공고 카드 탭 → 동일한 JobDetailScreen 진입
+- 하단 버튼이 "지원 취소" (빨강) 로 표시됨
+
+### Flow
+1. "지원 취소" 버튼 탭
+2. 확인 다이얼로그: "이 공고의 지원을 취소하시겠습니까?"
+3. 확인 시 `ApplicationRepository.cancelApplication(jobId)` 호출
+4. Firestore 상태를 'cancelled'로 업데이트
+5. 스낵바: "지원이 취소되었습니다"
+
+### Firestore 업데이트
+```dart
+Future<void> cancelApplication(String jobId) async {
+  final uid = _requireAuth.uid;
+  final ref = _firestore
+      .collection('users')
+      .doc(uid)
+      .collection('applications')
+      .doc(jobId);
+
+  final snap = await ref.get();
+  if (!snap.exists) throw Exception('지원 내역이 없습니다');
+
+  await ref.update({
+    'status': 'cancelled',
+    'updatedAt': FieldValue.serverTimestamp(),
+  });
+}
+```
+
+---
+
+## 6. 에러 처리
 
 | 상황 | 처리 |
 |---|---|
@@ -122,9 +157,11 @@ Future<void> submitApplication({
 
 ---
 
-## 6. 완료 기준 (Day 8 DoD)
+## 7. 완료 기준 (Day 8 DoD)
 
 - [ ] 지원 버튼 연속 탭 시 1회만 Firestore에 저장됨 (Console 확인)
 - [ ] 버튼 클릭 시 1.5초간 회색 + 스피너 표시 확인
 - [ ] `/users/{uid}/applications/` 에 status: "submitted" 문서 생성 확인
 - [ ] 같은 공고 재지원 시 "이미 지원한 공고입니다" 표시 확인
+- [ ] 지원현황에서 공고 탭 → 상세 화면 진입 확인
+- [ ] 상세 화면에서 "지원 취소" 버튼 확인 및 취소 후 상태 'cancelled' 확인

@@ -11,105 +11,106 @@
 JobDetailScreen
 ├── AppBar: 뒤로가기 버튼 + "공고 상세"
 ├── ScrollView
-│   ├── 헤더 영역: 공고 제목, 회사명, 급여
-│   ├── 세이프티 섹션: physicalIntensity 등급 + physicalBadges
-│   ├── 근무 조건 섹션: 근무지, 시간, 요일, 기간, 형태
-│   ├── 자격 요건 섹션
-│   ├── 복리후생 섹션
-│   └── 업무 내용 섹션
-└── BottomBar: "지원하기" 버튼 (고정)
+│   ├── 헤더 영역: 공고 제목(모집 제거), 회사명, 급여
+│   ├── 정보 카드 그리드 (2x2)
+│   │   ├── 근무시간 카드
+│   │   ├── 근무기간 카드
+│   │   ├── 근무요일 카드
+│   │   └── 고용형태 카드
+│   ├── 업무 세부 내용 카드 (가로)
+│   ├── 자격 요건 카드 (가로)
+│   └── 업무 강도 상세 카드 (가로)
+│       ├── 서있는 시간
+│       ├── 무거운 짐
+│       └── 실내 / 외
+└── BottomBar: "지원하기" or "지원 취소" 버튼 (고정)
 ```
 
 ---
 
-## 2. 세이프티 섹션 (핵심 차별화 기능)
+## 2. 헤더 영역
 
-### physicalIntensity 등급 표시
+- **공고 제목**: `job.displayTitle` 사용 (끝의 "모집" 자동 제거)
+- **회사명**: `companyName` (가상의 실제 회사명, underscore 없음)
+- **급여**: `formattedSalary` (월/시급/일급 자동 변환)
 
-| 값 | 표시명 | 색상 | 아이콘 |
-|---|---|---|---|
-| `light` | 가벼움 | 초록 (#4CAF50) | 😊 또는 잎사귀 아이콘 |
-| `moderate` | 보통 | 주황 (#FF9800) | 😐 또는 사람 걷기 아이콘 |
-| `heavy` | 무거움 | 빨강 (#F44336) | 😓 또는 덤벨 아이콘 |
+---
 
-등급 박스: 배경 = 해당 색상 10% 투명도, 텍스트 + 아이콘 = 해당 색상. 높이 48dp.
+## 3. 정보 카드 그리드 (2x2)
 
-### physicalBadges 배지 목록
+4개의 소형 카드를 2열 그리드로 배치:
 
-| 값 | 표시명 | 아이콘 |
+| 위치 | 라벨 | 값 |
 |---|---|---|
-| `standing` | 계속 서있기 | 🧍 |
-| `sitting` | 좌식 업무 | 🪑 |
-| `heavy_lifting` | 무거운 짐 | 📦 |
-| `outdoor` | 야외 근무 | ☀️ |
-| `repetitive` | 반복 동작 | 🔄 |
-| `stairs` | 계단 오르내림 | 🪜 |
+| 좌상 | 근무시간 | `workHoursPerDay`시간 (또는 `workHours`) |
+| 우상 | 근무기간 | `workPeriod` |
+| 좌하 | 근무요일 | `workDays` |
+| 우하 | 고용형태 | `employmentTypeLabel` |
 
-배지 레이아웃: `Wrap` 위젯으로 줄바꿈 처리. 각 배지 = 아이콘 + 텍스트 칩 (배경 연회색, 높이 36dp).
-
-### 코드 구조
-
-```dart
-class SafetyCurationSection extends StatelessWidget {
-  final String physicalIntensity;
-  final List<String> physicalBadges;
-
-  @override
-  Widget build(BuildContext context) {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        Text('업무 강도', style: AppTextStyles.sectionTitle),
-        IntensityBadge(intensity: physicalIntensity),
-        const SizedBox(height: 12),
-        Text('신체 부담 항목', style: AppTextStyles.sectionTitle),
-        Wrap(
-          spacing: 8,
-          runSpacing: 8,
-          children: physicalBadges.map((b) => PhysicalBadgeChip(badge: b)).toList(),
-        ),
-      ],
-    );
-  }
-}
-```
+카드 스펙:
+- 배경: `AppColors.cardBackground`
+- 둥근 모서리: 12dp
+- 그림자: `AppColors.cardShadow`
+- 아이콘 + 라벨 (caption) + 값 (bodyBold)
 
 ---
 
-## 3. 근무 조건 섹션
+## 4. 업무 세부 내용 카드
 
-표 형태로 표시:
-
-| 항목 | 값 |
-|---|---|
-| 근무지 | companyAddress |
-| 급여 | salaryType + salaryAmount 조합 표시 (예: "월 200만원") |
-| 근무 시간 | workHours |
-| 근무 요일 | workDays |
-| 근무 기간 | workPeriod |
-| 고용 형태 | employmentType 한글 변환 |
-
-급여 조합 규칙:
-- `hourly` → "시급 N원"
-- `daily` → "일급 N원"
-- `monthly` → "월 N만원"
+- 가로로 긴 카드 (전체 폭)
+- 아이콘: `Icons.description_outlined`
+- 제목: "업무 세부 내용"
+- 내용: `description` (빈 값 시 "정보 없음")
 
 ---
 
-## 4. 하단 고정 "지원하기" 버튼
+## 5. 자격 요건 카드
 
+- 가로로 긴 카드 (전체 폭)
+- 아이콘: `Icons.verified_outlined`
+- 제목: "자격 요건"
+- 내용: `requirements` (빈 값 시 "정보 없음")
+
+---
+
+## 6. 업무 강도 상세 카드
+
+physicalBadges를 기반으로 3가지 항목을 문장으로 표현:
+
+| 항목 | 아이콘 | 값 규칙 |
+|---|---|---|
+| 서있는 시간 | `accessibility_new` | `standing` → "계속 서있기", `sitting` → "좌식 업무", else → "보통" |
+| 무거운 짐 | `inventory_2` | `heavy_lifting` → "있음", else → "없음" |
+| 실내 / 외 | `home` | `outdoor` → "야외 근무", else → "실내 위주" |
+
+복리후생 섹션은 제거됨.
+
+---
+
+## 7. 하단 고정 버튼
+
+### 지원하기 (미지원 상태)
 - 높이: 56dp
-- 배경: 메인 컬러 (primary)
+- 배경: `AppColors.primary` (파랑)
 - 텍스트: "지원하기" 20pt Bold 흰색
 - 탭 → ApplicationFormScreen으로 이동 (spec_06)
-- `SafeArea` 로 감싸서 하단 노치/홈바 영역 침범 방지
+
+### 지원 취소 (이미 지원한 상태)
+- 높이: 56dp
+- 배경: `AppColors.error` (빨강)
+- 텍스트: "지원 취소" 20pt Bold 흰색
+- 탭 → 확인 다이얼로그 → `cancelApplication()` 호출 → 상태 'cancelled'로 업데이트
+
+`SafeArea` 로 감싸서 하단 노치/홈바 영역 침범 방지.
 
 ---
 
-## 5. 완료 기준 (Day 5 DoD)
+## 8. 완료 기준 (Day 5 DoD)
 
 - [ ] 공고 목록에서 카드 탭 → 상세 화면 진입 확인
-- [ ] physicalIntensity 등급이 색상 + 텍스트로 표시됨
-- [ ] physicalBadges 배지가 1개 이상 표시됨
-- [ ] 하단 "지원하기" 버튼이 스크롤해도 고정되어 있음
+- [ ] 제목에서 "모집"이 제거되어 표시됨
+- [ ] 2x2 정보 카드 그리드가 정상 표시됨
+- [ ] 업무 세부 내용 / 자격 요건 카드가 가로로 표시됨
+- [ ] 업무 강도 상세 카드에 서있는시간/무거운짐/실내외 표시됨
+- [ ] 하단 버튼이 스크롤필도 고정되어 있음
 - [ ] 뒤로가기 버튼으로 목록 복귀 확인

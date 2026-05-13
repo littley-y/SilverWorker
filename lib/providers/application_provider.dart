@@ -12,3 +12,10 @@ final myApplicationsProvider =
     FutureProvider.family<List<ApplicationModel>, String>((ref, userId) {
   return ref.read(applicationRepositoryProvider).fetchApplications(userId);
 });
+
+/// Checks if a user has applied for a specific job.
+/// Parameters: (userId: String, jobId: String)
+final hasAppliedProvider =
+    FutureProvider.family<bool, ({String userId, String jobId})>((ref, params) {
+  return ref.read(applicationRepositoryProvider).hasApplied(params.jobId);
+});

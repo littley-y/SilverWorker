@@ -28,9 +28,8 @@
 | [spec_12](planning/spec_12_home_ui_refinement.md) | 홈 화면 UI 개선 | ✅ 완료 | Day 14 | PR #11 머지 완 (Claude/Gemini 승인). 122/122 테스트 통과. |
 | [spec_13](planning/spec_13_review_system.md) | 리뷰 시스템 | ⬜ 대기 | 2차 | 리뷰 CRUD + 별점/평점. Firestore 직접 접근. |
 | [spec_14](planning/spec_14_ai_review_summary.md) | AI 리뷰 자동 요약 | ⬜ 대기 | 2차 | Gemini 2.5 Flash + 캐시. spec_13 선행 필요. |
-| [spec_15](planning/spec_15_condition_matching.md) | 컨디션 기반 가변 매칭 | ⬜ 대기 | 2차 | LLM 재랭킹. 검색/필터 로직 보완. |
-| [spec_16](planning/spec_16_career_agent.md) | 대화형 커리어 에이전트 | ⬜ 대기 | 2차 | STT + LLM 이력서 변환. 가장 임팩트 높음. |
-| [spec_17](planning/spec_17_liveness_attendance.md) | 안면 확인 출근 인증 | ⬜ 대기 | 2차 | ML Kit(MVP) → AWS Rekognition(운영). 유료 전환 시 도입 권장. |
+| [spec_15](planning/spec_15_career_agent.md) | 대화형 커리어 에이전트 | ⬜ 대기 | 2차 | STT + LLM 이력서 변환. 가장 임팩트 높음. |
+| [spec_16](planning/spec_16_liveness_attendance.md) | 안면 확인 출근 인증 | ⬜ 대기 | 2차 | ML Kit(MVP) → AWS Rekognition(운영). 유료 전환 시 도입 권장. |
 | [spec_13a](planning/overview/05_ai_feature_analysis.md) | AI 기능 기술 분석 | ✅ 완료 | — | 기술 스택 확정, 비용 분석, 구현 우선순위. |
 
 **상태 범례**: ✅ 완료 / 🔄 진행 중 / ⛔ 블로커 / ⬜ 대기
@@ -71,6 +70,7 @@
 - **2026-05-10** — Day 12 (spec_10) 완료: 테스트 기준 및 DoD. `application_repository_test.dart` (7건: 중복 지원 방지, 공고 없음/마감 예외), `job_filter_test.dart` (6건: 필터 조합, copyWith null 설정), `physical_badge_test.dart` (8건: 강도 레이블, 배지 파싱). `ApplicationRepository`에 `FirebaseAuth` 생성자 주입 추가로 테스트 가능하도록 리팩토링. `flutter analyze` 0경고, `flutter test` 84/84 통과. 추가로 Android release APK 크래시 2건 수정: `MainActivity.kt` 누락 (`ClassNotFoundException`), `INTERNET` 권한 누락.
 - **2026-05-10** — 헤파이스토스 아키텍처 검수 완료: P0 4건(P0-1 AuthException sealed class, P0-2 ErrorRetryView 통합, P0-3 디자인 토큰 교체, P0-4 MainShell dead code 제거) + P1 5건(P1-5 profile_register 분해, P1-6 otp_input 분해 + OtpPinBox 테스트, P1-8 PhoneAuthNotifier로 리팩토링 + cache invalidation, P1-9 Clock 주입) + 기타 3건(A~C). Claude 구현 리뷰 round 2 승인. `flutter analyze` 0경고, `flutter test` 97/97 통과, `verify_local.sh` 6/6. 히스토리: `docs/history/2026-05-10-architecture-fix.md`.
 - **2026-05-12** — Day 13 (spec_11) PR #10 생성 및 리뷰 대응. 시니어 특화 UI/UX 고도화: MascotWidget (TweenAnimationBuilder 등장 애니메이션), FontSizeNotifier (SharedPreferences, 0.86~1.33 범위), SettingsScreen (Slider + 실시간 미리보기), MyPage 설정 메뉴, `/settings` 라우트. Round 1: B-1(MaterialApp.builder), M-2(마스코트 3곳), M-3(고대비 P1 강등), M-1(MediaQuery.textScaler 테스트), m-1~m-3, n-1 수정. Round 2: N-1(ValueKey 제거), U-1(builder 와이어링 테스트), U-2(scale 범위 조정). `flutter analyze` 0경고, `flutter test` 113/113 통과. 사업계획서 PDF 수정본 생성. 히스토리: `docs/history/2026-05-12-spec-11-senior-ui.md`.
+- **2026-05-14** — 공고 상세 UI 개편 + 지원현황 네비게이션 + 설정 고정: JobDetailScreen 2x2 정보 카드 그리드(근무시간/기간/요일/형태), 업무 세부 내용/자격 요건 가로 카드, 업무 강도 상세 카드(서있는시간/무거운짐/실내외), 복리후생 제거, 제목 "모집" 자동 제거. ApplicationListScreen 카드 탭 → JobDetailScreen 진입. 지원한 공고 상세에서 "지원 취소" 빨간 버튼. 글자 크기 130% 고정 (설정 조정 불가). 목업 데이터 회사명 실제 기업명으로 교체 (underscore 제거). spec_15 제거, spec_16→15, spec_17→16 번호 재정리. `flutter analyze` 0경고, `flutter test` 123/123 통과.
 
 
 ---

@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SilverWorker UI Mockup - Before / After</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Noto Sans KR', sans-serif; background: #f5f5f5; padding: 20px; }
+  .page-title { text-align: center; font-size: 28px; font-weight: bold; margin-bottom: 30px; color: #333; }
+  .section-title { font-size: 22px; font-weight: bold; margin: 40px 0 20px; color: #1565C0; border-left: 4px solid #1565C0; padding-left: 12px; }
+  .phones { display: flex; gap: 40px; justify-content: center; flex-wrap: wrap; }
+  .phone-frame { width: 375px; height: 812px; background: #fff; border: 12px solid #333; border-radius: 40px; overflow: hidden; position: relative; box-shadow: 0 10px 40px rgba(0,0,0,0.2); }
+  .phone-label { text-align: center; font-size: 16px; font-weight: bold; margin-bottom: 10px; color: #555; }
+  .screen { width: 100%; height: 100%; overflow-y: auto; background: #FAFAFA; padding-bottom: 100px; }
+  .app-bar { background: #fff; padding: 16px; border-bottom: 1px solid #E0E0E0; display: flex; align-items: center; gap: 12px; position: sticky; top: 0; z-index: 10; }
+  .app-bar-title { font-size: 20px; font-weight: bold; color: #212121; }
+  .back-arrow { font-size: 24px; color: #212121; }
+
+  /* Header Section */
+  .header-section { padding: 20px 16px; background: #fff; }
+  .job-title { font-size: 24px; font-weight: bold; color: #212121; line-height: 1.4; margin-bottom: 8px; }
+  .company-name { font-size: 18px; color: #757575; margin-bottom: 12px; }
+  .salary { font-size: 22px; font-weight: bold; color: #1565C0; }
+
+  /* Cards */
+  .card { background: #fff; border-radius: 12px; margin: 0 16px 12px; padding: 16px; box-shadow: 0 2px 6px rgba(0,0,0,0.06); }
+  .card-grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin: 0 16px 12px; }
+  .small-card { background: #fff; border-radius: 12px; padding: 16px; box-shadow: 0 2px 6px rgba(0,0,0,0.06); text-align: center; }
+  .small-card-label { font-size: 14px; color: #757575; margin-bottom: 8px; }
+  .small-card-value { font-size: 18px; font-weight: bold; color: #212121; }
+
+  .long-card { background: #fff; border-radius: 12px; margin: 0 16px 12px; padding: 16px; box-shadow: 0 2px 6px rgba(0,0,0,0.06); }
+  .long-card-title { font-size: 18px; font-weight: bold; color: #212121; margin-bottom: 10px; }
+  .long-card-content { font-size: 16px; color: #424242; line-height: 1.6; }
+
+  /* Intensity Section */
+  .intensity-section { padding: 20px 16px; background: #fff; margin-bottom: 12px; }
+  .section-header { font-size: 18px; font-weight: bold; color: #212121; margin-bottom: 12px; }
+  .intensity-box { display: inline-flex; align-items: center; gap: 8px; background: rgba(255,152,0,0.1); border: 1px solid rgba(255,152,0,0.3); border-radius: 8px; padding: 12px 20px; margin-bottom: 12px; }
+  .intensity-box.light { background: rgba(76,175,80,0.1); border-color: rgba(76,175,80,0.3); }
+  .intensity-box.heavy { background: rgba(244,67,54,0.1); border-color: rgba(244,67,54,0.3); }
+  .intensity-icon { font-size: 24px; }
+  .intensity-label { font-size: 18px; font-weight: bold; color: #FF9800; }
+  .intensity-box.light .intensity-label { color: #4CAF50; }
+  .intensity-box.heavy .intensity-label { color: #F44336; }
+
+  .badge-wrap { display: flex; flex-wrap: wrap; gap: 8px; }
+  .badge-chip { display: inline-flex; align-items: center; gap: 6px; background: #F5F5F5; border-radius: 20px; padding: 8px 14px; font-size: 14px; color: #616161; }
+
+  /* Work Condition (Old) */
+  .condition-row { display: flex; padding: 10px 0; border-bottom: 1px solid #F0F0F0; }
+  .condition-row:last-child { border-bottom: none; }
+  .condition-label { width: 80px; font-size: 14px; color: #757575; flex-shrink: 0; }
+  .condition-value { font-size: 16px; color: #212121; flex: 1; }
+
+  /* Detail intensity card (New) */
+  .detail-intensity-card { background: #fff; border-radius: 12px; margin: 0 16px 12px; padding: 16px; box-shadow: 0 2px 6px rgba(0,0,0,0.06); }
+  .detail-intensity-title { font-size: 18px; font-weight: bold; color: #212121; margin-bottom: 14px; }
+  .detail-intensity-row { display: flex; justify-content: space-between; align-items: center; padding: 10px 0; border-bottom: 1px solid #F0F0F0; }
+  .detail-intensity-row:last-child { border-bottom: none; }
+  .detail-intensity-key { font-size: 16px; color: #616161; }
+  .detail-intensity-val { font-size: 16px; font-weight: bold; color: #212121; }
+
+  /* Bottom Button */
+  .bottom-fixed { position: absolute; bottom: 0; left: 0; right: 0; background: #fff; padding: 12px 16px 24px; border-top: 1px solid #E0E0E0; }
+  .btn-primary { width: 100%; padding: 16px; background: #1565C0; color: #fff; border: none; border-radius: 12px; font-size: 20px; font-weight: bold; cursor: pointer; }
+  .btn-danger { width: 100%; padding: 16px; background: #F44336; color: #fff; border: none; border-radius: 12px; font-size: 20px; font-weight: bold; cursor: pointer; }
+
+  /* Application List */
+  .app-list-card { background: #fff; border-radius: 12px; margin: 0 16px 12px; padding: 16px; box-shadow: 0 2px 6px rgba(0,0,0,0.06); display: flex; justify-content: space-between; align-items: flex-start; }
+  .app-list-info { flex: 1; }
+  .app-list-title { font-size: 18px; font-weight: bold; color: #212121; margin-bottom: 6px; }
+  .app-list-company { font-size: 16px; color: #757575; margin-bottom: 6px; }
+  .app-list-date { font-size: 14px; color: #9E9E9E; }
+  .status-badge { padding: 6px 12px; border-radius: 12px; font-size: 14px; font-weight: bold; }
+  .status-submitted { background: rgba(21,101,192,0.12); color: #1565C0; }
+  .status-reviewing { background: rgba(255,152,0,0.12); color: #FF9800; }
+  .status-accepted { background: rgba(76,175,80,0.12); color: #4CAF50; }
+
+  .divider { height: 1px; background: #E0E0E0; margin: 0 16px; }
+
+  .old-section { padding: 20px 16px; background: #fff; margin-bottom: 12px; }
+  .old-section-title { font-size: 18px; font-weight: bold; color: #212121; margin-bottom: 12px; }
+</style>
+</head>
+<body>
+
+<div class="page-title">SilverWorker UI 변경안 — Before / After Mockup</div>
+
+<!-- ============================================================ -->
+<!-- 1. 공고 상세 페이지 -->
+<!-- ============================================================ -->
+<div class="section-title">1. 공고 상세 페이지 (JobDetailScreen)</div>
+<div class="phones">
+
+  <!-- BEFORE -->
+  <div>
+    <div class="phone-label">BEFORE (현재)</div>
+    <div class="phone-frame">
+      <div class="screen">
+        <div class="app-bar">
+          <span class="back-arrow">&#8592;</span>
+          <span class="app-bar-title">공고 상세</span>
+        </div>
+
+        <div class="header-section">
+          <div class="job-title">빌딩 경비원 모집</div>
+          <div class="company-name">빌딩_경비원_1_관리사무소</div>
+          <div class="salary">월 200만원</div>
+        </div>
+        <div class="divider"></div>
+
+        <!-- Safety Curation (Old) -->
+        <div class="intensity-section">
+          <div class="section-header">업무 강도</div>
+          <div class="intensity-box">
+            <span class="intensity-icon">&#128694;</span>
+            <span class="intensity-label">보통</span>
+          </div>
+          <div class="section-header">신체 부담 항목</div>
+          <div class="badge-wrap">
+            <span class="badge-chip">&#9855; 계속 서있기</span>
+            <span class="badge-chip">&#128260; 반복 동작</span>
+          </div>
+        </div>
+        <div class="divider"></div>
+
+        <!-- Work Conditions (Old) -->
+        <div class="old-section">
+          <div class="old-section-title">근무 조건</div>
+          <div class="condition-row"><span class="condition-label">근무지</span><span class="condition-value">서울 종로구 창의문로 12</span></div>
+          <div class="condition-row"><span class="condition-label">급여</span><span class="condition-value">월 200만원</span></div>
+          <div class="condition-row"><span class="condition-label">근무 시간</span><span class="condition-value">09:00 ~ 18:00 (휴게 1시간)</span></div>
+          <div class="condition-row"><span class="condition-label">근무 요일</span><span class="condition-value">월~수</span></div>
+          <div class="condition-row"><span class="condition-label">근무 기간</span><span class="condition-value">6개월</span></div>
+          <div class="condition-row"><span class="condition-label">고용 형태</span><span class="condition-value">파트타임</span></div>
+        </div>
+        <div class="divider"></div>
+
+        <!-- Requirements -->
+        <div class="old-section">
+          <div class="old-section-title">자격 요건</div>
+          <div style="font-size:16px;color:#424242;line-height:1.6;">경비원 신임교육 이수자</div>
+        </div>
+        <div class="divider"></div>
+
+        <!-- Benefits (Will be removed) -->
+        <div class="old-section">
+          <div class="old-section-title">복리후생</div>
+          <div style="font-size:16px;color:#424242;line-height:1.6;">유니폼 지급, 주차 가능</div>
+        </div>
+        <div class="divider"></div>
+
+        <!-- Description -->
+        <div class="old-section">
+          <div class="old-section-title">업무 내용</div>
+          <div style="font-size:16px;color:#424242;line-height:1.6;">주차장 관리 및 방문객 안내</div>
+        </div>
+      </div>
+      <div class="bottom-fixed">
+        <button class="btn-primary">지원하기</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- AFTER -->
+  <div>
+    <div class="phone-label">AFTER (변경안)</div>
+    <div class="phone-frame">
+      <div class="screen">
+        <div class="app-bar">
+          <span class="back-arrow">&#8592;</span>
+          <span class="app-bar-title">공고 상세</span>
+        </div>
+
+        <div class="header-section">
+          <div class="job-title">빌딩 경비원</div>
+          <div class="company-name">종로타워 관리사무소</div>
+          <div class="salary">월 200만원</div>
+        </div>
+        <div class="divider"></div>
+
+        <!-- Small Cards Grid -->
+        <div class="card-grid-2">
+          <div class="small-card">
+            <div class="small-card-label">&#9200; 근무시간</div>
+            <div class="small-card-value">8시간</div>
+          </div>
+          <div class="small-card">
+            <div class="small-card-label">&#128197; 근무기간</div>
+            <div class="small-card-value">6개월</div>
+          </div>
+        </div>
+
+        <div class="card-grid-2">
+          <div class="small-card">
+            <div class="small-card-label">&#128467; 근무요일</div>
+            <div class="small-card-value">월 화 수</div>
+          </div>
+          <div class="small-card">
+            <div class="small-card-label">&#128188; 고용형태</div>
+            <div class="small-card-value">일용직</div>
+          </div>
+        </div>
+
+        <!-- Long Card: 업무 세부 내용 요약 -->
+        <div class="long-card">
+          <div class="long-card-title">&#128221; 업무 세부 내용</div>
+          <div class="long-card-content">주차장 관리 및 방문객 안내</div>
+        </div>
+
+        <!-- Long Card: 자격요건 -->
+        <div class="long-card">
+          <div class="long-card-title">&#9989; 자격 요건</div>
+          <div class="long-card-content">경비원 신임교육 이수자</div>
+        </div>
+
+        <!-- 업무강도 상세 카드 -->
+        <div class="detail-intensity-card">
+          <div class="detail-intensity-title">&#128170; 업무 강도 상세</div>
+          <div class="detail-intensity-row">
+            <span class="detail-intensity-key">&#128694; 서있는 시간</span>
+            <span class="detail-intensity-val">계속 서있기</span>
+          </div>
+          <div class="detail-intensity-row">
+            <span class="detail-intensity-key">&#128230; 무거운 짐</span>
+            <span class="detail-intensity-val">없음</span>
+          </div>
+          <div class="detail-intensity-row">
+            <span class="detail-intensity-key">&#127968; 실내 / 외</span>
+            <span class="detail-intensity-val">실내 위주</span>
+          </div>
+        </div>
+      </div>
+      <div class="bottom-fixed">
+        <button class="btn-primary">지원하기</button>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<!-- ============================================================ -->
+<!-- 2. 지원현황 페이지 -->
+<!-- ============================================================ -->
+<div class="section-title">2. 지원현황 페이지 (ApplicationListScreen)</div>
+<div class="phones">
+
+  <!-- BEFORE -->
+  <div>
+    <div class="phone-label">BEFORE (현재)</div>
+    <div class="phone-frame">
+      <div class="screen">
+        <div class="app-bar">
+          <span class="app-bar-title">지원 내역</span>
+        </div>
+
+        <div style="padding-top: 16px;">
+          <div class="app-list-card">
+            <div class="app-list-info">
+              <div class="app-list-title">빌딩 경비원 모집</div>
+              <div class="app-list-company">빌딩_경비원_1_관리사무소</div>
+              <div class="app-list-date">05월 14일</div>
+            </div>
+            <span class="status-badge status-submitted">접수</span>
+          </div>
+
+          <div class="app-list-card">
+            <div class="app-list-info">
+              <div class="app-list-title">공장 청소원 모집</div>
+              <div class="app-list-company">공장_청소원_2_협동조합</div>
+              <div class="app-list-date">05월 12일</div>
+            </div>
+            <span class="status-badge status-reviewing">검토 중</span>
+          </div>
+
+          <div class="app-list-card">
+            <div class="app-list-info">
+              <div class="app-list-title">주차 관리원 모집</div>
+              <div class="app-list-company">주차_관리원_3_관리센터</div>
+              <div class="app-list-date">05월 10일</div>
+            </div>
+            <span class="status-badge status-accepted">합격</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- AFTER -->
+  <div>
+    <div class="phone-label">AFTER (변경안)</div>
+    <div class="phone-frame">
+      <div class="screen">
+        <div class="app-bar">
+          <span class="app-bar-title">지원 내역</span>
+        </div>
+
+        <div style="padding-top: 16px;">
+          <!-- Tap navigates to JobDetailScreen -->
+          <div class="app-list-card" style="cursor: pointer;">
+            <div class="app-list-info">
+              <div class="app-list-title">빌딩 경비원</div>
+              <div class="app-list-company">종로타워 관리사무소</div>
+              <div class="app-list-date">05월 14일</div>
+            </div>
+            <span class="status-badge status-submitted">접수</span>
+          </div>
+
+          <div class="app-list-card" style="cursor: pointer;">
+            <div class="app-list-info">
+              <div class="app-list-title">공장 청소원</div>
+              <div class="app-list-company">강남제조센터</div>
+              <div class="app-list-date">05월 12일</div>
+            </div>
+            <span class="status-badge status-reviewing">검토 중</span>
+          </div>
+
+          <div class="app-list-card" style="cursor: pointer;">
+            <div class="app-list-info">
+              <div class="app-list-title">주차 관리원</div>
+              <div class="app-list-company">롯데월드타워 주차팀</div>
+              <div class="app-list-date">05월 10일</div>
+            </div>
+            <span class="status-badge status-accepted">합격</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<!-- ============================================================ -->
+<!-- 3. 공고 상세 (지원현황에서 진입) -->
+<!-- ============================================================ -->
+<div class="section-title">3. 공고 상세 — 지원현황에서 진입 시 (Bottom Button 변경)</div>
+<div class="phones">
+
+  <div>
+    <div class="phone-label">AFTER (지원현황 → 공고상세)</div>
+    <div class="phone-frame">
+      <div class="screen">
+        <div class="app-bar">
+          <span class="back-arrow">&#8592;</span>
+          <span class="app-bar-title">공고 상세</span>
+        </div>
+
+        <div class="header-section">
+          <div class="job-title">빌딩 경비원</div>
+          <div class="company-name">종로타워 관리사무소</div>
+          <div class="salary">월 200만원</div>
+        </div>
+        <div class="divider"></div>
+
+        <div class="card-grid-2">
+          <div class="small-card">
+            <div class="small-card-label">&#9200; 근무시간</div>
+            <div class="small-card-value">8시간</div>
+          </div>
+          <div class="small-card">
+            <div class="small-card-label">&#128197; 근무기간</div>
+            <div class="small-card-value">6개월</div>
+          </div>
+        </div>
+
+        <div class="card-grid-2">
+          <div class="small-card">
+            <div class="small-card-label">&#128467; 근무요일</div>
+            <div class="small-card-value">월 화 수</div>
+          </div>
+          <div class="small-card">
+            <div class="small-card-label">&#128188; 고용형태</div>
+            <div class="small-card-value">일용직</div>
+          </div>
+        </div>
+
+        <div class="long-card">
+          <div class="long-card-title">&#128221; 업무 세부 내용</div>
+          <div class="long-card-content">주차장 관리 및 방문객 안내</div>
+        </div>
+
+        <div class="long-card">
+          <div class="long-card-title">&#9989; 자격 요건</div>
+          <div class="long-card-content">경비원 신임교육 이수자</div>
+        </div>
+
+        <div class="detail-intensity-card">
+          <div class="detail-intensity-title">&#128170; 업무 강도 상세</div>
+          <div class="detail-intensity-row">
+            <span class="detail-intensity-key">&#128694; 서있는 시간</span>
+            <span class="detail-intensity-val">계속 서있기</span>
+          </div>
+          <div class="detail-intensity-row">
+            <span class="detail-intensity-key">&#128230; 무거운 짐</span>
+            <span class="detail-intensity-val">없음</span>
+          </div>
+          <div class="detail-intensity-row">
+            <span class="detail-intensity-key">&#127968; 실내 / 외</span>
+            <span class="detail-intensity-val">실내 위주</span>
+          </div>
+        </div>
+      </div>
+      <!-- 지원 취소 버튼 (빨간색) -->
+      <div class="bottom-fixed">
+        <button class="btn-danger">지원 취소</button>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<!-- ============================================================ -->
+<!-- 4. 목업 데이터 변경 예시 -->
+<!-- ============================================================ -->
+<div class="section-title">4. 목업 데이터 — 회사명 변경 예시</div>
+<div style="max-width: 800px; margin: 0 auto;">
+  <table style="width:100%; border-collapse:collapse; background:#fff; border-radius:12px; overflow:hidden; box-shadow:0 2px 6px rgba(0,0,0,0.06);">
+    <thead style="background:#1565C0; color:#fff;">
+      <tr>
+        <th style="padding:12px 16px; text-align:left;">직종</th>
+        <th style="padding:12px 16px; text-align:left;">BEFORE (기존)</th>
+        <th style="padding:12px 16px; text-align:left;">AFTER (변경)</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr style="border-bottom:1px solid #F0F0F0;">
+        <td style="padding:12px 16px;">빌딩 경비원</td>
+        <td style="padding:12px 16px; color:#F44336;">빌딩_경비원_1_관리사무소</td>
+        <td style="padding:12px 16px; color:#4CAF50; font-weight:bold;">종로타워 관리사무소</td>
+      </tr>
+      <tr style="border-bottom:1px solid #F0F0F0;">
+        <td style="padding:12px 16px;">공장 경비원</td>
+        <td style="padding:12px 16px; color:#F44336;">공장_경비원_2_관리단</td>
+        <td style="padding:12px 16px; color:#4CAF50; font-weight:bold;">강남제조센터</td>
+      </tr>
+      <tr style="border-bottom:1px solid #F0F0F0;">
+        <td style="padding:12px 16px;">주상복합 경비원</td>
+        <td style="padding:12px 16px; color:#F44336;">주상복합_경비원_4_서비스센터</td>
+        <td style="padding:12px 16px; color:#4CAF50; font-weight:bold;">롯데월드타워 주차팀</td>
+      </tr>
+      <tr style="border-bottom:1px solid #F0F0F0;">
+        <td style="padding:12px 16px;">아파트 청소원</td>
+        <td style="padding:12px 16px; color:#F44336;">아파트_청소원_5_주식회사</td>
+        <td style="padding:12px 16px; color:#4CAF50; font-weight:bold;">삼성래미안 관리사무소</td>
+      </tr>
+      <tr>
+        <td style="padding:12px 16px;">병원 청소원</td>
+        <td style="padding:12px 16px; color:#F44336;">병원_청소원_6_협동조합</td>
+        <td style="padding:12px 16px; color:#4CAF50; font-weight:bold;">서울아산병원 시설팀</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+</body>
+</html>
