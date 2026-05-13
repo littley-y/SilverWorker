@@ -72,6 +72,7 @@
 - **2026-05-12** — Day 13 (spec_11) PR #10 생성 및 리뷰 대응. 시니어 특화 UI/UX 고도화: MascotWidget (TweenAnimationBuilder 등장 애니메이션), FontSizeNotifier (SharedPreferences, 0.86~1.33 범위), SettingsScreen (Slider + 실시간 미리보기), MyPage 설정 메뉴, `/settings` 라우트. Round 1: B-1(MaterialApp.builder), M-2(마스코트 3곳), M-3(고대비 P1 강등), M-1(MediaQuery.textScaler 테스트), m-1~m-3, n-1 수정. Round 2: N-1(ValueKey 제거), U-1(builder 와이어링 테스트), U-2(scale 범위 조정). `flutter analyze` 0경고, `flutter test` 113/113 통과. 사업계획서 PDF 수정본 생성. 히스토리: `docs/history/2026-05-12-spec-11-senior-ui.md`.
 - **2026-05-14** — PR #12 머지 완료: 공고 상세 UI 개편 + 지원현황 네비게이션 + 설정 고정 + 마스코트 은일이 교체. Claude REQUEST CHANGES → 수정 → Gemini APPROVE → 머지 (`1dbd9aa`). 릴리즈 APK 61.2MB 빌드 완료.
 - **2026-05-14** — PR #12 후속 10건 수정 완료 (hotfix/job-detail-fixes): SettingsScreen 글자 크기 섹션 제거, MyPageScreen 마스코트 제거, MascotBanner 말풍선 CustomPainter, JobDetailScreen 2×2/가로/강도/근무시간 카드, 복리후생 제거, 지원 취소 플로우 + 플로팅 카드, fetchApplications cancelled 필터, PhoneInputScreen +82 prefix, hasAppliedProvider 단순화, visibleJobListProvider(지원한 공고 필터링), JobCard 도보 N분 칩, seed_jobs.py walkingMinutes/실제 기업명. `flutter analyze` 0경고, `flutter test` 122/122 통과, `verify_local.sh` 6/6. PR #13 생성 및 리뷰 대기.
+- **2026-05-14** — PR #13 Claude 리뷰 대응 완료: B-1(E.164 선두 0 제거 복원, +82 표시 제거), M-1(hasApplied cancelled 가드), M-2(fetchApplications client-side filter), m-1/m-2(예외 처리/invalidation 개선). 추가로 인증 OTP 버그 수정(verifyPhoneNumber Completer 패턴). 릴리즈 APK 61.2MB 재빌드. Firestore seed 데이터 재업로드(실제 기업명 반영). PR #13 master 머지 완료.
 
 
 ---
