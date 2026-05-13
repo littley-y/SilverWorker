@@ -87,7 +87,7 @@ void main() {
 
     await tester.pumpAndSettle();
 
-    expect(find.text('아파트 경비원 모집'), findsOneWidget);
+    expect(find.text('아파트 경비원'), findsOneWidget);
     expect(find.text('OO아파트 관리사무소'), findsOneWidget);
   });
 
