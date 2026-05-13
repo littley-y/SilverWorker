@@ -1,11 +1,11 @@
 # Graph Report - SilverWorker  (2026-05-14)
 
 ## Corpus Check
-- 92 files · ~140,616 words
+- 92 files · ~142,371 words
 - Verdict: corpus is large enough that graph structure adds value.
 
 ## Summary
-- 554 nodes · 732 edges · 22 communities detected
+- 555 nodes · 734 edges · 22 communities detected
 - Extraction: 99% EXTRACTED · 1% INFERRED · 0% AMBIGUOUS · INFERRED: 5 edges (avg confidence: 0.8)
 - Token cost: 0 input · 0 output
 
@@ -61,11 +61,11 @@
 
 ### Community 0 - "Community 0"
 Cohesion: 0.03
-Nodes (63): app_colors.dart, ../constants/app_colors.dart, ../constants/app_text_styles.dart, dart:math, icon, label, color, icon (+55 more)
+Nodes (64): app_colors.dart, ../constants/app_colors.dart, ../constants/app_text_styles.dart, dart:math, icon, label, color, icon (+56 more)
 
 ### Community 1 - "Community 1"
 Cohesion: 0.04
-Nodes (46): main, main, main, JobModel, _jobWithIntensity, main, main, main (+38 more)
+Nodes (47): main, MockUser, main, main, JobModel, _jobWithIntensity, main, main (+39 more)
 
 ### Community 2 - "Community 2"
 Cohesion: 0.05
@@ -77,31 +77,31 @@ Nodes (39): firebase_options.dart, build, main, MediaQuery, MyApp, AlertDialog, 
 
 ### Community 4 - "Community 4"
 Cohesion: 0.05
-Nodes (35): gray_chip.dart, JobRepository, JobRepository, build, Card, Center, Divider, _EmptyState (+27 more)
+Nodes (39): ApplicationRepository, build, _CancelButton, _CancelButtonState, Center, Column, Container, _DetailCard (+31 more)
 
 ### Community 5 - "Community 5"
 Cohesion: 0.06
-Nodes (33): ApplicationRepository, ApplicationFormScreen, _ApplicationFormScreenState, build, Center, Column, dispose, initState (+25 more)
+Nodes (35): ../helpers/test_doubles.dart, AlreadyAppliedException, ApplicationRepository, JobClosedException, JobNotFoundException, NoApplicationException, NotAuthenticatedException, _FakeFirebaseAuth (+27 more)
 
 ### Community 6 - "Community 6"
-Cohesion: 0.06
-Nodes (28): AuthRepository, clearError, copyWith, _exceptionToMessage, PhoneAuthNotifier, PhoneAuthState, _Sentinel, AlreadyAppliedException (+20 more)
+Cohesion: 0.05
+Nodes (35): gray_chip.dart, JobRepository, JobRepository, build, Card, Center, Divider, _EmptyState (+27 more)
 
 ### Community 7 - "Community 7"
-Cohesion: 0.08
-Nodes (27): ../helpers/test_doubles.dart, _FakeFirebaseAuth, _FakeUser, main, main, _MockRepository, _sampleJob, _ErrorApplicationRepository (+19 more)
-
-### Community 8 - "Community 8"
 Cohesion: 0.07
 Nodes (29): dart:async, ApplicationFormScreen, ApplicationListScreen, ApplicationResultScreen, applyDoneRoute, applyRoute, _AuthRefresh, dispose (+21 more)
 
-### Community 9 - "Community 9"
+### Community 8 - "Community 8"
 Cohesion: 0.13
 Nodes (24): categorize_files(), determine_round(), extract_spec_from_commits(), generate_request_doc(), get_changed_files(), get_commit_messages(), get_git_diff_stats(), get_pr_info() (+16 more)
 
+### Community 9 - "Community 9"
+Cohesion: 0.1
+Nodes (19): ApplicationFormScreen, _ApplicationFormScreenState, build, Center, Column, dispose, initState, Scaffold (+11 more)
+
 ### Community 10 - "Community 10"
-Cohesion: 0.08
-Nodes (25): build, _CancelButton, _CancelButtonState, Center, Column, Container, _DetailCard, Divider (+17 more)
+Cohesion: 0.1
+Nodes (19): AuthRepository, clearError, copyWith, _exceptionToMessage, PhoneAuthNotifier, PhoneAuthState, _Sentinel, AuthRepository (+11 more)
 
 ### Community 11 - "Community 11"
 Cohesion: 0.12
@@ -148,7 +148,7 @@ Cohesion: 1.0
 Nodes (1): package:logger/logger.dart
 
 ## Knowledge Gaps
-- **376 isolated node(s):** `Claude Code SessionStart / SubagentStart hook - injects General folder context.`, `Return the most recent .md that isn't an empty session-summary.`, `Claude Code PreToolUse hook - guards git write operations.  Rules:   1. git push`, `working_dir가 프로젝트 루트인지 확인.`, `git push origin master/main 형태의 직접 푸시 감지.` (+371 more)
+- **377 isolated node(s):** `Claude Code SessionStart / SubagentStart hook - injects General folder context.`, `Return the most recent .md that isn't an empty session-summary.`, `Claude Code PreToolUse hook - guards git write operations.  Rules:   1. git push`, `working_dir가 프로젝트 루트인지 확인.`, `git push origin master/main 형태의 직접 푸시 감지.` (+372 more)
   These have ≤1 connection - possible missing edges or undocumented components.
 - **Thin community `Community 15`** (7 nodes): `DiscordNotifier`, `.__init__()`, `.send()`, `._send_webhook()`, `send_notification()`, `discord_notifier.py`, `notify.py`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
@@ -166,14 +166,14 @@ Nodes (1): package:logger/logger.dart
 ## Suggested Questions
 _Questions this graph is uniquely positioned to answer:_
 
-- **Why does `package:flutter/material.dart` connect `Community 0` to `Community 1`, `Community 2`, `Community 3`, `Community 4`, `Community 5`, `Community 7`, `Community 8`, `Community 10`, `Community 11`?**
+- **Why does `package:flutter/material.dart` connect `Community 0` to `Community 1`, `Community 2`, `Community 3`, `Community 4`, `Community 5`, `Community 6`, `Community 7`, `Community 9`, `Community 11`?**
   _High betweenness centrality (0.285) - this node is a cross-community bridge._
-- **Why does `package:flutter_riverpod/flutter_riverpod.dart` connect `Community 2` to `Community 1`, `Community 3`, `Community 4`, `Community 5`, `Community 6`, `Community 7`, `Community 8`, `Community 10`, `Community 11`?**
-  _High betweenness centrality (0.120) - this node is a cross-community bridge._
-- **Why does `package:firebase_auth/firebase_auth.dart` connect `Community 6` to `Community 8`, `Community 10`, `Community 7`?**
+- **Why does `package:flutter_riverpod/flutter_riverpod.dart` connect `Community 2` to `Community 1`, `Community 3`, `Community 4`, `Community 5`, `Community 6`, `Community 7`, `Community 9`, `Community 10`, `Community 11`?**
+  _High betweenness centrality (0.119) - this node is a cross-community bridge._
+- **Why does `package:firebase_auth/firebase_auth.dart` connect `Community 5` to `Community 1`, `Community 10`, `Community 4`, `Community 7`?**
   _High betweenness centrality (0.072) - this node is a cross-community bridge._
 - **What connects `Claude Code SessionStart / SubagentStart hook - injects General folder context.`, `Return the most recent .md that isn't an empty session-summary.`, `Claude Code PreToolUse hook - guards git write operations.  Rules:   1. git push` to the rest of the system?**
-  _376 weakly-connected nodes found - possible documentation gaps or missing edges._
+  _377 weakly-connected nodes found - possible documentation gaps or missing edges._
 - **Should `Community 0` be split into smaller, more focused modules?**
   _Cohesion score 0.03 - nodes in this community are weakly interconnected._
 - **Should `Community 1` be split into smaller, more focused modules?**

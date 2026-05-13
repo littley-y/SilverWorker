@@ -47,8 +47,7 @@ void main() {
     expect(find.text('130%'), findsOneWidget);
   });
 
-  testWidgets('SettingsScreen back button pops',
-      (WidgetTester tester) async {
+  testWidgets('SettingsScreen back button pops', (WidgetTester tester) async {
     final router = GoRouter(
       routes: [
         GoRoute(
