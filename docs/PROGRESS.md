@@ -31,7 +31,7 @@
 | [spec_15](planning/spec_15_condition_matching.md) | 컨디션 기반 가변 매칭 | ⬜ 대기 | 2차 | LLM 재랭킹. 검색/필터 로직 보완. |
 | [spec_16](planning/spec_16_career_agent.md) | 대화형 커리어 에이전트 | ⬜ 대기 | 2차 | STT + LLM 이력서 변환. 가장 임팩트 높음. |
 | [spec_17](planning/spec_17_liveness_attendance.md) | 안면 확인 출근 인증 | ⬜ 대기 | 2차 | ML Kit(MVP) → AWS Rekognition(운영). 유료 전환 시 도입 권장. |
-| [spec_13a](planning/spec_13_ai_feature_analysis.md) | AI 기능 기술 분석 | ✅ 완료 | — | 기술 스택 확정, 비용 분석, 구현 우선순위. |
+| [spec_13a](planning/overview/05_ai_feature_analysis.md) | AI 기능 기술 분석 | ✅ 완료 | — | 기술 스택 확정, 비용 분석, 구현 우선순위. |
 
 **상태 범례**: ✅ 완료 / 🔄 진행 중 / ⛔ 블로커 / ⬜ 대기
 

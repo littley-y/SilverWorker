@@ -1,7 +1,7 @@
 # Spec 10. 테스트 기준 및 Definition of Done
 
 > 대상 Day: Day 12
-> 참조: `overview/05_implementation_plan.md` 8절 성공 기준
+> 참조: `overview/06_implementation_plan.md` 8절 성공 기준
 
 ---
 

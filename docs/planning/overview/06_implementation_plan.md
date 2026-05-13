@@ -1,4 +1,4 @@
-# 05. SilverWorkerNow 개발 로드맵 (2주 단축판)
+# 06. SilverWorkerNow 개발 로드맵 (2주 단축판)
 
 > 대상: MVP (AI 기능 제외)
 > 예상 기간: **2주**

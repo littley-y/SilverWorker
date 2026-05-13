@@ -36,7 +36,7 @@ tools/                        # Scripts, configs, automation
 | **현재 진행 상황** | `PROGRESS.md` | **세션 시작 시 첫 번째로 확인** |
 | 기능 우선순위 | `planning/overview/03_mvp_specs.md` | P0/P1/P2 기준 |
 | 구현 세부 스펙 | `planning/spec_01~10.md` | Day별 화면/로직/DoD |
-| 전체 일정 | `planning/overview/05_implementation_plan.md` | 2주 Day별 로드맵 |
+| 전체 일정 | `planning/overview/06_implementation_plan.md` | 2주 Day별 로드맵 |
 | CI validation | `verify_local.sh` | Run before any PR |
 | CI validation | `verify_local.sh` | pub get → format → analyze → test |
 | Lint config | `config/analysis_options.yaml` | Zero-warning policy |

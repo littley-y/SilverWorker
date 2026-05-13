@@ -15,7 +15,8 @@ planning/
 │   ├── 02_tech_stack.md         # 기술 스택 확정 문서
 │   ├── 03_mvp_specs.md          # MVP 기능 명세 (우선순위 P0/P1/P2)
 │   ├── 04_db_schema.md          # Firestore 컬렉션 구조 및 보안 규칙
-│   └── 05_implementation_plan.md # 2주 Day별 개발 로드맵
+│   ├── 05_ai_feature_analysis.md # AI 기능 기술 분석 및 기술 스택
+│   └── 06_implementation_plan.md # 2주 Day별 개발 로드맵
 │
 ├── spec_01_project_setup.md     # Flutter 구조, Riverpod, Firebase 초기 세팅
 ├── spec_02_auth.md              # 인증, 프로필 등록, 자동 로그인
@@ -35,7 +36,7 @@ planning/
 |------|----------|-------|
 | 기능 우선순위 확인 | `overview/03_mvp_specs.md` | P0=필수, P1=중요, P2=선택 |
 | DB 컬렉션 구조 | `overview/04_db_schema.md` | Firestore 필드 및 보안 규칙 |
-| 전체 일정 | `overview/05_implementation_plan.md` | Day별 산출물 |
+| 전체 일정 | `overview/06_implementation_plan.md` | Day별 산출물 |
 | 화면별 구현 스펙 | `spec_01` ~ `spec_10` | Riverpod Provider, 위젯, 로직 포함 |
 | 테스트 기준 | `spec_10_test_criteria.md` | 시나리오별 테스트 케이스 + 데모 체크리스트 |
 
