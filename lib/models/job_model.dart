@@ -32,6 +32,7 @@ class JobModel {
   final int? minAge;
   final int? maxAge;
   final DateTime? deadline;
+  final int? walkingMinutes; // 목업용: 현재 위치로부터 도보 예상 시간(분)
   final bool isActive;
   final Map<String, dynamic> rawData;
   final DateTime? createdAt;
@@ -60,6 +61,7 @@ class JobModel {
     this.minAge,
     this.maxAge,
     this.deadline,
+    this.walkingMinutes,
     required this.isActive,
     required this.rawData,
     this.createdAt,
@@ -93,6 +95,7 @@ class JobModel {
       minAge: json['minAge'] as int?,
       maxAge: json['maxAge'] as int?,
       deadline: TimestampHelper.toDateTime(json['deadline']),
+      walkingMinutes: json['walkingMinutes'] as int?,
       isActive: json['isActive'] as bool? ?? true,
       rawData:
           json['rawData'] as Map<String, dynamic>? ?? const <String, dynamic>{},
@@ -125,6 +128,7 @@ class JobModel {
       'minAge': minAge,
       'maxAge': maxAge,
       'deadline': TimestampHelper.fromDateTime(deadline),
+      'walkingMinutes': walkingMinutes,
       'isActive': isActive,
       'rawData': rawData,
       'createdAt': TimestampHelper.fromDateTime(createdAt),
@@ -155,6 +159,7 @@ class JobModel {
     int? minAge,
     int? maxAge,
     DateTime? deadline,
+    int? walkingMinutes,
     bool? isActive,
     Map<String, dynamic>? rawData,
     DateTime? createdAt,
@@ -183,6 +188,7 @@ class JobModel {
       minAge: minAge ?? this.minAge,
       maxAge: maxAge ?? this.maxAge,
       deadline: deadline ?? this.deadline,
+      walkingMinutes: walkingMinutes ?? this.walkingMinutes,
       isActive: isActive ?? this.isActive,
       rawData: rawData ?? this.rawData,
       createdAt: createdAt ?? this.createdAt,

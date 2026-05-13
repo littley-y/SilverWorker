@@ -10,6 +10,7 @@ import '../../router/app_router.dart';
 import '../../widgets/error_retry_view.dart';
 import '../../widgets/filter_bar.dart';
 import '../../widgets/job_card.dart';
+import '../../widgets/mascot_banner.dart';
 import '../../widgets/mascot_widget.dart';
 
 /// Job list screen — main home screen showing job postings.
@@ -31,15 +32,10 @@ class JobListScreen extends ConsumerWidget {
         centerTitle: false,
         backgroundColor: AppColors.cardBackground,
         surfaceTintColor: Colors.transparent,
-        actions: const [
-          Padding(
-            padding: EdgeInsets.only(right: 16),
-            child: MascotWidget(size: 40),
-          ),
-        ],
       ),
       body: Column(
         children: [
+          const MascotBanner(),
           // Filter bar with padding
           Padding(
             padding: const EdgeInsets.fromLTRB(16, 12, 16, 4),
@@ -205,7 +201,7 @@ class _EmptyState extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Center(
-      child: Padding(
+      child: SingleChildScrollView(
         padding: const EdgeInsets.all(32),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,

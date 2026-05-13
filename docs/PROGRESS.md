@@ -24,7 +24,8 @@
 | [spec_08](planning/spec_08_navigation.md) | 네비게이션 | ✅ 완료 | Day 10 | PR #9 머지 완 (Claude/Gemini 승인). ShellRoute + BottomNav 3탭, auth redirect, PopScope |
 | [spec_09](planning/spec_09_ui_system.md) | 시니어 UI 시스템 | ✅ 완료 | Day 4, 11 | PR #8 머지 완 (Claude Round 3 / Gemini 승인). AppTextStyles/AppColors 정렬, PrimaryButton/SnackUtils 공통 위젯화 |
 | [spec_10](planning/spec_10_test_criteria.md) | 테스트 기준 + DoD | ✅ 완료 | Day 12 | |
-| [spec_11](planning/spec_11_senior_ui_enhancement.md) | 시니어 특화 UI/UX 고도화 | 🔄 Review Pending | Day 13 | PR #10 Round 2 제출 (B-1·M-1·M-2·M-3·N-1·U-1·U-2 수정, 113/113 통과). Claude 승인 대기 중. |
+| [spec_11](planning/spec_11_senior_ui_enhancement.md) | 시니어 특화 UI/UX 고도화 | ✅ 완료 | Day 13 | PR #10 머지 완 (Claude/Gemini 승인). 113/113 테스트 통과. |
+| [spec_12](planning/spec_12_home_ui_refinement.md) | 홈 화면 UI 개선 | 🔄 진행 중 | Day 14 | 마스코트 배너, 공고 카드 개선, 필터 슬라이드. PR #11 준비 중. |
 
 **상태 범례**: ✅ 완료 / 🔄 진행 중 / ⛔ 블로커 / ⬜ 대기
 

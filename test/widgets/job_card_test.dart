@@ -44,7 +44,7 @@ void main() {
       ),
     );
 
-    expect(find.text('아파트 경비원 모집'), findsOneWidget);
+    expect(find.text('아파트 경비원'), findsOneWidget);
     expect(find.text('OO아파트 관리사무소'), findsOneWidget);
   });
 
@@ -168,8 +168,8 @@ void main() {
       ),
     );
 
-    // moderate → "보통"
-    expect(find.text('보통'), findsOneWidget);
+    // moderate → "서서 근무해요"
+    expect(find.text('서서 근무해요'), findsOneWidget);
   });
 
   testWidgets('JobCard calls onTap when tapped', (tester) async {
@@ -186,7 +186,7 @@ void main() {
       ),
     );
 
-    await tester.tap(find.text('아파트 경비원 모집'));
+    await tester.tap(find.text('아파트 경비원'));
     expect(tapCount, 1);
   });
 
