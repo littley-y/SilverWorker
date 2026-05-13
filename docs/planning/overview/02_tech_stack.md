@@ -53,9 +53,28 @@
 - Google Cloud와의 연동으로 고용정보원 API 프록시 구축 용이
 
 ### ⚠️ Firebase Blaze 요금제 필수
-- Cloud Functions(Node.js 10+) 및 외부 API(고용24) 아웃바운드 네트워크 요청은 **Spark(묶음) 요금제에서 불가능**
-- **반드시 Blaze(종량제) 요금제로 업그레이드**하고 결제 수단을 등록해야 함
-- 예상 비용: MVP 개발 기간 중 월 $5~20 (트래픽에 따라 변동)
+- Cloud Functions는 **Spark(묶음) 요금제에서 지원되지 않음** (Node.js 10+ 런타임 이후)
+- **반드시 Blaze(종량제) 요금제로 업그레이드**해야 함
+- Blaze 묶음 티어: 월 2M 호출, 400K GB-sec, 200K CPU-sec, 5GB 아웃바운드 묶음
+- 예상 비용: MVP 개발 기간 중 월 $5~20 (묶음 한도 내에서는 $0)
+
+---
+
+## 3.1 AI 기술 스택 (2차 기능)
+
+| 계층 | 기술 | 용도 | 비용 |
+|---|---|---|---|
+| LLM | **Gemini 2.5 Flash** | 리뷰 요약, 컨디션 분석, 커리어 에이전트 | 묶음 1,500 req/일 |
+| STT | `speech_to_text` (OS 기본) | 음성 입력 → 텍스트 변환 | $0 (OS 기능) |
+| 안면 확인 (MVP) | **ML Kit Face Detection** | 기본 블링크/헤드묵 챌린지 | $0 (온디바이스) |
+| 안면 확인 (운영) | **AWS Rekognition Face Liveness** | 제품 수준 생동성 감지 | $0.015/세션 |
+| 백엔드 | **Firebase Cloud Functions** | API 키 보안, Rate Limiting, 캐싱 | Blaze 묶음 티어 |
+| 캐시 | **Firestore + Cloud Function 메모리** | AI 결과 캐싱, 비용 절감 | Firestore 쓰기 비용 |
+
+**⚠️ 주의사항**:
+- Gemini 2.0 Flash는 2026년 6월 1일 deprecated → **2.5 Flash 사용**
+- ML Kit 단독으로는 **제품 수준 liveness 불가**. MVP는 "스마트 안면 확인" 수준, 운영 시 AWS 전환
+- `speech_to_text` 기본값은 클라우드 기반. 온디바이스 모드는 Android 12+/iOS 13+ 제한
 
 ---
 

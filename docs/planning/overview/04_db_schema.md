@@ -232,13 +232,79 @@ service cloud.firestore {
 
 ---
 
-## 6. 확장성 고려사항
+## 6. 2차 AI 기능 스키마 (spec_13~17)
+
+### 6.1 reviews 컬렉션
+
+```
+/jobs/{jobId}/reviews/{reviewId}
+```
+
+| 필드 | 타입 | 설명 |
+|---|---|---|
+| `reviewId` | string (문서ID) | 자체 UUID |
+| `userId` | string | 작성자 ID |
+| `userName` | string | 작성자 이름 (비식별화) |
+| `rating` | number | 별점 (1~5) |
+| `content` | string | 리뷰 내용 (10~500자) |
+| `isEdited` | boolean | 수정 여부 |
+| `createdAt` | timestamp | 작성 일시 |
+| `updatedAt` | timestamp | 수정 일시 |
+
+### 6.2 ai_cache 컬렉션
+
+```
+/ai_cache/{cacheKey}
+```
+
+| 필드 | 타입 | 설명 |
+|---|---|---|
+| `cacheKey` | string (문서ID) | `review_summary_{jobId}_{version}` |
+| `type` | string | 캐시 타입 |
+| `sourceId` | string | 원본 ID |
+| `result` | map | AI 응답 결과 |
+| `promptVersion` | string | 프롬프트 버전 |
+| `expiresAt` | timestamp | 캐시 만료 (기본 7일) |
+| `createdAt` | timestamp | 생성 일시 |
+
+### 6.3 attendances 컬렉션
+
+```
+/attendances/{attendanceId}
+```
+
+| 필드 | 타입 | 설명 |
+|---|---|---|
+| `attendanceId` | string (문서ID) | 자체 UUID |
+| `userId` | string | 사용자 ID |
+| `jobId` | string | 공고 ID |
+| `type` | string | `check_in` / `check_out` |
+| `timestamp` | timestamp | 인증 시간 |
+| `location` | geopoint | 인증 위치 |
+| `livenessScore` | number | 생동성 점수 (0~1) |
+| `method` | string | `mlkit` / `aws_rekognition` |
+| `createdAt` | timestamp | 기록 일시 |
+
+### 6.4 ai_conversations 컬렉션
+
+```
+/ai_conversations/{sessionId}
+```
+
+| 필드 | 타입 | 설명 |
+|---|---|---|
+| `sessionId` | string (문서ID) | 세션 ID |
+| `userId` | string | 사용자 ID |
+| `messages` | array&lt;map&gt; | 대화 기록 |
+| `status` | string | `active` / `completed` / `error` |
+| `createdAt` | timestamp | 생성 일시 |
+
+---
+
+## 7. 확장성 고려사항
 
 | 향후 기능 | 추가 컬렉션/필드 |
 |---|---|
-| AI 음성 이력서 | `users.voiceTranscript`, `users.aiKeywords` |
-| AI 매칭 점수 | `jobs.matchScore` (Cloud Function에서 계산) |
 | 기업 회원 | `companies` 컬렉션, `jobs.companyId` 참조 |
-| 리뷰/평점 | `jobs/{jobId}/reviews` 하위 컬렉션 |
 | 채팅 | `chats` 컬렉션 |
-| 근태 관리 | `attendances` 컬렉션 (사용자-공고별 출퇴근 기록) |
+| 결제 | `payments` 컬렉션 |

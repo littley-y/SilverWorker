@@ -1,12 +1,12 @@
 # PROGRESS — SilverWorkerNow 개발 현황
 
-> 최종 업데이트: 2026-05-12
-> 전체 목표: 2주 데모 (Day 1 ~ Day 14)
-> 참조 스펙: `docs/planning/spec_01~11.md`
+> 최종 업데이트: 2026-05-14
+> 전체 목표: 2주 데모 (Day 1 ~ Day 14) + 2차 AI 기능 (spec_13~17)
+> 참조 스펙: `docs/planning/spec_01~17.md`
 
 ---
 
-## 현재 단계: Day 13 — spec_11 리뷰 대기 중
+## 현재 단계: Day 14 완료 — 2차 AI 기능 기획 확정 (spec_13~17)
 
 ---
 
@@ -26,6 +26,12 @@
 | [spec_10](planning/spec_10_test_criteria.md) | 테스트 기준 + DoD | ✅ 완료 | Day 12 | |
 | [spec_11](planning/spec_11_senior_ui_enhancement.md) | 시니어 특화 UI/UX 고도화 | ✅ 완료 | Day 13 | PR #10 머지 완 (Claude/Gemini 승인). 113/113 테스트 통과. |
 | [spec_12](planning/spec_12_home_ui_refinement.md) | 홈 화면 UI 개선 | ✅ 완료 | Day 14 | PR #11 머지 완 (Claude/Gemini 승인). 122/122 테스트 통과. |
+| [spec_13](planning/spec_13_review_system.md) | 리뷰 시스템 | ⬜ 대기 | 2차 | 리뷰 CRUD + 별점/평점. Firestore 직접 접근. |
+| [spec_14](planning/spec_14_ai_review_summary.md) | AI 리뷰 자동 요약 | ⬜ 대기 | 2차 | Gemini 2.5 Flash + 캐시. spec_13 선행 필요. |
+| [spec_15](planning/spec_15_condition_matching.md) | 컨디션 기반 가변 매칭 | ⬜ 대기 | 2차 | LLM 재랭킹. 검색/필터 로직 보완. |
+| [spec_16](planning/spec_16_career_agent.md) | 대화형 커리어 에이전트 | ⬜ 대기 | 2차 | STT + LLM 이력서 변환. 가장 임팩트 높음. |
+| [spec_17](planning/spec_17_liveness_attendance.md) | 안면 확인 출근 인증 | ⬜ 대기 | 2차 | ML Kit(MVP) → AWS Rekognition(운영). 유료 전환 시 도입 권장. |
+| [spec_13a](planning/spec_13_ai_feature_analysis.md) | AI 기능 기술 분석 | ✅ 완료 | — | 기술 스택 확정, 비용 분석, 구현 우선순위. |
 
 **상태 범례**: ✅ 완료 / 🔄 진행 중 / ⛔ 블로커 / ⬜ 대기
 
