@@ -7,9 +7,9 @@ import '../../constants/app_text_styles.dart';
 import '../../models/job_model.dart';
 import '../../models/physical_badge.dart';
 import '../../providers/application_provider.dart';
-import '../../repositories/application_repository.dart';
 import '../../providers/auth_provider.dart';
 import '../../providers/job_provider.dart';
+import '../../repositories/application_repository.dart';
 import '../../router/app_router.dart';
 import '../../widgets/error_retry_view.dart';
 import '../../widgets/primary_button.dart';
@@ -82,6 +82,13 @@ class _JobDetailBody extends ConsumerWidget {
               // 2x2 Small cards
               _InfoCardGrid(job: job),
               const SizedBox(height: 16),
+
+              // 근무 시간 상세
+              _DetailCard(
+                icon: Icons.access_time,
+                title: '근무 시간',
+                content: job.workHours,
+              ),
 
               // 업무 세부 내용
               _DetailCard(
@@ -422,83 +429,125 @@ class _CancelButton extends ConsumerStatefulWidget {
 
 class _CancelButtonState extends ConsumerState<_CancelButton> {
   bool _isCancelling = false;
+  bool _showSuccessCard = false;
+
+  void _showFloatingCard() {
+    setState(() => _showSuccessCard = true);
+    Future.delayed(const Duration(seconds: 3), () {
+      if (mounted) setState(() => _showSuccessCard = false);
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
-    return ElevatedButton(
-      onPressed: _isCancelling
-          ? null
-          : () async {
-              final confirmed = await showDialog<bool>(
-                context: context,
-                builder: (context) => AlertDialog(
-                  title: const Text('지원 취소', style: AppTextStyles.title),
-                  content: const Text(
-                    '이 공고의 지원을 취소하시겠습니까?',
-                    style: AppTextStyles.body,
-                  ),
-                  actions: [
-                    TextButton(
-                      onPressed: () => Navigator.pop(context, false),
-                      child: const Text('아니오', style: AppTextStyles.body),
-                    ),
-                    TextButton(
-                      onPressed: () => Navigator.pop(context, true),
-                      child: Text(
-                        '취소하기',
-                        style:
-                            AppTextStyles.body.copyWith(color: AppColors.error),
+    return Stack(
+      clipBehavior: Clip.none,
+      children: [
+        ElevatedButton(
+          onPressed: _isCancelling
+              ? null
+              : () async {
+                  final confirmed = await showDialog<bool>(
+                    context: context,
+                    builder: (context) => AlertDialog(
+                      title: const Text('지원 취소', style: AppTextStyles.title),
+                      content: const Text(
+                        '이 공고의 지원을 취소하시겠습니까?',
+                        style: AppTextStyles.body,
                       ),
+                      actions: [
+                        TextButton(
+                          onPressed: () => Navigator.pop(context, false),
+                          child: const Text('아니오', style: AppTextStyles.body),
+                        ),
+                        TextButton(
+                          onPressed: () => Navigator.pop(context, true),
+                          child: Text(
+                            '취소하기',
+                            style: AppTextStyles.body
+                                .copyWith(color: AppColors.error),
+                          ),
+                        ),
+                      ],
                     ),
-                  ],
-                ),
-              );
-              if (confirmed != true) return;
+                  );
+                  if (confirmed != true) return;
 
-              setState(() => _isCancelling = true);
-              try {
-                await ref
-                    .read(applicationRepositoryProvider)
-                    .cancelApplication(widget.jobId);
-                if (mounted) {
-                  ScaffoldMessenger.of(context).showSnackBar(
-                    const SnackBar(content: Text('지원이 취소되었습니다.')),
-                  );
-                  ref.invalidate(myApplicationsProvider(
-                    ref.read(authStateProvider).value!.uid,
-                  ));
-                  ref.invalidate(hasAppliedProvider(widget.jobId));
-                }
-              } catch (e) {
-                if (mounted) {
-                  final message = e is NoApplicationException
-                      ? '지원 내역이 없습니다.'
-                      : '취소에 실패했습니다. 다시 시도해 주세요.';
-                  ScaffoldMessenger.of(context).showSnackBar(
-                    SnackBar(content: Text(message)),
-                  );
-                }
-              } finally {
-                if (mounted) setState(() => _isCancelling = false);
-              }
-            },
-      style: ElevatedButton.styleFrom(
-        backgroundColor: AppColors.error,
-        foregroundColor: Colors.white,
-        minimumSize: const Size(double.infinity, 56),
-        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
-        textStyle: const TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
-      ),
-      child: _isCancelling
-          ? const SizedBox(
-              height: 24,
-              width: 24,
-              child: CircularProgressIndicator(
-                strokeWidth: 2,
-                color: Colors.white,
+                  setState(() => _isCancelling = true);
+                  try {
+                    await ref
+                        .read(applicationRepositoryProvider)
+                        .cancelApplication(widget.jobId);
+                    if (mounted) {
+                      _showFloatingCard();
+                      ref.invalidate(myApplicationsProvider(
+                        ref.read(authStateProvider).value!.uid,
+                      ));
+                      ref.invalidate(hasAppliedProvider(widget.jobId));
+                    }
+                  } catch (e) {
+                    if (mounted) {
+                      final message = e is NoApplicationException
+                          ? '지원 내역이 없습니다.'
+                          : '취소에 실패했습니다. 다시 시도해 주세요.';
+                      ScaffoldMessenger.of(context).showSnackBar(
+                        SnackBar(content: Text(message)),
+                      );
+                    }
+                  } finally {
+                    if (mounted) setState(() => _isCancelling = false);
+                  }
+                },
+          style: ElevatedButton.styleFrom(
+            backgroundColor: AppColors.error,
+            foregroundColor: Colors.white,
+            minimumSize: const Size(double.infinity, 56),
+            shape:
+                RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
+            textStyle:
+                const TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+          ),
+          child: _isCancelling
+              ? const SizedBox(
+                  height: 24,
+                  width: 24,
+                  child: CircularProgressIndicator(
+                    strokeWidth: 2,
+                    color: Colors.white,
+                  ),
+                )
+              : const Text('지원 취소'),
+        ),
+        if (_showSuccessCard)
+          Positioned(
+            bottom: 70,
+            left: 0,
+            right: 0,
+            child: Container(
+              padding: const EdgeInsets.symmetric(vertical: 16, horizontal: 24),
+              decoration: BoxDecoration(
+                color: AppColors.cardBackground,
+                borderRadius: BorderRadius.circular(12),
+                boxShadow: [
+                  BoxShadow(
+                    color: Colors.black.withValues(alpha: 0.15),
+                    blurRadius: 12,
+                    offset: const Offset(0, 4),
+                  ),
+                ],
               ),
-            )
-          : const Text('지원 취소'),
+              child: const Text(
+                '지원이 취소되었습니다',
+                style: TextStyle(
+                  fontSize: 20,
+                  fontWeight: FontWeight.bold,
+                  color: AppColors.textPrimary,
+                ),
+                textAlign: TextAlign.center,
+              ),
+            ),
+          ),
+      ],
     );
   }
 }

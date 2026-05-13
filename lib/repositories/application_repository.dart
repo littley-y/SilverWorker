@@ -33,6 +33,8 @@ class ApplicationRepository {
         .collection('users')
         .doc(userId)
         .collection('applications')
+        .where('status', isNotEqualTo: 'cancelled')
+        .orderBy('status')
         .orderBy('submittedAt', descending: true)
         .get();
 

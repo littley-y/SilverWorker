@@ -23,7 +23,7 @@ class JobListScreen extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final filter = ref.watch(jobFilterProvider);
-    final jobsAsync = ref.watch(jobListProvider);
+    final jobsAsync = ref.watch(visibleJobListProvider);
 
     return Scaffold(
       appBar: AppBar(
@@ -68,7 +68,7 @@ class JobListScreen extends ConsumerWidget {
               },
               loading: () => const _LoadingState(),
               error: (error, _) => _ErrorState(
-                onRetry: () => ref.invalidate(jobListProvider),
+                onRetry: () => ref.invalidate(visibleJobListProvider),
               ),
             ),
           ),

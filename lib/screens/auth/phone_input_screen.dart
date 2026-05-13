@@ -39,9 +39,8 @@ class _PhoneInputScreenState extends ConsumerState<PhoneInputScreen> {
     setState(() => _hasError = false);
 
     final digits = _controller.text.replaceAll(RegExp(r'\D'), '');
-    // E.164 format: remove leading 0, prepend +82
-    final normalized = digits.startsWith('0') ? digits.substring(1) : digits;
-    final phoneNumber = '+82$normalized';
+    // E.164 format for Korea: prepend +82
+    final phoneNumber = '+82$digits';
 
     await ref.read(phoneAuthProvider.notifier).startVerification(phoneNumber);
 

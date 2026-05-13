@@ -2,6 +2,8 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import '../repositories/job_repository.dart';
 import '../models/job_model.dart';
 import '../models/job_filter.dart';
+import 'application_provider.dart';
+import 'auth_provider.dart';
 
 /// Global instance of [JobRepository].
 final jobRepositoryProvider = Provider<JobRepository>((ref) {
@@ -17,6 +19,23 @@ final jobFilterProvider = StateProvider<JobFilter>((ref) {
 final jobListProvider = FutureProvider<List<JobModel>>((ref) {
   final filter = ref.watch(jobFilterProvider);
   return ref.read(jobRepositoryProvider).fetchJobs(filter);
+});
+
+/// Job postings excluding already-applied jobs for the current user.
+final visibleJobListProvider = FutureProvider<List<JobModel>>((ref) async {
+  final jobs = await ref.watch(jobListProvider.future);
+  final user = ref.watch(authStateProvider).valueOrNull;
+
+  if (user == null) return jobs;
+
+  try {
+    final applications =
+        await ref.watch(myApplicationsProvider(user.uid).future);
+    final appliedIds = applications.map((a) => a.jobId).toSet();
+    return jobs.where((job) => !appliedIds.contains(job.jobId)).toList();
+  } on Exception {
+    return jobs;
+  }
 });
 
 /// Fetches a single job posting by document ID.

@@ -272,6 +272,7 @@ def generate_one(index: int, location_code: str, job_category: str, intensity: s
         "minAge": random.choice([55, 60, 65]),
         "maxAge": random.choice([70, 75, 80]),
         "deadline": _random_date_in_future(),
+        "walkingMinutes": random.randint(5, 30),
         "isActive": True,
         "rawData": {},
         "createdAt": "serverTimestamp",

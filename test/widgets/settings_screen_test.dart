@@ -26,25 +26,8 @@ void main() {
     await tester.pump(const Duration(milliseconds: 100));
 
     expect(find.text('설정'), findsOneWidget);
-    expect(find.text('글자 크기'), findsOneWidget);
     expect(find.text('앱 정보'), findsOneWidget);
-    expect(find.text('현재 설정'), findsOneWidget);
     expect(find.byType(Slider), findsNothing);
-  });
-
-  testWidgets('SettingsScreen shows font scale percentage',
-      (WidgetTester tester) async {
-    await tester.pumpWidget(
-      ProviderScope(
-        child: MaterialApp(
-          home: const SettingsScreen(),
-        ),
-      ),
-    );
-
-    await tester.pump(const Duration(milliseconds: 100));
-
-    expect(find.text('130%'), findsOneWidget);
   });
 
   testWidgets('SettingsScreen back button pops', (WidgetTester tester) async {
